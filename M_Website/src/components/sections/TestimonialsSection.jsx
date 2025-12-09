@@ -1,1 +1,0 @@
-// TestimonialsSection component skeleton

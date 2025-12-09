@@ -73,12 +73,6 @@ const SelectPaymentMethod = ({ onPaymentMethodSelect }) => {
             }}>
               <img 
                 src={ClinicIcon} 
-                alt="Clinic Payment" 
-                style={{ 
-                  width: '60%', 
-                  height: '60%',
-                  objectFit: 'contain' 
-                }} 
               />
             </Box>
 

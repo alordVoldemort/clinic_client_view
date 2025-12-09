@@ -1,4 +1,0 @@
-// Admin service skeleton
-
-
-

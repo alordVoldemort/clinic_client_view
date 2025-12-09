@@ -1,4 +1,0 @@
-// useScrollToTop hook skeleton
-
-
-

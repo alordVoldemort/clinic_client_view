@@ -1,1 +1,0 @@
-// CustomCard component skeleton
