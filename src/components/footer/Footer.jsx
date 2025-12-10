@@ -220,7 +220,7 @@ export default function Footer() {
                 <Typography sx={{ color: "#555", fontSize: "0.95rem" }}>
                   {isIPad ? (
                     <>
-                    
+
                       Arthashilp, 1349/50, Bajirao Rd,
                       <br />
                       below hotel Ganraj, Natu Baag,
@@ -279,6 +279,7 @@ export default function Footer() {
           </Typography>
 
           <Box sx={{ display: "flex", gap: { xs: 2, sm: 3 } }}>
+
             {/* Privacy Policy Link */}
             <MuiLink
               component={Link}
@@ -307,6 +308,24 @@ export default function Footer() {
             >
               Terms & Conditions
             </MuiLink>
+
+            {["Privacy Policy", "Terms & Conditions", "Shipping Policy"].map(
+              (text) => (
+                <MuiLink
+                
+                  key={text}
+                  underline="none"
+                  sx={{
+                    color: "#555",
+                    fontSize: "0.9rem",
+                    "&:hover": { color: "#1976d2" },
+                  }}
+                >
+                  {text}
+                </MuiLink>
+              )
+            )}
+
           </Box>
         </Box>
       </Container>

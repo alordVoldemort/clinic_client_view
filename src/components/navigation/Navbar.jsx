@@ -189,17 +189,19 @@ export default function Navbar() {
                               color: "#155DFC",
                             },
                             // Add underline for active state
-                            "&::after": treatmentsActive ? {
-                              content: '""',
-                              position: "absolute",
-                              bottom: -4,
-                              left: "50%",
-                              transform: "translateX(-50%)",
-                              width: "60%",
-                              height: "2px",
-                              backgroundColor: "#155DFC",
-                              borderRadius: "1px",
-                            } : {},
+                            "&::after": treatmentsActive
+                              ? {
+                                  content: '""',
+                                  position: "absolute",
+                                  bottom: -4,
+                                  left: "50%",
+                                  transform: "translateX(-50%)",
+                                  width: "60%",
+                                  height: "2px",
+                                  backgroundColor: "#155DFC",
+                                  borderRadius: "1px",
+                                }
+                              : {},
                           }}
                         >
                           {item.label}
@@ -225,21 +227,28 @@ export default function Navbar() {
                           }}
                         >
                           {treatments.map((treatment) => {
-                            const treatmentPath = `/treatments/${treatment.toLowerCase().replace(/\s+/g, "-")}`;
-                            const isTreatmentActive = location.pathname === treatmentPath;
-                            
+                            const treatmentPath = `/treatments/${treatment
+                              .toLowerCase()
+                              .replace(/\s+/g, "-")}`;
+                            const isTreatmentActive =
+                              location.pathname === treatmentPath;
+
                             return (
                               <MenuItem
                                 key={treatment}
                                 onClick={() => handleTreatmentClick(treatment)}
                                 sx={{
                                   fontFamily: "Poppins, sans-serif",
-                                  color: isTreatmentActive ? "#155DFC" : "#000000",
+                                  color: isTreatmentActive
+                                    ? "#155DFC"
+                                    : "#000000",
                                   fontSize: "0.95rem",
                                   py: 1.5,
                                   px: 2,
                                   fontWeight: isTreatmentActive ? 600 : 400,
-                                  backgroundColor: isTreatmentActive ? "rgba(21, 93, 252, 0.08)" : "transparent",
+                                  backgroundColor: isTreatmentActive
+                                    ? "rgba(21, 93, 252, 0.08)"
+                                    : "transparent",
                                   "&:hover": {
                                     color: "#155DFC",
                                     backgroundColor: "rgba(21, 93, 252, 0.04)",
@@ -282,17 +291,19 @@ export default function Navbar() {
                           color: "#155DFC",
                         },
                         // Add underline for active state
-                        "&::after": active ? {
-                          content: '""',
-                          position: "absolute",
-                          bottom: -4,
-                          left: "50%",
-                          transform: "translateX(-50%)",
-                          width: "60%",
-                          height: "2px",
-                          backgroundColor: "#155DFC",
-                          borderRadius: "1px",
-                        } : {},
+                        "&::after": active
+                          ? {
+                              content: '""',
+                              position: "absolute",
+                              bottom: -4,
+                              left: "50%",
+                              transform: "translateX(-50%)",
+                              width: "60%",
+                              height: "2px",
+                              backgroundColor: "#155DFC",
+                              borderRadius: "1px",
+                            }
+                          : {},
                       }}
                     >
                       {item.label}
@@ -417,7 +428,9 @@ export default function Navbar() {
                       <ListItemButton
                         onClick={() => setTreatmentsOpen(!treatmentsOpen)}
                         sx={{
-                          backgroundColor: treatmentsActive ? "rgba(21, 93, 252, 0.08)" : "transparent",
+                          backgroundColor: treatmentsActive
+                            ? "rgba(21, 93, 252, 0.08)"
+                            : "transparent",
                         }}
                       >
                         <ListItemText
@@ -442,9 +455,12 @@ export default function Navbar() {
                     {treatmentsOpen && (
                       <Box sx={{ pl: 2 }}>
                         {treatments.map((treatment) => {
-                          const treatmentPath = `/treatments/${treatment.toLowerCase().replace(/\s+/g, "-")}`;
-                          const isTreatmentActive = location.pathname === treatmentPath;
-                          
+                          const treatmentPath = `/treatments/${treatment
+                            .toLowerCase()
+                            .replace(/\s+/g, "-")}`;
+                          const isTreatmentActive =
+                            location.pathname === treatmentPath;
+
                           return (
                             <ListItem
                               key={treatment}
@@ -457,7 +473,9 @@ export default function Navbar() {
                             >
                               <ListItemButton
                                 sx={{
-                                  backgroundColor: isTreatmentActive ? "rgba(21, 93, 252, 0.08)" : "transparent",
+                                  backgroundColor: isTreatmentActive
+                                    ? "rgba(21, 93, 252, 0.08)"
+                                    : "transparent",
                                 }}
                               >
                                 <ListItemText
@@ -466,7 +484,9 @@ export default function Navbar() {
                                     fontSize: "0.9rem",
                                     fontWeight: isTreatmentActive ? 600 : 400,
                                     fontFamily: "Poppins, sans-serif",
-                                    color: isTreatmentActive ? "#155DFC" : "#000000",
+                                    color: isTreatmentActive
+                                      ? "#155DFC"
+                                      : "#000000",
                                   }}
                                 />
                               </ListItemButton>
@@ -485,11 +505,13 @@ export default function Navbar() {
                   disablePadding
                   onClick={() => setOpen(false)}
                 >
-                  <ListItemButton 
-                    component={Link} 
+                  <ListItemButton
+                    component={Link}
                     to={item.path}
                     sx={{
-                      backgroundColor: active ? "rgba(21, 93, 252, 0.08)" : "transparent",
+                      backgroundColor: active
+                        ? "rgba(21, 93, 252, 0.08)"
+                        : "transparent",
                     }}
                   >
                     <ListItemText
