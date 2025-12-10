@@ -1,4 +1,3 @@
-// VisionMission.js
 import { Box, Typography } from "@mui/material";
 import boySvg from "../../assets/vision-mission/boy.svg";
 import girlSvg from "../../assets/vision-mission/girl.svg";

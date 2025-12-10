@@ -1,37 +1,53 @@
-import { Box, Container, Grid, Typography } from "@mui/material";
-import { useEffect, useRef } from "react";
-import TestimonialCard from "./TestimonialCard";
+import { Box, Container, Typography } from "@mui/material";
+import { useEffect, useRef, useState } from "react";
+import TestimonialVideoCard from "./TestimonialVideoCard";
 
 const testimonials = [
   {
+    id: 1,
     name: "Mrunal Kullkarni",
-    quote:
-      "The care I received was exceptional. My chronic back pain has significantly improved after treatment. Highly recommended!",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop",
+    quote: "The care I received was exceptional. My chronic back pain has significantly improved after treatment.",
+    youtubeId: "LZHbA26Ah9o"
   },
   {
+    id: 2,
     name: "Sanket Kadam",
-    quote:
-      "The care I received was exceptional. My chronic back pain has significantly improved after treatment. Highly recommended!",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop",
+    quote: "Professional staff and excellent treatment. My digestive issues are finally resolved.",
+    youtubeId: "LZHbA26Ah9o"
   },
   {
-    name: "Rohine Despande",
-    quote:
-      "Professional staff and excellent treatment. My digestive issues are finally resolved. Thank you!",
-    image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop",
+    id: 3,
+    name: "Rohini Deshpande",
+    quote: "Life-changing experience! The holistic approach helped me recover faster than expected.",
+    youtubeId: "LZHbA26Ah9o"
   },
+  {
+    id: 4,
+    name: "Rajesh Kumar",
+    quote: "Excellent consultation and follow-up care. Highly recommended for anyone seeking quality treatment.",
+    youtubeId: "LZHbA26Ah9o"
+  },
+  {
+    id: 5,
+    name: "Priya Sharma",
+    quote: "The personalized attention and care made all the difference in my recovery journey.",
+    youtubeId: "LZHbA26Ah9o"
+  },
+  {
+    id: 6,
+    name: "Amit Patel",
+    quote: "Outstanding service! From diagnosis to treatment, everything was handled professionally.",
+    youtubeId: "LZHbA26Ah9o"
+  }
 ];
 
 export default function TestimonialsSection() {
   const scrollContainerRef = useRef(null);
   const scrollIntervalRef = useRef(null);
   const isScrollingRef = useRef(true);
+  const [isAutoPlaying] = useState(true);
 
-  // Duplicate testimonials for seamless infinite scroll
+  // Duplicate testimonials for seamless scroll
   const duplicatedTestimonials = [...testimonials, ...testimonials];
 
   useEffect(() => {
@@ -41,22 +57,20 @@ export default function TestimonialsSection() {
     const scroll = () => {
       if (!isScrollingRef.current) return;
 
-      const maxScroll =
-        scrollContainer.scrollWidth - scrollContainer.clientWidth;
+      const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
       const currentScroll = scrollContainer.scrollLeft;
 
       if (currentScroll >= maxScroll - 1) {
-        // Reset to start when reaching the end (seamless loop)
         scrollContainer.scrollTo({ left: 0, behavior: "auto" });
       } else {
         scrollContainer.scrollBy({ left: 0.5, behavior: "auto" });
       }
     };
 
-    // Start auto-scroll
-    scrollIntervalRef.current = setInterval(scroll, 30); // Scroll every 30ms for smooth movement
+    if (isAutoPlaying) {
+      scrollIntervalRef.current = setInterval(scroll, 30);
+    }
 
-    // Pause on hover
     const handleMouseEnter = () => {
       isScrollingRef.current = false;
       if (scrollIntervalRef.current) {
@@ -66,7 +80,9 @@ export default function TestimonialsSection() {
 
     const handleMouseLeave = () => {
       isScrollingRef.current = true;
-      scrollIntervalRef.current = setInterval(scroll, 30);
+      if (isAutoPlaying) {
+        scrollIntervalRef.current = setInterval(scroll, 30);
+      }
     };
 
     scrollContainer.addEventListener("mouseenter", handleMouseEnter);
@@ -79,84 +95,80 @@ export default function TestimonialsSection() {
       scrollContainer.removeEventListener("mouseenter", handleMouseEnter);
       scrollContainer.removeEventListener("mouseleave", handleMouseLeave);
     };
-  }, []);
+  }, [isAutoPlaying]);
 
   return (
     <Box
       sx={{
         width: "100%",
-        py: { xs: 4, sm: 5, md: 6, lg: 8 },
-        backgroundColor: "#f9fafb",
+        py: { xs: 6, sm: 8, md: 10 },
+        backgroundColor: "#f8f9fa",
+        position: "relative",
+        overflow: "hidden",
       }}
     >
       <Container maxWidth="xl">
-        {/* Section Header */}
-        <Box sx={{ textAlign: "center", mb: { xs: 4, sm: 5, md: 6 } }}>
+        <Box sx={{ textAlign: "center", mb: { xs: 6, sm: 7, md: 8 } }}>
           <Typography
             variant="h2"
             sx={{
               fontFamily: "Poppins, sans-serif",
               fontWeight: 600,
-              fontSize: {
-                xs: "1.8rem",
-                sm: "2.2rem",
-                md: "2.5rem",
-                lg: "3rem",
-              },
+              fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem", lg: "3.5rem" },
               color: "#1a1a1a",
               mb: 2,
             }}
           >
-            What Our Patients Say
+            Patient Video Testimonials
           </Typography>
           <Typography
             sx={{
               fontFamily: "Poppins, sans-serif",
-              fontSize: { xs: "0.95rem", sm: "1rem", md: "1.1rem" },
+              fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
               color: "#666",
-              maxWidth: "600px",
+              maxWidth: "700px",
               mx: "auto",
+              mb: 4,
             }}
           >
-            Real stories from real patients who experienced exceptional care.
+            Hear directly from our patients about their healing journey and exceptional care experience.
           </Typography>
         </Box>
 
-        {/* Testimonial Cards Auto-Scroll Container */}
         <Box
           ref={scrollContainerRef}
           sx={{
             display: "flex",
-            gap: { xs: 4, sm: 5, md: 6, lg: 11 },
+            gap: { xs: 4, sm: 6, md: 8, lg: 10 },
             overflowX: "auto",
-            overflowY: "hidden",
-            scrollbarWidth: "none", // Firefox
-            "&::-webkit-scrollbar": {
-              display: "none", // Chrome, Safari, Edge
-            },
-            pb: 2,
-            cursor: "grab",
-            "&:active": {
-              cursor: "grabbing",
-            },
+            scrollbarWidth: "none",
+            "&::-webkit-scrollbar": { display: "none" },
+            py: 3,
+            px: 2,
           }}
         >
           {duplicatedTestimonials.map((testimonial, index) => (
-            <Box
-              key={index}
-              sx={{
-                flexShrink: 0,
-                display: "flex",
-              }}
-            >
-              <TestimonialCard
+            <Box key={`${testimonial.id}-${index}`} sx={{ flexShrink: 0 }}>
+              <TestimonialVideoCard
                 name={testimonial.name}
                 quote={testimonial.quote}
-                image={testimonial.image}
+                youtubeId={testimonial.youtubeId}
               />
             </Box>
           ))}
         </Box>
+
+        <Typography
+          variant="body2"
+          sx={{
+            textAlign: "center",
+            mt: 4,
+            color: "#888",
+            fontFamily: "Poppins, sans-serif",
+          }}
+        >
+          ← Drag to scroll • Click on any card to watch full testimonial →
+        </Typography>
       </Container>
     </Box>
   );

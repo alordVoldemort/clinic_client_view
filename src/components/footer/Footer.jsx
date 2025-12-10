@@ -29,17 +29,9 @@ export default function Footer() {
         width: "100%",
         backgroundColor: "#e9eef6",
         color: "#1a1a1a",
-
-        // TOP padding
         pt: { xs: 4, sm: 5, md: 6, lg: 8, xl: 10 },
-
-        // BOTTOM padding
         pb: { xs: 3, sm: 4, md: 5, lg: 6, xl: 8 },
-
-        // ⭐ LEFT padding
         pl: { xs: 2, sm: 3, md: 4, lg: 6, xl: 10 },
-
-        // ⭐ RIGHT padding
         pr: { xs: 5, sm: 3, md: 4, lg: 6, xl: 10 },
       }}
     >
@@ -47,11 +39,11 @@ export default function Footer() {
         <Grid
           container
           spacing={{
-            xs: 9, // Mobile
-            sm: 19, // iPad Mini
-            md: 6, // iPad Air
-            lg: 12, // iPad Pro / Laptop
-            xl: 18, // Large desktop
+            xs: 9,
+            sm: 19,
+            md: 6,
+            lg: 12,
+            xl: 18,
           }}
         >
           {/* ============================
@@ -63,7 +55,7 @@ export default function Footer() {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "flex-start",
-                gap: { xs: 0.8, sm: 1, md: 1.2 }, // CONTROL LOGO + TEXT SPACING
+                gap: { xs: 0.8, sm: 1, md: 1.2 },
                 mb: { xs: 2, sm: 2.5, md: 3 },
               }}
             >
@@ -217,24 +209,33 @@ export default function Footer() {
                 gap: { xs: 2, sm: 2.5, md: 3 },
               }}
             >
-              {/* Location */}
-              {/* Location */}
+              {/* Location - UPDATED WITH ACTUAL ADDRESS */}
               <Box sx={{ display: "flex", alignItems: "flex-start", gap: 1 }}>
                 <Box
                   component="img"
                   src={locationIcon}
-                  sx={{ width: "20px" }}
+                  sx={{ width: "20px", mt: 0.5 }}
                 />
 
                 <Typography sx={{ color: "#555", fontSize: "0.95rem" }}>
                   {isIPad ? (
                     <>
-                      123 Medical Center Drive,
+                    
+                      Arthashilp, 1349/50, Bajirao Rd,
                       <br />
-                      Health City, HC 12345
+                      below hotel Ganraj, Natu Baag,
+                      <br />
+                      Shukrawar Peth, Pune,
+                      <br />
+                      Maharashtra 411002
                     </>
                   ) : (
-                    "123 Medical Center Drive, Health City, HC 12345"
+                    <>
+                      Arthashilp, 1349/50, Bajirao Rd,<br/>
+                      below hotel Ganraj, Natu Baag,
+                      <br />
+                      Shukrawar Peth, Pune, Maharashtra 411002
+                    </>
                   )}
                 </Typography>
               </Box>
@@ -243,7 +244,7 @@ export default function Footer() {
               <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                 <Box component="img" src={phoneIcon} sx={{ width: "20px" }} />
                 <Typography sx={{ color: "#555", fontSize: "0.95rem" }}>
-                  +123 456 7890
+                  +91 9822141851
                 </Typography>
               </Box>
 
@@ -278,21 +279,34 @@ export default function Footer() {
           </Typography>
 
           <Box sx={{ display: "flex", gap: { xs: 2, sm: 3 } }}>
-            {["Privacy Policy", "Terms & Conditions"].map(
-              (text) => (
-                <MuiLink
-                  key={text}
-                  underline="none"
-                  sx={{
-                    color: "#555",
-                    fontSize: "0.9rem",
-                    "&:hover": { color: "#1976d2" },
-                  }}
-                >
-                  {text}
-                </MuiLink>
-              )
-            )}
+            {/* Privacy Policy Link */}
+            <MuiLink
+              component={Link}
+              to="/privacy-policy"
+              underline="none"
+              sx={{
+                color: "#555",
+                fontSize: "0.9rem",
+                "&:hover": { color: "#1976d2" },
+              }}
+            >
+              Privacy Policy
+            </MuiLink>
+
+            {/* Terms & Conditions Link */}
+            <MuiLink
+              component={Link}
+              to="/terms"
+              underline="none"
+              sx={{
+                color: "#555",
+                fontSize: "0.9rem",
+                "&:hover": { color: "#1976d2" },
+              }}
+              onClick={() => console.log("Terms link clicked")}
+            >
+              Terms & Conditions
+            </MuiLink>
           </Box>
         </Box>
       </Container>

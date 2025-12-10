@@ -325,7 +325,7 @@ export default function Navbar() {
                       color: "#000000",
                     }}
                   >
-                    +123 456 7890
+                    +91 9822141851
                   </Typography>
                 </Box>
                 {/* Book Appointment Button - Hidden on appointment page */}
