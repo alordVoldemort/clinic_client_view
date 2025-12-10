@@ -45,7 +45,7 @@ export default function Navbar() {
       path: "/treatments/spine",
       hasDropdown: true,
     },
-    { label: "Connect", path: "/contact" },
+    { label: "Contact", path: "/contact" },
   ];
 
   const treatments = [

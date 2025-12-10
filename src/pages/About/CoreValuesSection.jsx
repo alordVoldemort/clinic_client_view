@@ -36,10 +36,11 @@ export default function CoreValuesSection() {
     <Box
       sx={{
         width: "100%",
-        minHeight: { xs: "auto", md: "504px" },
+        minHeight: { xs: "auto", md: "334px" },
         backgroundColor: "#F8FAFF",
         py: { xs: 6, sm: 8, md: 10 },
         display: "flex",
+        bottom:"30px",
         alignItems: "center",
       }}
     >
@@ -100,7 +101,7 @@ export default function CoreValuesSection() {
         <Box
           sx={{
             maxWidth: "1284px",
-            minHeight: "388px",
+            minHeight: "224px",
             mx: "auto",
             px: { xs: 2, sm: 4, md: 4, lg: 0 }, // Reduced on desktop
           }}
@@ -173,11 +174,11 @@ export default function CoreValuesSection() {
                       xs: "16px",
                       sm: "18px",
                       md: "20px",
-                      lg: "22px" // Reduced from 24px
+                      lg: "22px" 
                     },
                     lineHeight: 1.2,
                     color: "#000000",
-                    mb: { xs: 1, sm: 1.5, md: 1.5, lg: 1.5 }, // Reduced on desktop
+                    mb: { xs: 4, sm: 1.5, md: 1.5, lg: 1.5 }, 
                     px: { xs: 0.5, sm: 0, lg: 0.5 },
                   }}
                 >

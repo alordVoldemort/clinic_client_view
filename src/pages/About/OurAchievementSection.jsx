@@ -55,10 +55,9 @@ export default function OurAchievementSection() {
           alignItems: "center",
           justifyContent: "center",
           gap: { xs: 3, sm: 4, md: "34px" },
-          py: { xs: 2, sm: 3, md: 4, lg: "13px" },
-          px: { xs: 2, sm: 3, md: 4, lg: 4 },
-          marginTop: { xs: 0, md: "20px", lg: "47px" },
-          marginBottom: { xs: 0, md: "20px", lg: 0 },
+          
+          
+          
         }}
       >
         {/* Header Section */}
@@ -69,7 +68,7 @@ export default function OurAchievementSection() {
             flexDirection: "column",
             alignItems: "center",
             textAlign: "center",
-            gap: { xs: 1.5, sm: 2, md: 3 },
+            gap: { xs: 0.5, sm: 2, md: 3 },
           }}
         >
           <Typography

@@ -278,7 +278,7 @@ export default function Footer() {
           </Typography>
 
           <Box sx={{ display: "flex", gap: { xs: 2, sm: 3 } }}>
-            {["Privacy Policy", "Terms & Conditions", "Shipping Policy"].map(
+            {["Privacy Policy", "Terms & Conditions"].map(
               (text) => (
                 <MuiLink
                   key={text}
