@@ -308,23 +308,7 @@ export default function Footer() {
             >
               Terms & Conditions
             </MuiLink>
-
-            {["Privacy Policy", "Terms & Conditions", "Shipping Policy"].map(
-              (text) => (
-                <MuiLink
-                
-                  key={text}
-                  underline="none"
-                  sx={{
-                    color: "#555",
-                    fontSize: "0.9rem",
-                    "&:hover": { color: "#1976d2" },
-                  }}
-                >
-                  {text}
-                </MuiLink>
-              )
-            )}
+              
 
           </Box>
         </Box>
