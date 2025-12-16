@@ -5,14 +5,14 @@ export const API_ENDPOINTS = {
   VERIFY_PAYMENT: "/api/payments/verify-payment",
   GET_PAYMENT: "/api/payments",
   GET_ALL_PAYMENTS: "/api/payments",
-  
+
   // Appointment endpoints
   CREATE_APPOINTMENT: "/api/appointments",
   GET_APPOINTMENT: "/api/appointments",
   GET_ALL_APPOINTMENTS: "/api/appointments",
   UPDATE_APPOINTMENT: "/api/appointments",
   DELETE_APPOINTMENT: "/api/appointments",
-  
+
   // Contact endpoints
   CREATE_CONTACT: "/api/contact",
   GET_CONTACTS: "/api/contact",

@@ -9,6 +9,17 @@ import MessageConfirmation from "../pages/Contact/MessageConfirmation";
 import Spine from "../pages/Treatments/Spine";
 import GIT from "../pages/Treatments/GIT";
 import Cosmetology from "../pages/Treatments/Cosmetology";
+
+import Spine from "../pages/Treatments/Spine/Spine";
+import GIT from "../pages/Treatments/GIT/GIT";
+import Cosmetology from "../pages/Treatments/Cosmetology/Cosmetology";
+import KidneyTreatment from "../pages/Treatments/KidneyTreatment/KidneyTreatment";
+import GynecologistTreatment from "../pages/Treatments/GynecologistTreatment/GynecologistTreatment";
+import MigraineTreatment from "../pages/Treatments/MigraineTreatment/MigraineTreatment";
+import ENTTreatments from "../pages/Treatments/ENTTreatments/ENTTreatments";
+import JointTreatments from "../pages/Treatments/JointTreatments/JointTreatments";
+import ChildTreatments from "../pages/Treatments/ChildTreatments/ChildTreatments";
+>>>>>>> Stashed changes
 import PaymentSuccess from "../pages/Payments/PaymentSuccess";
 import PaymentFail from "../pages/Payments/PaymentFail";
 import PaymentPage from "../pages/Payments/PaymentPage";
@@ -47,15 +58,30 @@ export default function AppRouter() {
 
           {/* Treatments Nested Routes */}
           <Route path="/treatments">
+            {/* Existing routes for backward compatibility */}
             <Route path="spine" element={<Spine />} />
             <Route path="git" element={<GIT />} />
             <Route path="cosmetology" element={<Cosmetology />} />
+            {/* Routes matching Navbar path format */}
+            <Route path="spine-treatments" element={<Spine />} />
+            <Route path="git-treatments" element={<GIT />} />
+            <Route path="kidney-treatment" element={<KidneyTreatment />} />
+            <Route
+              path="gynecologist-treatment"
+              element={<GynecologistTreatment />}
+            />
+            <Route path="migraine-treatment" element={<MigraineTreatment />} />
+            <Route path="ent-treatments" element={<ENTTreatments />} />
+            <Route path="joint-treatments" element={<JointTreatments />} />
+            <Route path="child-treatments" element={<ChildTreatments />} />
           </Route>
 
           {/* Payment Pages */}
           <Route path="/payment/success" element={<PaymentSuccess />} />
           <Route path="/payment/fail" element={<PaymentFail />} />
           <Route path="/payment/PaymentPage" element={<PaymentPage />} />
+
+
           <Route
             path="/payment/appointment-confirmation"
             element={<AppointmentConfirmation />}
