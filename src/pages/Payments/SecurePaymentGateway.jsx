@@ -45,8 +45,8 @@ const SecurePaymentGateway = () => {
             src={confirmation}
             alt="check"
             sx={{
-              width: { xs: '10px', sm: '11px', md: '12px' },
-              height: { xs: '10px', sm: '11px', md: '12px' },
+              width: { xs: '10px', sm: '11px', md: '20px' },
+              height: { xs: '10px', sm: '11px', md: '20px' },
               mt: { xs: '3px', sm: '3.5px', md: '4px' },
               flexShrink: 0
             }}
@@ -67,8 +67,8 @@ const SecurePaymentGateway = () => {
             src={confirmation}
             alt="check"
             sx={{
-              width: { xs: '10px', sm: '11px', md: '12px' },
-              height: { xs: '10px', sm: '11px', md: '12px' },
+              width: { xs: '10px', sm: '11px', md: '20px' },
+              height: { xs: '10px', sm: '11px', md: '20px' },
               mt: { xs: '3px', sm: '3.5px', md: '4px' },
               flexShrink: 0
             }}
@@ -89,8 +89,8 @@ const SecurePaymentGateway = () => {
             src={confirmation}
             alt="check"
             sx={{
-              width: { xs: '10px', sm: '11px', md: '12px' },
-              height: { xs: '10px', sm: '11px', md: '12px' },
+              width: { xs: '10px', sm: '11px', md: '20px' },
+              height: { xs: '10px', sm: '11px', md: '20px' },
               mt: { xs: '3px', sm: '3.5px', md: '4px' },
               flexShrink: 0
             }}
@@ -111,8 +111,8 @@ const SecurePaymentGateway = () => {
             src={confirmation}
             alt="check"
             sx={{
-              width: { xs: '10px', sm: '11px', md: '12px' },
-              height: { xs: '10px', sm: '11px', md: '12px' },
+              width: { xs: '10px', sm: '11px', md: '20px' },
+              height: { xs: '10px', sm: '11px', md: '20px' },
               mt: { xs: '3px', sm: '3.5px', md: '4px' },
               flexShrink: 0
             }}

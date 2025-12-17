@@ -25,7 +25,7 @@ const Contact = () => {
             variant="h1"
             sx={{ 
               fontSize: { xs: '28px', sm: '32px', md: '36px', lg: '42px' }, 
-              fontWeight: 600, 
+              fontWeight: 500, 
               color: '#000000',
               mb: 2
             }}
@@ -38,6 +38,7 @@ const Contact = () => {
               fontSize: { xs: '14px', sm: '15px', md: '16px', lg: '18px' }, 
               color: '#000000',
               maxWidth: 600,
+              fontWeight: 500, 
               mx: 'auto',
               px: { xs: 1, sm: 2, md: 0 },
               lineHeight: 1.6

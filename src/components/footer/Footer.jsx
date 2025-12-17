@@ -27,7 +27,7 @@ export default function Footer() {
       component="footer"
       sx={{
         width: "100%",
-        backgroundColor: "#e9eef6",
+        backgroundColor: "#F2F8FF",
         color: "#1a1a1a",
         pt: { xs: 4, sm: 5, md: 6, lg: 8, xl: 10 },
         pb: { xs: 3, sm: 4, md: 5, lg: 6, xl: 8 },
@@ -51,14 +51,16 @@ export default function Footer() {
           ============================ */}
           <Grid item xs={12} sm={6} md={3}>
             <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                gap: { xs: 0.8, sm: 1, md: 1.2 },
-                mb: { xs: 2, sm: 2.5, md: 3 },
-              }}
-            >
+  sx={{
+    display: "flex",
+    flexDirection: "column",
+    alignItems: { xs: "center", sm: "flex-start" }, // ✅ FIX
+    gap: { xs: 0.8, sm: 1, md: 1.2 },
+    mb: { xs: 2, sm: 2.5, md: 3 },
+    textAlign: { xs: "center", sm: "left" }, // ✅ FIX
+  }}
+>
+
               <Box component="img" src={logo} sx={{ width: 45 }} />
 
               <Typography
@@ -252,7 +254,7 @@ export default function Footer() {
               <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                 <Box component="img" src={emailIcon} sx={{ width: "20px" }} />
                 <Typography sx={{ color: "#555", fontSize: "0.95rem" }}>
-                  info@healingtouch.com
+                  drdardasnirmalhealthcare@gmail.com
                 </Typography>
               </Box>
             </Box>
@@ -266,52 +268,48 @@ export default function Footer() {
 
         {/* BOTTOM BAR */}
         <Box
-          sx={{
-            display: "flex",
-            flexDirection: { xs: "column", sm: "row" },
-            justifyContent: "space-between",
-            alignItems: "center",
-            gap: { xs: 2, sm: 0 },
-          }}
-        >
-          <Typography sx={{ fontSize: "0.9rem", color: "#555" }}>
-            © 2025 zonixtec. All rights reserved.
-          </Typography>
+  sx={{
+    display: "flex",
+    flexDirection: { xs: "column-reverse", sm: "row" },
+    justifyContent: "space-between",
+    alignItems: "center",
+    gap: { xs: 1.5, sm: 0 },
+    textAlign: "center",
+  }}
+>
+  <Typography sx={{ fontSize: "0.9rem", color: "#555" }}>
+    © 2025 zonixtec. All rights reserved.
+  </Typography>
 
-          <Box sx={{ display: "flex", gap: { xs: 2, sm: 3 } }}>
+  <Box sx={{ display: "flex", gap: { xs: 2, sm: 3 } }}>
+    <MuiLink
+      component={Link}
+      to="/privacy-policy"
+      underline="none"
+      sx={{
+        color: "#555",
+        fontSize: "0.9rem",
+        "&:hover": { color: "#1976d2" },
+      }}
+    >
+      Privacy Policy
+    </MuiLink>
 
-            {/* Privacy Policy Link */}
-            <MuiLink
-              component={Link}
-              to="/privacy-policy"
-              underline="none"
-              sx={{
-                color: "#555",
-                fontSize: "0.9rem",
-                "&:hover": { color: "#1976d2" },
-              }}
-            >
-              Privacy Policy
-            </MuiLink>
+    <MuiLink
+      component={Link}
+      to="/terms"
+      underline="none"
+      sx={{
+        color: "#555",
+        fontSize: "0.9rem",
+        "&:hover": { color: "#1976d2" },
+      }}
+    >
+      Terms & Conditions
+    </MuiLink>
+  </Box>
+</Box>
 
-            {/* Terms & Conditions Link */}
-            <MuiLink
-              component={Link}
-              to="/terms"
-              underline="none"
-              sx={{
-                color: "#555",
-                fontSize: "0.9rem",
-                "&:hover": { color: "#1976d2" },
-              }}
-              onClick={() => console.log("Terms link clicked")}
-            >
-              Terms & Conditions
-            </MuiLink>
-              
-
-          </Box>
-        </Box>
       </Container>
     </Box>
   );

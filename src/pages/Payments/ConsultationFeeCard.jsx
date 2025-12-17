@@ -3,13 +3,14 @@ import { Box, Typography } from '@mui/material';
 import RupeeIcon from '../../assets/Appointment/Rupees.svg';
 import CompletedIcon from '../../assets/Appointment/completed-booking.svg';
 
-const ConsultationFeeCard = ({ amount = 500 }) => {
+const ConsultationFeeCard = () => {
+  const amount = 500; 
   return (
     <Box sx={{ 
       width: '100%',
       top:'18px',
       maxWidth: { xs: '200px', sm: '220px', md: '239px' },
-      height: { xs: '160px', sm: '175px', md: '192px' },
+      height: 'auto',
       display: 'flex', 
       flexDirection: 'column', 
       alignItems: 'center' 

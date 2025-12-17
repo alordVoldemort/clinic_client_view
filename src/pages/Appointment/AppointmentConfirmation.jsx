@@ -89,7 +89,7 @@ const AppointmentConfirmation = () => {
 
   return (
     <Box sx={{ 
-      backgroundColor: '#ffffff', 
+      backgroundColor: '#FBF9FA', 
       minHeight: '100vh',
       fontFamily: 'Arial, sans-serif'
     }}>

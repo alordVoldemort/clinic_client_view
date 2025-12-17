@@ -1,40 +1,39 @@
-import React, { useState } from 'react';
-import { 
-  Box, 
-  Container, 
-  Typography, 
-  TextField, 
-  Button, 
+import React, { useState } from "react";
+import {
+  Box,
+  Container,
+  Typography,
+  TextField,
+  Button,
   MenuItem,
   Grid,
   Paper,
   Select,
   FormControl,
   InputLabel,
-  FormHelperText
-} from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+  FormHelperText,
+} from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
-// Import SVG icons from assets
-import UserIcon from '../../assets/Appointment/fullName.svg';
-import EmailIcon from '../../assets/Appointment/email.svg';
-import PhoneIcon from '../../assets/Appointment/Phone-number.svg';
-import TreatmentIcon from '../../assets/Appointment/treatment.svg';
-import CalendarIcon from '../../assets/Appointment/calendar.svg';
-import TimeIcon from '../../assets/Appointment/time.svg';
-import NoteIcon from '../../assets/Appointment/notes.svg';
+import UserIcon from "../../assets/Appointment/fullName.svg";
+import EmailIcon from "../../assets/Appointment/email.svg";
+import PhoneIcon from "../../assets/Appointment/Phone-number.svg";
+import TreatmentIcon from "../../assets/Appointment/treatment.svg";
+import CalendarIcon from "../../assets/Appointment/calendar.svg";
+import TimeIcon from "../../assets/Appointment/time.svg";
+import NoteIcon from "../../assets/Appointment/notes.svg";
+import RupeesIcon from "../../assets/Appointment/Rupees.svg";
 
-// SVG Icon Components using imported assets
 const UserIconComponent = () => (
   <Box
     component="img"
     src={UserIcon}
     alt="User Icon"
     sx={{
-      width: '20px',
-      height: '20px',
-      display: 'flex',
-      alignItems: 'center'
+      width: "20px",
+      height: "20px",
+      display: "flex",
+      alignItems: "center",
     }}
   />
 );
@@ -45,10 +44,10 @@ const EmailIconComponent = () => (
     src={EmailIcon}
     alt="Email Icon"
     sx={{
-      width: '20px',
-      height: '20px',
-      display: 'flex',
-      alignItems: 'center'
+      width: "20px",
+      height: "20px",
+      display: "flex",
+      alignItems: "center",
     }}
   />
 );
@@ -59,10 +58,10 @@ const PhoneIconComponent = () => (
     src={PhoneIcon}
     alt="Phone Icon"
     sx={{
-      width: '20px',
-      height: '20px',
-      display: 'flex',
-      alignItems: 'center'
+      width: "20px",
+      height: "20px",
+      display: "flex",
+      alignItems: "center",
     }}
   />
 );
@@ -73,10 +72,10 @@ const TreatmentIconComponent = () => (
     src={TreatmentIcon}
     alt="Treatment Icon"
     sx={{
-      width: '20px',
-      height: '20px',
-      display: 'flex',
-      alignItems: 'center'
+      width: "20px",
+      height: "20px",
+      display: "flex",
+      alignItems: "center",
     }}
   />
 );
@@ -87,10 +86,10 @@ const CalendarIconComponent = () => (
     src={CalendarIcon}
     alt="Calendar Icon"
     sx={{
-      width: '20px',
-      height: '20px',
-      display: 'flex',
-      alignItems: 'center'
+      width: "20px",
+      height: "20px",
+      display: "flex",
+      alignItems: "center",
     }}
   />
 );
@@ -101,10 +100,10 @@ const TimeIconComponent = () => (
     src={TimeIcon}
     alt="Time Icon"
     sx={{
-      width: '20px',
-      height: '20px',
-      display: 'flex',
-      alignItems: 'center'
+      width: "20px",
+      height: "20px",
+      display: "flex",
+      alignItems: "center",
     }}
   />
 );
@@ -115,48 +114,64 @@ const NoteIconComponent = () => (
     src={NoteIcon}
     alt="Note Icon"
     sx={{
-      width: '20px',
-      height: '20px',
-      display: 'flex',
-      alignItems: 'center'
+      width: "20px",
+      height: "20px",
+      display: "flex",
+      alignItems: "center",
+    }}
+  />
+);
+
+const RupeesIconComponent = () => (
+  <Box
+    component="img"
+    src={RupeesIcon}
+    alt="Rupees Icon"
+    sx={{
+      width: "12px",
+      height: "12px",
+      display: "inline-block",
+      verticalAlign: "middle",
+      marginRight: "2px",
     }}
   />
 );
 
 const SERVICES = [
-  "General Consultation",
-  "Dental Checkup",
-  "Cardiology",
-  "Dermatology",
-  "Pediatrics",
-  "Orthopedics",
-  "Neurology",
-  "Gynecology",
-  "ENT",
-  "Ophthalmology",
-  "Psychiatry",
-  "Physiotherapy",
-  "Spine Treatment Consultation",
+  "Spine Treatment",
+  "GIT Treatments",
+  "Cosmetology",
+  "Kidney Treatment",
+  "Gynecologist Treatment",
+  "Migraine Treatment",
+  "ENT Treatments",
+  "Joint Treatments",
+  "Child Treatments",
 ];
 
 const TIME_SLOTS = [
-  "09:00 AM",
   "10:00 AM",
+  "10:30 AM",
   "11:00 AM",
+  "11:30 AM",
   "12:00 PM",
+  "12:30 PM",
   "02:00 PM",
+  "02:30 PM",
   "03:00 PM",
+  "03:30 PM",
   "04:00 PM",
+  "04:30 PM",
   "05:00 PM",
+  "05:30 PM",
   "06:00 PM",
+  "06:30 PM",
   "07:00 PM",
-  "08:00 PM",
-  "09:00 PM",
 ];
 
 const BookAppointment = () => {
   const navigate = useNavigate();
-  
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -203,16 +218,16 @@ const BookAppointment = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
 
-    navigate("/payment/PaymentPage", {  // Change this line
-    state: {
-      appointmentData: formData,
-      amount: 800
-    }
+    navigate("/payment/PaymentPage", {
+      state: {
+        appointmentData: formData,
+        amount: 800,
+      },
     });
   };
 
@@ -226,31 +241,41 @@ const BookAppointment = () => {
   const maxDateStr = maxDate.toISOString().split("T")[0];
 
   return (
-    <Box sx={{ 
-      backgroundColor: '#ffffff', 
-      minHeight: '100vh',
-      py: 4,
-      fontFamily: 'Arial, sans-serif'
-    }}>
-      <Container maxWidth="sm">
-        {/* Header Section */}
-        <Box sx={{ textAlign: 'center', mb: 4 }}>
-          <Typography 
-            variant="h1" 
-            sx={{ 
-              fontSize: '28px', 
-              fontWeight: 600, 
-              color: '#000000',
-              mb: 1
+    <Box
+      sx={{
+        backgroundColor: "#FBF9FA",
+        minHeight: "100vh",
+        py: 4,
+        fontFamily: "Arial, sans-serif",
+      }}
+    >
+      <Container
+  disableGutters
+  sx={{
+    maxWidth: { xs: "100%", md: "841px" },
+    px: { xs: 2, sm: 3, md: 0 },
+    margin: "0 auto",
+  }}
+>
+
+        <Box sx={{ textAlign: "center", mb: 4 }}>
+          <Typography
+            variant="h1"
+            sx={{
+             fontSize: { xs: "26px", sm: "30px", md: "36px" },
+              fontWeight: 500,
+              color: "#000000",
+              mb: 1,
             }}
           >
             Book Your Appointment
           </Typography>
-          <Typography 
-            sx={{ 
-              fontSize: '16px', 
-              color: '#666666',
-              mb: 3
+          <Typography
+            sx={{
+              fontSize: "20px",
+              fontWeight: 500,
+              color: "#666666",
+              mb: 3,
             }}
           >
             Schedule a consultation with our expert medical team
@@ -258,47 +283,51 @@ const BookAppointment = () => {
         </Box>
 
         <Paper
-          elevation={0}
-          sx={{
-            borderRadius: '14px',
-            backgroundColor: '#FFFFFF',
-            border: '1px solid #e0e0e0',
-            overflow: 'hidden',
-            boxShadow: 'none',
-            p: 4,
-            margin: '0 auto'
-          }}
-        >
+  elevation={0}
+  sx={{
+    width: { xs: "100%", md: "841px" },
+    minHeight: "1245px",
+    borderRadius: "14px",
+    backgroundColor: "#FFFFFF",
+    border: "1px solid #E0E0E0",
+    padding: { xs: "20px", md: "32px" },
+  }}
+>
+
           <Box component="form" onSubmit={handleSubmit}>
             {/* Personal Information Section */}
-            <Box sx={{ mb: 4 }}>
-              <Typography 
-                sx={{ 
-                  fontSize: '18px', 
-                  fontWeight: 600, 
-                  color: '#000000',
-                  mb: 3
+            <Box sx={{ mb: 6 }}>
+              <Typography
+                sx={{
+                  fontSize: "17px",
+                  fontWeight: 300,
+                  color: "#000000",
+                  mb: 4,
                 }}
               >
                 Personal Information
               </Typography>
-              
-              {/* Full Name */}
-              <Box sx={{ mb: 3 }}>
-                <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
-                  <Box sx={{ mr: 1.5, display: 'flex', alignItems: 'center' }}>
+
+              {/* Full Name - FIXED TO MATCH WIDTH OF OTHER FIELDS */}
+              <Box sx={{ mb: 3.75, width: { xs: "100%", md: "738px" } }}>
+                <Box sx={{ display: "flex", alignItems: "center", mb: 1.75 }}>
+                  <Box sx={{ mr: 1.5, display: "flex", alignItems: "center" }}>
                     <UserIconComponent />
                   </Box>
-                  <Typography sx={{ 
-                    fontSize: '14px', 
-                    color: '#000000', 
-                    fontWeight: 500 
-                  }}>
-                    Full Name <span style={{ color: '#FD0000', marginLeft: '2px' }}>*</span>
+                  <Typography
+                    sx={{
+                      fontSize: "16px",
+                      color: "#000000",
+                      fontWeight: 400,
+                    }}
+                  >
+                    Full Name{" "}
+                    <span style={{ color: "#FD0000", marginLeft: "2px" }}>
+                      *
+                    </span>
                   </Typography>
                 </Box>
                 <TextField
-                  fullWidth
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
@@ -308,29 +337,30 @@ const BookAppointment = () => {
                   variant="outlined"
                   size="small"
                   sx={{
-                    '& .MuiOutlinedInput-root': {
-                      height: '48px',
-                      borderRadius: '8px',
-                      backgroundColor: '#FAFAFA',
-                      '& fieldset': {
-                        borderColor: '#E0E0E0',
-                        borderWidth: '1px',
+                    width: { xs: "100%", md: "738px" },
+                    "& .MuiOutlinedInput-root": {
+                      height: "47px",
+                      borderRadius: "8px",
+                      backgroundColor: "#FAFAFA",
+                      "& fieldset": {
+                        borderColor: "#E0E0E0",
+                        borderWidth: "1px",
                       },
-                      '&:hover fieldset': {
-                        borderColor: '#1976d2',
+                      "&:hover fieldset": {
+                        borderColor: "#1976d2",
                       },
-                      '&.Mui-focused fieldset': {
-                        borderColor: '#1976d2',
-                        borderWidth: '1px',
+                      "&.Mui-focused fieldset": {
+                        borderColor: "#1976d2",
+                        borderWidth: "1px",
                       },
                     },
-                    '& .MuiInputBase-input': {
-                      padding: '12px 16px',
-                      fontSize: '16px',
-                      color: '#333333',
-                      height: '48px',
-                      '&::placeholder': {
-                        color: '#999999',
+                    "& .MuiInputBase-input": {
+                      padding: "12px 16px",
+                      fontSize: "16px",
+                      color: "#333333",
+                      height: "47px",
+                      "&::placeholder": {
+                        color: "#999999",
                       },
                     },
                   }}
@@ -338,164 +368,219 @@ const BookAppointment = () => {
               </Box>
 
               {/* Email and Phone in single line */}
-              <Grid container spacing={2} sx={{ mb: 3 }}>
-                <Grid item xs={12} md={6}>
-                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
-                    <Box sx={{ mr: 1.5, display: 'flex', alignItems: 'center' }}>
-                      <EmailIconComponent />
+              <Box
+                sx={{
+                  mb: 3.75,
+                  width: { xs: "100%", md: "738px" },
+                  height: { md: "99px" },
+                }}
+              >
+                <Grid container spacing={2}>
+                  <Grid item xs={12} md={6} sx={{ height: { xs: "auto", md: "100%" } }}>
+                    <Box sx={{ height: { xs: "100%", md: "100%" } }}>
+                      <Box
+                        sx={{ display: "flex", alignItems: "center", mb: 1.75 }}
+                      >
+                        <Box
+                          sx={{
+                            mr: 1.5,
+                            display: "flex",
+                            alignItems: "center",
+                          }}
+                        >
+                          <EmailIconComponent />
+                        </Box>
+                        <Typography
+                          sx={{
+                            fontSize: "16px",
+                            color: "#000000",
+                            fontWeight: 400,
+                          }}
+                        >
+                          Email Address{" "}
+                          <span style={{ color: "#FD0000", marginLeft: "2px" }}>
+                            *
+                          </span>
+                        </Typography>
+                      </Box>
+                      <TextField
+                        name="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        error={!!formErrors.email}
+                        helperText={formErrors.email}
+                        placeholder="Rahul.Joshi@email.com"
+                        variant="outlined"
+                        size="small"
+                        sx={{
+                          width: { xs: "100%", md: "358px" },
+                          "& .MuiOutlinedInput-root": {
+                            height: "47px",
+                            borderRadius: "8px",
+                            backgroundColor: "#FAFAFA",
+                            gap: "10px",
+                            "& fieldset": {
+                              borderColor: "#E0E0E0",
+                              borderWidth: "1px",
+                            },
+                            "&:hover fieldset": {
+                              borderColor: "#1976d2",
+                            },
+                            "&.Mui-focused fieldset": {
+                              borderColor: "#1976d2",
+                              borderWidth: "1px",
+                            },
+                          },
+                          "& .MuiInputBase-input": {
+                            padding: "12px 16px",
+                            fontSize: "16px",
+                            color: "#333333",
+                            height: "47px",
+                            boxSizing: "border-box",
+                            "&::placeholder": {
+                              color: "#999999",
+                            },
+                          },
+                          "& .MuiFormHelperText-root": {
+                            marginLeft: 0,
+                            marginTop: "4px",
+                          },
+                        }}
+                      />
                     </Box>
-                    <Typography sx={{ 
-                      fontSize: '14px', 
-                      color: '#000000', 
-                      fontWeight: 500 
-                    }}>
-                      Email Address <span style={{ color: '#FD0000', marginLeft: '2px' }}>*</span>
-                    </Typography>
-                  </Box>
-                  <TextField
-                    fullWidth
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    error={!!formErrors.email}
-                    helperText={formErrors.email}
-                    placeholder="Rahul.Joshi@email.com"
-                    variant="outlined"
-                    size="small"
-                    sx={{
-                      '& .MuiOutlinedInput-root': {
-                        height: '48px',
-                        borderRadius: '8px',
-                        backgroundColor: '#FAFAFA',
-                        '& fieldset': {
-                          borderColor: '#E0E0E0',
-                          borderWidth: '1px',
-                        },
-                        '&:hover fieldset': {
-                          borderColor: '#1976d2',
-                        },
-                        '&.Mui-focused fieldset': {
-                          borderColor: '#1976d2',
-                          borderWidth: '1px',
-                        },
-                      },
-                      '& .MuiInputBase-input': {
-                        padding: '12px 16px',
-                        fontSize: '16px',
-                        color: '#333333',
-                        height: '48px',
-                        '&::placeholder': {
-                          color: '#999999',
-                        },
-                      },
-                    }}
-                  />
-                </Grid>
+                  </Grid>
 
-                <Grid item xs={12} md={6}>
-                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
-                    <Box sx={{ mr: 1.5, display: 'flex', alignItems: 'center' }}>
-                      <PhoneIconComponent />
+                  <Grid item xs={12} md={6} sx={{ height: "100%" }}>
+                    <Box sx={{ height: "100%" }}>
+                      <Box
+                        sx={{ display: "flex", alignItems: "center", mb: 1.75 }}
+                      >
+                        <Box
+                          sx={{
+                            mr: 1.5,
+                            display: "flex",
+                            alignItems: "center",
+                          }}
+                        >
+                          <PhoneIconComponent />
+                        </Box>
+                        <Typography
+                          sx={{
+                            fontSize: "16px",
+                            color: "#000000",
+                            fontWeight: 400,
+                          }}
+                        >
+                          Phone Number{" "}
+                          <span style={{ color: "#FD0000", marginLeft: "2px" }}>
+                            *
+                          </span>
+                        </Typography>
+                      </Box>
+                      <TextField
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        error={!!formErrors.phone}
+                        helperText={formErrors.phone}
+                        placeholder="+91 123 456 7890"
+                        variant="outlined"
+                        size="small"
+                        sx={{
+                          width: { xs: "100%", md: "358px" },
+                          "& .MuiOutlinedInput-root": {
+                            height: "47px",
+                            borderRadius: "8px",
+                            backgroundColor: "#FAFAFA",
+                            gap: "10px",
+                            "& fieldset": {
+                              borderColor: "#E0E0E0",
+                              borderWidth: "1px",
+                            },
+                            "&:hover fieldset": {
+                              borderColor: "#1976d2",
+                            },
+                            "&.Mui-focused fieldset": {
+                              borderColor: "#1976d2",
+                              borderWidth: "1px",
+                            },
+                          },
+                          "& .MuiInputBase-input": {
+                            padding: "12px 16px",
+                            fontSize: "16px",
+                            color: "#333333",
+                            height: "47px",
+                            boxSizing: "border-box",
+                            "&::placeholder": {
+                              color: "#999999",
+                            },
+                          },
+                          "& .MuiFormHelperText-root": {
+                            marginLeft: 0,
+                            marginTop: "4px",
+                          },
+                        }}
+                      />
                     </Box>
-                    <Typography sx={{ 
-                      fontSize: '14px', 
-                      color: '#000000', 
-                      fontWeight: 500 
-                    }}>
-                      Phone Number <span style={{ color: '#FD0000', marginLeft: '2px' }}>*</span>
-                    </Typography>
-                  </Box>
-                  <TextField
-                    fullWidth
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    error={!!formErrors.phone}
-                    helperText={formErrors.phone}
-                    placeholder="+91 123 456 7890"
-                    variant="outlined"
-                    size="small"
-                    sx={{
-                      '& .MuiOutlinedInput-root': {
-                        height: '48px',
-                        borderRadius: '8px',
-                        backgroundColor: '#FAFAFA',
-                        '& fieldset': {
-                          borderColor: '#E0E0E0',
-                          borderWidth: '1px',
-                        },
-                        '&:hover fieldset': {
-                          borderColor: '#1976d2',
-                        },
-                        '&.Mui-focused fieldset': {
-                          borderColor: '#1976d2',
-                          borderWidth: '1px',
-                        },
-                      },
-                      '& .MuiInputBase-input': {
-                        padding: '12px 16px',
-                        fontSize: '16px',
-                        color: '#333333',
-                        height: '48px',
-                        '&::placeholder': {
-                          color: '#999999',
-                        },
-                      },
-                    }}
-                  />
+                  </Grid>
                 </Grid>
-              </Grid>
+              </Box>
             </Box>
 
             {/* Divider */}
-            <Box sx={{ borderBottom: '1px solid #e0e0e0', my: 3 }} />
+            <Box sx={{ borderBottom: "1px solid #e0e0e0", mb: 4, mt: 0 }} />
 
             {/* Appointment Details Section */}
-            <Box sx={{ mb: 4 }}>
-              <Typography 
-                sx={{ 
-                  fontSize: '18px', 
-                  fontWeight: 600, 
-                  color: '#000000',
-                  mb: 3
+            <Box sx={{ mb: 2 }}>
+              <Typography
+                sx={{
+                  fontSize: "17px",
+                  fontWeight: 300,
+                  color: "#000000",
+                  mb: 4,
                 }}
               >
                 Appointment Details
               </Typography>
 
-              {/* Select Treatment */}
-              <Box sx={{ mb: 3 }}>
-                <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
-                  <Box sx={{ mr: 1.5, display: 'flex', alignItems: 'center' }}>
+              {/* Select Treatment - FIXED TO MATCH WIDTH */}
+              <Box sx={{ mb: 3.75, width: { xs: "100%", md: "738px" } }}>
+                <Box sx={{ display: "flex", alignItems: "center", mb: 1.75 }}>
+                  <Box sx={{ mr: 1.5, display: "flex", alignItems: "center" }}>
                     <TreatmentIconComponent />
                   </Box>
-                  <Typography sx={{ 
-                    fontSize: '14px', 
-                    color: '#000000', 
-                    fontWeight: 500 
-                  }}>
-                    Select Treatment <span style={{ color: '#FD0000', marginLeft: '2px' }}>*</span>
+                  <Typography
+                    sx={{
+                      fontSize: "16px",
+                      color: "#000000",
+                      fontWeight: 400,
+                    }}
+                  >
+                    Select Treatment{" "}
+                    <span style={{ color: "#FD0000", marginLeft: "2px" }}>
+                      *
+                    </span>
                   </Typography>
                 </Box>
-                <FormControl 
-                  fullWidth 
+                <FormControl
                   error={!!formErrors.service}
                   sx={{
-                    '& .MuiOutlinedInput-root': {
-                      height: '48px',
-                      borderRadius: '8px',
-                      backgroundColor: '#FAFAFA',
-                      '& fieldset': {
-                        borderColor: '#E0E0E0',
-                        borderWidth: '1px',
+                    width: { xs: "100%", md: "738px" },
+                    "& .MuiOutlinedInput-root": {
+                      height: "47px",
+                      borderRadius: "8px",
+                      backgroundColor: "#FAFAFA",
+                      "& fieldset": {
+                        borderColor: "#E0E0E0",
+                        borderWidth: "1px",
                       },
-                      '&:hover fieldset': {
-                        borderColor: '#1976d2',
+                      "&:hover fieldset": {
+                        borderColor: "#1976d2",
                       },
-                      '&.Mui-focused fieldset': {
-                        borderColor: '#1976d2',
-                        borderWidth: '1px',
+                      "&.Mui-focused fieldset": {
+                        borderColor: "#1976d2",
+                        borderWidth: "1px",
                       },
                     },
                   }}
@@ -506,13 +591,13 @@ const BookAppointment = () => {
                     onChange={handleChange}
                     displayEmpty
                     sx={{
-                      height: '48px',
-                      fontSize: '16px',
-                      color: formData.service ? '#333333' : '#999999',
-                      '& .MuiSelect-select': {
-                        padding: '12px 16px',
-                        display: 'flex',
-                        alignItems: 'center',
+                      height: "47px",
+                      fontSize: "16px",
+                      color: formData.service ? "#333333" : "#999999",
+                      "& .MuiSelect-select": {
+                        padding: "12px 16px",
+                        display: "flex",
+                        alignItems: "center",
                       },
                     }}
                   >
@@ -526,7 +611,7 @@ const BookAppointment = () => {
                     ))}
                   </Select>
                   {formErrors.service && (
-                    <FormHelperText sx={{ color: '#d32f2f', marginLeft: 0 }}>
+                    <FormHelperText sx={{ color: "#d32f2f", marginLeft: 0 }}>
                       {formErrors.service}
                     </FormHelperText>
                   )}
@@ -534,144 +619,194 @@ const BookAppointment = () => {
               </Box>
 
               {/* Date and Time in single line */}
-              <Grid container spacing={2} sx={{ mb: 3 }}>
-                <Grid item xs={12} md={6}>
-                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
-                    <Box sx={{ mr: 1.5, display: 'flex', alignItems: 'center' }}>
-                      <CalendarIconComponent />
+              <Box
+  sx={{
+    mb: 3.75,
+    width: { xs: "100%", md: "738px" },
+    height: { md: "99px" }, 
+  }}
+>
+                <Grid container spacing={2}>
+                  <Grid item xs={12} md={6} sx={{ height: { xs: "auto", md: "100%" } }}>
+                    <Box sx={{ height: { xs: "auto", md: "100%" } }}>
+                      <Box
+                        sx={{ display: "flex", alignItems: "center", mb: 1.75 }}
+                      >
+                        <Box
+                          sx={{
+                            mr: 1.5,
+                            display: "flex",
+                            alignItems: "center",
+                          }}
+                        >
+                          <CalendarIconComponent />
+                        </Box>
+                        <Typography
+                          sx={{
+                            fontSize: "16px",
+                            color: "#000000",
+                            fontWeight: 400,
+                          }}
+                        >
+                          Preferred Date{" "}
+                          <span style={{ color: "#FD0000", marginLeft: "2px" }}>
+                            *
+                          </span>
+                        </Typography>
+                      </Box>
+                      <TextField
+                        name="date"
+                        type="date"
+                        value={formData.date}
+                        onChange={handleChange}
+                        error={!!formErrors.date}
+                        helperText={formErrors.date}
+                        variant="outlined"
+                        size="small"
+                        InputLabelProps={{ shrink: true }}
+                        inputProps={{ min: minDate, max: maxDateStr }}
+                        sx={{
+                          width: { xs: "100%", md: "358px" },
+                          "& .MuiOutlinedInput-root": {
+                            height: "47px",
+                            borderRadius: "8px",
+                            backgroundColor: "#FAFAFA",
+                            gap: "10px",
+                            "& fieldset": {
+                              borderColor: "#E0E0E0",
+                              borderWidth: "1px",
+                            },
+                            "&:hover fieldset": {
+                              borderColor: "#1976d2",
+                            },
+                            "&.Mui-focused fieldset": {
+                              borderColor: "#1976d2",
+                              borderWidth: "1px",
+                            },
+                          },
+                          "& .MuiInputBase-input": {
+                            padding: "12px 16px",
+                            fontSize: "16px",
+                            color: formData.date ? "#333333" : "#999999",
+                            height: "47px",
+                            boxSizing: "border-box",
+                          },
+                          "& .MuiFormHelperText-root": {
+                            marginLeft: 0,
+                            marginTop: "4px",
+                          },
+                        }}
+                      />
                     </Box>
-                    <Typography sx={{ 
-                      fontSize: '14px', 
-                      color: '#000000', 
-                      fontWeight: 500 
-                    }}>
-                      Preferred Date <span style={{ color: '#FD0000', marginLeft: '2px' }}>*</span>
-                    </Typography>
-                  </Box>
-                  <TextField
-                    fullWidth
-                    name="date"
-                    type="date"
-                    value={formData.date}
-                    onChange={handleChange}
-                    error={!!formErrors.date}
-                    helperText={formErrors.date}
-                    variant="outlined"
-                    size="small"
-                    InputLabelProps={{ shrink: true }}
-                    inputProps={{ min: minDate, max: maxDateStr }}
-                    sx={{
-                      '& .MuiOutlinedInput-root': {
-                        height: '48px',
-                        borderRadius: '8px',
-                        backgroundColor: '#FAFAFA',
-                        '& fieldset': {
-                          borderColor: '#E0E0E0',
-                          borderWidth: '1px',
-                        },
-                        '&:hover fieldset': {
-                          borderColor: '#1976d2',
-                        },
-                        '&.Mui-focused fieldset': {
-                          borderColor: '#1976d2',
-                          borderWidth: '1px',
-                        },
-                      },
-                      '& .MuiInputBase-input': {
-                        padding: '12px 16px',
-                        fontSize: '16px',
-                        color: formData.date ? '#333333' : '#999999',
-                        height: '48px',
-                      },
-                    }}
-                  />
-                </Grid>
+                  </Grid>
 
-                <Grid item xs={12} md={6}>
-                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
-                    <Box sx={{ mr: 1.5, display: 'flex', alignItems: 'center' }}>
-                      <TimeIconComponent />
+                  <Grid item xs={12} md={6} sx={{ height: "100%" }}>
+                    <Box sx={{ height: "100%" }}>
+                      <Box
+                        sx={{ display: "flex", alignItems: "center", mb: 1.75 }}
+                      >
+                        <Box
+                          sx={{
+                            mr: 1.5,
+                            display: "flex",
+                            alignItems: "center",
+                          }}
+                        >
+                          <TimeIconComponent />
+                        </Box>
+                        <Typography
+                          sx={{
+                            fontSize: "16px",
+                            color: "#000000",
+                            fontWeight: 400,
+                          }}
+                        >
+                          Preferred Time{" "}
+                          <span style={{ color: "#FD0000", marginLeft: "2px" }}>
+                            *
+                          </span>
+                        </Typography>
+                      </Box>
+                      <FormControl
+                        error={!!formErrors.time}
+                        sx={{
+                          width: { xs: "100%", md: "358px" },
+                          "& .MuiOutlinedInput-root": {
+                            height: "47px",
+                            borderRadius: "8px",
+                            backgroundColor: "#FAFAFA",
+                            gap: "10px",
+                            "& fieldset": {
+                              borderColor: "#E0E0E0",
+                              borderWidth: "1px",
+                            },
+                            "&:hover fieldset": {
+                              borderColor: "#1976d2",
+                            },
+                            "&.Mui-focused fieldset": {
+                              borderColor: "#1976d2",
+                              borderWidth: "1px",
+                            },
+                          },
+                        }}
+                      >
+                        <Select
+                          name="time"
+                          value={formData.time}
+                          onChange={handleChange}
+                          displayEmpty
+                          sx={{
+                            height: "47px",
+                            fontSize: "16px",
+                            color: formData.time ? "#333333" : "#999999",
+                            "& .MuiSelect-select": {
+                              padding: "12px 16px",
+                              display: "flex",
+                              alignItems: "center",
+                              height: "47px",
+                              boxSizing: "border-box",
+                            },
+                          }}
+                        >
+                          <MenuItem value="" disabled>
+                            Select Time
+                          </MenuItem>
+                          {TIME_SLOTS.map((time) => (
+                            <MenuItem key={time} value={time}>
+                              {time}
+                            </MenuItem>
+                          ))}
+                        </Select>
+                        {formErrors.time && (
+                          <FormHelperText
+                            sx={{ color: "#d32f2f", marginLeft: 0 }}
+                          >
+                            {formErrors.time}
+                          </FormHelperText>
+                        )}
+                      </FormControl>
                     </Box>
-                    <Typography sx={{ 
-                      fontSize: '14px', 
-                      color: '#000000', 
-                      fontWeight: 500 
-                    }}>
-                      Preferred Time <span style={{ color: '#FD0000', marginLeft: '2px' }}>*</span>
-                    </Typography>
-                  </Box>
-                  <FormControl 
-                    fullWidth 
-                    error={!!formErrors.time}
-                    sx={{
-                      '& .MuiOutlinedInput-root': {
-                        height: '48px',
-                        borderRadius: '8px',
-                        backgroundColor: '#FAFAFA',
-                        '& fieldset': {
-                          borderColor: '#E0E0E0',
-                          borderWidth: '1px',
-                        },
-                        '&:hover fieldset': {
-                          borderColor: '#1976d2',
-                        },
-                        '&.Mui-focused fieldset': {
-                          borderColor: '#1976d2',
-                          borderWidth: '1px',
-                        },
-                      },
-                    }}
-                  >
-                    <Select
-                      name="time"
-                      value={formData.time}
-                      onChange={handleChange}
-                      displayEmpty
-                      sx={{
-                        height: '48px',
-                        fontSize: '16px',
-                        color: formData.time ? '#333333' : '#999999',
-                        '& .MuiSelect-select': {
-                          padding: '12px 16px',
-                          display: 'flex',
-                          alignItems: 'center',
-                        },
-                      }}
-                    >
-                      <MenuItem value="" disabled>
-                        Select Time
-                      </MenuItem>
-                      {TIME_SLOTS.map((time) => (
-                        <MenuItem key={time} value={time}>
-                          {time}
-                        </MenuItem>
-                      ))}
-                    </Select>
-                    {formErrors.time && (
-                      <FormHelperText sx={{ color: '#d32f2f', marginLeft: 0 }}>
-                        {formErrors.time}
-                      </FormHelperText>
-                    )}
-                  </FormControl>
+                  </Grid>
                 </Grid>
-              </Grid>
+              </Box>
 
-              {/* Additional Notes */}
-              <Box sx={{ mb: 3 }}>
-                <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
-                  <Box sx={{ mr: 1.5, display: 'flex', alignItems: 'center' }}>
+              {/* Additional Notes - FIXED TO MATCH WIDTH */}
+              <Box sx={{ mb: 3, width: { xs: "100%", md: "738px" } }}>
+                <Box sx={{ display: "flex", alignItems: "center", mb: 1.75 }}>
+                  <Box sx={{ mr: 1.5, display: "flex", alignItems: "center" }}>
                     <NoteIconComponent />
                   </Box>
-                  <Typography sx={{ 
-                    fontSize: '14px', 
-                    color: '#000000', 
-                    fontWeight: 500 
-                  }}>
+                  <Typography
+                    sx={{
+                      fontSize: "16px",
+                      color: "#000000",
+                      fontWeight: 400,
+                    }}
+                  >
                     Additional Notes (Optional)
                   </Typography>
                 </Box>
                 <TextField
-                  fullWidth
                   name="notes"
                   multiline
                   rows={4}
@@ -681,28 +816,29 @@ const BookAppointment = () => {
                   variant="outlined"
                   size="small"
                   sx={{
-                    '& .MuiOutlinedInput-root': {
-                      borderRadius: '8px',
-                      backgroundColor: '#FAFAFA',
-                      alignItems: 'flex-start',
-                      '& fieldset': {
-                        borderColor: '#E0E0E0',
-                        borderWidth: '1px',
+                    width: { xs: "100%", md: "738px" },
+                    "& .MuiOutlinedInput-root": {
+                      borderRadius: "8px",
+                      backgroundColor: "#FAFAFA",
+                      alignItems: "flex-start",
+                      "& fieldset": {
+                        borderColor: "#E0E0E0",
+                        borderWidth: "1px",
                       },
-                      '&:hover fieldset': {
-                        borderColor: '#1976d2',
+                      "&:hover fieldset": {
+                        borderColor: "#1976d2",
                       },
-                      '&.Mui-focused fieldset': {
-                        borderColor: '#1976d2',
-                        borderWidth: '1px',
+                      "&.Mui-focused fieldset": {
+                        borderColor: "#1976d2",
+                        borderWidth: "1px",
                       },
                     },
-                    '& .MuiInputBase-input': {
-                      padding: '16px',
-                      fontSize: '16px',
-                      color: '#333333',
-                      '&::placeholder': {
-                        color: '#999999',
+                    "& .MuiInputBase-input": {
+                      padding: "16px",
+                      fontSize: "16px",
+                      color: "#333333",
+                      "&::placeholder": {
+                        color: "#999999",
                       },
                     },
                   }}
@@ -711,99 +847,95 @@ const BookAppointment = () => {
             </Box>
 
             {/* Divider */}
-            <Box sx={{ borderBottom: '1px solid #e0e0e0', my: 3 }} />
+            <Box sx={{ borderBottom: "1px solid #e0e0e0", my: 4.5 }} />
 
             {/* Important Information Section */}
-            <Box sx={{ mb: 4 }}>
-              <Box 
-                sx={{ 
-                  backgroundColor: '#F2F6FF',
-                  borderRadius: '8px',
-                  padding: '20px',
-                  border: '1px solid #C6D7FF',
+            <Box sx={{ mb: 4.5, width: { xs: "100%", md: "738px" } }}>
+              <Box
+                sx={{
+                  backgroundColor: "#F2F6FF",
+                  borderRadius: "8px",
+                  padding: "20px",
+                  border: "1px solid #C6D7FF",
                 }}
               >
-                <Typography 
-                  sx={{ 
-                    fontSize: '18px', 
-                    fontWeight: 600, 
-                    color: '#000000',
-                    mb: 3
+                <Typography
+                  sx={{
+                    fontSize: "18px",
+                    fontWeight: 600,
+                    color: "#000000",
+                    mb: 3,
                   }}
                 >
                   Important Information
                 </Typography>
-                <Typography 
-                  sx={{ 
-                    fontSize: '14px', 
-                    color: '#000000', 
-                    mb: 1.5, 
-                    display: 'flex', 
-                    alignItems: 'flex-start',
-                    lineHeight: '1.5'
+                <Typography
+                  sx={{
+                    fontSize: "14px",
+                    color: "#000000",
+                    mb: 1.5,
+                    display: "flex",
+                    alignItems: "flex-start",
+                    lineHeight: "1.5",
                   }}
                 >
-                  <Box component="span" sx={{ mr: 1.5, fontWeight: 600 }}>•</Box>
+                  <Box component="span" sx={{ mr: 1.5, fontWeight: 600 }}>
+                    •
+                  </Box>
                   <Box component="span">
                     Consultation fee:
                     <Box component="span" sx={{ ml: 0.5 }}>
-                      <svg 
-                        width="12" 
-                        height="12" 
-                        viewBox="0 0 24 24" 
-                        fill="none" 
-                        stroke="currentColor" 
-                        strokeWidth="2" 
-                        strokeLinecap="round" 
-                        strokeLinejoin="round"
-                        style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '2px' }}
-                      >
-                        <path d="" />
-                      </svg>
+                      <RupeesIconComponent />
                       500 (payable at checkout)
                     </Box>
                   </Box>
                 </Typography>
-                <Typography 
-                  sx={{ 
-                    fontSize: '14px', 
-                    color: '#000000', 
-                    mb: 1.5, 
-                    display: 'flex', 
-                    alignItems: 'flex-start',
-                    lineHeight: '1.5'
+                <Typography
+                  sx={{
+                    fontSize: "14px",
+                    color: "#000000",
+                    mb: 1.5,
+                    display: "flex",
+                    alignItems: "flex-start",
+                    lineHeight: "1.5",
                   }}
                 >
-                  <Box component="span" sx={{ mr: 1.5, fontWeight: 600 }}>•</Box>
+                  <Box component="span" sx={{ mr: 1.5, fontWeight: 600 }}>
+                    •
+                  </Box>
                   <Box component="span">
                     Please arrive 15 minutes before your appointment
                   </Box>
                 </Typography>
-                <Typography 
-                  sx={{ 
-                    fontSize: '14px', 
-                    color: '#000000', 
-                    mb: 1.5, 
-                    display: 'flex', 
-                    alignItems: 'flex-start',
-                    lineHeight: '1.5'
+                <Typography
+                  sx={{
+                    fontSize: "14px",
+                    color: "#000000",
+                    mb: 1.5,
+                    display: "flex",
+                    alignItems: "flex-start",
+                    lineHeight: "1.5",
                   }}
                 >
-                  <Box component="span" sx={{ mr: 1.5, fontWeight: 600 }}>•</Box>
+                  <Box component="span" sx={{ mr: 1.5, fontWeight: 600 }}>
+                    •
+                  </Box>
                   <Box component="span">
                     Bring any relevant medical records or test results
                   </Box>
                 </Typography>
-                <Typography 
-                  sx={{ 
-                    fontSize: '14px', 
-                    color: '#000000', 
-                    display: 'flex', 
-                    alignItems: 'flex-start',
-                    lineHeight: '1.5'
+                <Typography
+                  sx={{
+                    fontSize: "14px",
+                    color: "#000000",
+                    display: "flex",
+                    alignItems: "flex-start",
+                    lineHeight: "1.5",
                   }}
                 >
-                  <Box component="span" sx={{ mr: 1.5, fontWeight: 600 }}>•</Box>
+                  <Box component="span" sx={{ mr: 1.5, fontWeight: 600 }}>
+                    •
+                  </Box>
                   <Box component="span">
                     Cancellations must be made 24 hours in advance
                   </Box>
@@ -811,27 +943,26 @@ const BookAppointment = () => {
               </Box>
             </Box>
 
-            {/* Divider */}
-            <Box sx={{ borderBottom: '1px solid #e0e0e0', my: 3 }} />
+            
 
             {/* Submit Button */}
-            <Box sx={{ textAlign: 'center', mb: 4 }}>
+            <Box sx={{ textAlign: "center", mb: 4, width: { xs: "100%", md: "738px" } }}>
               <Button
                 type="submit"
                 variant="contained"
                 sx={{
-                  backgroundColor: '#1976d2',
-                  color: 'white',
-                  fontSize: '16px',
+                  backgroundColor: "#1976d2",
+                  color: "white",
+                  fontSize: "16px",
                   fontWeight: 500,
-                  padding: '12px 40px',
-                  borderRadius: '8px',
-                  textTransform: 'none',
-                  width: '100%',
-                  maxWidth: '400px',
-                  '&:hover': {
-                    backgroundColor: '#1565c0',
-                  }
+                  padding: "12px 40px",
+                  borderRadius: "8px",
+                  textTransform: "none",
+                  width: { xs: "100%", md: "738px" },
+                  maxWidth: "738px",
+                  "&:hover": {
+                    backgroundColor: "#1565c0",
+                  },
                 }}
               >
                 Proceed to payment
@@ -839,19 +970,23 @@ const BookAppointment = () => {
             </Box>
           </Box>
         </Paper>
+
         
-        {/* Footer Note - Inside Paper */}
-        <Box sx={{ 
-          textAlign: 'center',
-          pt: 1, 
-          borderTop: '1px solid #e0e0e0',
-          mt: 2
-        }}>
-          <Typography sx={{ fontSize: '14px', color: '#666666', mb: 0.5 }}>
-            Need help booking? Call us at <span style={{ fontWeight: 600, color: '#1976d2' }}>+123 456 7890</span>
+        <Box
+          sx={{
+            textAlign: "center",
+            pt: 1,
+            mt: 2,
+          }}
+        >
+          <Typography sx={{ fontWeight: 400, fontSize: "16px", color: "#000000", mb: 0.5 }}>
+            Need help booking? Call us at{" "}
+            <span style={{ fontWeight: 400, color: "#155DFC" }}>
+              +91 9822141851
+            </span>
           </Typography>
-          <Typography sx={{ fontSize: '14px', color: '#666666' }}>
-            Our team is available Monday – Saturday, 8:00 AM – 6:00 PM
+          <Typography sx={{ fontSize: "14px", color: "#666666" }}>
+            Our team is available Monday – Saturday, 9:00 AM – 6:00 PM
           </Typography>
         </Box>
       </Container>

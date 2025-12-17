@@ -41,9 +41,9 @@ const SelectPaymentMethod = ({ onPaymentMethodSelect }) => {
           elevation={0}
           sx={{
             width: '100%',
-            border: '2px solid #1976d2',
+            border: '2px solid #A7A7A7',
             borderRadius: { xs: '6px', sm: '7px', md: '8px' },
-            backgroundColor: '#F0F7FF',
+            backgroundColor: '#FFFFFF',
             transition: 'all 0.2s ease',
             cursor: 'pointer',
             '&:hover': {

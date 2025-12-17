@@ -22,18 +22,16 @@ const AppointmentConfirmation = () => {
     email: 'kshitij.somwanshi2001@gmail.com',
   };
 
-  // Merge with actual data if available
+
   const finalAppointmentData = { 
     ...defaultAppointmentData, 
     ...appointmentData
   };
 
 
-
-  
   return (
     <Box sx={{ 
-      backgroundColor: '#ffffff', 
+      backgroundColor: '#FBF9FA', 
       minHeight: '100vh',
       fontFamily: 'Arial, sans-serif',
       display: 'flex',
@@ -182,7 +180,7 @@ const AppointmentConfirmation = () => {
     sx={{
       fontSize: '14px',
       color: '#155DFC',
-      fontWeight: 500
+      fontWeight: 300
     }}
   >
     {finalAppointmentData.email}

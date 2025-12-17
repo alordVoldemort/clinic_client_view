@@ -51,7 +51,7 @@ const LocationSection = () => {
             allowFullScreen=""
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Arhatship Location Map"
+            title="Arthashilp Location Map"
           />
           
           {/* Location Pin */}

@@ -53,11 +53,11 @@ const ContactCards = () => {
           color: "#638aff" 
         }} />
         <Typography sx={{ 
-          fontWeight: 600, 
+          fontWeight: 400, 
           fontSize: { 
             xs: '14px',   // Mobile
             sm: '15px',   // Small tablets
-            md: '16px',   // Desktop
+            md: '17px',   // Desktop
             lg: '18px',
           },
           mb: 0.5
@@ -128,11 +128,11 @@ const ContactCards = () => {
           color: "#638aff" 
         }} />
         <Typography sx={{ 
-          fontWeight: 600, 
+          fontWeight: 400, 
           fontSize: { 
             xs: '14px',
             sm: '15px',
-            md: '16px',
+            md: '17px',
             lg: '18px',
           },
           mb: 0.5
@@ -151,7 +151,7 @@ const ContactCards = () => {
           px: { xs: 1, sm: 2 },
           mb: 0.5
         }}>
-          drdradarasimhahealthcare@gmail.com
+          drdardasnirmalhealthcare@gmail.com
         </Typography>
         <Typography sx={{ 
           fontSize: { 
@@ -205,11 +205,11 @@ const ContactCards = () => {
           color: "#638aff" 
         }} />
         <Typography sx={{ 
-          fontWeight: 600, 
+          fontWeight: 400, 
           fontSize: { 
             xs: '14px',
             sm: '15px',
-            md: '16px',
+            md: '17px',
             lg: '18px',
           },
           mb: 0.5
@@ -226,7 +226,7 @@ const ContactCards = () => {
           lineHeight: 1.4,
           color: '#666'
         }}>
-          Arhatship, 1349/50, Bajirao Rd,<br />
+          Arthashilp, 1349/50, Bajirao Rd,<br />
           Below Hotel Ganraj, Natu Baug,<br />
           Shukrawar Peth, Pune,<br />
           Maharashtra 411002

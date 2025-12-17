@@ -33,7 +33,7 @@ const PaymentPage = () => {
 
   return (
     <Box sx={{ 
-      backgroundColor: '#ffffff', 
+      backgroundColor: '#FBF9FA', 
       minHeight: '100vh',
       fontFamily: 'Arial, sans-serif',
       py: { xs: 2, sm: 3, md: 4 },
@@ -58,17 +58,14 @@ const PaymentPage = () => {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          gap: { xs: 3, sm: 4, md: 5 }
+          gap: { xs: 2, sm: 3, md: 4}
         }}
       >
         {/* Consultation Fee Card */}
         <ConsultationFeeCard amount={amount} />
 
         {/* Appointment Summary */}
-        <AppointmentSummaryCard 
-          appointmentData={appointmentData} 
-          amount={amount} 
-        />
+        <AppointmentSummaryCard appointmentData={appointmentData} amount={amount} />
 
         {/* Select Payment Method Card */}
         <SelectPaymentMethod 
@@ -89,27 +86,34 @@ const PaymentPage = () => {
           mt: { xs: 1, sm: 2 }
         }}>
           <Button
-            variant="outlined"
-            onClick={handleBack}
-            sx={{
-              borderColor: '#666666',
-              color: '#666666',
-              fontSize: { xs: '14px', sm: '15px', md: '16px' },
-              fontWeight: 500,
-              padding: { xs: '10px 20px', sm: '12px 30px', md: '14px 40px' },
-              borderRadius: '8px',
-              textTransform: 'none',
-              width: { xs: '100%', sm: 'auto' },
-              minWidth: { xs: '100%', sm: '150px', md: '180px' },
-              '&:hover': {
-                borderColor: '#000000',
-                color: '#000000',
-                backgroundColor: 'rgba(0, 0, 0, 0.04)',
-              }
-            }}
-          >
-            Edit Details
-          </Button>
+  variant="outlined"
+  onClick={handleBack}
+  sx={{
+    borderColor: '#155DFC',
+    color: '#155DFC',
+    backgroundColor: '#EFEFEF',
+    fontSize: { xs: '14px', sm: '15px', md: '16px' },
+    fontWeight: 500,
+    padding: { xs: '10px 20px', sm: '12px 30px', md: '14px 40px' },
+    borderRadius: '8px',
+    textTransform: 'none',
+    width: { xs: '100%', sm: 'auto' },
+    minWidth: { xs: '100%', sm: '150px', md: '180px' },
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '8px', // spacing between arrow and text
+    '&:hover': {
+      borderColor: '#155DFC',
+      color: '#155DFC',
+      backgroundColor: '#EFEFEF',
+    }
+  }}
+>
+  <span style={{ color: '#155DFC', fontWeight: 600 }}>←</span>
+  Back
+</Button>
+
           
           <Button
             variant="contained"
@@ -129,7 +133,7 @@ const PaymentPage = () => {
               }
             }}
           >
-            Confirm & Pay ₹{amount}
+             Proceed to Pay ₹500
           </Button>
         </Box>
       </Box>
