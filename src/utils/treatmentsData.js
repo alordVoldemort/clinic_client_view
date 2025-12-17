@@ -289,7 +289,7 @@ export const TREATMENTS_DATA = [
       title: "Ready to Transform Your Appearance?",
       subtitle:
         "Book an appointment today and take the first step towards looking and feeling your absolute best",
-      buttonText: "Schedule Your Cosmetology Consultation",
+      buttonText: "Book Your Appointment Today",
     },
   },
   {
@@ -489,7 +489,7 @@ export const TREATMENTS_DATA = [
     cta: {
       title: "Your Health, Our Priority",
       subtitle: "Schedule a consultation with our women's health specialists",
-      buttonText: "Schedule Your Gynecology Consultation",
+      buttonText: "Book Your Appointment Today",
     },
   },
   {
@@ -580,7 +580,7 @@ export const TREATMENTS_DATA = [
       title: "Find Relief from Chronic Migraines",
       subtitle:
         "Consult our migraine specialists for personalized and long-term headache management.",
-      buttonText: "Schedule Your Migraine Consultation",
+      buttonText: "Book Your Appointment Today",
     },
   },
   {
@@ -682,7 +682,7 @@ export const TREATMENTS_DATA = [
       title: "Breathe Easy, Hear Clearly, Live Better",
       subtitle:
         "Schedule a consultation with our ENT specialists for personalized care.",
-      buttonText: "Schedule Your ENT Consultation",
+      buttonText: "Book Your Appointment Today",
     },
   },
   {
@@ -783,7 +783,7 @@ export const TREATMENTS_DATA = [
       title: "Ready to Regain Your Mobility?",
       subtitle:
         "Book a consultation today and take the first step toward pain-free movement and healthier joints.",
-      buttonText: "Schedule Your Joint Consultation",
+      buttonText: "Book Your Appointment Today",
     },
   },
   {
@@ -887,7 +887,7 @@ export const TREATMENTS_DATA = [
       title: "Care Your Child Deserves, Every Step of the Way",
       subtitle:
         "Schedule a pediatric consultation to support your child’s healthy growth and development.",
-      buttonText: "Schedule Your Child's Consultation",
+      buttonText: "Book Your Appointment Today",
     },
   },
 ];
