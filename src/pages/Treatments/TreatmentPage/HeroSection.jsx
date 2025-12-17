@@ -76,16 +76,16 @@ const HeroSection = ({ treatmentName, title, description, image }) => {
         <Box
           sx={{
             display: "flex",
-            flexDirection: { xs: "column", sm: "column", md: "row" },
+            flexDirection: { xs: "column", sm: "row", md: "row" },
             gap: { xs: 3, sm: 4, md: 6, lg: "94px" },
-            alignItems: { xs: "flex-start", sm: "flex-start", md: "center" },
+            alignItems: { xs: "flex-start", sm: "center", md: "center" },
           }}
         >
           {/* LEFT CONTENT */}
           <Box
             sx={{
-              flex: { xs: "1 1 100%", sm: "1 1 100%", md: "1 1 50%", lg: "1 1 50%" },
-              width: { xs: "100%", sm: "100%", md: "100%", lg: "583px" },
+              flex: { xs: "1 1 100%", sm: "1 1 50%", md: "1 1 50%", lg: "1 1 50%" },
+              width: { xs: "100%", sm: "50%", md: "100%", lg: "583px" },
               height: { xs: "auto", sm: "auto", md: "auto", lg: "352px" },
               display: "flex",
               flexDirection: "column",
@@ -185,8 +185,8 @@ const HeroSection = ({ treatmentName, title, description, image }) => {
           {/* RIGHT IMAGE */}
           <Box
             sx={{
-              flex: { xs: "1 1 100%", sm: "1 1 100%", md: "1 1 50%", lg: "1 1 50%" },
-              width: { xs: "100%", sm: "100%", md: "100%", lg: "50%" },
+              flex: { xs: "1 1 100%", sm: "1 1 50%", md: "1 1 50%", lg: "1 1 50%" },
+              width: { xs: "100%", sm: "50%", md: "100%", lg: "50%" },
               display: "flex",
               justifyContent: { xs: "center", sm: "center", md: "center", lg: "flex-end" },
               alignItems: "center",
