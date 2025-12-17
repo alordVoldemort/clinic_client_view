@@ -41,14 +41,15 @@ const TreatmentApproach = ({ symptoms, treatmentApproach }) => {
         <Box
           sx={{
             display: "flex",
-            flexDirection: { xs: "column", lg: "row" },
-            gap: { xs: "40px", sm: "50px", md: "60px", lg: "108px" },
+            flexDirection: { xs: "column", md: "row" },
+            gap: { xs: "40px", sm: "50px", md: "30px", lg: "60px", xl: "108px" },
           }}
         >
           {/* LEFT COLUMN */}
           <Box
             sx={{
-              width: { xs: "100%", sm: "100%", md: "100%", lg: "556px" },
+              width: { xs: "100%", sm: "100%", md: "48%", lg: "45%" },
+              flexShrink: 0,
             }}
           >
             <Typography
@@ -76,7 +77,8 @@ const TreatmentApproach = ({ symptoms, treatmentApproach }) => {
             {/* Symptoms Card */}
             <Box
               sx={{
-                width: { xs: "100%", sm: "100%", md: "100%", lg: "533px" },
+                width: "100%",
+                maxWidth: { md: "100%", lg: "533px" },
                 backgroundColor: "#FFFFFF",
                 borderRadius: "8px",
                 border: "1px solid #E6EAF0",
@@ -144,7 +146,8 @@ const TreatmentApproach = ({ symptoms, treatmentApproach }) => {
           {/* RIGHT COLUMN */}
           <Box
             sx={{
-              width: { xs: "100%", sm: "100%", md: "100%", lg: "555px" },
+              width: { xs: "100%", sm: "100%", md: "52%", lg: "55%" },
+              flexShrink: 0,
             }}
           >
             <Typography
@@ -169,12 +172,12 @@ const TreatmentApproach = ({ symptoms, treatmentApproach }) => {
                 <Box
                   key={i}
                   sx={{
-                    width: { xs: "100%", sm: "100%", md: "100%", lg: "555px" },
-                    minHeight: { xs: "auto", lg: "128px" },
-                    height: { xs: "auto", lg: "128px" },
+                    width: "100%",
+                    minHeight: { xs: "auto", md: "128px" },
+                    height: { xs: "auto", md: "128px" },
                     display: "flex",
-                    alignItems: { xs: "flex-start", lg: "center" },
-                    gap: { xs: "20px", sm: "30px", md: "35px", lg: "39px" },
+                    alignItems: { xs: "flex-start", md: "center" },
+                    gap: { xs: "20px", sm: "25px", md: "20px", lg: "30px", xl: "39px" },
                     backgroundColor: "#FFFFFF",
                     borderRadius: { xs: "12px", md: "14px" },
                     border: "1px solid #E6EAF0",
@@ -206,7 +209,8 @@ const TreatmentApproach = ({ symptoms, treatmentApproach }) => {
                   {/* Text Content */}
                   <Box
                     sx={{
-                      width: { xs: "calc(100% - 60px)", sm: "calc(100% - 74px)", md: "calc(100% - 81px)", lg: "432px" },
+                      width: { xs: "calc(100% - 60px)", sm: "calc(100% - 74px)", md: "calc(100% - 66px)", lg: "calc(100% - 76px)", xl: "calc(100% - 85px)" },
+                      flex: 1,
                       display: "flex",
                       flexDirection: "column",
                       gap: { xs: "12px", sm: "15px" },
