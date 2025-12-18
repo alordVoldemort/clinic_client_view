@@ -27,23 +27,28 @@ export default function Footer() {
       component="footer"
       sx={{
         width: "100%",
-        backgroundColor: "#F2F8FF",
+        backgroundColor: "#e9eef6",
         color: "#1a1a1a",
-        pt: { xs: 4, sm: 5, md: 6, lg: 8, xl: 10 },
-        pb: { xs: 3, sm: 4, md: 5, lg: 6, xl: 8 },
-        pl: { xs: 2, sm: 3, md: 4, lg: 6, xl: 10 },
-        pr: { xs: 5, sm: 3, md: 4, lg: 6, xl: 10 },
+        pt: { xs: 4, sm: 5, md: 6, lg: 8 },
+        pb: { xs: 3, sm: 4, md: 5, lg: 6 },
+        px: { xs: 2, sm: 3, md: 4, lg: 6 },
       }}
     >
-      <Container maxWidth="xl">
+      <Container
+        maxWidth="lg"
+        sx={{
+          width: "100%",
+          px: { xs: 2, sm: 3, md: 4 },
+        }}
+      >
         <Grid
           container
-          spacing={{
-            xs: 9,
-            sm: 19,
-            md: 6,
-            lg: 12,
-            xl: 18,
+          spacing={{ xs: 3, sm: 4, md: 4, lg: 10 }}
+          sx={{
+            flexWrap: "nowrap", // default (desktop & tablet)
+            "@media (max-width:700px)": {
+              flexWrap: "wrap", // 📱 below 700px only
+            },
           }}
         >
           {/* ============================
@@ -51,17 +56,22 @@ export default function Footer() {
           ============================ */}
           <Grid item xs={12} sm={6} md={3}>
             <Box
-  sx={{
-    display: "flex",
-    flexDirection: "column",
-    alignItems: { xs: "center", sm: "flex-start" }, // ✅ FIX
-    gap: { xs: 0.8, sm: 1, md: 1.2 },
-    mb: { xs: 2, sm: 2.5, md: 3 },
-    textAlign: { xs: "center", sm: "left" }, // ✅ FIX
-  }}
->
-
-              <Box component="img" src={logo} sx={{ width: 45 }} />
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: { xs: "flex-start", sm: "flex-start" },
+                gap: { xs: 0.8, sm: 1, md: 1.2 },
+                mb: { xs: 2, sm: 2.5, md: 3 },
+              }}
+            >
+              <Box
+                component="img"
+                src={logo}
+                sx={{
+                  width: { xs: 40, sm: 45, md: 45 },
+                  height: "auto",
+                }}
+              />
 
               <Typography
                 variant="caption"
@@ -78,14 +88,19 @@ export default function Footer() {
             <Typography
               sx={{
                 color: "#555",
-                fontSize: { xs: "0.85rem", sm: "0.9rem", md: "0.95rem" },
+                fontSize: {
+                  xs: "0.8rem",
+                  sm: "0.85rem",
+                  md: "0.9rem",
+                  lg: "0.95rem",
+                },
                 lineHeight: 1.7,
                 mb: { xs: 2, sm: 2.5, md: 3 },
               }}
             >
-              Providing excellence in <br></br>healthcare with compassion{" "}
-              <br></br>and expertise. Your health <br></br>and well-being are
-              our<br></br> top priorities.
+              Providing excellence in healthcare <br></br> with compassion and
+              expertise. Your <br></br>health and well-being are our top
+              priorities.
             </Typography>
 
             {/* SOCIAL ICONS */}
@@ -94,11 +109,24 @@ export default function Footer() {
                 <IconButton
                   key={i}
                   sx={{
-                    width: { xs: 36, sm: 40, md: 45 },
-                    height: { xs: 36, sm: 40, md: 45 },
+                    width: { xs: 32, sm: 36, md: 40, lg: 45 },
+                    height: { xs: 32, sm: 36, md: 40, lg: 45 },
+                    p: { xs: 0.5, sm: 0.75 },
                   }}
                 >
-                  <Box component="img" src={icon} sx={{ width: "18px" }} />
+                  <Box
+                    component="img"
+                    src={icon}
+                    sx={{
+                      width: { xs: "24px", sm: "26px", md: "28px", lg: "29px" },
+                      height: {
+                        xs: "24px",
+                        sm: "26px",
+                        md: "28px",
+                        lg: "28px",
+                      },
+                    }}
+                  />
                 </IconButton>
               ))}
             </Box>
@@ -112,7 +140,12 @@ export default function Footer() {
               sx={{
                 fontWeight: 600,
                 mb: { xs: 1.5, sm: 2, md: 2.5 },
-                fontSize: { xs: "1rem", sm: "1.05rem", md: "1.1rem" },
+                fontSize: {
+                  xs: "0.95rem",
+                  sm: "1rem",
+                  md: "1.05rem",
+                  lg: "1.1rem",
+                },
               }}
             >
               Quick Links
@@ -122,7 +155,7 @@ export default function Footer() {
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                gap: { xs: 1.3, sm: 2, md: 2.5 },
+                gap: { xs: 1, sm: 1.5, md: 2, lg: 2.5 },
               }}
             >
               {["Home", "About Us", "Book Appointment", "Contact Us"].map(
@@ -134,7 +167,12 @@ export default function Footer() {
                     underline="none"
                     sx={{
                       color: "#555",
-                      fontSize: { xs: "0.85rem", sm: "0.9rem", md: "0.95rem" },
+                      fontSize: {
+                        xs: "0.8rem",
+                        sm: "0.85rem",
+                        md: "0.9rem",
+                        lg: "0.95rem",
+                      },
                       "&:hover": { color: "#1976d2" },
                     }}
                   >
@@ -153,7 +191,12 @@ export default function Footer() {
               sx={{
                 fontWeight: 600,
                 mb: { xs: 1.5, sm: 2, md: 2.5 },
-                fontSize: { xs: "1rem", sm: "1.05rem", md: "1.1rem" },
+                fontSize: {
+                  xs: "0.95rem",
+                  sm: "1rem",
+                  md: "1.05rem",
+                  lg: "1.1rem",
+                },
               }}
             >
               Our Treatments
@@ -163,7 +206,7 @@ export default function Footer() {
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                gap: { xs: 1.3, sm: 2, md: 2.5 },
+                gap: { xs: 1, sm: 1.5, md: 2, lg: 2.5 },
               }}
             >
               {[
@@ -181,7 +224,12 @@ export default function Footer() {
                   key={item}
                   sx={{
                     color: "#555",
-                    fontSize: { xs: "0.85rem", sm: "0.9rem", md: "0.95rem" },
+                    fontSize: {
+                      xs: "0.8rem",
+                      sm: "0.85rem",
+                      md: "0.9rem",
+                      lg: "0.95rem",
+                    },
                   }}
                 >
                   {item}
@@ -198,7 +246,12 @@ export default function Footer() {
               sx={{
                 fontWeight: 600,
                 mb: { xs: 1.5, sm: 2, md: 2.5 },
-                fontSize: { xs: "1rem", sm: "1.05rem", md: "1.1rem" },
+                fontSize: {
+                  xs: "0.95rem",
+                  sm: "1rem",
+                  md: "1.05rem",
+                  lg: "1.1rem",
+                },
               }}
             >
               Contact Us
@@ -208,21 +261,41 @@ export default function Footer() {
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                gap: { xs: 2, sm: 2.5, md: 3 },
+                gap: { xs: 1.5, sm: 2, md: 2.5, lg: 3 },
               }}
             >
               {/* Location - UPDATED WITH ACTUAL ADDRESS */}
-              <Box sx={{ display: "flex", alignItems: "flex-start", gap: 1 }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "flex-start",
+                  gap: { xs: 0.75, sm: 1 },
+                }}
+              >
                 <Box
                   component="img"
                   src={locationIcon}
-                  sx={{ width: "20px", mt: 0.5 }}
+                  sx={{
+                    width: { xs: "18px", sm: "20px" },
+                    mt: 0.5,
+                    flexShrink: 0,
+                  }}
                 />
 
-                <Typography sx={{ color: "#555", fontSize: "0.95rem" }}>
+                <Typography
+                  sx={{
+                    color: "#555",
+                    fontSize: {
+                      xs: "0.8rem",
+                      sm: "0.85rem",
+                      md: "0.9rem",
+                      lg: "0.95rem",
+                    },
+                    lineHeight: 1.6,
+                  }}
+                >
                   {isIPad ? (
                     <>
-
                       Arthashilp, 1349/50, Bajirao Rd,
                       <br />
                       below hotel Ganraj, Natu Baag,
@@ -233,7 +306,8 @@ export default function Footer() {
                     </>
                   ) : (
                     <>
-                      Arthashilp, 1349/50, Bajirao Rd,<br/>
+                      Arthashilp, 1349/50, Bajirao Rd,
+                      <br />
                       below hotel Ganraj, Natu Baag,
                       <br />
                       Shukrawar Peth, Pune, Maharashtra 411002
@@ -243,18 +317,65 @@ export default function Footer() {
               </Box>
 
               {/* Phone */}
-              <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                <Box component="img" src={phoneIcon} sx={{ width: "20px" }} />
-                <Typography sx={{ color: "#555", fontSize: "0.95rem" }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: { xs: 0.75, sm: 1 },
+                }}
+              >
+                <Box
+                  component="img"
+                  src={phoneIcon}
+                  sx={{
+                    width: { xs: "18px", sm: "20px" },
+                    flexShrink: 0,
+                  }}
+                />
+                <Typography
+                  sx={{
+                    color: "#555",
+                    fontSize: {
+                      xs: "0.8rem",
+                      sm: "0.85rem",
+                      md: "0.9rem",
+                      lg: "0.95rem",
+                    },
+                  }}
+                >
                   +91 9822141851
                 </Typography>
               </Box>
 
               {/* Email */}
-              <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                <Box component="img" src={emailIcon} sx={{ width: "20px" }} />
-                <Typography sx={{ color: "#555", fontSize: "0.95rem" }}>
-                  drdardasnirmalhealthcare@gmail.com
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: { xs: 0.75, sm: 1 },
+                }}
+              >
+                <Box
+                  component="img"
+                  src={emailIcon}
+                  sx={{
+                    width: { xs: "18px", sm: "20px" },
+                    flexShrink: 0,
+                  }}
+                />
+                <Typography
+                  sx={{
+                    color: "#555",
+                    fontSize: {
+                      xs: "0.8rem",
+                      sm: "0.85rem",
+                      md: "0.9rem",
+                      lg: "0.95rem",
+                    },
+                    wordBreak: "break-word",
+                  }}
+                >
+                  info@healingtouch.com
                 </Typography>
               </Box>
             </Box>
@@ -263,53 +384,71 @@ export default function Footer() {
 
         {/* DIVIDER */}
         <Divider
-          sx={{ mt: { xs: 3, sm: 4, md: 5 }, mb: { xs: 2, sm: 3, md: 4 } }}
+          sx={{
+            mt: { xs: 3, sm: 4, md: 5 },
+            mb: { xs: 2, sm: 3, md: 4 },
+            borderColor: "rgba(0, 0, 0, 0.1)",
+          }}
         />
 
         {/* BOTTOM BAR */}
         <Box
-  sx={{
-    display: "flex",
-    flexDirection: { xs: "column-reverse", sm: "row" },
-    justifyContent: "space-between",
-    alignItems: "center",
-    gap: { xs: 1.5, sm: 0 },
-    textAlign: "center",
-  }}
->
-  <Typography sx={{ fontSize: "0.9rem", color: "#555" }}>
-    © 2025 zonixtec. All rights reserved.
-  </Typography>
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", sm: "row" },
+            justifyContent: { xs: "center", sm: "space-between" },
+            alignItems: "center",
+            gap: { xs: 2, sm: 0 },
+            textAlign: { xs: "center", sm: "left" },
+          }}
+        >
+          <Typography
+            sx={{
+              fontSize: { xs: "0.8rem", sm: "0.85rem", md: "0.9rem" },
+              color: "#555",
+            }}
+          >
+            © 2025 zonixtec. All rights reserved.
+          </Typography>
 
-  <Box sx={{ display: "flex", gap: { xs: 2, sm: 3 } }}>
-    <MuiLink
-      component={Link}
-      to="/privacy-policy"
-      underline="none"
-      sx={{
-        color: "#555",
-        fontSize: "0.9rem",
-        "&:hover": { color: "#1976d2" },
-      }}
-    >
-      Privacy Policy
-    </MuiLink>
+          <Box
+            sx={{
+              display: "flex",
+              gap: { xs: 2, sm: 3 },
+              flexWrap: "wrap",
+              justifyContent: { xs: "center", sm: "flex-end" },
+            }}
+          >
+            {/* Privacy Policy Link */}
+            <MuiLink
+              component={Link}
+              to="/privacy-policy"
+              underline="none"
+              sx={{
+                color: "#555",
+                fontSize: { xs: "0.8rem", sm: "0.85rem", md: "0.9rem" },
+                "&:hover": { color: "#1976d2" },
+              }}
+            >
+              Privacy Policy
+            </MuiLink>
 
-    <MuiLink
-      component={Link}
-      to="/terms"
-      underline="none"
-      sx={{
-        color: "#555",
-        fontSize: "0.9rem",
-        "&:hover": { color: "#1976d2" },
-      }}
-    >
-      Terms & Conditions
-    </MuiLink>
-  </Box>
-</Box>
-
+            {/* Terms & Conditions Link */}
+            <MuiLink
+              component={Link}
+              to="/terms"
+              underline="none"
+              sx={{
+                color: "#555",
+                fontSize: { xs: "0.8rem", sm: "0.85rem", md: "0.9rem" },
+                "&:hover": { color: "#1976d2" },
+              }}
+              onClick={() => console.log("Terms link clicked")}
+            >
+              Terms & Conditions
+            </MuiLink>
+          </Box>
+        </Box>
       </Container>
     </Box>
   );

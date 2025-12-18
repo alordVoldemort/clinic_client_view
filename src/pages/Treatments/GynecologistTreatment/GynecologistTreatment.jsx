@@ -3,6 +3,7 @@ import HeroSection from "../TreatmentPage/HeroSection";
 import ServiceSection from "../TreatmentPage/ServiceSection";
 import TreatmentApproach from "../TreatmentPage/TreatmentApproach";
 import FAQSection from "../TreatmentPage/FAQsection";
+import CallToActionSection from "../TreatmentPage/CallToActionSection";
 
 const GynecologistTreatment = () => {
   return (
@@ -11,6 +12,7 @@ const GynecologistTreatment = () => {
       <ServiceSection />
       <TreatmentApproach />
       <FAQSection />
+      <CallToActionSection />
     </Box>
   );
 };

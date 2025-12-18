@@ -58,7 +58,7 @@ const HeroSection = ({ treatmentName, title, description, image }) => {
     <Box
       sx={{
         width: "100%",
-        py: { xs: 4, sm: 6, md: 8 },
+        py: { xs: 3, sm: 4, md: 6, lg: 8 },
         backgroundColor: "#F4F9FF",
       }}
     >
@@ -66,30 +66,31 @@ const HeroSection = ({ treatmentName, title, description, image }) => {
         maxWidth={false}
         disableGutters
         sx={{
-          width: "1275px",
-          height: "399px",
+          width: { xs: "100%", sm: "100%", md: "100%", lg: "1275px" },
+          maxWidth: { xs: "100%", sm: "100%", md: "100%", lg: "1275px" },
+          height: { xs: "auto", sm: "auto", md: "auto", lg: "399px" },
           backgroundColor: "transparent",
-          px: 0,
+          px: { xs: 2, sm: 3, md: 4, lg: 0 },
         }}
       >
         <Box
           sx={{
             display: "flex",
-            flexDirection: { xs: "column", md: "row" },
-            gap: { xs: 4, md: "94px" },
-            alignItems: { xs: "flex-start", md: "center" },
+            flexDirection: { xs: "column", sm: "row", md: "row" },
+            gap: { xs: 3, sm: 4, md: 6, lg: "94px" },
+            alignItems: { xs: "flex-start", sm: "center", md: "center" },
           }}
         >
           {/* LEFT CONTENT */}
           <Box
             sx={{
-              flex: { xs: "1 1 100%", md: "1 1 50%" },
-              width: { xs: "100%", md: "583px" },
-              height: { md: "352px" },
+              flex: { xs: "1 1 100%", sm: "1 1 50%", md: "1 1 50%", lg: "1 1 50%" },
+              width: { xs: "100%", sm: "50%", md: "100%", lg: "583px" },
+              height: { xs: "auto", sm: "auto", md: "auto", lg: "352px" },
               display: "flex",
               flexDirection: "column",
-              padding: "9px 7px 9px 7px",
-              gap: "41px",
+              padding: { xs: "12px", sm: "16px", md: "20px", lg: "9px 7px 9px 7px" },
+              gap: { xs: 2, sm: 3, md: 4, lg: "41px" },
               borderRadius: "6px",
               boxSizing: "border-box",
             }}
@@ -98,8 +99,8 @@ const HeroSection = ({ treatmentName, title, description, image }) => {
             <Box
               sx={{
                 display: "inline-flex",
-                px: 2.5,
-                py: 1,
+                px: { xs: 2, sm: 2.5, md: 2.5 },
+                py: { xs: 0.75, sm: 1, md: 1 },
                 backgroundColor: "#E4EDFF",
                 borderRadius: "8px",
                 width: "fit-content", // ⭐ FIX: Auto-size to text
@@ -109,7 +110,7 @@ const HeroSection = ({ treatmentName, title, description, image }) => {
               <Typography
                 sx={{
                   fontFamily: "Poppins, sans-serif",
-                  fontSize: { xs: "0.85rem", sm: "0.9rem", md: "1rem" },
+                  fontSize: { xs: "0.75rem", sm: "0.85rem", md: "0.9rem", lg: "1rem" },
                   fontWeight: 400,
                   color: "#155DFC",
                 }}
@@ -123,7 +124,7 @@ const HeroSection = ({ treatmentName, title, description, image }) => {
               sx={{
                 fontFamily: "Poppins, sans-serif",
                 fontWeight: 500,
-                fontSize: { xs: "20px", sm: "20px", md: "24px", lg: "24px" },
+                fontSize: { xs: "18px", sm: "20px", md: "22px", lg: "24px" },
                 lineHeight: "145%",
                 letterSpacing: "0px",
                 color: "#0C0E11",
@@ -137,7 +138,7 @@ const HeroSection = ({ treatmentName, title, description, image }) => {
               sx={{
                 fontFamily: "Poppins, sans-serif",
                 color: "#0C0E11",
-                fontSize: { xs: "15px", sm: "18px", md: "18px" },
+                fontSize: { xs: "14px", sm: "15px", md: "16px", lg: "18px" },
                 lineHeight: 1.7,
                 fontWeight: 400,
               }}
@@ -146,7 +147,7 @@ const HeroSection = ({ treatmentName, title, description, image }) => {
             </Typography>
 
             {/* Book Consultation Button */}
-            <Box sx={{ mt: { xs: 1, md: 0 } }}>
+            <Box sx={{ mt: { xs: 1, sm: 1, md: 0 } }}>
               <Button
                 variant="contained"
                 size="large"
@@ -156,14 +157,17 @@ const HeroSection = ({ treatmentName, title, description, image }) => {
                     component="img"
                     src={calendarIcon}
                     alt="Calendar"
-                    sx={{ width: "20px", height: "auto" }}
+                    sx={{ 
+                      width: { xs: "18px", sm: "19px", md: "20px" }, 
+                      height: "auto" 
+                    }}
                   />
                 }
                 sx={{
                   fontFamily: "Poppins, sans-serif",
-                  px: { xs: 3, sm: 4 },
-                  py: 1.5,
-                  fontSize: { xs: "0.9rem", sm: "1rem" },
+                  px: { xs: 2.5, sm: 3, md: 3.5, lg: 4 },
+                  py: { xs: 1.25, sm: 1.5, md: 1.5 },
+                  fontSize: { xs: "0.85rem", sm: "0.9rem", md: "0.95rem", lg: "1rem" },
                   backgroundColor: "#155DFC",
                   borderRadius: "8px",
                   textTransform: "none",
@@ -181,10 +185,10 @@ const HeroSection = ({ treatmentName, title, description, image }) => {
           {/* RIGHT IMAGE */}
           <Box
             sx={{
-              flex: { xs: "1 1 100%", md: "1 1 50%" },
-              width: { xs: "100%", md: "50%" },
+              flex: { xs: "1 1 100%", sm: "1 1 50%", md: "1 1 50%", lg: "1 1 50%" },
+              width: { xs: "100%", sm: "50%", md: "100%", lg: "50%" },
               display: "flex",
-              justifyContent: { xs: "center", md: "flex-end" },
+              justifyContent: { xs: "center", sm: "center", md: "center", lg: "flex-end" },
               alignItems: "center",
             }}
           >
@@ -194,8 +198,18 @@ const HeroSection = ({ treatmentName, title, description, image }) => {
               alt={finalTreatmentName}
               sx={{
                 width: "100%",
-                maxWidth: { xs: "100%", sm: "500px", md: "598px" },
-                height: { xs: "300px", sm: "350px", md: "399px" },
+                maxWidth: { 
+                  xs: "100%", 
+                  sm: "100%", 
+                  md: "500px", 
+                  lg: "598px" 
+                },
+                height: { 
+                  xs: "250px", 
+                  sm: "300px", 
+                  md: "350px", 
+                  lg: "399px" 
+                },
                 objectFit: "cover",
                 borderRadius: "9px",
               }}

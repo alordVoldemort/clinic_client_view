@@ -19,8 +19,8 @@ import {
 
 import MenuIcon from "@mui/icons-material/Menu";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import { useTheme } from "@mui/material/styles";
+import { Link, useNavigate } from "react-router-dom";
+
 import logo from "../../assets/clinic/logo/Group 1686550958.svg";
 import phoneIcon from "../../assets/clinic/Navbar/phone-flip (3) 1.svg";
 
@@ -29,13 +29,11 @@ export default function Navbar() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [treatmentsOpen, setTreatmentsOpen] = useState(false);
   const navigate = useNavigate();
-  const location = useLocation();
 
-  const Theme = useTheme();
+
+  // Show hamburger for iPad Mini (768px) and small devices
+  // Show menu options for iPad Air (820px+) and desktop
   const showMenuOptions = useMediaQuery("(min-width:900px)");
-
-  // Check if we're on the appointment page
-  const isAppointmentPage = location.pathname === "/appointment";
 
   const menuItems = [
     { label: "Home", path: "/" },
@@ -60,17 +58,17 @@ export default function Navbar() {
     "Child Treatments",
   ];
 
-  // Check if a menu item is active
-  const isActive = (path) => {
-    if (path === "/") {
-      return location.pathname === "/";
-    }
-    return location.pathname.startsWith(path);
-  };
-
-  // Check if treatments menu should be active
-  const isTreatmentsActive = () => {
-    return location.pathname.startsWith("/treatments/");
+  // Map treatment names to their correct routes
+  const treatmentRouteMap = {
+    "Spine Treatments": "/treatments/spine-treatments",
+    "GIT Treatments": "/treatments/git-treatments",
+    Cosmetology: "/treatments/cosmetology",
+    "Kidney Treatment": "/treatments/kidney-treatment",
+    "Gynecologist Treatment": "/treatments/gynecologist-treatment",
+    "Migraine Treatment": "/treatments/migraine-treatment",
+    "ENT Treatments": "/treatments/ent-treatments",
+    "Joint Treatments": "/treatments/joint-treatments",
+    "Child Treatments": "/treatments/child-treatments",
   };
 
   const handleTreatmentMenuOpen = (event) => {
@@ -82,7 +80,10 @@ export default function Navbar() {
   };
 
   const handleTreatmentClick = (treatment) => {
-    const path = `/treatments/${treatment.toLowerCase().replace(/\s+/g, "-")}`;
+    // Use the route map to get the correct path
+    const path =
+      treatmentRouteMap[treatment] ||
+      `/treatments/${treatment.toLowerCase().replace(/\s+/g, "-")}`;
     navigate(path);
     handleTreatmentMenuClose();
   };
@@ -94,18 +95,18 @@ export default function Navbar() {
         color="inherit"
         elevation={0}
         sx={{
-          backgroundColor: "#ffffff", // Always white background
+          backgroundColor: "#ffffff",
           borderBottom: "1px solid #e0e0e0",
         }}
       >
         <Toolbar sx={{ py: { xs: 1, sm: 1.5 }, px: 0 }}>
           <Container
-            maxWidth="xl"
+            maxWidth="false"
             sx={{
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              width: "100%",
+              width: "1440px",
             }}
           >
             {/* Logo */}
@@ -114,10 +115,10 @@ export default function Navbar() {
               to="/"
               sx={{
                 display: "flex",
-                flexDirection: "row",
+                flexDirection: "column",
                 alignItems: "center",
                 textDecoration: "none",
-                gap: 2,
+                gap: 0.5,
               }}
             >
               <Box
@@ -130,11 +131,12 @@ export default function Navbar() {
                 }}
               />
               <Typography
+                variant="caption"
                 sx={{
                   textDecoration: "none",
-                  color: "#155DFC", // Always blue
-                  fontWeight: 600,
-                  fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+                  color: "#0057B7",
+                  fontWeight: 500,
+                  fontSize: { xs: "15px", sm: "15px", md: "15px" },
                   lineHeight: 1,
                   textAlign: "center",
                 }}
@@ -161,7 +163,6 @@ export default function Navbar() {
               >
                 {menuItems.map((item) => {
                   if (item.hasDropdown) {
-                    const treatmentsActive = isTreatmentsActive();
                     return (
                       <Box key={item.path}>
                         <Button
@@ -178,30 +179,15 @@ export default function Navbar() {
                             },
                             minWidth: "auto",
                             px: { xs: 1, sm: 1.5, md: 1.5, lg: 1.5, xl: 2 },
-                            color: treatmentsActive ? "#155DFC" : "#000000", // Blue when active
-                            fontWeight: treatmentsActive ? 600 : 500, // Bold when active
+                            color: "#000000",
+                            fontWeight: 500,
                             textTransform: "none",
                             flexShrink: 0,
                             fontFamily: "Poppins, sans-serif",
-                            position: "relative",
                             "&:hover": {
-                              backgroundColor: "transparent",
+                              backgroundColor: "rgba(25, 118, 210, 0.04)",
                               color: "#155DFC",
                             },
-                            // Add underline for active state
-                            "&::after": treatmentsActive
-                              ? {
-                                  content: '""',
-                                  position: "absolute",
-                                  bottom: -4,
-                                  left: "50%",
-                                  transform: "translateX(-50%)",
-                                  width: "60%",
-                                  height: "2px",
-                                  backgroundColor: "#155DFC",
-                                  borderRadius: "1px",
-                                }
-                              : {},
                           }}
                         >
                           {item.label}
@@ -226,44 +212,29 @@ export default function Navbar() {
                             },
                           }}
                         >
-                          {treatments.map((treatment) => {
-                            const treatmentPath = `/treatments/${treatment
-                              .toLowerCase()
-                              .replace(/\s+/g, "-")}`;
-                            const isTreatmentActive =
-                              location.pathname === treatmentPath;
-
-                            return (
-                              <MenuItem
-                                key={treatment}
-                                onClick={() => handleTreatmentClick(treatment)}
-                                sx={{
-                                  fontFamily: "Poppins, sans-serif",
-                                  color: isTreatmentActive
-                                    ? "#155DFC"
-                                    : "#000000",
-                                  fontSize: "0.95rem",
-                                  py: 1.5,
-                                  px: 2,
-                                  fontWeight: isTreatmentActive ? 600 : 400,
-                                  backgroundColor: isTreatmentActive
-                                    ? "rgba(21, 93, 252, 0.08)"
-                                    : "transparent",
-                                  "&:hover": {
-                                    color: "#155DFC",
-                                    backgroundColor: "rgba(21, 93, 252, 0.04)",
-                                  },
-                                }}
-                              >
-                                {treatment}
-                              </MenuItem>
-                            );
-                          })}
+                          {treatments.map((treatment) => (
+                            <MenuItem
+                              key={treatment}
+                              onClick={() => handleTreatmentClick(treatment)}
+                              sx={{
+                                fontFamily: "Poppins, sans-serif",
+                                color: "#000000",
+                                fontSize: "0.95rem",
+                                py: 1.5,
+                                px: 2,
+                                "&:hover": {
+                                  color: "#155DFC",
+                                  backgroundColor: "rgba(21, 93, 252, 0.04)",
+                                },
+                              }}
+                            >
+                              {treatment}
+                            </MenuItem>
+                          ))}
                         </Menu>
                       </Box>
                     );
                   }
-                  const active = isActive(item.path);
                   return (
                     <Button
                       key={item.path}
@@ -280,44 +251,36 @@ export default function Navbar() {
                         },
                         minWidth: "auto",
                         px: { xs: 1, sm: 1.5, md: 1.5, lg: 1.5, xl: 2 },
-                        color: active ? "#155DFC" : "#000000", // Blue when active
-                        fontWeight: active ? 600 : 500, // Bold when active
+                        color: "#000000",
+                        fontWeight: 500,
                         textTransform: "none",
                         flexShrink: 0,
                         fontFamily: "Poppins, sans-serif",
-                        position: "relative",
                         "&:hover": {
-                          backgroundColor: "transparent",
+                          backgroundColor: "rgba(25, 118, 210, 0.04)",
                           color: "#155DFC",
                         },
-                        // Add underline for active state
-                        "&::after": active
-                          ? {
-                              content: '""',
-                              position: "absolute",
-                              bottom: -4,
-                              left: "50%",
-                              transform: "translateX(-50%)",
-                              width: "60%",
-                              height: "2px",
-                              backgroundColor: "#155DFC",
-                              borderRadius: "1px",
-                            }
-                          : {},
                       }}
                     >
                       {item.label}
                     </Button>
                   );
                 })}
-                {/* Phone Number */}
                 <Box
                   sx={{
-                    display: "flex",
+                    display: {
+                      md: "flex",
+                      lg: "none",
+                      xl: "flex",
+                    },
+                    // Hide on iPad Pro (1024px) specifically
+                    "@media (min-width: 1024px) and (max-width: 1199px)": {
+                      display: "none",
+                    },
                     alignItems: "center",
                     gap: 1,
                     mr: 2,
-                    color: "#000000",
+                    color: "#000000ff",
                   }}
                 >
                   <Box
@@ -333,83 +296,48 @@ export default function Navbar() {
                     sx={{
                       fontSize: { xs: "0.85rem", sm: "0.9rem", md: "1rem" },
                       fontWeight: 500,
-                      color: "#000000",
                     }}
                   >
-                    +91 9822141851
+                    +123 456 7890
                   </Typography>
                 </Box>
-                {/* Book Appointment Button - Hidden on appointment page */}
-                {!isAppointmentPage && (
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={() => navigate("/appointment")}
-                    sx={{
-                      fontSize: {
-                        xs: "0.85rem",
-                        sm: "0.9rem",
-                        md: "0.85rem",
-                        lg: "0.85rem",
-                        xl: "1rem",
-                      },
-                      px: { xs: 2, sm: 2.5, md: 2, lg: 2, xl: 3 },
-                      py: { xs: 0.75, sm: 1 },
-                      backgroundColor: "#155DFC",
-                      textTransform: "none",
-                      fontWeight: 600,
-                      borderRadius: "6px",
-                      flexShrink: 0,
-                      whiteSpace: "nowrap",
-                      "&:hover": {
-                        backgroundColor: "#1565c0",
-                      },
-                    }}
-                  >
-                    Book Appointment
-                  </Button>
-                )}
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={() => navigate("/appointment")}
+                  sx={{
+                    fontSize: {
+                      xs: "0.85rem",
+                      sm: "0.9rem",
+                      md: "0.85rem",
+                      lg: "0.85rem",
+                      xl: "1rem",
+                    },
+                    px: { xs: 2, sm: 2.5, md: 2, lg: 2, xl: 3 },
+                    py: { xs: 0.75, sm: 1 },
+                    backgroundColor: "#155DFC",
+                    textTransform: "none",
+                    fontWeight: 600,
+                    borderRadius: "6px",
+                    flexShrink: 0,
+                    whiteSpace: "nowrap",
+                    "&:hover": {
+                      backgroundColor: "#1565c0",
+                    },
+                  }}
+                >
+                  Book Appointment
+                </Button>
               </Box>
             ) : (
               // Hamburger Menu - for iPad Mini (768px) and small mobile devices
-              <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-                {isAppointmentPage && (
-                  <Box
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 1,
-                      color: "#000000",
-                    }}
-                  >
-                    <Box
-                      component="img"
-                      src={phoneIcon}
-                      alt="Phone"
-                      sx={{
-                        width: "16px",
-                        height: "auto",
-                      }}
-                    />
-                    <Typography
-                      sx={{
-                        fontSize: "0.85rem",
-                        fontWeight: 500,
-                        color: "#000000",
-                      }}
-                    >
-                      +123 456 7890
-                    </Typography>
-                  </Box>
-                )}
-                <IconButton
-                  edge="end"
-                  onClick={() => setOpen(true)}
-                  sx={{ color: "#1976d2" }}
-                >
-                  <MenuIcon />
-                </IconButton>
-              </Box>
+              <IconButton
+                edge="end"
+                onClick={() => setOpen(true)}
+                sx={{ color: "#1976d2" }}
+              >
+                <MenuIcon />
+              </IconButton>
             )}
           </Container>
         </Toolbar>
@@ -421,24 +349,17 @@ export default function Navbar() {
           <List>
             {menuItems.map((item) => {
               if (item.hasDropdown) {
-                const treatmentsActive = isTreatmentsActive();
                 return (
                   <Box key={item.path}>
                     <ListItem disablePadding>
                       <ListItemButton
                         onClick={() => setTreatmentsOpen(!treatmentsOpen)}
-                        sx={{
-                          backgroundColor: treatmentsActive
-                            ? "rgba(21, 93, 252, 0.08)"
-                            : "transparent",
-                        }}
                       >
                         <ListItemText
                           primary={item.label}
                           primaryTypographyProps={{
                             fontSize: "1rem",
-                            fontWeight: treatmentsActive ? 600 : 500,
-                            color: treatmentsActive ? "#155DFC" : "#000000",
+                            fontWeight: 500,
                           }}
                         />
                         <ExpandMoreIcon
@@ -447,79 +368,57 @@ export default function Navbar() {
                               ? "rotate(180deg)"
                               : "rotate(0deg)",
                             transition: "transform 0.3s",
-                            color: treatmentsActive ? "#155DFC" : "inherit",
                           }}
                         />
                       </ListItemButton>
                     </ListItem>
                     {treatmentsOpen && (
                       <Box sx={{ pl: 2 }}>
-                        {treatments.map((treatment) => {
-                          const treatmentPath = `/treatments/${treatment
-                            .toLowerCase()
-                            .replace(/\s+/g, "-")}`;
-                          const isTreatmentActive =
-                            location.pathname === treatmentPath;
-
-                          return (
-                            <ListItem
-                              key={treatment}
-                              disablePadding
-                              onClick={() => {
-                                handleTreatmentClick(treatment);
-                                setOpen(false);
-                                setTreatmentsOpen(false);
-                              }}
-                            >
-                              <ListItemButton
-                                sx={{
-                                  backgroundColor: isTreatmentActive
-                                    ? "rgba(21, 93, 252, 0.08)"
-                                    : "transparent",
+                        {treatments.map((treatment) => (
+                          <ListItem
+                            key={treatment}
+                            disablePadding
+                            onClick={() => {
+                              handleTreatmentClick(treatment);
+                              setOpen(false);
+                              setTreatmentsOpen(false);
+                            }}
+                          >
+                            <ListItemButton>
+                              <ListItemText
+                                primary={treatment}
+                                primaryTypographyProps={{
+                                  fontSize: "0.9rem",
+                                  fontWeight: 400,
+                                  fontFamily: "Poppins, sans-serif",
+                                  color: "#000000",
                                 }}
-                              >
-                                <ListItemText
-                                  primary={treatment}
-                                  primaryTypographyProps={{
-                                    fontSize: "0.9rem",
-                                    fontWeight: isTreatmentActive ? 600 : 400,
-                                    fontFamily: "Poppins, sans-serif",
-                                    color: isTreatmentActive
-                                      ? "#155DFC"
-                                      : "#000000",
-                                  }}
-                                />
-                              </ListItemButton>
-                            </ListItem>
-                          );
-                        })}
+                                sx={{
+                                  "&:hover": {
+                                    color: "#155DFC",
+                                  },
+                                }}
+                              />
+                            </ListItemButton>
+                          </ListItem>
+                        ))}
                       </Box>
                     )}
                   </Box>
                 );
               }
-              const active = isActive(item.path);
               return (
                 <ListItem
                   key={item.path}
                   disablePadding
                   onClick={() => setOpen(false)}
                 >
-                  <ListItemButton
-                    component={Link}
-                    to={item.path}
-                    sx={{
-                      backgroundColor: active
-                        ? "rgba(21, 93, 252, 0.08)"
-                        : "transparent",
-                    }}
-                  >
+                  <ListItemButton component={Link} to={item.path}>
                     <ListItemText
                       primary={item.label}
                       primaryTypographyProps={{
                         fontSize: "1rem",
-                        fontWeight: active ? 600 : 500,
-                        color: active ? "#155DFC" : "#000000",
+                        fontWeight: 500,
                       }}
                     />
                   </ListItemButton>

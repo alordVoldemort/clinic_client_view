@@ -6,10 +6,11 @@ import {
   Collapse,
   IconButton,
 } from "@mui/material";
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material/Remove";
 import { useLocation } from "react-router-dom";
 import { getTreatmentByRoute } from "../../../utils/treatmentsData";
+import questionMarkIcon from "../../../assets/SVGs/questionmarksvg.svg";
+import plusIcon from "../../../assets/SVGs/PlusIconFaq.svg";
+import minusIcon from "../../../assets/SVGs/minusiconfaq.svg";
 
 const FAQSection = ({ title, subtitle, faqs }) => {
   const location = useLocation();
@@ -36,6 +37,7 @@ const FAQSection = ({ title, subtitle, faqs }) => {
   return (
     <Box
       sx={{
+        backgroundColor: "#ffffff",
         width: "100%",
         py: { xs: 6, md: 10 },
       }}
@@ -46,8 +48,8 @@ const FAQSection = ({ title, subtitle, faqs }) => {
           align="center"
           sx={{
             fontFamily: "Poppins",
-            fontSize: { xs: "22px", md: "26px" },
-            fontWeight: 700,
+            fontSize: { xs: "22px", md: "24px" },
+            fontWeight: 600,
             mb: 1,
           }}
         >
@@ -59,9 +61,10 @@ const FAQSection = ({ title, subtitle, faqs }) => {
           align="center"
           sx={{
             fontFamily: "Poppins",
-            fontSize: "15px",
-            color: "#666",
-            mb: 5,
+            fontSize: "16px",
+            color: "#000000",
+            mb: 7,
+            fontWeight: 300,
           }}
         >
           {finalSubtitle}
@@ -99,32 +102,25 @@ const FAQSection = ({ title, subtitle, faqs }) => {
               >
                 {/* Left Section: ? Icon + Question */}
                 <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-                  {/* Circle Icon */}
+                  {/* Question Mark Icon */}
                   <Box
+                    component="img"
+                    src={questionMarkIcon}
+                    alt="Question mark"
                     sx={{
-                      width: "22px",
-                      height: "22px",
-                      borderRadius: "50%",
-                      border: "2px solid #155DFC",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      color: "#155DFC",
-                      fontSize: "13px",
-                      fontWeight: 600,
-                      fontFamily: "Poppins",
+                      width: "19px",
+                      height: "19px",
+                      flexShrink: 0,
                     }}
-                  >
-                    ?
-                  </Box>
+                  />
 
                   {/* Question Text */}
                   <Typography
                     sx={{
                       fontFamily: "Poppins",
-                      fontSize: "15px",
-                      color: "#1a1a1a",
-                      fontWeight: 500,
+                      fontSize: "16px",
+                      color: "#000000",
+                      fontWeight: 400,
                     }}
                   >
                     {item.question}
@@ -134,9 +130,25 @@ const FAQSection = ({ title, subtitle, faqs }) => {
                 {/* Expand/Collapse Icon */}
                 <IconButton disableRipple>
                   {openIndex === index ? (
-                    <RemoveIcon sx={{ color: "#155DFC" }} />
+                    <Box
+                      component="img"
+                      src={minusIcon}
+                      alt="Minus icon"
+                      sx={{
+                        width: "19px",
+                        height: "19px",
+                      }}
+                    />
                   ) : (
-                    <AddIcon sx={{ color: "#155DFC" }} />
+                    <Box
+                      component="img"
+                      src={plusIcon}
+                      alt="Plus icon"
+                      sx={{
+                        width: "19px",
+                        height: "19px",
+                      }}
+                    />
                   )}
                 </IconButton>
               </Box>
@@ -148,9 +160,10 @@ const FAQSection = ({ title, subtitle, faqs }) => {
                     mt: 2,
                     ml: "38px", // aligns text under the question correctly
                     fontFamily: "Poppins",
-                    fontSize: "14px",
-                    color: "#555",
+                    fontSize: "16px",
+                    color: "#000000",
                     lineHeight: 1.7,
+                    fontWeight: 300,
                   }}
                 >
                   {item.answer}
