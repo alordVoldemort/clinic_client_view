@@ -9,10 +9,10 @@ import MessageSentIcon from '../../assets/Appointment/confirmation.svg';
 const MessageConfirmation = () => {
   const location = useLocation();
   
-  // Get data from message form
+  
   const { messageData = {} } = location.state || {};
 
-  // Default data structure (can be overridden by actual form data)
+ 
   const defaultMessageData = {
     name: 'Kshitij Sanjay Somwanshi',
     email: 'kshitij.somwanshi2001@gmail.com',
@@ -28,7 +28,7 @@ const MessageConfirmation = () => {
     })
   };
 
-  // Merge with actual data if available
+  
   const finalMessageData = { 
     ...defaultMessageData, 
     ...messageData
@@ -71,7 +71,7 @@ const MessageConfirmation = () => {
           />
         </Box>
 
-        {/* Main Title */}
+        
         <Typography 
           sx={{ 
             fontWeight: 500,
@@ -84,7 +84,7 @@ const MessageConfirmation = () => {
           Message Sent
         </Typography>
 
-        {/* Thank you message with person's name */}
+        
         <Typography 
           sx={{ 
             color: '#666666',
@@ -100,7 +100,7 @@ const MessageConfirmation = () => {
           Thank you for contacting us. We'll get back to you within 24 hours. 
         </Typography>
 
-         {/* Email Confirmation */}
+         
         <Box sx={{ textAlign: 'center', mb: 4 }}>
           <Typography
             sx={{

@@ -14,16 +14,25 @@ const LocationSection = () => {
     <Box
       sx={{
         width: {
-          xs: "280px",
+          xs: "100%", // mobile
           sm: "800px",
           md: "460px",
           lg: "100%", // Take full width in grid column
+          xl: "100%", // Take full width in grid column
         },
         maxWidth: {
-          xs: "280px",
+          xs: "100%", // mobile
           sm: "650px",
           md: "460px",
           lg: "534px", // Max width on desktop
+          xl: "534px",
+        },
+        height: {
+          xs: "auto", // Auto height on mobile
+          sm: "auto",
+          md: "auto",
+          lg: "294px",
+          xl: "294px",
         },
         position: "relative",
         mx: { xs: "auto", lg: 0 }, // Center on mobile, left on desktop

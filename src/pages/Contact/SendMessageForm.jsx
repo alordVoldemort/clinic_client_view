@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // ADD THIS
+import { useNavigate } from "react-router-dom"; 
 import {
   Box,
   Typography,
@@ -11,24 +11,23 @@ import {
   MenuItem,
 } from "@mui/material";
 
-// Import SVG icons from assets
 import UserIcon from "../../assets/Appointment/fullName.svg";
 import EmailIcon from "../../assets/Appointment/email.svg";
 import PhoneIcon from "../../assets/Appointment/Phone-number.svg";
-import SubjectIcon from "../../assets/Appointment/treatment.svg"; 
-import MessageIcon from "../../assets/Appointment/notes.svg"; 
+import SubjectIcon from "../../assets/Appointment/treatment.svg";
+import MessageIcon from "../../assets/Appointment/notes.svg";
+import sendIcon from "../../assets/Appointment/send-message.svg";
 
-// SVG Icon Components using imported assets
 const UserIconComponent = () => (
   <Box
     component="img"
     src={UserIcon}
     alt="User Icon"
     sx={{
-      width: '20px',
-      height: '20px',
-      display: 'flex',
-      alignItems: 'center'
+      width: { xs: "18px", md: "20px" },
+      height: { xs: "18px", md: "20px" },
+      display: "flex",
+      alignItems: "center",
     }}
   />
 );
@@ -39,10 +38,10 @@ const EmailIconComponent = () => (
     src={EmailIcon}
     alt="Email Icon"
     sx={{
-      width: '20px',
-      height: '20px',
-      display: 'flex',
-      alignItems: 'center'
+      width: "20px",
+      height: "20px",
+      display: "flex",
+      alignItems: "center",
     }}
   />
 );
@@ -53,10 +52,10 @@ const PhoneIconComponent = () => (
     src={PhoneIcon}
     alt="Phone Icon"
     sx={{
-      width: '20px',
-      height: '20px',
-      display: 'flex',
-      alignItems: 'center'
+      width: "20px",
+      height: "20px",
+      display: "flex",
+      alignItems: "center",
     }}
   />
 );
@@ -67,10 +66,10 @@ const SubjectIconComponent = () => (
     src={SubjectIcon}
     alt="Subject Icon"
     sx={{
-      width: '20px',
-      height: '20px',
-      display: 'flex',
-      alignItems: 'center'
+      width: "20px",
+      height: "20px",
+      display: "flex",
+      alignItems: "center",
     }}
   />
 );
@@ -81,16 +80,30 @@ const MessageIconComponent = () => (
     src={MessageIcon}
     alt="Message Icon"
     sx={{
-      width: '20px',
-      height: '20px',
-      display: 'flex',
-      alignItems: 'center'
+      width: "20px",
+      height: "20px",
+      display: "flex",
+      alignItems: "center",
+    }}
+  />
+);
+
+const SendIconComponent = () => (
+  <Box
+    component="img"
+    src={sendIcon}
+    alt="Send Icon"
+    sx={{
+      width: "20px",
+      height: "20px",
+      display: "flex",
+      alignItems: "center",
     }}
   />
 );
 
 const SendMessageForm = () => {
-  const navigate = useNavigate(); // ADD THIS LINE
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -107,19 +120,16 @@ const SendMessageForm = () => {
     }));
   };
 
-  // REPLACE THIS ENTIRE FUNCTION:
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
-    
-    // Navigate to message confirmation page with form data
-    navigate('/contact/MessageConfirmation', {
-      state: { 
-        messageData: formData 
-      }
+
+    navigate("/contact/MessageConfirmation", {
+      state: {
+        messageData: formData,
+      },
     });
-    
-    // Optional: Reset form after navigation
+
     setFormData({
       name: "",
       email: "",
@@ -131,12 +141,11 @@ const SendMessageForm = () => {
 
   const subjects = [
     "Select Subject",
-    "General Inquiry",
-    "Appointment Booking",
-    "Billing Questions",
-    "Technical Support",
+    "General Inquiry ",
+    "Appointment Inquiry",
+    "Treatment Information",
     "Feedback",
-    "Other"
+    "Other",
   ];
 
   return (
@@ -147,22 +156,26 @@ const SendMessageForm = () => {
         backgroundColor: "#FFFFFF",
         borderRadius: "14px",
         p: 0,
-        width: "626px",
-        maxWidth: "626px",
-        height: "810px",
+        width: {
+          xs: "280px", // mobile
+          sm: "100%", // tablet
+          md: "650px", // desktop
+        },
+        maxWidth: "650px",
+        minHeight: { xs: "auto", md: "840px" },
         display: "flex",
         flexDirection: "column",
         border: "1px solid #E0E0E0",
         boxShadow: "0px 2.58px 7.74px rgba(0, 0, 0, 0.1)",
-        // Centered alignment for mobile and tablet only
-        mx: { xs: "auto", md: "auto", lg: 0 },
+        mx: "auto",
       }}
     >
-      {/* Form Header - Centered */}
-      <Box sx={{ 
-        p: { xs: "20px 20px 10px", md: "30px 40px 15px" },
-        textAlign: "center",
-      }}>
+      <Box
+        sx={{
+          p: { xs: "20px 20px 10px", md: "30px 40px 15px" },
+          textAlign: "center",
+        }}
+      >
         <Typography
           sx={{
             fontFamily: "Poppins, sans-serif",
@@ -171,33 +184,40 @@ const SendMessageForm = () => {
             color: "#000000",
             lineHeight: "145%",
             letterSpacing: "0%",
-            mb: 0.5
+            mb: 0.5,
           }}
         >
           Send Us a Message
         </Typography>
       </Box>
 
-      {/* Form Fields Container */}
-      <Box sx={{ 
-        p: { xs: "20px", md: "30px" },
-        display: "flex",
-        flexDirection: "column",
-        gap: 3.5
-      }}>
-        {/* Full Name Field with icon NEXT to label (outside input) */}
+      <Box
+        sx={{
+          p: { xs: "16px", sm: "20px", md: "30px" },
+          gap: { xs: 3, md: 4.5 },
+
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
         <Box>
-          <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
-            <Box sx={{ mr: 1.5, display: 'flex', alignItems: 'center' }}>
+          <Box sx={{ display: "flex", alignItems: "center", mb: 1.5 }}>
+            <Box sx={{ mr: 1.5, display: "flex", alignItems: "center" }}>
               <UserIconComponent />
             </Box>
-            <Typography sx={{ 
-              fontSize: "16px",
-              fontWeight: 570,
-              color: "#000000",
-              fontFamily: "Poppins, sans-serif",
-            }}>
+            <Typography
+              sx={{
+                fontSize: { xs: "14px", md: "16px" },
+                fontWeight: 400,
+                color: "#000000",
+                fontFamily: "Poppins, sans-serif",
+              }}
+            >
               Your Name
+              <Box component="span" sx={{ color: "#FF0000" }}>
+                {" "}
+                *
+              </Box>
             </Typography>
           </Box>
           <TextField
@@ -209,8 +229,7 @@ const SendMessageForm = () => {
             sx={{
               "& .MuiOutlinedInput-root": {
                 borderRadius: "8px",
-                height: "44px",
-                backgroundColor: "#FAFAFA",
+                height: { xs: "42px", md: "44px" },
                 "& fieldset": {
                   borderColor: "#E0E0E0",
                 },
@@ -231,25 +250,31 @@ const SendMessageForm = () => {
           />
         </Box>
 
-        {/* Email & Phone Fields in ONE ROW with icons NEXT to labels */}
-        <Box sx={{ 
-          display: "flex", 
-          flexDirection: { xs: "column", sm: "row" },
-          gap: 2 
-        }}>
-          {/* Email Field */}
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", sm: "row" },
+            gap: 3,
+          }}
+        >
           <Box sx={{ flex: 1 }}>
-            <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
-              <Box sx={{ mr: 1.5, display: 'flex', alignItems: 'center' }}>
+            <Box sx={{ display: "flex", alignItems: "center", mb: 1.5 }}>
+              <Box sx={{ mr: 1.5, display: "flex", alignItems: "center" }}>
                 <EmailIconComponent />
               </Box>
-              <Typography sx={{ 
-                fontSize: "16px",
-                fontWeight: 570,
-                color: "#000000",
-                fontFamily: "Poppins, sans-serif",
-              }}>
+              <Typography
+                sx={{
+                  fontSize: { xs: "14px", md: "16px" },
+                  fontWeight: 400,
+                  color: "#000000",
+                  fontFamily: "Poppins, sans-serif",
+                }}
+              >
                 Email Address
+                <Box component="span" sx={{ color: "#FF0000" }}>
+                  {" "}
+                  *
+                </Box>
               </Typography>
             </Box>
             <TextField
@@ -261,8 +286,8 @@ const SendMessageForm = () => {
               sx={{
                 "& .MuiOutlinedInput-root": {
                   borderRadius: "8px",
-                  height: "44px",
-                  backgroundColor: "#FAFAFA",
+                  height: { xs: "42px", md: "44px" },
+
                   "& fieldset": {
                     borderColor: "#E0E0E0",
                   },
@@ -282,20 +307,26 @@ const SendMessageForm = () => {
               }}
             />
           </Box>
-          
+
           {/* Phone Field */}
           <Box sx={{ flex: 1 }}>
-            <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
-              <Box sx={{ mr: 1.5, display: 'flex', alignItems: 'center' }}>
+            <Box sx={{ display: "flex", alignItems: "center", mb: 1.5 }}>
+              <Box sx={{ mr: 1.5, display: "flex", alignItems: "center" }}>
                 <PhoneIconComponent />
               </Box>
-              <Typography sx={{ 
-                fontSize: "16px",
-                fontWeight: 570,
-                color: "#000000",
-                fontFamily: "Poppins, sans-serif",
-              }}>
+              <Typography
+                sx={{
+                  fontSize: { xs: "14px", md: "16px" },
+                  fontWeight: 400,
+                  color: "#000000",
+                  fontFamily: "Poppins, sans-serif",
+                }}
+              >
                 Phone Number
+                <Box component="span" sx={{ color: "#FF0000" }}>
+                  {" "}
+                  *
+                </Box>
               </Typography>
             </Box>
             <TextField
@@ -307,8 +338,7 @@ const SendMessageForm = () => {
               sx={{
                 "& .MuiOutlinedInput-root": {
                   borderRadius: "8px",
-                  height: "44px",
-                  backgroundColor: "#FAFAFA",
+                  height: { xs: "42px", md: "44px" },
                   "& fieldset": {
                     borderColor: "#E0E0E0",
                   },
@@ -332,17 +362,23 @@ const SendMessageForm = () => {
 
         {/* Subject Field with icon NEXT to label */}
         <Box>
-          <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
-            <Box sx={{ mr: 1.5, display: 'flex', alignItems: 'center' }}>
+          <Box sx={{ display: "flex", alignItems: "center", mb: 1.5 }}>
+            <Box sx={{ mr: 1.5, display: "flex", alignItems: "center" }}>
               <SubjectIconComponent />
             </Box>
-            <Typography sx={{ 
-              fontSize: "16px",
-              fontWeight: 570,
-              color: "#000000",
-              fontFamily: "Poppins, sans-serif",
-            }}>
-              Select Subject *
+            <Typography
+              sx={{
+                fontSize: { xs: "14px", md: "16px" },
+                fontWeight: 400,
+                color: "#000000",
+                fontFamily: "Poppins, sans-serif",
+              }}
+            >
+              Select Subject
+              <Box component="span" sx={{ color: "#FF0000" }}>
+                {" "}
+                *
+              </Box>
             </Typography>
           </Box>
           <FormControl fullWidth>
@@ -352,11 +388,11 @@ const SendMessageForm = () => {
               value={formData.subject}
               onChange={handleChange}
               sx={{
-                height: "47px",
+                height: { xs: "44px", md: "47px" },
                 borderRadius: "8px",
-                fontSize: "16px",
+                fontSize: { xs: "14px", md: "16px" },
                 fontFamily: "Poppins, sans-serif",
-                backgroundColor: "#FAFAFA",
+
                 "& .MuiOutlinedInput-notchedOutline": {
                   borderColor: "#E0E0E0",
                 },
@@ -371,16 +407,17 @@ const SendMessageForm = () => {
                   padding: "12px 16px",
                   display: "flex",
                   alignItems: "center",
+                  color: formData.subject === "" ? "#A8A8A8" : "#000000",
                 },
               }}
             >
               {subjects.map((sub) => (
-                <MenuItem 
-                  key={sub} 
+                <MenuItem
+                  key={sub}
                   value={sub === "Select Subject" ? "" : sub}
-                  sx={{ 
+                  sx={{
                     fontSize: "14px",
-                    fontFamily: "Poppins, sans-serif"
+                    fontFamily: "Poppins, sans-serif",
                   }}
                 >
                   {sub}
@@ -392,16 +429,18 @@ const SendMessageForm = () => {
 
         {/* Message Field with icon NEXT to label */}
         <Box>
-          <Box sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
-            <Box sx={{ mr: 1.5, display: 'flex', alignItems: 'center' }}>
+          <Box sx={{ display: "flex", alignItems: "center", mb: 1.5 }}>
+            <Box sx={{ mr: 1.5, display: "flex", alignItems: "center" }}>
               <MessageIconComponent />
             </Box>
-            <Typography sx={{ 
-              fontSize: "16px",
-              fontWeight: 570,
-              color: "#000000",
-              fontFamily: "Poppins, sans-serif",
-            }}>
+            <Typography
+              sx={{
+                fontSize: { xs: "14px", md: "16px" },
+                fontWeight: 400,
+                color: "#000000",
+                fontFamily: "Poppins, sans-serif",
+              }}
+            >
               Message
             </Typography>
           </Box>
@@ -416,9 +455,9 @@ const SendMessageForm = () => {
             sx={{
               "& .MuiOutlinedInput-root": {
                 borderRadius: "8px",
-                minHeight: "147px",
-                backgroundColor: "#FAFAFA",
-                alignItems: 'flex-start',
+                minHeight: { xs: "120px", md: "147px" },
+
+                alignItems: "flex-start",
                 "& fieldset": {
                   borderColor: "#E0E0E0",
                 },
@@ -431,7 +470,7 @@ const SendMessageForm = () => {
                 },
               },
               "& .MuiInputBase-input": {
-                fontSize: "16px",
+                fontSize: { xs: "14px", md: "16px" },
                 padding: "16px",
                 lineHeight: 1.5,
                 fontFamily: "Poppins, sans-serif",
@@ -447,10 +486,10 @@ const SendMessageForm = () => {
             type="submit"
             variant="contained"
             sx={{
-              height: "50px",
+              height: { xs: "46px", md: "50px" },
               backgroundColor: "#155DFC",
               borderRadius: "9px",
-              fontSize: "16px",
+              fontSize: { xs: "14px", md: "16px" },
               fontWeight: 570,
               fontFamily: "Poppins, sans-serif",
               textTransform: "none",
@@ -460,6 +499,7 @@ const SendMessageForm = () => {
                 boxShadow: "none",
               },
             }}
+            startIcon={<SendIconComponent />}
           >
             Send Message
           </Button>
