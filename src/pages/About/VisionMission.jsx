@@ -118,7 +118,7 @@ export default function VisionMission() {
               sx={{
                 fontFamily: "Poppins, sans-serif",
                 fontWeight: 600,
-                fontSize: { xs: "24px", sm: "26px", md: "28px", lg: "32px" },
+                fontSize: { xs: "24px", sm: "26px", md: "24px", lg: "32px" },
                 color: "#155DFC",
                 lineHeight: 1.2,
               }}
@@ -136,10 +136,7 @@ export default function VisionMission() {
                 textAlign: { xs: "center", md: "center", lg: "left" },
               }}
             >
-              To provide exceptional, patient-centered healthcare services by combining
-              medical expertise with compassionate care. We strive to improve the quality
-              of life for every individual through innovative treatments and personalized
-              care plans.
+              To offer compassionate, patient-focused homeopathic care that supports true well-being. We aim to enhance the quality of life for every individual through holistic healing, gentle natural treatments, and personalized care plans that encourage long-term wellness.
             </Typography>
           </Box>
         </Box>
@@ -196,9 +193,8 @@ export default function VisionMission() {
                 textAlign: { xs: "center", md: "center", lg: "left" },
               }}
             >
-              To be the leading healthcare provider recognized for excellence in patient
-              care, innovation, and community well-being. We envision a future where every
-              person has access to compassionate and transformative healthcare.
+              To grow into a trusted network of holistic homeopathy clinics that offer accessible, empathetic, and modern care. We aim to support long-term wellness for individuals and families through compassionate healing and thoughtfully guided homeopathic practices.
+
             </Typography>
           </Box>
 

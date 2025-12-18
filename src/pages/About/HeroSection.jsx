@@ -35,7 +35,7 @@ export default function AboutHeroSection() {
             variant="h1"
             sx={{
               fontFamily: "Poppins, sans-serif",
-              fontWeight: 600,
+              fontWeight: 500,
               fontSize: { 
                 xs: "24px",    // Mobile
                 sm: "28px",    // Small tablets

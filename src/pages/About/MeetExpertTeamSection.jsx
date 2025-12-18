@@ -1,36 +1,66 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 import DoctorCard from "./DoctorCard";
+import DrNitin from "../../assets/Expert_Teams/Dr. Nitin Darda.png";
+import DrYogita from "../../assets/Expert_Teams/Dr. Yogita Darda.png";
+import DrTanmay from "../../assets/Expert_Teams/Dr. Tanmay Darda.png";
+
 
 const doctors = [
   {
     name: "Dr. Nitin Darda",
     specialty: "Homeopathy Consultant",
-    image:
-      "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=500&fit=crop",
-    qualification: "MBBS, MD, Fellowship in Spine Surgery",
-    description:
-      "Specializes in minimally invasive spine surgery and chronic pain management",
+    image: DrNitin,
+    description: (
+      <>
+        <Typography component="span" sx={{ fontWeight: 500 }}>
+          Special Expertise:
+        </Typography>{" "}
+        <Typography component="span" sx={{ fontWeight: 300 }}>
+          Spine disorders, chronic back pain, and urine/kidney-related issues
+          <br /><br />
+          Experienced in treating a wide range of health conditions through classical and advanced homeopathy.
+        </Typography>
+      </>
+    ),
   },
   {
     name: "Dr. Yogita Darda",
     specialty: "Homeopathy Consultant",
-    image:
-      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=500&fit=crop",
-    qualification: "MBBS, MD (Internal Medicine), DM (Gastro)",
-    description:
-      "Expert in digestive disorders, IBS, and advanced endoscopic procedures",
+    image: DrYogita,
+    description: (
+      <>
+        <Typography component="span" sx={{ fontWeight: 500 }}>
+          Special Expertise:
+        </Typography>{" "}
+        <Typography component="span" sx={{ fontWeight: 300 }}>
+          Skin and hair problems, acne, pigmentation, allergies, and hair fall management.
+          <br /><br />
+          Treats various acute and chronic diseases with modern homeopathic principles.
+        </Typography>
+      </>
+    ),
   },
   {
     name: "Dr. Tanmay Darda",
     specialty: "Homeopathy Consultant",
-    image:
-      "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=400&h=500&fit=crop",
-    qualification:
-      "MBBS, MD (Dermatology), Fellowship in Aesthetic Medicine",
-    description:
-      "Specialized in non-surgical cosmetic procedures and skin rejuvenation",
+    image: DrTanmay,
+    description: (
+      <>
+        <Typography component="span" sx={{ fontWeight: 500 }}>
+          Special Expertise:
+        </Typography>{" "}
+        <Typography component="span" sx={{ fontWeight: 300 }}>
+          Gut health, digestive disorders, acidity, IBS, and gastric issues.
+          <br /><br />
+          Highly experienced in holistic homeopathic care for all age groups and chronic health concerns.
+        </Typography>
+      </>
+    ),
   },
 ];
+
+
+
 
 
 export default function ExpertDoctorsSection() {
@@ -51,28 +81,27 @@ export default function ExpertDoctorsSection() {
               fontFamily: "Poppins, sans-serif",
               fontWeight: 600,
               fontSize: {
-                xs: "1.8rem",
-                sm: "2.2rem",
-                md: "2.5rem",
-                lg: "3rem",
+                xs: "18px",
+                sm: "20px",
+                md: "24px",
+                lg: "24px",
               },
               color: "#1a1a1a",
               mb: 2,
             }}
           >
-            Meet Our Expert Doctors
+            Meet Our Expert Team
           </Typography>
           <Typography
             sx={{
               fontFamily: "Poppins, sans-serif",
-              fontSize: { xs: "0.95rem", sm: "1rem", md: "1.1rem" },
+              fontSize: { xs: "0.95rem", sm: "1rem", md: "16px" },
               color: "#666",
               maxWidth: "700px",
               mx: "auto",
             }}
           >
-            Our team of highly qualified and experienced medical professionals
-            is dedicated to providing you with the best care possible.
+          Our doctors are highly qualified professionals dedicated to your health and well-being
           </Typography>
         </Box>
 

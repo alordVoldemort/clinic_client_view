@@ -38,7 +38,7 @@ export default function CoreValuesSection() {
         width: "100%",
         minHeight: { xs: "auto", md: "334px" },
         backgroundColor: "#F8FAFF",
-        py: { xs: 6, sm: 8, md: 10 },
+        py: { xs: 2, sm: 4, md: 4, lg: 5 },
         display: "flex",
         bottom:"30px",
         alignItems: "center",
@@ -67,12 +67,12 @@ export default function CoreValuesSection() {
               fontSize: { 
                 xs: "24px",
                 sm: "32px",
-                md: "36px",
-                lg: "40px"
+                md: "24px",
+                lg: "30px"
               },
               lineHeight: { xs: 1.2, sm: 1.1 },
               color: "#000000",
-              mb: { xs: 2, sm: 3 },
+              mb: { xs: 1, sm: 2 },
             }}
           >
             Our Core Values
@@ -86,8 +86,8 @@ export default function CoreValuesSection() {
               fontSize: { 
                 xs: "18px",
                 sm: "18px",
-                md: "20px",
-                lg: "22px"
+                md: "18px",
+                lg: "20px"
               },
               lineHeight: { xs: 1.3, sm: 1.2 },
               color: "#000000",
