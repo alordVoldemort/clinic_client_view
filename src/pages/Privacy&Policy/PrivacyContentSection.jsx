@@ -11,7 +11,7 @@ export default function PrivacyContentSection() {
     "Homeopathic medicines and treatment response may vary from person to person based on body constitution and lifestyle.",
     "Patients must provide correct medical information and follow treatment instructions for best results.",
     "Personal and medical records shared with us remain confidential and secure.",
-    "If you have any concerns regarding our privacy practices, please contact our clinic support.",
+    "If you have any concerns regarding these terms, please contact our clinic support.",
   ];
 
   return (
@@ -20,7 +20,7 @@ export default function PrivacyContentSection() {
         width: "100%",
         py: { xs: 2, sm: 3, md: 4, lg: 5, xl: 6 },
         px: { xs: 1.5, sm: 2, md: 3, lg: 0 },
-        backgroundColor: "#ffffff",
+        backgroundColor: "#F2F2F2",
         minHeight: "100vh",
         display: "flex",
         alignItems: "center",
@@ -94,28 +94,27 @@ export default function PrivacyContentSection() {
                   />
                 </ListItemIcon>
                 <Typography
-                  sx={{
-                    fontFamily: "Poppins, sans-serif",
-                    fontWeight: index === 0 ? { xs: 600, sm: 600 } : { xs: 400, sm: 400 },
-                    fontSize: {
-                      xs: index === 0 ? "16px" : "14px",
-                      sm: index === 0 ? "18px" : "15px",
-                      md: index === 0 ? "19px" : "16px",
-                    },
-                    lineHeight: {
-                      xs: index === 0 ? "140%" : 1.5,
-                      sm: index === 0 ? "145%" : 1.6,
-                    },
-                    letterSpacing: index === 0 ? "0%" : "inherit",
-                    color: "#333333",
-                    flex: 1,
-                    wordBreak: "break-word",
-                    overflowWrap: "break-word",
-                    hyphens: "auto",
-                  }}
-                >
-                  {point}
-                </Typography>
+  sx={{
+    fontFamily: "Poppins, sans-serif",
+    fontWeight: index === 0 ? 600 : 400, 
+    fontSize: {
+      xs: index === 0 ? "16px" : "14px",
+      sm: index === 0 ? "18px" : "15px",
+      md: index === 0 ? "19px" : "16px",
+    },
+    lineHeight: {
+      xs: index === 0 ? "140%" : 1.5,
+      sm: index === 0 ? "145%" : 1.6,
+    },
+    color: "#333333",
+    flex: 1,
+    wordBreak: "break-word",
+    overflowWrap: "break-word",
+  }}
+>
+  {point}
+</Typography>
+
               </ListItem>
             ))}
           </List>
@@ -133,8 +132,8 @@ export default function PrivacyContentSection() {
               pr: { xs: 2, sm: 3, md: "22px" },
               pb: { xs: 2, sm: 3, md: "21px" },
               pl: { xs: 2, sm: 3, md: "22px" },
-              borderRadius: { xs: "6px", sm: "7px" },
-              border: "1px solid #D1E3FF",
+              borderRadius: { xs: "7px", sm: "7px" },
+              border: "1px solid #3B97FF",
               backgroundColor: "#F2F8FF",
               mt: { xs: 2, sm: 3 },
             }}
@@ -142,11 +141,11 @@ export default function PrivacyContentSection() {
             <Typography
               sx={{
                 fontFamily: "Poppins, sans-serif",
-                fontWeight: { xs: 500, sm: 400 },
+                fontWeight: { xs: 500, sm: 600 },
                 fontSize: { 
                   xs: "18px", 
-                  sm: "20px", 
-                  md: "22px" 
+                  sm: "16px", 
+                  md: "20px" 
                 },
                 color: "#3B3C3D",
                 textAlign: { xs: "center", sm: "left" },
@@ -176,7 +175,7 @@ export default function PrivacyContentSection() {
                     fontFamily: "Poppins, sans-serif",
                     fontWeight: { xs: 400, sm: 300 },
                     fontSize: { xs: "13px", sm: "14px" },
-                    color: "#333333",
+                    color: "#2C2C2D",
                     whiteSpace: { xs: "normal", sm: "nowrap" },
                     minWidth: { xs: "auto", sm: "60px" },
                     width: { xs: "100%", sm: "auto" },
@@ -189,7 +188,7 @@ export default function PrivacyContentSection() {
                     fontFamily: "Poppins, sans-serif",
                     fontWeight: { xs: 300, sm: 300 },
                     fontSize: { xs: "12px", sm: "13px", md: "14px" },
-                    color: "#555555",
+                    color: "#2C2C2D",
                     lineHeight: 1.5,
                     flex: 1,
                     wordBreak: "break-word",
@@ -213,7 +212,7 @@ export default function PrivacyContentSection() {
                     fontFamily: "Poppins, sans-serif",
                     fontWeight: { xs: 400, sm: 300 },
                     fontSize: { xs: "13px", sm: "14px" },
-                    color: "#333333",
+                    color: "#2C2C2D",
                     whiteSpace: { xs: "normal", sm: "nowrap" },
                     minWidth: { xs: "auto", sm: "60px" },
                     width: { xs: "100%", sm: "auto" },
@@ -226,12 +225,12 @@ export default function PrivacyContentSection() {
                     fontFamily: "Poppins, sans-serif",
                     fontWeight: { xs: 300, sm: 300 },
                     fontSize: { xs: "12px", sm: "13px", md: "14px" },
-                    color: "#555555",
+                    color: "#2C2C2D",
                     wordBreak: "break-all",
                     overflowWrap: "break-word",
                   }}
                 >
-                  drdarshan.nirmalhealthcare@gmail.com
+                  drdardasnirmalhealthcare@gmail.com
                 </Typography>
               </Box>
 
@@ -248,7 +247,7 @@ export default function PrivacyContentSection() {
                     fontFamily: "Poppins, sans-serif",
                     fontWeight: { xs: 400, sm: 300 },
                     fontSize: { xs: "13px", sm: "14px" },
-                    color: "#333333",
+                    color: "#2C2C2D",
                     whiteSpace: { xs: "normal", sm: "nowrap" },
                     minWidth: { xs: "auto", sm: "60px" },
                     width: { xs: "100%", sm: "auto" },
@@ -261,7 +260,7 @@ export default function PrivacyContentSection() {
                     fontFamily: "Poppins, sans-serif",
                     fontWeight: { xs: 300, sm: 300 },
                     fontSize: { xs: "12px", sm: "13px", md: "14px" },
-                    color: "#555555",
+                    color: "#2C2C2D",
                   }}
                 >
                   +91 9822141851
