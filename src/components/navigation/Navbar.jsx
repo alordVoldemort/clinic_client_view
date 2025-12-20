@@ -19,7 +19,7 @@ import {
 
 import MenuIcon from "@mui/icons-material/Menu";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 import logo from "../../assets/clinic/logo/Group 1686550958.svg";
 import phoneIcon from "../../assets/clinic/Navbar/phone-flip (3) 1.svg";
@@ -29,12 +29,17 @@ export default function Navbar() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [treatmentsOpen, setTreatmentsOpen] = useState(false);
   const navigate = useNavigate();
-
+  const location = useLocation();
 
   // Show hamburger for iPad Mini (768px) and small devices
   // Show menu options for iPad Air (820px+) and desktop
   const showMenuOptions = useMediaQuery("(min-width:900px)");
-
+  const isActive = (path) => {
+    if (path === "/") {
+      return location.pathname === "/";
+    }
+    return location.pathname.startsWith(path);
+  };
   const menuItems = [
     { label: "Home", path: "/" },
     { label: "About", path: "/about" },
@@ -161,111 +166,129 @@ export default function Navbar() {
                   whiteSpace: "nowrap",
                 }}
               >
-                {menuItems.map((item) => {
-                  if (item.hasDropdown) {
+                <Box
+                  sx={{
+                    display: "flex",
+                    gap: { xs: 1, sm: 2, md: 2, lg: 2, xl: 3 },
+                    alignItems: "center",
+                    flexWrap: {
+                      xs: "wrap",
+                      md: "nowrap",
+                    },
+                    pr: { xs: 2, md: 17 }, // 👉 RIGHT PADDING APPLIED HERE
+                  }}
+                >
+                  {menuItems.map((item) => {
+                    if (item.hasDropdown) {
+                      return (
+                        <Box key={item.path}>
+                          <Button
+                            onClick={handleTreatmentMenuOpen}
+                            color="inherit"
+                            endIcon={<ExpandMoreIcon />}
+                            sx={{
+                              fontSize: {
+                                xs: "0.85rem",
+                                sm: "0.9rem",
+                                md: "0.9rem",
+                                lg: "0.9rem",
+                                xl: "1rem",
+                              },
+                              minWidth: "auto",
+                              px: { xs: 1, sm: 1.5, md: 1.5, lg: 1.5, xl: 2 },
+                              color: location.pathname.startsWith("/treatments")
+                                ? "#155DFC"
+                                : "#000000",
+
+                              fontWeight: 500,
+                              textTransform: "none",
+                              flexShrink: 0,
+                              fontFamily: "Poppins, sans-serif",
+                              "&:hover": {
+                                backgroundColor: "rgba(25, 118, 210, 0.04)",
+                                color: "#155DFC",
+                              },
+                            }}
+                          >
+                            {item.label}
+                          </Button>
+                          <Menu
+                            anchorEl={anchorEl}
+                            open={Boolean(anchorEl)}
+                            onClose={handleTreatmentMenuClose}
+                            anchorOrigin={{
+                              vertical: "bottom",
+                              horizontal: "left",
+                            }}
+                            transformOrigin={{
+                              vertical: "top",
+                              horizontal: "left",
+                            }}
+                            PaperProps={{
+                              sx: {
+                                mt: 1,
+                                minWidth: 200,
+                                boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+                              },
+                            }}
+                          >
+                            {treatments.map((treatment) => (
+                              <MenuItem
+                                key={treatment}
+                                onClick={() => handleTreatmentClick(treatment)}
+                                sx={{
+                                  fontFamily: "Poppins, sans-serif",
+                                  color: isActive(item.path)
+                                    ? "#155DFC"
+                                    : "#000000",
+                                  fontSize: "0.95rem",
+                                  py: 1.5,
+                                  px: 2,
+                                  "&:hover": {
+                                    color: "#155DFC",
+                                    backgroundColor: "rgba(21, 93, 252, 0.04)",
+                                  },
+                                }}
+                              >
+                                {treatment}
+                              </MenuItem>
+                            ))}
+                          </Menu>
+                        </Box>
+                      );
+                    }
                     return (
-                      <Box key={item.path}>
-                        <Button
-                          onClick={handleTreatmentMenuOpen}
-                          color="inherit"
-                          endIcon={<ExpandMoreIcon />}
-                          sx={{
-                            fontSize: {
-                              xs: "0.85rem",
-                              sm: "0.9rem",
-                              md: "0.9rem",
-                              lg: "0.9rem",
-                              xl: "1rem",
-                            },
-                            minWidth: "auto",
-                            px: { xs: 1, sm: 1.5, md: 1.5, lg: 1.5, xl: 2 },
-                            color: "#000000",
-                            fontWeight: 500,
-                            textTransform: "none",
-                            flexShrink: 0,
-                            fontFamily: "Poppins, sans-serif",
-                            "&:hover": {
-                              backgroundColor: "rgba(25, 118, 210, 0.04)",
-                              color: "#155DFC",
-                            },
-                          }}
-                        >
-                          {item.label}
-                        </Button>
-                        <Menu
-                          anchorEl={anchorEl}
-                          open={Boolean(anchorEl)}
-                          onClose={handleTreatmentMenuClose}
-                          anchorOrigin={{
-                            vertical: "bottom",
-                            horizontal: "left",
-                          }}
-                          transformOrigin={{
-                            vertical: "top",
-                            horizontal: "left",
-                          }}
-                          PaperProps={{
-                            sx: {
-                              mt: 1,
-                              minWidth: 200,
-                              boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
-                            },
-                          }}
-                        >
-                          {treatments.map((treatment) => (
-                            <MenuItem
-                              key={treatment}
-                              onClick={() => handleTreatmentClick(treatment)}
-                              sx={{
-                                fontFamily: "Poppins, sans-serif",
-                                color: "#000000",
-                                fontSize: "0.95rem",
-                                py: 1.5,
-                                px: 2,
-                                "&:hover": {
-                                  color: "#155DFC",
-                                  backgroundColor: "rgba(21, 93, 252, 0.04)",
-                                },
-                              }}
-                            >
-                              {treatment}
-                            </MenuItem>
-                          ))}
-                        </Menu>
-                      </Box>
+                      <Button
+                        key={item.path}
+                        component={Link}
+                        to={item.path}
+                        color="inherit"
+                        sx={{
+                          fontSize: {
+                            xs: "0.85rem",
+                            sm: "0.9rem",
+                            md: "0.9rem",
+                            lg: "0.9rem",
+                            xl: "1rem",
+                          },
+                          minWidth: "auto",
+                          px: { xs: 1, sm: 1.5, md: 1.5, lg: 1.5, xl: 2 },
+                          color: isActive(item.path) ? "#155DFC" : "#000000",
+                          fontWeight: 500,
+                          textTransform: "none",
+                          flexShrink: 0,
+                          fontFamily: "Poppins, sans-serif",
+                          "&:hover": {
+                            backgroundColor: "rgba(25, 118, 210, 0.04)",
+                            color: "#155DFC",
+                          },
+                        }}
+                      >
+                        {item.label}
+                      </Button>
                     );
-                  }
-                  return (
-                    <Button
-                      key={item.path}
-                      component={Link}
-                      to={item.path}
-                      color="inherit"
-                      sx={{
-                        fontSize: {
-                          xs: "0.85rem",
-                          sm: "0.9rem",
-                          md: "0.9rem",
-                          lg: "0.9rem",
-                          xl: "1rem",
-                        },
-                        minWidth: "auto",
-                        px: { xs: 1, sm: 1.5, md: 1.5, lg: 1.5, xl: 2 },
-                        color: "#000000",
-                        fontWeight: 500,
-                        textTransform: "none",
-                        flexShrink: 0,
-                        fontFamily: "Poppins, sans-serif",
-                        "&:hover": {
-                          backgroundColor: "rgba(25, 118, 210, 0.04)",
-                          color: "#155DFC",
-                        },
-                      }}
-                    >
-                      {item.label}
-                    </Button>
-                  );
-                })}
+                  })}
+                </Box>
                 <Box
                   sx={{
                     display: {
@@ -288,17 +311,17 @@ export default function Navbar() {
                     src={phoneIcon}
                     alt="Phone"
                     sx={{
-                      width: { xs: "16px", md: "20px" },
-                      height: "auto",
+                      width: { xs: "16px", md: "24px" },
+                      height: "24px",
                     }}
                   />
                   <Typography
                     sx={{
-                      fontSize: { xs: "0.85rem", sm: "0.9rem", md: "1rem" },
+                      fontSize: { xs: "0.85rem", sm: "16px", md: "16px" },
                       fontWeight: 500,
                     }}
                   >
-                    +123 456 7890
+                    +91-9822141851{" "}
                   </Typography>
                 </Box>
                 <Button
@@ -307,17 +330,18 @@ export default function Navbar() {
                   onClick={() => navigate("/appointment")}
                   sx={{
                     fontSize: {
-                      xs: "0.85rem",
-                      sm: "0.9rem",
-                      md: "0.85rem",
-                      lg: "0.85rem",
-                      xl: "1rem",
+                      xs: "12px",
+                      sm: "15px",
+                      md: "15px",
+                      lg: "15px",
+                      xl: "15px",
                     },
+                    ml: "-10px",
                     px: { xs: 2, sm: 2.5, md: 2, lg: 2, xl: 3 },
                     py: { xs: 0.75, sm: 1 },
                     backgroundColor: "#155DFC",
                     textTransform: "none",
-                    fontWeight: 600,
+                    fontWeight: 500,
                     borderRadius: "6px",
                     flexShrink: 0,
                     whiteSpace: "nowrap",

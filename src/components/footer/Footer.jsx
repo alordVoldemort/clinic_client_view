@@ -65,24 +65,46 @@ export default function Footer() {
               }}
             >
               <Box
-                component="img"
-                src={logo}
                 sx={{
-                  width: { xs: 40, sm: 45, md: 45 },
-                  height: "auto",
-                }}
-              />
-
-              <Typography
-                variant="caption"
-                sx={{
-                  fontWeight: 600,
-                  color: "#155DFC",
-                  fontSize: { xs: "0.75rem", sm: "0.8rem", md: "0.85rem" },
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center", // ONLY this part is centered
+                  width: "153px",
                 }}
               >
-                Nirmal Health Care
-              </Typography>
+                <Box
+                  component="img"
+                  src={logo}
+                  sx={{
+                    width: { xs: 40, sm: 45, md: 45 },
+                    height: "auto",
+                  }}
+                />
+                <Box>
+                  <Typography
+                    variant="caption"
+                    sx={{
+                      fontWeight: 500,
+                      color: "#0057B7",
+                      fontSize: { xs: "12px", sm: "13px", md: "13px" },
+                      mb: { xs: "-10px", md: "-10px", lg: "-10px" },
+                    }}
+                  >
+                    Dr Darda's
+                  </Typography>
+                </Box>
+                <Typography
+                  variant="caption"
+                  sx={{
+                    fontWeight: 500,
+                    color: "#0057B7",
+                    fontSize: { xs: "12px", sm: "13px", md: "13px" },
+                    mb: { xs: "-20px", md: "-20px", lg: "-20px" },
+                  }}
+                >
+                  Nirmal Health Care
+                </Typography>
+              </Box>
             </Box>
 
             <Typography
