@@ -21,7 +21,7 @@ export default function DoctorCard({ name, specialty, image }) {
         mx: "auto",
         display: "flex",
         flexDirection: "column",
-        borderRadius: "12px 12px 0 0",
+        borderRadius: "23px",
         overflow: "hidden",
         backgroundColor: "#ffffffff",
         boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
@@ -55,20 +55,22 @@ export default function DoctorCard({ name, specialty, image }) {
           flexGrow: 1,
           display: "flex",
           flexDirection: "column",
-          textAlign: "center",
+          textAlign: "flex-start",
           p: { xs: 0, sm: 0, md: 0 },
           justifyContent: "center",
+          ml: "20px",
+          mt: "15px",
         }}
       >
         <Typography
           variant="h5"
           sx={{
             fontFamily: "Poppins, sans-serif",
-            fontWeight: 500,
+            fontWeight: 400,
             fontSize: {
-              xs: "1.2rem",
-              sm: "1.3rem",
-              md: "1.4rem",
+              xs: "16px",
+              sm: "16px",
+              md: "16px",
             },
             color: "#1a1a1a",
             mb: 1.5,
@@ -80,7 +82,7 @@ export default function DoctorCard({ name, specialty, image }) {
           sx={{
             fontFamily: "Poppins, sans-serif",
             color: "#155DFC",
-            fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+            fontSize: { xs: "14px", sm: "14px", md: "14px" },
             fontWeight: 400,
           }}
         >

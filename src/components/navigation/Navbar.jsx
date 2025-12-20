@@ -112,38 +112,46 @@ export default function Navbar() {
               justifyContent: "space-between",
               alignItems: "center",
               width: "1440px",
+              height: "82px",
             }}
           >
             {/* Logo */}
             <Box
-              component={Link}
-              to="/"
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "center",
-                textDecoration: "none",
-                gap: 0.5,
+                alignItems: "center", // ONLY this part is centered
+                width: "153px",
               }}
             >
               <Box
                 component="img"
                 src={logo}
-                alt="Nirmala Healthcare Logo"
                 sx={{
-                  width: { xs: 40, sm: 48 },
+                  width: { xs: 40, sm: 45, md: 45 },
                   height: "auto",
                 }}
               />
+              <Box>
+                <Typography
+                  variant="caption"
+                  sx={{
+                    fontWeight: 500,
+                    color: "#0057B7",
+                    fontSize: { xs: "12px", sm: "13px", md: "13px" },
+                    mb: { xs: "-10px", md: "-10px", lg: "-10px" },
+                  }}
+                >
+                  Dr Darda's
+                </Typography>
+              </Box>
               <Typography
                 variant="caption"
                 sx={{
-                  textDecoration: "none",
-                  color: "#0057B7",
                   fontWeight: 500,
-                  fontSize: { xs: "15px", sm: "15px", md: "15px" },
-                  lineHeight: 1,
-                  textAlign: "center",
+                  color: "#0057B7",
+                  fontSize: { xs: "12px", sm: "13px", md: "13px" },
+                  mb: { xs: "-20px", md: "-20px", lg: "-20px" },
                 }}
               >
                 Nirmal Health Care

@@ -56,7 +56,7 @@ export default function HeroSection() {
               sx={{
                 fontFamily: "Poppins, sans-serif",
                 mb: 3,
-                color: "#666",
+                color: "#343434",
                 fontSize: { xs: "14px", sm: "16px", md: "18px" },
                 lineHeight: 1.7,
               }}
