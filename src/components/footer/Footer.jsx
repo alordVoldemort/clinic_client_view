@@ -18,6 +18,27 @@ import phoneIcon from "../../assets/clinic/Footer/PhoneFooter.svg";
 import locationIcon from "../../assets/clinic/Footer/Location.svg";
 
 export default function Footer() {
+  // Map Quick Links to their routes
+  const quickLinksMap = {
+    "Home": "/",
+    "About Us": "/about",
+    "Book Appointment": "/appointment",
+    "Contact Us": "/contact",
+  };
+
+  // Map treatment names to their routes
+  const treatmentRouteMap = {
+    "Spine Treatments": "/treatments/spine-treatments",
+    "GIT Treatments": "/treatments/git-treatments",
+    "Cosmetology": "/treatments/cosmetology",
+    "Kidney Treatment": "/treatments/kidney-treatment",
+    "Gynecologist Treatment": "/treatments/gynecologist-treatment",
+    "Migraine Treatment": "/treatments/migraine-treatment",
+    "ENT Treatments": "/treatments/ent-treatments",
+    "Joint Treatments": "/treatments/joint-treatments",
+    "Child Treatments": "/treatments/child-treatments",
+  };
+
   return (
     <Box
       component="footer"
@@ -199,7 +220,7 @@ export default function Footer() {
                   <MuiLink
                     key={item}
                     component={Link}
-                    to="/"
+                    to={quickLinksMap[item] || "/"}
                     underline="none"
                     sx={{
                       color: "#0C0E11",
@@ -263,8 +284,11 @@ export default function Footer() {
                 "Joint Treatments",
                 "Child Treatments",
               ].map((item) => (
-                <Typography
+                <MuiLink
                   key={item}
+                  component={Link}
+                  to={treatmentRouteMap[item] || "/"}
+                  underline="none"
                   sx={{
                     color: "#0C0E11",
                     fontSize: {
@@ -272,12 +296,13 @@ export default function Footer() {
                       sm: "16px",
                       md: "16px",
                       lg: "16px",
-                      fontWeight: 300,
                     },
+                    fontWeight: 300,
+                    "&:hover": { color: "#1976d2" },
                   }}
                 >
                   {item}
-                </Typography>
+                </MuiLink>
               ))}
             </Box>
           </Grid>
