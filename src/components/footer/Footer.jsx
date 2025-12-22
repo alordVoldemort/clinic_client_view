@@ -170,7 +170,7 @@ export default function Footer() {
             xs={12}
             sm={6}
             md={3}
-            sx={{ width: { xs: "100%", sm: "150px", md: "150px" } }}
+            sx={{ width: { xs: "100%", sm: "150px", md: "155px" } }}
           >
             <Typography
               sx={{

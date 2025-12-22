@@ -16,54 +16,63 @@ const treatments = [
     description:
       "Expert care for back pain, disc problems, and spinal disorders with advanced techniques.",
     image: spineTreatmentImg,
+    route: "/treatments/spine-treatments",
   },
   {
     title: "GIT Treatments",
     description:
       "Comprehensive gastrointestinal care for digestive health and wellness.",
     image: gitTreatmentImg,
+    route: "/treatments/git-treatments",
   },
   {
     title: "Cosmetology",
     description:
       "Specialized treatment for acne, pigmentation, anti-aging, hair loss, and skin rejuvenation.",
     image: cosmetologyImg,
+    route: "/treatments/cosmetology",
   },
   {
     title: "Kidney Treatment",
     description:
       "Diagnosis and care for kidney stones, infections, urinary incontinence in kidney",
     image: kidneyTreatmentImg,
+    route: "/treatments/kidney-treatment",
   },
   {
     title: "Gynecology Treatment",
     description:
       "Treatment for menstrual disorders, PCOS, pregnancy care, and reproductive concerns.",
     image: gynecologistTreatmentImg,
+    route: "/treatments/gynecologist-treatment",
   },
   {
     title: "Migraine Treatment",
     description:
       "Specialized treatment for chronic migraines, tension headaches, and neural pain.",
     image: migraineTreatmentImg,
+    route: "/treatments/migraine-treatment",
   },
   {
     title: "ENT Treatments",
     description:
       "Specialized treatment for ear, nose, throat infections, allergies, and sinus issues.",
     image: entTreatmentImg,
+    route: "/treatments/ent-treatments",
   },
   {
     title: "Joint Treatments",
     description:
       "Pain relief and therapy for knee, shoulder, back, and arthritis-related joint problems.",
     image: jointTreatmentImg,
+    route: "/treatments/joint-treatments",
   },
   {
     title: "Child Treatments",
     description:
       "Recurrent cold and cough Adenoids, Child overall development Asthma Tonsillitis",
     image: childTreatmentImg,
+    route: "/treatments/child-treatments",
   },
 ];
 
@@ -137,6 +146,7 @@ export default function SpecializedTreatmentsSection() {
                 title={treatment.title}
                 description={treatment.description}
                 image={treatment.image}
+                route={treatment.route}
               />
             </Grid>
           ))}
