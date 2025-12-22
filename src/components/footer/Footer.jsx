@@ -69,7 +69,8 @@ export default function Footer() {
             md={3}
             sx={{
               width: { xs: "100%", sm: "200px", md: "300px" },
-              mr: { lg: "130px" },
+              mr: { lg: "110px" },
+              ml: { lg: "110px" },
             }}
           >
             <Box

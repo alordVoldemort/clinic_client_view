@@ -240,7 +240,7 @@ export const TREATMENTS_DATA = [
       title: "Treatment Benefits",
       cardTitle: "What You Can Expect",
       description:
-        "Our cosmetic treatments offer numerous benefits beyond aesthetic improvement.",
+        "Discover safe, natural cosmetic benefits that support long-term skin wellness and visible aesthetic enhancement.",
       expectations: [
         "Improved skin texture and tone",
         "Reduced fine lines and wrinkles",
