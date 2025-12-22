@@ -28,7 +28,7 @@ export default function ExpertDoctorsSection() {
       sx={{
         width: "100%",
         py: { xs: 4, sm: 5, md: 6, lg: 8 },
-        backgroundColor: "#ffffff",
+        backgroundColor: "#FBF9FA",
       }}
     >
       <Container maxWidth="xl">

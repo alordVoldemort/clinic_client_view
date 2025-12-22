@@ -82,7 +82,7 @@ export default function SpecializedTreatmentsSection() {
       sx={{
         width: "100%",
         py: { xs: 4, sm: 5, md: 6, lg: 8 },
-        backgroundColor: "#f9fafb",
+        backgroundColor: "#ffffff",
       }}
     >
       <Container maxWidth="xl">
