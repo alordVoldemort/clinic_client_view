@@ -32,9 +32,9 @@ const TreatmentApproach = ({ symptoms, treatmentApproach }) => {
       <Container
         maxWidth={false}
         sx={{
-          width: { xs: "100%", sm: "100%", md: "100%", lg: "1219px" },
+          width: { xs: "100%", sm: "100%", md: "100%", lg: "100%", xl: "1219px" },
           mx: "auto",
-          px: { xs: 0, sm: "24px", md: "32px", lg: 0 },
+          px: { xs: 0, sm: "24px", md: "32px", lg: "32px", xl: 0 },
         }}
       >
         {/* Two-column layout */}

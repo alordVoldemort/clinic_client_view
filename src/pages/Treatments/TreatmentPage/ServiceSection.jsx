@@ -36,9 +36,9 @@ const ServiceSection = ({ title, subtitle, services }) => {
       <Container
         maxWidth={false}
         sx={{
-          maxWidth: { xs: "100%", sm: "100%", md: "100%", lg: "1271px" },
+          maxWidth: { xs: "100%", sm: "100%", md: "100%", lg: "100%", xl: "1271px" },
           mx: "auto",
-          px: { xs: 2, sm: 3, md: 4, lg: 0 },
+          px: { xs: 2, sm: 3, md: 4, lg: 4, xl: 0 },
         }}
       >
         {/* 🔹 Section Header */}

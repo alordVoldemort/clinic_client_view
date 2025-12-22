@@ -98,10 +98,10 @@ export default function TestimonialsSection() {
               fontFamily: "Poppins, sans-serif",
               fontWeight: 600,
               fontSize: {
-                xs: "1.8rem",
-                sm: "2.2rem",
-                md: "2.5rem",
-                lg: "3rem",
+                xs: "22px",
+                sm: "22px",
+                md: "24px",
+                lg: "24px",
               },
               color: "#1a1a1a",
               mb: 2,
@@ -112,10 +112,11 @@ export default function TestimonialsSection() {
           <Typography
             sx={{
               fontFamily: "Poppins, sans-serif",
-              fontSize: { xs: "0.95rem", sm: "1rem", md: "1.1rem" },
-              color: "#666",
+              fontSize: { xs: "14px", sm: "16px", md: "16px" },
+              color: "#000000",
               maxWidth: "600px",
               mx: "auto",
+              fontWeight: 300,
             }}
           >
             Real stories from real patients who experienced exceptional care.

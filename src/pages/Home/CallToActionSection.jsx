@@ -46,10 +46,10 @@ export default function CallToActionSection() {
               fontFamily: "Poppins, sans-serif",
               fontWeight: 600,
               fontSize: {
-                xs: "2rem",
-                sm: "2.5rem",
-                md: "3rem",
-                lg: "3.5rem",
+                xs: "22px",
+                sm: "24px",
+                md: "24px",
+                lg: "24px",
               },
               mb: 3,
               color: "#ffffff",
@@ -60,7 +60,7 @@ export default function CallToActionSection() {
           <Typography
             sx={{
               fontFamily: "Poppins, sans-serif",
-              fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
+              fontSize: { xs: "16px", sm: "16px", md: "16px" },
               mb: 4,
               color: "#f0f0f0",
               lineHeight: 1.7,
@@ -87,7 +87,7 @@ export default function CallToActionSection() {
               fontFamily: "Poppins, sans-serif",
               px: { xs: 4, sm: 5, md: 6 },
               py: { xs: 1.5, sm: 2 },
-              fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
+              fontSize: { xs: "15px", sm: "15px", md: "15px" },
               backgroundColor: "#155DFC",
               borderRadius: "8px",
               fontWeight: 500,

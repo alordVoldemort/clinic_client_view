@@ -36,7 +36,7 @@ const treatments = [
     image: kidneyTreatmentImg,
   },
   {
-    title: "Gynecologist Treatment",
+    title: "Gynecology Treatment",
     description:
       "Treatment for menstrual disorders, PCOS, pregnancy care, and reproductive concerns.",
     image: gynecologistTreatmentImg,

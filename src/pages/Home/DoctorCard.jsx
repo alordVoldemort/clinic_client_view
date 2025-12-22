@@ -72,7 +72,7 @@ export default function DoctorCard({ name, specialty, image }) {
               sm: "16px",
               md: "16px",
             },
-            color: "#1a1a1a",
+            color: "#000000",
             mb: 1.5,
           }}
         >

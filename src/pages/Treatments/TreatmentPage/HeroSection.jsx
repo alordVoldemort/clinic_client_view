@@ -66,11 +66,11 @@ const HeroSection = ({ treatmentName, title, description, image }) => {
         maxWidth={false}
         disableGutters
         sx={{
-          width: { xs: "100%", sm: "100%", md: "100%", lg: "1275px" },
-          maxWidth: { xs: "100%", sm: "100%", md: "100%", lg: "1275px" },
-          height: { xs: "auto", sm: "auto", md: "auto", lg: "399px" },
+          width: { xs: "100%", sm: "100%", md: "100%", lg: "100%", xl: "1440px" },
+          maxWidth: { xs: "100%", sm: "100%", md: "100%", lg: "100%", xl: "1275px" },
+          height: { xs: "auto", sm: "auto", md: "auto", lg: "auto", xl: "399px" },
           backgroundColor: "transparent",
-          px: { xs: 2, sm: 3, md: 4, lg: 0 },
+          px: { xs: 2, sm: 3, md: 4, lg: 4, xl: 0 },
         }}
       >
         <Box
@@ -84,12 +84,22 @@ const HeroSection = ({ treatmentName, title, description, image }) => {
           {/* LEFT CONTENT */}
           <Box
             sx={{
-              flex: { xs: "1 1 100%", sm: "1 1 50%", md: "1 1 50%", lg: "1 1 50%" },
+              flex: {
+                xs: "1 1 100%",
+                sm: "1 1 50%",
+                md: "1 1 50%",
+                lg: "1 1 50%",
+              },
               width: { xs: "100%", sm: "50%", md: "100%", lg: "583px" },
               height: { xs: "auto", sm: "auto", md: "auto", lg: "352px" },
               display: "flex",
               flexDirection: "column",
-              padding: { xs: "12px", sm: "16px", md: "20px", lg: "9px 7px 9px 7px" },
+              padding: {
+                xs: "12px",
+                sm: "16px",
+                md: "20px",
+                lg: "9px 7px 9px 7px",
+              },
               gap: { xs: 2, sm: 3, md: 4, lg: "41px" },
               borderRadius: "6px",
               boxSizing: "border-box",
@@ -110,7 +120,12 @@ const HeroSection = ({ treatmentName, title, description, image }) => {
               <Typography
                 sx={{
                   fontFamily: "Poppins, sans-serif",
-                  fontSize: { xs: "0.75rem", sm: "0.85rem", md: "0.9rem", lg: "1rem" },
+                  fontSize: {
+                    xs: "0.75rem",
+                    sm: "0.85rem",
+                    md: "0.9rem",
+                    lg: "1rem",
+                  },
                   fontWeight: 400,
                   color: "#155DFC",
                 }}
@@ -157,9 +172,9 @@ const HeroSection = ({ treatmentName, title, description, image }) => {
                     component="img"
                     src={calendarIcon}
                     alt="Calendar"
-                    sx={{ 
-                      width: { xs: "18px", sm: "19px", md: "20px" }, 
-                      height: "auto" 
+                    sx={{
+                      width: { xs: "18px", sm: "19px", md: "20px" },
+                      height: "auto",
                     }}
                   />
                 }
@@ -167,7 +182,12 @@ const HeroSection = ({ treatmentName, title, description, image }) => {
                   fontFamily: "Poppins, sans-serif",
                   px: { xs: 2.5, sm: 3, md: 3.5, lg: 4 },
                   py: { xs: 1.25, sm: 1.5, md: 1.5 },
-                  fontSize: { xs: "0.85rem", sm: "0.9rem", md: "0.95rem", lg: "1rem" },
+                  fontSize: {
+                    xs: "0.85rem",
+                    sm: "0.9rem",
+                    md: "0.95rem",
+                    lg: "1rem",
+                  },
                   backgroundColor: "#155DFC",
                   borderRadius: "8px",
                   textTransform: "none",
@@ -185,10 +205,20 @@ const HeroSection = ({ treatmentName, title, description, image }) => {
           {/* RIGHT IMAGE */}
           <Box
             sx={{
-              flex: { xs: "1 1 100%", sm: "1 1 50%", md: "1 1 50%", lg: "1 1 50%" },
+              flex: {
+                xs: "1 1 100%",
+                sm: "1 1 50%",
+                md: "1 1 50%",
+                lg: "1 1 50%",
+              },
               width: { xs: "100%", sm: "50%", md: "100%", lg: "50%" },
               display: "flex",
-              justifyContent: { xs: "center", sm: "center", md: "center", lg: "flex-end" },
+              justifyContent: {
+                xs: "center",
+                sm: "center",
+                md: "center",
+                lg: "flex-end",
+              },
               alignItems: "center",
             }}
           >
@@ -198,17 +228,17 @@ const HeroSection = ({ treatmentName, title, description, image }) => {
               alt={finalTreatmentName}
               sx={{
                 width: "100%",
-                maxWidth: { 
-                  xs: "100%", 
-                  sm: "100%", 
-                  md: "500px", 
-                  lg: "598px" 
+                maxWidth: {
+                  xs: "100%",
+                  sm: "100%",
+                  md: "500px",
+                  lg: "598px",
                 },
-                height: { 
-                  xs: "250px", 
-                  sm: "300px", 
-                  md: "350px", 
-                  lg: "399px" 
+                height: {
+                  xs: "250px",
+                  sm: "300px",
+                  md: "350px",
+                  lg: "399px",
                 },
                 objectFit: "cover",
                 borderRadius: "9px",
