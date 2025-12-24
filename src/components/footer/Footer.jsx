@@ -8,7 +8,6 @@ import {
   Divider,
 } from "@mui/material";
 import { Link } from "react-router-dom";
-import { useTheme, useMediaQuery } from "@mui/material";
 
 import logo from "../../assets/clinic/logo/Group 1686550958.svg";
 import facebookIcon from "../../assets/clinic/Footer/Facebook.svg";
@@ -19,15 +18,33 @@ import phoneIcon from "../../assets/clinic/Footer/PhoneFooter.svg";
 import locationIcon from "../../assets/clinic/Footer/Location.svg";
 
 export default function Footer() {
-  const theme = useTheme();
-  const isIPad = useMediaQuery(theme.breakpoints.between("sm", "lg"));
+  // Map Quick Links to their routes
+  const quickLinksMap = {
+    "Home": "/",
+    "About Us": "/about",
+    "Book Appointment": "/appointment",
+    "Contact Us": "/contact",
+  };
+
+  // Map treatment names to their routes
+  const treatmentRouteMap = {
+    "Spine Treatments": "/treatments/spine-treatments",
+    "GIT Treatments": "/treatments/git-treatments",
+    "Cosmetology": "/treatments/cosmetology",
+    "Kidney Treatment": "/treatments/kidney-treatment",
+    "Gynecologist Treatment": "/treatments/gynecologist-treatment",
+    "Migraine Treatment": "/treatments/migraine-treatment",
+    "ENT Treatments": "/treatments/ent-treatments",
+    "Joint Treatments": "/treatments/joint-treatments",
+    "Child Treatments": "/treatments/child-treatments",
+  };
 
   return (
     <Box
       component="footer"
       sx={{
         width: "100%",
-        backgroundColor: "#e9eef6",
+        backgroundColor: "#F2F8FF",
         color: "#1a1a1a",
         pt: { xs: 4, sm: 5, md: 6, lg: 8 },
         pb: { xs: 3, sm: 4, md: 5, lg: 6 },
@@ -35,50 +52,84 @@ export default function Footer() {
       }}
     >
       <Container
-        maxWidth="lg"
+        maxWidth="false"
         sx={{
-          width: "100%",
-          px: { xs: 2, sm: 3, md: 4 },
+          width: {
+            xs: "100%",
+            sm: "100%",
+            md: "100%",
+            lg: "100%",
+            xl: "1440px",
+          },
+          maxWidth: {
+            xs: "100%",
+            sm: "100%",
+            md: "100%",
+            lg: "100%",
+            xl: "1440px",
+          },
+          px: { xs: 2, sm: 3, md: 4, lg: 4, xl: 0 },
+          mx: "auto",
+          mb: "-19px",
         }}
       >
         <Grid
           container
           spacing={{ xs: 3, sm: 4, md: 4, lg: 10 }}
           sx={{
-            flexWrap: "nowrap", // default (desktop & tablet)
-            "@media (max-width:700px)": {
-              flexWrap: "wrap", // 📱 below 700px only
-            },
+            flexWrap: { xs: "wrap", sm: "nowrap", md: "nowrap", lg: "nowrap" },
           }}
         >
           {/* ============================
               1️⃣ COMPANY INFO
           ============================ */}
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={3}
+            sx={{
+              width: { xs: "100%", sm: "200px", md: "300px" },
+              mr: { lg: "110px" },
+              ml: { lg: "110px" },
+            }}
+          >
             <Box
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                alignItems: { xs: "flex-start", sm: "flex-start" },
-                gap: { xs: 0.8, sm: 1, md: 1.2 },
-                mb: { xs: 2, sm: 2.5, md: 3 },
+                width: { xs: "153px", sm: "153px", md: "153px" },
+                mb: "15px",
               }}
             >
+              {/* Logo — CENTERED */}
               <Box
-                component="img"
-                src={logo}
                 sx={{
-                  width: { xs: 40, sm: 45, md: 45 },
-                  height: "auto",
+                  display: "flex",
+                  justifyContent: "center",
+                  width: "100%",
+                  ml: { xs: "-15px", sm: "-35px", md: "-5px", lg: "-2px" },
                 }}
-              />
+              >
+                <Box
+                  component="img"
+                  src={logo}
+                  sx={{
+                    width: { xs: 40, sm: 45, md: 45 },
+                    height: "auto",
+                  }}
+                />
+              </Box>
 
+              {/* Text — LEFT ALIGNED */}
               <Typography
                 variant="caption"
                 sx={{
-                  fontWeight: 600,
-                  color: "#155DFC",
-                  fontSize: { xs: "0.75rem", sm: "0.8rem", md: "0.85rem" },
+                  fontWeight: 500,
+                  color: "#0057B7",
+                  fontSize: { xs: "12px", sm: "15px", md: "15px" },
+                  textAlign: "left",
+                  mt: 0.5,
                 }}
               >
                 Nirmal Health Care
@@ -87,7 +138,7 @@ export default function Footer() {
 
             <Typography
               sx={{
-                color: "#555",
+                color: "#808080",
                 fontSize: {
                   xs: "0.8rem",
                   sm: "0.85rem",
@@ -96,11 +147,11 @@ export default function Footer() {
                 },
                 lineHeight: 1.7,
                 mb: { xs: 2, sm: 2.5, md: 3 },
+                display: { xs: "block", sm: "block", md: "block" },
               }}
             >
-              Providing excellence in healthcare <br></br> with compassion and
-              expertise. Your <br></br>health and well-being are our top
-              priorities.
+              Providing excellence in healthcare with compassion and expertise.
+              Your health and well-being are our top priorities.
             </Typography>
 
             {/* SOCIAL ICONS */}
@@ -135,16 +186,22 @@ export default function Footer() {
           {/* ============================
               2️⃣ QUICK LINKS
           ============================ */}
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={3}
+            sx={{ width: { xs: "100%", sm: "150px", md: "155px" } }}
+          >
             <Typography
               sx={{
                 fontWeight: 600,
                 mb: { xs: 1.5, sm: 2, md: 2.5 },
                 fontSize: {
-                  xs: "0.95rem",
-                  sm: "1rem",
-                  md: "1.05rem",
-                  lg: "1.1rem",
+                  xs: "16px",
+                  sm: "16px",
+                  md: "17px",
+                  lg: "17px",
                 },
               }}
             >
@@ -163,15 +220,16 @@ export default function Footer() {
                   <MuiLink
                     key={item}
                     component={Link}
-                    to="/"
+                    to={quickLinksMap[item] || "/"}
                     underline="none"
                     sx={{
-                      color: "#555",
+                      color: "#0C0E11",
+                      fontWeight: 300,
                       fontSize: {
-                        xs: "0.8rem",
-                        sm: "0.85rem",
-                        md: "0.9rem",
-                        lg: "0.95rem",
+                        xs: "16px",
+                        sm: "16px",
+                        md: "16px",
+                        lg: "16px",
                       },
                       "&:hover": { color: "#1976d2" },
                     }}
@@ -186,16 +244,22 @@ export default function Footer() {
           {/* ============================
               3️⃣ TREATMENTS
           ============================ */}
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={3}
+            sx={{ width: { xs: "100%", sm: "150px", md: "auto" } }}
+          >
             <Typography
               sx={{
                 fontWeight: 600,
                 mb: { xs: 1.5, sm: 2, md: 2.5 },
                 fontSize: {
-                  xs: "0.95rem",
-                  sm: "1rem",
-                  md: "1.05rem",
-                  lg: "1.1rem",
+                  xs: "17px",
+                  sm: "17px",
+                  md: "17px",
+                  lg: "17px",
                 },
               }}
             >
@@ -220,20 +284,25 @@ export default function Footer() {
                 "Joint Treatments",
                 "Child Treatments",
               ].map((item) => (
-                <Typography
+                <MuiLink
                   key={item}
+                  component={Link}
+                  to={treatmentRouteMap[item] || "/"}
+                  underline="none"
                   sx={{
-                    color: "#555",
+                    color: "#0C0E11",
                     fontSize: {
-                      xs: "0.8rem",
-                      sm: "0.85rem",
-                      md: "0.9rem",
-                      lg: "0.95rem",
+                      xs: "16px",
+                      sm: "16px",
+                      md: "16px",
+                      lg: "16px",
                     },
+                    fontWeight: 300,
+                    "&:hover": { color: "#1976d2" },
                   }}
                 >
                   {item}
-                </Typography>
+                </MuiLink>
               ))}
             </Box>
           </Grid>
@@ -241,16 +310,25 @@ export default function Footer() {
           {/* ============================
               4️⃣ CONTACT US
           ============================ */}
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid
+            item
+            xs={12}
+            sm={3}
+            md={3}
+            sx={{
+              width: { xs: "100%", sm: "170px", md: "394px" },
+              maxWidth: { xs: "100%", sm: "175px", md: "394px" },
+            }}
+          >
             <Typography
               sx={{
                 fontWeight: 600,
                 mb: { xs: 1.5, sm: 2, md: 2.5 },
                 fontSize: {
-                  xs: "0.95rem",
-                  sm: "1rem",
-                  md: "1.05rem",
-                  lg: "1.1rem",
+                  xs: "17px",
+                  sm: "17px",
+                  md: "17px",
+                  lg: "17px",
                 },
               }}
             >
@@ -284,35 +362,19 @@ export default function Footer() {
 
                 <Typography
                   sx={{
-                    color: "#555",
+                    color: "#404246",
                     fontSize: {
-                      xs: "0.8rem",
-                      sm: "0.85rem",
-                      md: "0.9rem",
-                      lg: "0.95rem",
+                      xs: "16px",
+                      sm: "16px",
+                      md: "16px",
+                      lg: "16px",
                     },
                     lineHeight: 1.6,
+                    wordBreak: "break-word",
                   }}
                 >
-                  {isIPad ? (
-                    <>
-                      Arthashilp, 1349/50, Bajirao Rd,
-                      <br />
-                      below hotel Ganraj, Natu Baag,
-                      <br />
-                      Shukrawar Peth, Pune,
-                      <br />
-                      Maharashtra 411002
-                    </>
-                  ) : (
-                    <>
-                      Arthashilp, 1349/50, Bajirao Rd,
-                      <br />
-                      below hotel Ganraj, Natu Baag,
-                      <br />
-                      Shukrawar Peth, Pune, Maharashtra 411002
-                    </>
-                  )}
+                  Arthashilp, 1349/50, Bajirao Rd, below hotel Ganraj, Natu
+                  Baag, Shukrawar Peth, Pune, Maharashtra 411002
                 </Typography>
               </Box>
 
@@ -334,7 +396,7 @@ export default function Footer() {
                 />
                 <Typography
                   sx={{
-                    color: "#555",
+                    color: "#404246",
                     fontSize: {
                       xs: "0.8rem",
                       sm: "0.85rem",
@@ -365,7 +427,7 @@ export default function Footer() {
                 />
                 <Typography
                   sx={{
-                    color: "#555",
+                    color: "#404246",
                     fontSize: {
                       xs: "0.8rem",
                       sm: "0.85rem",
@@ -375,7 +437,7 @@ export default function Footer() {
                     wordBreak: "break-word",
                   }}
                 >
-                  info@healingtouch.com
+                  drdardasnirmalhealthcare@gmail.com{" "}
                 </Typography>
               </Box>
             </Box>

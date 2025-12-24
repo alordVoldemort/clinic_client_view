@@ -19,7 +19,7 @@ import {
 
 import MenuIcon from "@mui/icons-material/Menu";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 import logo from "../../assets/clinic/logo/Group 1686550958.svg";
 import phoneIcon from "../../assets/clinic/Navbar/phone-flip (3) 1.svg";
@@ -29,12 +29,17 @@ export default function Navbar() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [treatmentsOpen, setTreatmentsOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
-
-  // Show hamburger for iPad Mini (768px) and small devices
-  // Show menu options for iPad Air (820px+) and desktop
-  const showMenuOptions = useMediaQuery("(min-width:900px)");
-
+  // Show hamburger for iPad Mini, iPad Air, Surface Pro 7, and small devices
+  // Show menu options for large desktop screens (1400px+)
+  const showMenuOptions = useMediaQuery("(min-width:1200px)");
+  const isActive = (path) => {
+    if (path === "/") {
+      return location.pathname === "/";
+    }
+    return location.pathname.startsWith(path);
+  };
   const menuItems = [
     { label: "Home", path: "/" },
     { label: "About", path: "/about" },
@@ -51,7 +56,7 @@ export default function Navbar() {
     "GIT Treatments",
     "Cosmetology",
     "Kidney Treatment",
-    "Gynecologist Treatment",
+    "Gynecology Treatment",
     "Migraine Treatment",
     "ENT Treatments",
     "Joint Treatments",
@@ -64,7 +69,7 @@ export default function Navbar() {
     "GIT Treatments": "/treatments/git-treatments",
     Cosmetology: "/treatments/cosmetology",
     "Kidney Treatment": "/treatments/kidney-treatment",
-    "Gynecologist Treatment": "/treatments/gynecologist-treatment",
+    "Gynecology Treatment": "/treatments/gynecologist-treatment",
     "Migraine Treatment": "/treatments/migraine-treatment",
     "ENT Treatments": "/treatments/ent-treatments",
     "Joint Treatments": "/treatments/joint-treatments",
@@ -91,22 +96,47 @@ export default function Navbar() {
   return (
     <>
       <AppBar
-        position="static"
+        position="sticky"
+        top={0}
         color="inherit"
         elevation={0}
         sx={{
           backgroundColor: "#ffffff",
-          borderBottom: "1px solid #e0e0e0",
+          boxShadow: "7px 10px 4.6px rgba(226, 226, 226, 0.34)",
+          zIndex: 1200,
         }}
       >
-        <Toolbar sx={{ py: { xs: 1, sm: 1.5 }, px: 0 }}>
+        <Toolbar
+          sx={{
+            py: { xs: 1, sm: 1.5 },
+            px: 0,
+            height: { xs: "95px", sm: "95px", md: "75px" },
+          }}
+        >
           <Container
             maxWidth="false"
             sx={{
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              width: "1440px",
+              width: {
+                xs: "100%",
+                sm: "100%",
+                md: "100%",
+                lg: "100%",
+                xl: "1440px",
+              },
+              maxWidth: {
+                xs: "100%",
+                sm: "100%",
+                md: "100%",
+                lg: "100%",
+                xl: "1440px",
+              },
+              height: { xs: "auto", sm: "auto", md: "82px" },
+              px: { xs: 2, sm: 3, md: 4, lg: 4, xl: 0 },
+              mx: "auto",
+              overflow: "hidden",
             }}
           >
             {/* Logo */}
@@ -115,30 +145,37 @@ export default function Navbar() {
               to="/"
               sx={{
                 display: "flex",
+                ml: { xs: 0, sm: 0, md: "50px" },
                 flexDirection: "column",
                 alignItems: "center",
+                width: { xs: "auto", sm: "auto", md: "153px" },
+                flexShrink: 0,
                 textDecoration: "none",
-                gap: 0.5,
+                cursor: "pointer",
+                "&:hover": {
+                  opacity: 0.8,
+                },
               }}
             >
               <Box
                 component="img"
                 src={logo}
-                alt="Nirmala Healthcare Logo"
                 sx={{
-                  width: { xs: 40, sm: 48 },
-                  height: "auto",
+                  width: { xs: 40, sm: 45, md: "47px" },
+                  height: { xs: "auto", sm: "auto", md: "32px" },
+                  mb: { xs: "5px", md: "5px", lg: "5px" },
+                  mt: { xs: 0, md: "-14px", lg: "-14px" },
                 }}
               />
+
               <Typography
                 variant="caption"
                 sx={{
-                  textDecoration: "none",
-                  color: "#0057B7",
                   fontWeight: 500,
-                  fontSize: { xs: "15px", sm: "15px", md: "15px" },
-                  lineHeight: 1,
-                  textAlign: "center",
+                  color: "#0057B7",
+                  fontSize: { xs: "12px", sm: "13px", md: "15px" },
+                  mb: { xs: 0, md: "-20px", lg: "-20px" },
+                  mt: { xs: "2px", md: 0 },
                 }}
               >
                 Nirmal Health Care
@@ -150,137 +187,160 @@ export default function Navbar() {
               <Box
                 sx={{
                   display: "flex",
-                  gap: { xs: 1, sm: 2, md: 2, lg: 2, xl: 3 },
+                  gap: { xs: 1, sm: 1.5, md: 1.5, lg: 1.5, xl: 2 },
                   alignItems: "center",
-                  flexWrap: {
-                    xs: "wrap",
-                    md: "nowrap",
-                    lg: "nowrap",
-                    xl: "nowrap",
-                  },
+                  flexWrap: "nowrap",
                   whiteSpace: "nowrap",
+                  flex: 1,
+                  justifyContent: {
+                    xs: "flex-end",
+                    sm: "flex-end",
+                    md: "center",
+                    lg: "center",
+                  },
+                  mr: { xs: 0, sm: 0, md: 0, lg: 0, xl: "-190px" },
+                  minWidth: 0,
                 }}
               >
-                {menuItems.map((item) => {
-                  if (item.hasDropdown) {
+                <Box
+                  sx={{
+                    display: "flex",
+                    gap: { xs: 0.5, sm: 1, md: 1, lg: 1.5, xl: 2 },
+                    alignItems: "center",
+                    flexWrap: "nowrap",
+                    pr: { xs: 1, sm: 2, md: 2, lg: 3, xl: 17 },
+                    flexShrink: 0,
+                    minWidth: 0,
+                  }}
+                >
+                  {menuItems.map((item) => {
+                    if (item.hasDropdown) {
+                      return (
+                        <Box key={item.path}>
+                          <Button
+                            onClick={handleTreatmentMenuOpen}
+                            color="inherit"
+                            endIcon={<ExpandMoreIcon />}
+                            sx={{
+                              fontSize: {
+                                xs: "0.85rem",
+                                sm: "0.875rem",
+                                md: "0.875rem",
+                                lg: "0.875rem",
+                                xl: "0.9rem",
+                              },
+                              minWidth: "auto",
+                              px: { xs: 0.75, sm: 1, md: 1, lg: 1.25, xl: 1.5 },
+                              color: location.pathname.startsWith("/treatments")
+                                ? "#155DFC"
+                                : "#000000",
+                              fontWeight: 500,
+                              textTransform: "none",
+                              flexShrink: 0,
+                              fontFamily: "Poppins, sans-serif",
+                              "&:hover": {
+                                backgroundColor: "rgba(25, 118, 210, 0.04)",
+                                color: "#155DFC",
+                              },
+                            }}
+                          >
+                            {item.label}
+                          </Button>
+                          <Menu
+                            anchorEl={anchorEl}
+                            open={Boolean(anchorEl)}
+                            onClose={handleTreatmentMenuClose}
+                            anchorOrigin={{
+                              vertical: "bottom",
+                              horizontal: "left",
+                            }}
+                            transformOrigin={{
+                              vertical: "top",
+                              horizontal: "left",
+                            }}
+                            PaperProps={{
+                              sx: {
+                                mt: 1,
+                                minWidth: 200,
+                                boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+                              },
+                            }}
+                          >
+                            {treatments.map((treatment) => (
+                              <MenuItem
+                                key={treatment}
+                                onClick={() => handleTreatmentClick(treatment)}
+                                sx={{
+                                  fontFamily: "Poppins, sans-serif",
+                                  color: isActive(item.path)
+                                    ? "#155DFC"
+                                    : "#000000",
+                                  fontSize: "0.95rem",
+                                  py: 1.5,
+                                  px: 2,
+                                  "&:hover": {
+                                    color: "#155DFC",
+                                    backgroundColor: "rgba(21, 93, 252, 0.04)",
+                                  },
+                                }}
+                              >
+                                {treatment}
+                              </MenuItem>
+                            ))}
+                          </Menu>
+                        </Box>
+                      );
+                    }
                     return (
-                      <Box key={item.path}>
-                        <Button
-                          onClick={handleTreatmentMenuOpen}
-                          color="inherit"
-                          endIcon={<ExpandMoreIcon />}
-                          sx={{
-                            fontSize: {
-                              xs: "0.85rem",
-                              sm: "0.9rem",
-                              md: "0.9rem",
-                              lg: "0.9rem",
-                              xl: "1rem",
-                            },
-                            minWidth: "auto",
-                            px: { xs: 1, sm: 1.5, md: 1.5, lg: 1.5, xl: 2 },
-                            color: "#000000",
-                            fontWeight: 500,
-                            textTransform: "none",
-                            flexShrink: 0,
-                            fontFamily: "Poppins, sans-serif",
-                            "&:hover": {
-                              backgroundColor: "rgba(25, 118, 210, 0.04)",
-                              color: "#155DFC",
-                            },
-                          }}
-                        >
-                          {item.label}
-                        </Button>
-                        <Menu
-                          anchorEl={anchorEl}
-                          open={Boolean(anchorEl)}
-                          onClose={handleTreatmentMenuClose}
-                          anchorOrigin={{
-                            vertical: "bottom",
-                            horizontal: "left",
-                          }}
-                          transformOrigin={{
-                            vertical: "top",
-                            horizontal: "left",
-                          }}
-                          PaperProps={{
-                            sx: {
-                              mt: 1,
-                              minWidth: 200,
-                              boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
-                            },
-                          }}
-                        >
-                          {treatments.map((treatment) => (
-                            <MenuItem
-                              key={treatment}
-                              onClick={() => handleTreatmentClick(treatment)}
-                              sx={{
-                                fontFamily: "Poppins, sans-serif",
-                                color: "#000000",
-                                fontSize: "0.95rem",
-                                py: 1.5,
-                                px: 2,
-                                "&:hover": {
-                                  color: "#155DFC",
-                                  backgroundColor: "rgba(21, 93, 252, 0.04)",
-                                },
-                              }}
-                            >
-                              {treatment}
-                            </MenuItem>
-                          ))}
-                        </Menu>
-                      </Box>
+                      <Button
+                        key={item.path}
+                        component={Link}
+                        to={item.path}
+                        color="inherit"
+                        sx={{
+                          fontSize: {
+                            xs: "0.85rem",
+                            sm: "0.875rem",
+                            md: "0.875rem",
+                            lg: "0.875rem",
+                            xl: "0.9rem",
+                          },
+                          minWidth: "auto",
+                          px: { xs: 0.75, sm: 1, md: 1, lg: 1.25, xl: 1.5 },
+                          color: isActive(item.path) ? "#155DFC" : "#000000",
+                          fontWeight: 500,
+                          textTransform: "none",
+                          flexShrink: 0,
+                          fontFamily: "Poppins, sans-serif",
+                          "&:hover": {
+                            backgroundColor: "rgba(25, 118, 210, 0.04)",
+                            color: "#155DFC",
+                          },
+                        }}
+                      >
+                        {item.label}
+                      </Button>
                     );
-                  }
-                  return (
-                    <Button
-                      key={item.path}
-                      component={Link}
-                      to={item.path}
-                      color="inherit"
-                      sx={{
-                        fontSize: {
-                          xs: "0.85rem",
-                          sm: "0.9rem",
-                          md: "0.9rem",
-                          lg: "0.9rem",
-                          xl: "1rem",
-                        },
-                        minWidth: "auto",
-                        px: { xs: 1, sm: 1.5, md: 1.5, lg: 1.5, xl: 2 },
-                        color: "#000000",
-                        fontWeight: 500,
-                        textTransform: "none",
-                        flexShrink: 0,
-                        fontFamily: "Poppins, sans-serif",
-                        "&:hover": {
-                          backgroundColor: "rgba(25, 118, 210, 0.04)",
-                          color: "#155DFC",
-                        },
-                      }}
-                    >
-                      {item.label}
-                    </Button>
-                  );
-                })}
+                  })}
+                </Box>
                 <Box
                   sx={{
                     display: {
-                      md: "flex",
+                      xs: "none",
+                      sm: "none",
+                      md: "none",
                       lg: "none",
                       xl: "flex",
                     },
-                    // Hide on iPad Pro (1024px) specifically
-                    "@media (min-width: 1024px) and (max-width: 1199px)": {
+                    // Hide on iPad Pro, Surface Pro 7, and 1440px width (1024px-1500px) specifically
+                    "@media (min-width: 1024px) and (max-width: 1500px)": {
                       display: "none",
                     },
                     alignItems: "center",
                     gap: 1,
-                    mr: 2,
+                    mr: { xs: 1, sm: 1.5, md: 2 },
                     color: "#000000ff",
+                    flexShrink: 0,
                   }}
                 >
                   <Box
@@ -288,17 +348,17 @@ export default function Navbar() {
                     src={phoneIcon}
                     alt="Phone"
                     sx={{
-                      width: { xs: "16px", md: "20px" },
-                      height: "auto",
+                      width: { xs: "16px", md: "24px" },
+                      height: "24px",
                     }}
                   />
                   <Typography
                     sx={{
-                      fontSize: { xs: "0.85rem", sm: "0.9rem", md: "1rem" },
+                      fontSize: { xs: "0.85rem", sm: "16px", md: "16px" },
                       fontWeight: 500,
                     }}
                   >
-                    +123 456 7890
+                    +91-9822141851{" "}
                   </Typography>
                 </Box>
                 <Button
@@ -307,20 +367,22 @@ export default function Navbar() {
                   onClick={() => navigate("/appointment")}
                   sx={{
                     fontSize: {
-                      xs: "0.85rem",
-                      sm: "0.9rem",
-                      md: "0.85rem",
-                      lg: "0.85rem",
-                      xl: "1rem",
+                      xs: "12px",
+                      sm: "14px",
+                      md: "14px",
+                      lg: "14px",
+                      xl: "15px",
                     },
-                    px: { xs: 2, sm: 2.5, md: 2, lg: 2, xl: 3 },
-                    py: { xs: 0.75, sm: 1 },
+                    ml: { xs: 0, sm: 0, md: 0, lg: 0, xl: "-10px" },
+                    px: { xs: 1.5, sm: 2, md: 2, lg: 2, xl: 2.5 },
+                    py: { xs: 0.75, sm: 0.875, md: 1 },
                     backgroundColor: "#155DFC",
                     textTransform: "none",
-                    fontWeight: 600,
+                    fontWeight: 500,
                     borderRadius: "6px",
                     flexShrink: 0,
                     whiteSpace: "nowrap",
+                    minWidth: { xs: "auto", sm: "auto", md: "auto" },
                     "&:hover": {
                       backgroundColor: "#1565c0",
                     },
@@ -426,6 +488,39 @@ export default function Navbar() {
               );
             })}
 
+            {/* Phone Number */}
+            <ListItem disablePadding>
+              <ListItemButton
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 1.5,
+                  py: 2,
+                  px: 2,
+                }}
+              >
+                <Box
+                  component="img"
+                  src={phoneIcon}
+                  alt="Phone"
+                  sx={{
+                    width: "20px",
+                    height: "20px",
+                    flexShrink: 0,
+                  }}
+                />
+                <ListItemText
+                  primary="+91-9822141851"
+                  primaryTypographyProps={{
+                    fontSize: "1rem",
+                    fontWeight: 500,
+                    color: "#000000",
+                    fontFamily: "Poppins, sans-serif",
+                  }}
+                />
+              </ListItemButton>
+            </ListItem>
+
             <ListItem disablePadding>
               <ListItemButton
                 onClick={() => {
@@ -436,6 +531,7 @@ export default function Navbar() {
                   backgroundColor: "rgba(25, 118, 210, 0.08)",
                   mx: 1,
                   borderRadius: "4px",
+                  mt: 1,
                 }}
               >
                 <ListItemText

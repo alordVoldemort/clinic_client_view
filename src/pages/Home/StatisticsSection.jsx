@@ -33,7 +33,7 @@ export default function StatisticsSection() {
       sx={{
         width: "100%",
         py: { xs: 4, sm: 5, md: 6, lg: 9 },
-        backgroundColor: "#ffffff",
+        backgroundColor: "#FBF9FA",
       }}
     >
       <Container maxWidth="xl">
@@ -66,6 +66,15 @@ export default function StatisticsSection() {
                   mb: 2,
                 }}
               />
+              {/* Underline */}
+              <Box
+                sx={{
+                  width: "103px", // controls line length
+                  height: "2px", // line thickness
+                  backgroundColor: "#155DFC",
+                  mb: 2,
+                }}
+              />
 
               {/* Value */}
               <Typography
@@ -76,7 +85,7 @@ export default function StatisticsSection() {
                   lineHeight: "145%",
                   letterSpacing: "0px",
                   textAlign: "center",
-                  color: "#1a1a1a",
+                  color: "#000000",
                   mb: 0.5,
                 }}
               >
@@ -88,11 +97,11 @@ export default function StatisticsSection() {
                 sx={{
                   fontFamily: "Poppins, sans-serif",
                   fontWeight: 500,
-                  fontSize: "17px",
+                  fontSize: "18px",
                   lineHeight: index === 3 ? "160%" : "100%", // ⭐ ONLY 4th item gets more space
                   letterSpacing: "0px",
                   textAlign: "center",
-                  color: "#666",
+                  color: "#000000",
                 }}
               >
                 {index === 3 ? (

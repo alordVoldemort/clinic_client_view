@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import {
   Box,
   Typography,
@@ -9,7 +9,10 @@ import {
   FormControl,
   Select,
   MenuItem,
+  CircularProgress,
+  Alert,
 } from "@mui/material";
+import { sendContactMessage } from "../../api/contact.api";
 
 import UserIcon from "../../assets/Appointment/fullName.svg";
 import EmailIcon from "../../assets/Appointment/email.svg";
@@ -111,6 +114,9 @@ const SendMessageForm = () => {
     subject: "",
     message: "",
   });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -118,25 +124,91 @@ const SendMessageForm = () => {
       ...prev,
       [name]: value,
     }));
+    // Clear error when user starts typing
+    if (error) setError("");
   };
 
-  const handleSubmit = (e) => {
+  const validateForm = () => {
+    if (!formData.name.trim()) {
+      setError("Name is required");
+      return false;
+    }
+    if (!formData.email.trim()) {
+      setError("Email is required");
+      return false;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      setError("Please enter a valid email address");
+      return false;
+    }
+    if (!formData.phone.trim()) {
+      setError("Phone number is required");
+      return false;
+    }
+    if (!formData.subject) {
+      setError("Please select a subject");
+      return false;
+    }
+    return true;
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    setError("");
+    setSuccess(false);
 
-    navigate("/contact/MessageConfirmation", {
-      state: {
-        messageData: formData,
-      },
-    });
+    // Validate form
+    if (!validateForm()) {
+      return;
+    }
 
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: "",
-    });
+    setLoading(true);
+
+    try {
+      const payload = {
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        phone: formData.phone.trim(),
+        subject: formData.subject,
+        message: formData.message.trim() || "",
+      };
+
+      const response = await sendContactMessage(payload);
+
+      if (response.data && response.data.success) {
+        setSuccess(true);
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+
+        // Navigate to confirmation page after a short delay
+        setTimeout(() => {
+          navigate("/contact/MessageConfirmation", {
+            state: {
+              messageData: response.data.data.contact,
+            },
+          });
+        }, 1500);
+      } else {
+        setError(
+          response.data?.message || "Failed to send message. Please try again."
+        );
+      }
+    } catch (err) {
+      console.error("Error sending message:", err);
+      setError(
+        err.response?.data?.message ||
+          err.message ||
+          "An error occurred while sending your message. Please try again."
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   const subjects = [
@@ -195,11 +267,23 @@ const SendMessageForm = () => {
         sx={{
           p: { xs: "16px", sm: "20px", md: "30px" },
           gap: { xs: 3, md: 4.5 },
-
           display: "flex",
           flexDirection: "column",
         }}
       >
+        {/* Error Message */}
+        {error && (
+          <Alert severity="error" sx={{ mb: 2 }} onClose={() => setError("")}>
+            {error}
+          </Alert>
+        )}
+
+        {/* Success Message */}
+        {success && (
+          <Alert severity="success" sx={{ mb: 2 }}>
+            Message sent successfully! Redirecting...
+          </Alert>
+        )}
         <Box>
           <Box sx={{ display: "flex", alignItems: "center", mb: 1.5 }}>
             <Box sx={{ mr: 1.5, display: "flex", alignItems: "center" }}>
@@ -485,6 +569,7 @@ const SendMessageForm = () => {
             fullWidth
             type="submit"
             variant="contained"
+            disabled={loading}
             sx={{
               height: { xs: "46px", md: "50px" },
               backgroundColor: "#155DFC",
@@ -498,10 +583,19 @@ const SendMessageForm = () => {
                 backgroundColor: "#4338CA",
                 boxShadow: "none",
               },
+              "&:disabled": {
+                backgroundColor: "#9E9E9E",
+              },
             }}
-            startIcon={<SendIconComponent />}
+            startIcon={
+              loading ? (
+                <CircularProgress size={20} color="inherit" />
+              ) : (
+                <SendIconComponent />
+              )
+            }
           >
-            Send Message
+            {loading ? "Sending..." : "Send Message"}
           </Button>
         </Box>
       </Box>

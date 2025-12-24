@@ -1,12 +1,17 @@
 import { Box, Container, Typography, Button } from "@mui/material";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import healingJourneyImage from "../../../assets/clinic/ReadyToStartHealingJourney/Ready to Start Your Healing Journey_.jpg";
 import calendarIcon from "../../../assets/clinic/HeroSectionIcon/calendar1.svg";
 import { getTreatmentByRoute } from "../../../utils/treatmentsData";
 
 export default function CallToActionSection({ cta }) {
   const location = useLocation();
+  const navigate = useNavigate();
   const treatmentData = getTreatmentByRoute(location.pathname);
+
+  const handleAppointmentClick = () => {
+    navigate("/appointment");
+  };
 
   // Use provided props or fall back to route-based data or defaults
   const finalCta = cta ||
@@ -85,6 +90,7 @@ export default function CallToActionSection({ cta }) {
           <Button
             variant="contained"
             size="large"
+            onClick={handleAppointmentClick}
             startIcon={
               <Box
                 component="img"
@@ -122,6 +128,7 @@ export default function CallToActionSection({ cta }) {
     </Box>
   );
 }
+
 
 
 

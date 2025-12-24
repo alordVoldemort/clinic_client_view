@@ -86,7 +86,7 @@ export const TREATMENTS_DATA = [
       {
         question: "Will I need to stay in the hospital?",
         answer:
-          "No. Homeopathic spine treatment is completely non-invasive and does not require hospitalization.",
+          "No. Homeopathic spine treatment is completely non-invasive and does not require hospitalization, allowing patients to continue their daily routine with ease.",
       },
     ],
     cta: {
@@ -98,7 +98,7 @@ export const TREATMENTS_DATA = [
   {
     key: "git",
     routes: ["git", "git-treatments"],
-    tag: "Gastroenterology Homeopathic Consultant",
+    tag: "Digestive Health consultant",
     title: "Comprehensive GIT Treatment Solutions",
     image: "/src/assets/treatments/GITTreatments.jpg",
     description:
@@ -203,8 +203,7 @@ export const TREATMENTS_DATA = [
     ],
     cta: {
       title: "Take Control of Your Digestive Health",
-      subtitle:
-        "Consult our homeopathic GI specialists for gentle, personalized digestive care.",
+      subtitle: "Schedule a consultation with our GI specialists today",
       buttonText: "Book Your Appointment Today",
     },
   },
@@ -216,11 +215,11 @@ export const TREATMENTS_DATA = [
     title: "Transform Your Appearance with Expert Cosmetology",
     image: "/src/assets/treatments/Cosmetology.jpg",
     description:
-      "Experience the perfect blend of medical science and aesthetic artistry. Our advanced cosmetology treatments help you look and feel your absolute best, naturally.",
+      "Experience the right blend of homeopathic science and natural skin healing. Our advanced homeopathic cosmetology care helps you look and feel your best by restoring skin balance and enhancing your natural beauty gently.",
     services: {
       title: "Our Cosmetology Services",
       subtitle:
-        "State-of-the-art aesthetic treatments customized to your unique beauty goals",
+        "Advanced homeopathic aesthetic solutions tailored to address skin, hair, and pigmentation concerns naturally.",
       services: [
         "Psoriasis",
         "Acne",
@@ -239,17 +238,17 @@ export const TREATMENTS_DATA = [
     },
     benefits: {
       title: "Treatment Benefits",
-      cardTitle: "Treatment Benefits",
+      cardTitle: "What You Can Expect",
       description:
-        "Our cosmetic treatments offer numerous benefits beyond aesthetic improvement.",
+        "Discover safe, natural cosmetic benefits that support long-term skin wellness and visible aesthetic enhancement.",
       expectations: [
         "Improved skin texture and tone",
         "Reduced fine lines and wrinkles",
         "Enhanced facial contours",
         "Minimized pores and blemishes",
         "Brighter, more radiant complexion",
-        "Increased collagen production",
-        "Long-lasting results",
+        "Increased collagen support naturally",
+        "Long-lasting, healthy skin results",
         "Minimal downtime",
       ],
     },
@@ -258,43 +257,57 @@ export const TREATMENTS_DATA = [
         step: 1,
         title: "Personal Consultation",
         description:
-          "Comprehensive skin analysis and discussion of your aesthetic goals and concerns.",
+          "Comprehensive evaluation of your skin concerns, lifestyle factors, and medical history to identify underlying causes.",
       },
       {
         step: 2,
         title: "Customized Plan",
         description:
-          "Tailored treatment strategy designed specifically for your skin type and objectives.",
+          "A tailored homeopathic treatment strategy designed for your skin type, goals, and overall wellness.",
       },
       {
         step: 3,
         title: "Professional Treatment",
         description:
-          "Expert application of advanced techniques in a comfortable, clinical setting.",
+          "Gentle, non-invasive care using homeopathic remedies and supportive therapies that promote natural skin repair.",
       },
       {
         step: 4,
         title: "Follow-up Care",
         description:
-          "Ongoing support, maintenance recommendations, and progress monitoring.",
+          "Regular guidance, progress tracking, and adjustments to ensure stable and lasting skin improvement.",
       },
     ],
     faqs: [
       {
         question: "Are cosmetic treatments safe?",
         answer:
-          "Yes, all cosmetic treatments are performed using FDA-approved technologies under expert medical supervision.",
+          "Yes. Homeopathic cosmetology uses gentle, non-invasive methods and natural remedies, making it safe for sensitive skin and long-term care.",
       },
       {
         question: "How long do cosmetic results last?",
         answer:
-          "Results vary based on the procedure, skin type, and aftercare but typically last from several months to years.",
+          "Results vary, but most patients notice gradual and consistent improvement as the body responds to natural, root-cause-focused treatment.",
+      },
+      {
+        question: "What is the success rate of homeopathy?",
+        answer:
+          "Homeopathy shows strong results for chronic skin concerns when treatment is personalized. Many patients experience steady improvement.",
+      },
+      {
+        question: "Is homeopathy good for the skin?",
+        answer:
+          "Yes. Homeopathy is highly effective for skin issues such as acne, allergies, dandruff, pigmentation, and sensitivity. It works internally to balance hormones, reduce inflammation, and support long-term skin healing without harsh chemicals.",
+      },
+      {
+        question: "What is the best treatment for my concerns?",
+        answer:
+          "Your ideal treatment depends on your skin type, symptoms, and root causes. A personalized evaluation helps us recommend the most effective plan.",
       },
     ],
     cta: {
-      title: "Ready to Transform Your Appearance?",
-      subtitle:
-        "Book an appointment today and take the first step towards looking and feeling your absolute best",
+      title: "Begin Your Beauty Transformation",
+      subtitle: "Schedule a consultation with our aesthetic specialists today",
       buttonText: "Book Your Appointment Today",
     },
   },
@@ -524,7 +537,7 @@ export const TREATMENTS_DATA = [
         "Pulsating or one-sided headache pain",
         "Sensitivity to light, sound, or smell (common in chronic migraine)",
         "Nausea or vomiting during headache episodes",
-        "Visual disturbances such as flashes, zig-zag lines, or blurred vision",
+        "●​ Visual disturbances (flashes, zig-zag lines, blurred vision) linked to migraine aura",
         "Tingling or numbness in the face or hands",
         "Difficulty speaking or focusing",
         "Headaches triggered by stress, lack of sleep, or hormonal changes",
@@ -577,7 +590,7 @@ export const TREATMENTS_DATA = [
       {
         question: "Is migraine 100% curable?",
         answer:
-          "Migraine cannot be permanently cured, but homeopathic migraine treatment may help reduce symptom intensity, attack frequency, and recurrence over time. It is used as a supportive, long-term approach along with lifestyle changes.",
+          "No, migraine is a chronic neurological condition and is not considered 100% curable. However, with proper treatment, trigger control, and guidance from a migraine doctor, many patients achieve good symptom control.",
       },
       {
         question: "What are the symptoms of a severe migraine?",
@@ -587,8 +600,7 @@ export const TREATMENTS_DATA = [
     ],
     cta: {
       title: "Find Relief from Chronic Migraines",
-      subtitle:
-        "Consult our migraine specialists for personalized and long-term headache management.",
+      subtitle: "Schedule a consultation with our headache specialists today",
       buttonText: "Book Your Appointment Today",
     },
   },
@@ -639,13 +651,13 @@ export const TREATMENTS_DATA = [
         step: 1,
         title: "Detailed ENT Assessment",
         description:
-          "Thorough ear, nose, and throat evaluation using diagnostic tools, medical history review, and symptom analysis to identify the root cause of ENT issues.",
+          "Thorough ear, nose, and throat evaluation with diagnostic tools, medical history review, and symptom analysis to identify the root cause of ENT issues.",
       },
       {
         step: 2,
         title: "Customized Treatment Plan",
         description:
-          "A tailored ENT treatment plan based on condition type such as sinusitis, allergies, tonsil problems, throat infections, nasal obstruction, or hearing-related concerns.",
+          "A tailored ENT treatment plan based on condition type — sinusitis, allergies, tonsils, throat infections, nasal obstruction, or hearing-related concerns.",
       },
       {
         step: 3,
@@ -731,7 +743,7 @@ export const TREATMENTS_DATA = [
         "Pain that worsens with movement",
         "Clicking, popping, or instability in joints",
         "Numbness or tingling in hands or feet",
-        "Restricted shoulder, elbow, or knee movement",
+        "Shoulder, elbow, or knee movement restriction",
         "Sudden severe joint pain",
         "Redness, warmth, or tenderness in joints",
         "Repeated injuries or chronic strain",
@@ -742,7 +754,7 @@ export const TREATMENTS_DATA = [
         step: 1,
         title: "Detailed Orthopedic Evaluation",
         description:
-          "Thorough assessment including joint mobility tests, X-ray findings, medical history, and functional analysis to clearly understand your condition.",
+          "Thorough assessment, including joint mobility tests, X-ray findings, medical history, and functional analysis, to understand your condition clearly.",
       },
       {
         step: 2,
@@ -772,7 +784,7 @@ export const TREATMENTS_DATA = [
       {
         question: "When should I see a doctor for joint pain?",
         answer:
-          "You should consult a specialist if joint pain lasts more than a week, worsens with movement, causes swelling, or begins affecting your daily routine or sleep.",
+          "You should see a specialist if joint pain lasts more than a week, worsens with movement, causes swelling, or begins affecting your daily routine or sleep.",
       },
       {
         question: "How long does recovery take with joint treatment?",
@@ -835,7 +847,7 @@ export const TREATMENTS_DATA = [
         "Poor appetite or slow weight gain",
         "Frequent stomach aches or vomiting",
         "Behavioral changes, hyperactivity, or lack of focus",
-        "Developmental delays such as walking, crawling, sitting, or talking",
+        "Developmental delays (walking, crawling, sitting, talking)",
         "Skin rashes or allergies",
         "Trouble sleeping or irritability",
         "School or learning difficulties",

@@ -17,7 +17,12 @@ export default function HeroSection() {
         alignItems: "center",
       }}
     >
-      <Container maxWidth="xl">
+      <Container
+        maxWidth="false"
+        sx={{
+          width: { xs: "100%", sm: "100%", md: "100%", lg: "1440px" },
+        }}
+      >
         <Box
           sx={{
             display: "flex",
@@ -56,7 +61,7 @@ export default function HeroSection() {
               sx={{
                 fontFamily: "Poppins, sans-serif",
                 mb: 3,
-                color: "#666",
+                color: "#343434",
                 fontSize: { xs: "14px", sm: "16px", md: "18px" },
                 lineHeight: 1.7,
               }}
@@ -163,12 +168,12 @@ export default function HeroSection() {
                   fontSize: { xs: "0.9rem", sm: "1rem" },
                   borderColor: "#155DFC",
                   textTransform: "none",
+                  backgroundColor: "#ffffff",
 
                   color: "#155DFC",
                   minWidth: { xs: "100%", sm: "230px" },
                   "&:hover": {
                     borderColor: "#155DFC",
-                    backgroundColor: "rgba(21, 93, 252, 0.04)",
                   },
                 }}
               >

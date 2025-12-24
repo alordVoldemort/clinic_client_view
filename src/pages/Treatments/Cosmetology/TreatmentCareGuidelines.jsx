@@ -38,7 +38,7 @@ const TreatmentCareGuidelines = () => {
             sx={{
               width: { xs: "100%", sm: "411px" },
               borderRadius: "10px",
-              border: "1px solid #E5EAF4",
+              border: "1px solid #D7E9FF",
               p: { xs: 3, md: 4 },
             }}
           >
@@ -84,7 +84,7 @@ const TreatmentCareGuidelines = () => {
             sx={{
               width: { xs: "100%", sm: "411px" },
               borderRadius: "10px",
-              border: "1px solid #E5EAF4",
+              border: "1px solid #D7E9FF",
               p: { xs: 3, md: 4 },
             }}
           >

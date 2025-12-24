@@ -7,8 +7,16 @@ import {
   Box,
 } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { Link, useNavigate } from "react-router-dom";
 
-export default function TreatmentCard({ title, description, image }) {
+export default function TreatmentCard({ title, description, image, route }) {
+  const navigate = useNavigate();
+
+  const handleLearnMoreClick = () => {
+    if (route) {
+      navigate(route);
+    }
+  };
   return (
     <Card
       sx={{
@@ -102,6 +110,7 @@ export default function TreatmentCard({ title, description, image }) {
         </Typography>
         <Button
           endIcon={<ArrowForwardIcon />}
+          onClick={handleLearnMoreClick}
           sx={{
             fontFamily: "Poppins, sans-serif",
             alignSelf: "flex-start",
