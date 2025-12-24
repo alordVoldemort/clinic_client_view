@@ -60,7 +60,7 @@ const AppointmentSummaryCard = ({ appointmentData }) => {
             Total Amount
           </Typography>
           <Typography sx={{ fontSize: { xs: '15px', sm: '16px', md: '17px' }, fontWeight: 400, color: '#151414' }}>
-            ₹{amount} {/* <- always 500 now */}
+            ₹ {amount} {/* <- always 500 now */}
           </Typography>
         </Box>
       </Paper>

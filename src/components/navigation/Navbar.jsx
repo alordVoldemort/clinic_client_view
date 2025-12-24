@@ -33,7 +33,7 @@ export default function Navbar() {
 
   // Show hamburger for iPad Mini, iPad Air, Surface Pro 7, and small devices
   // Show menu options for large desktop screens (1400px+)
-  const showMenuOptions = useMediaQuery("(min-width:1200px)");
+  const showMenuOptions = useMediaQuery("(min-width:1100px)");
   const isActive = (path) => {
     if (path === "/") {
       return location.pathname === "/";
@@ -139,13 +139,12 @@ export default function Navbar() {
               overflow: "hidden",
             }}
           >
-            {/* Logo */}
+            {/* LEFT SECTION: Logo */}
             <Box
               component={Link}
               to="/"
               sx={{
                 display: "flex",
-                ml: { xs: 0, sm: 0, md: "50px" },
                 flexDirection: "column",
                 alignItems: "center",
                 width: { xs: "auto", sm: "auto", md: "153px" },
@@ -164,7 +163,6 @@ export default function Navbar() {
                   width: { xs: 40, sm: 45, md: "47px" },
                   height: { xs: "auto", sm: "auto", md: "32px" },
                   mb: { xs: "5px", md: "5px", lg: "5px" },
-                  mt: { xs: 0, md: "-14px", lg: "-14px" },
                 }}
               />
 
@@ -174,7 +172,6 @@ export default function Navbar() {
                   fontWeight: 500,
                   color: "#0057B7",
                   fontSize: { xs: "12px", sm: "13px", md: "15px" },
-                  mb: { xs: 0, md: "-20px", lg: "-20px" },
                   mt: { xs: "2px", md: 0 },
                 }}
               >
@@ -182,23 +179,14 @@ export default function Navbar() {
               </Typography>
             </Box>
 
-            {/* Menu Options - shown for iPad Air (900px+) and desktop */}
+            {/* CENTER SECTION: Menu Options - shown for desktop (1400px+) */}
             {showMenuOptions ? (
               <Box
                 sx={{
                   display: "flex",
-                  gap: { xs: 1, sm: 1.5, md: 1.5, lg: 1.5, xl: 2 },
-                  alignItems: "center",
-                  flexWrap: "nowrap",
-                  whiteSpace: "nowrap",
                   flex: 1,
-                  justifyContent: {
-                    xs: "flex-end",
-                    sm: "flex-end",
-                    md: "center",
-                    lg: "center",
-                  },
-                  mr: { xs: 0, sm: 0, md: 0, lg: 0, xl: "-190px" },
+                  justifyContent: "center",
+                  alignItems: "center",
                   minWidth: 0,
                 }}
               >
@@ -208,9 +196,6 @@ export default function Navbar() {
                     gap: { xs: 0.5, sm: 1, md: 1, lg: 1.5, xl: 2 },
                     alignItems: "center",
                     flexWrap: "nowrap",
-                    pr: { xs: 1, sm: 2, md: 2, lg: 3, xl: 17 },
-                    flexShrink: 0,
-                    minWidth: 0,
                   }}
                 >
                   {menuItems.map((item) => {
@@ -323,22 +308,35 @@ export default function Navbar() {
                     );
                   })}
                 </Box>
+              </Box>
+            ) : null}
+
+            {/* RIGHT SECTION: Phone Number + Book Appointment Button */}
+            {showMenuOptions ? (
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: { xs: 1, sm: 1.5, md: 2 },
+                  ml: "auto",
+                  flexShrink: 0,
+                }}
+              >
                 <Box
                   sx={{
                     display: {
                       xs: "none",
                       sm: "none",
                       md: "none",
-                      lg: "none",
+                      lg: "flex",
                       xl: "flex",
                     },
-                    // Hide on iPad Pro, Surface Pro 7, and 1440px width (1024px-1500px) specifically
-                    "@media (min-width: 1024px) and (max-width: 1500px)": {
+                    // Hide on iPad Pro, Surface Pro 7 (1024px-1199px) specifically, but show at 1440px
+                    "@media (min-width: 1024px) and (max-width: 1199px)": {
                       display: "none",
                     },
                     alignItems: "center",
                     gap: 1,
-                    mr: { xs: 1, sm: 1.5, md: 2 },
                     color: "#000000ff",
                     flexShrink: 0,
                   }}
@@ -373,7 +371,6 @@ export default function Navbar() {
                       lg: "14px",
                       xl: "15px",
                     },
-                    ml: { xs: 0, sm: 0, md: 0, lg: 0, xl: "-10px" },
                     px: { xs: 1.5, sm: 2, md: 2, lg: 2, xl: 2.5 },
                     py: { xs: 0.75, sm: 0.875, md: 1 },
                     backgroundColor: "#155DFC",
@@ -396,7 +393,7 @@ export default function Navbar() {
               <IconButton
                 edge="end"
                 onClick={() => setOpen(true)}
-                sx={{ color: "#1976d2" }}
+                sx={{ color: "#1976d2", ml: "auto" }}
               >
                 <MenuIcon />
               </IconButton>

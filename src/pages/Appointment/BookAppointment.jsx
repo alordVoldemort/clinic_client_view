@@ -967,7 +967,7 @@ const BookAppointment = () => {
                   width: { xs: "100%", md: "738px" },
                   maxWidth: "738px",
                   "&:hover": {
-                    backgroundColor: "#1565c0",
+                    backgroundColor: "#155DFC",
                   },
                 }}
               >
@@ -979,22 +979,52 @@ const BookAppointment = () => {
 
         
         <Box
-          sx={{
-            textAlign: "center",
-            pt: 1,
-            mt: 2,
-          }}
-        >
-          <Typography sx={{ fontWeight: 400, fontSize: "16px", color: "#000000", mb: 0.5 }}>
-            Need help booking? Call us at{" "}
-            <span style={{ fontWeight: 400, color: "#155DFC" }}>
-              +91 9822141851
-            </span>
-          </Typography>
-          <Typography sx={{ fontSize: "14px", color: "#666666" }}>
-            Our team is available Monday – Saturday, 9:00 AM – 6:00 PM
-          </Typography>
-        </Box>
+  sx={{
+    textAlign: "center",
+    pt: 1,
+    mt: 2,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  }}
+>
+  <Typography
+    sx={{
+      fontWeight: 400,
+      fontSize: { xs: "14px", sm: "16px" }, // responsive font size
+      color: "#000000",
+      mb: 0.5,
+      display: "flex",
+      flexWrap: "wrap",
+      justifyContent: "center",
+      alignItems: "center",
+    }}
+  >
+    Need help booking? Call us at{" "}
+    <Box
+      component="span"
+      sx={{
+        fontWeight: 400,
+        color: "#155DFC",
+        ml: 0.5,
+        whiteSpace: "nowrap", // prevents number from breaking into 2 lines
+      }}
+    >
+      +91 9822141851
+    </Box>
+  </Typography>
+
+  <Typography
+    sx={{
+      fontSize: { xs: "12px", sm: "14px" }, // responsive font size
+      color: "#666666",
+      textAlign: "center",
+    }}
+  >
+    Our team is available Monday – Saturday, 9:00 AM – 6:00 PM
+  </Typography>
+</Box>
+
       </Container>
     </Box>
   );

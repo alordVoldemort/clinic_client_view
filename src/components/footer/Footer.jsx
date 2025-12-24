@@ -20,7 +20,7 @@ import locationIcon from "../../assets/clinic/Footer/Location.svg";
 export default function Footer() {
   // Map Quick Links to their routes
   const quickLinksMap = {
-    "Home": "/",
+    Home: "/",
     "About Us": "/about",
     "Book Appointment": "/appointment",
     "Contact Us": "/contact",
@@ -30,7 +30,7 @@ export default function Footer() {
   const treatmentRouteMap = {
     "Spine Treatments": "/treatments/spine-treatments",
     "GIT Treatments": "/treatments/git-treatments",
-    "Cosmetology": "/treatments/cosmetology",
+    Cosmetology: "/treatments/cosmetology",
     "Kidney Treatment": "/treatments/kidney-treatment",
     "Gynecologist Treatment": "/treatments/gynecologist-treatment",
     "Migraine Treatment": "/treatments/migraine-treatment",
@@ -91,7 +91,7 @@ export default function Footer() {
             sx={{
               width: { xs: "100%", sm: "200px", md: "300px" },
               mr: { lg: "110px" },
-              ml: { lg: "110px" },
+              ml: { lg: "0px" },
             }}
           >
             <Box
@@ -191,7 +191,7 @@ export default function Footer() {
             xs={12}
             sm={6}
             md={3}
-            sx={{ width: { xs: "100%", sm: "150px", md: "155px" } }}
+            sx={{ width: { xs: "100%", sm: "150px", md: "180px" } }}
           >
             <Typography
               sx={{
@@ -249,7 +249,7 @@ export default function Footer() {
             xs={12}
             sm={6}
             md={3}
-            sx={{ width: { xs: "100%", sm: "150px", md: "auto" } }}
+            sx={{ width: { xs: "100%", sm: "157px", md: "220px" } }}
           >
             <Typography
               sx={{
@@ -278,7 +278,7 @@ export default function Footer() {
                 "GIT Treatments",
                 "Cosmetology",
                 "Kidney Treatment",
-                "Gynecologist Treatment",
+                "Gynecology Treatment",
                 "Migraine Treatment",
                 "ENT Treatments",
                 "Joint Treatments",
@@ -454,67 +454,63 @@ export default function Footer() {
         />
 
         {/* BOTTOM BAR */}
-        {/* BOTTOM BAR */}
-<Box
-  sx={{
-    display: "flex",
-    flexDirection: { xs: "column", sm: "row" }, // stack vertically on mobile
-    justifyContent: { xs: "center", sm: "space-between" },
-    alignItems: "center",
-    gap: { xs: 1, sm: 0 },
-    textAlign: { xs: "center", sm: "left" },
-  }}
->
-  {/* Links */}
-  <Box
-    sx={{
-      display: "flex",
-      gap: { xs: 2, sm: 3 },
-      flexWrap: "wrap",
-      justifyContent: { xs: "center", sm: "flex-end" },
-      order: { xs: 1, sm: 0 }, // links come first on mobile
-    }}
-  >
-    <MuiLink
-      component={Link}
-      to="/privacy-policy"
-      underline="none"
-      sx={{
-        color: "#555",
-        fontSize: { xs: "0.8rem", sm: "0.85rem", md: "0.9rem" },
-        "&:hover": { color: "#1976d2" },
-      }}
-    >
-      Privacy Policy
-    </MuiLink>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", sm: "row" },
+            justifyContent: { xs: "center", sm: "space-between" },
+            alignItems: "center",
+            gap: { xs: 2, sm: 0 },
+            textAlign: { xs: "center", sm: "left" },
+          }}
+        >
+          <Typography
+            sx={{
+              fontSize: { xs: "0.8rem", sm: "0.85rem", md: "0.9rem" },
+              color: "#555",
+            }}
+          >
+            © 2025 zonixtec. All rights reserved.
+          </Typography>
 
-    <MuiLink
-      component={Link}
-      to="/terms"
-      underline="none"
-      sx={{
-        color: "#555",
-        fontSize: { xs: "0.8rem", sm: "0.85rem", md: "0.9rem" },
-        "&:hover": { color: "#1976d2" },
-      }}
-    >
-      Terms & Conditions
-    </MuiLink>
-  </Box>
+          <Box
+            sx={{
+              display: "flex",
+              gap: { xs: 2, sm: 3 },
+              flexWrap: "wrap",
+              justifyContent: { xs: "center", sm: "flex-end" },
+            }}
+          >
+            {/* Privacy Policy Link */}
+            <MuiLink
+              component={Link}
+              to="/privacy-policy"
+              underline="none"
+              sx={{
+                color: "#555",
+                fontSize: { xs: "0.8rem", sm: "0.85rem", md: "0.9rem" },
+                "&:hover": { color: "#1976d2" },
+              }}
+            >
+              Privacy Policy
+            </MuiLink>
 
-  {/* Copyright */}
-  <Typography
-    sx={{
-      fontSize: { xs: "0.8rem", sm: "0.85rem", md: "0.9rem" },
-      color: "#555",
-      mt: { xs: 1, sm: 0 },
-      order: { xs: 2, sm: 1 }, // copyright below links on mobile
-    }}
-  >
-    © 2025 zonixtec. All rights reserved.
-  </Typography>
-</Box>
-
+            {/* Terms & Conditions Link */}
+            <MuiLink
+              component={Link}
+              to="/terms"
+              underline="none"
+              sx={{
+                color: "#555",
+                fontSize: { xs: "0.8rem", sm: "0.85rem", md: "0.9rem" },
+                "&:hover": { color: "#1976d2" },
+              }}
+              onClick={() => console.log("Terms link clicked")}
+            >
+              Terms & Conditions
+            </MuiLink>
+          </Box>
+        </Box>
       </Container>
     </Box>
   );

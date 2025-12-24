@@ -44,12 +44,23 @@ const AppointmentConfirmation = () => {
           width: { xs: '95%', sm: '90%', md: '680px' },
           backgroundColor: '#FFFFFF',
           borderRadius: '14px',
-          border: '1px solid #E0E0E0',
+          boxShadow: {
+  xs: `
+    0px 4px 12px rgba(0, 0, 0, 0.18),
+    0px 12px 32px rgba(0, 0, 0, 0.24)
+  `,
+  sm: `
+    0px 6px 16px rgba(0, 0, 0, 0.18),
+    0px 16px 40px rgba(0, 0, 0, 0.24)
+  `,
+},
+border: '1px solid #E0E0E0',
+
           py: { xs: '30px', md: '48px' },
           px: { xs: 3, md: 6 },
           position: 'relative',
           margin: { xs: '20px auto', md: '48px auto' },
-          boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.05)',
+          
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center'
@@ -101,9 +112,9 @@ const AppointmentConfirmation = () => {
         <Box
           sx={{
             width: '100%',
-            backgroundColor: '#FFFFFF',
+            backgroundColor: '#F9FAFB',
             borderRadius: '8px',
-            border: '1px solid #E0E0E0',
+            border: 'none',
             mb: 4,
             overflow: 'hidden'
           }}
@@ -112,7 +123,8 @@ const AppointmentConfirmation = () => {
           {/* Treatment and Date/Time Section */}
           <Box sx={{ p: 2 }}>
             <Box sx={{ 
-              display: 'flex', 
+              display: 'flex',
+               
               flexDirection: { xs: 'column', sm: 'row' },
               justifyContent: 'space-between', 
               mb: 2,
