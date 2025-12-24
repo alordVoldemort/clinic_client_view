@@ -21,11 +21,7 @@ export default function VisionMission() {
           maxWidth: { xs: "100%", sm: "540px", md: "720px", lg: "940px", xl: "1140px" },
           background: "#FFFFFF",
           borderRadius: { xs: "12px", sm: "14px", md: "16px" },
-          boxShadow: {
-            xs: "0px 3px 15px rgba(0,0,0,0.08)",
-            sm: "0px 4px 18px rgba(0,0,0,0.09)",
-            md: "0px 5px 20px rgba(0,0,0,0.10)",
-          },
+          boxShadow: "none",
           padding: {
             xs: "30px 20px",
             sm: "35px 25px",

@@ -5,23 +5,23 @@ export default function OurAchievementSection() {
   const achievements = [
     {
       id: 1,
-      title: "26+ Years of Excellence in Healthcare",
+      title: "Excellence in Homeopathic Research ",
     },
     {
       id: 2,
-      title: "Over 15,000 Successful Happy Patients",
+      title: "National Recognition in Homeopathic Care",
     },
     {
       id: 3,
-      title: "Expert Team of Medical Professionals",
+      title: "Featured for Trusted Homeopathic Expertise",
     },
     {
       id: 4,
-      title: "State-of-the-Art Medical Facilities",
+      title: "26+ Years of Homeopathic Excellence",
     },
     {
       id: 5,
-      title: "Internationally Recognized Certifications",
+      title: "15,000+ Patients Healed with Homeopathy",
     },
     {
       id: 6,
@@ -140,15 +140,15 @@ export default function OurAchievementSection() {
                   xs: "100%", 
                   sm: "100%", 
                   md: "100%", 
-                  lg: "400px" 
+                  lg: "430px" 
                 },
-                maxWidth: { xs: "100%", sm: "280px", md: "300px", lg: "400px" },
+                maxWidth: { xs: "100%", sm: "280px", md: "300px", lg: "428px" },
                 height: { xs: "auto", sm: "auto", md: "auto", lg: "60px" },
                 minHeight: { xs: "45px", sm: "50px", md: "55px", lg: "60px" },
                 display: "flex",
                 alignItems: "center",
                 gap: { xs: "8px", sm: "10px", md: "10px", lg: "10px" },
-                backgroundColor: "white",
+                backgroundColor: "#F4F9FF",
                 borderRadius: { xs: "6px", sm: "7px", md: "8px", lg: "9px" },
                 border: "1px solid #155DFC",
                 p: { 

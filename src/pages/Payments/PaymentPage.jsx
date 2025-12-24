@@ -117,7 +117,7 @@ const PaymentPage = () => {
           
           <Button
             variant="contained"
-            onClick={() => handlePaymentMethodSelect('clinic')}
+            onClick={() => navigate('https://rzp.io/rzp/oYQ5mtE')}
             sx={{
               backgroundColor: '#1976d2',
               color: 'white',

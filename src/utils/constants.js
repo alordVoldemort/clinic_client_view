@@ -1,11 +1,11 @@
 // API Endpoints
 export const API_ENDPOINTS = {
   // Payment endpoints
-  CREATE_ORDER: "/api/payments/create-order",
-  VERIFY_PAYMENT: "/api/payments/verify-payment",
-  GET_PAYMENT: "/api/payments",
-  GET_ALL_PAYMENTS: "/api/payments",
-
+  CREATE_ORDER: '/api/payment/order',
+  VERIFY_PAYMENT: '/api/payment/verify',
+  GET_PAYMENT: '/api/payment/details',
+  GET_ALL_PAYMENTS: '/api/payments',
+  
   // Appointment endpoints
   CREATE_APPOINTMENT: "/api/appointments",
   GET_APPOINTMENT: "/api/appointments",

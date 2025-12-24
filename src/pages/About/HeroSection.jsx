@@ -7,7 +7,7 @@ export default function AboutHeroSection() {
     <Box
       sx={{
         width: "100%",
-        backgroundColor: "#f0f4f8",
+        backgroundColor: "#F4F9FF",
         py: { xs: 3, sm: 4, md: 6, lg: 8 },
         display: "flex",
         alignItems: "center",
@@ -77,7 +77,7 @@ export default function AboutHeroSection() {
             display: "flex",
             flexDirection: { xs: "column", md: "row" },
             alignItems: "center",
-            gap: { xs: 4, sm: 6, md: 8, lg: 10 },
+            gap: { xs: 4, sm: 6, md: 8, lg: 0 },
           }}
         >
           
@@ -130,7 +130,9 @@ export default function AboutHeroSection() {
                   textAlign: { xs: "justify", sm: "left" },
                 }}
               >
-                Founded over two decades ago, Healing Touch Clinic began with a simple yet powerful vision: to provide world-class healthcare services with a personal touch. What started as a small practice has grown into a comprehensive medical facility trusted by thousands.
+               Nirmal Health Care carries a legacy built over two generations — a legacy shaped by compassion, trust, and an unwavering commitment to holistic homeopathic healing. The foundation of this clinic was laid with a simple philosophy:
+ listen deeply, understand fully, and heal gently.
+
               </Typography>
 
               <Typography
@@ -148,7 +150,7 @@ export default function AboutHeroSection() {
                   textAlign: { xs: "justify", sm: "left" },
                 }}
               >
-                Our journey has been marked by continuous growth, innovation, and an unwavering commitment to patient care. We've expanded our services to include specialized treatments in spine care, gastrointestinal health, and advanced cosmetology, always staying at the forefront of medical advancement.
+                As the second generation stepped in, we continued those values while bringing a more thoughtful, modern approach to homeopathic treatment and natural healing. What began as a small effort to help the community has grown into a trusted holistic healthcare centre where individuals and families — from Pune and around the world — find comfort, clarity, and long-term wellness.
               </Typography>
 
               <Typography
@@ -166,7 +168,11 @@ export default function AboutHeroSection() {
                   textAlign: { xs: "justify", sm: "left" },
                 }}
               >
-                Today, we stand proud as a beacon of healthcare excellence, combining cutting-edge medical technology with the warmth and compassion that has been our hallmark since day one.
+                Even today, our purpose remains unchanged: <br />
+                to provide a safe space where patients feel heard, supported, and cared for throughout their entire journey. <br/>
+                Because at Nirmal Health Care, healing isn’t just what we do — it’s who we are.
+                When care is genuine, healing becomes natural — and that belief continues to guide every 
+                generation that serves here.
               </Typography>
             </Box>
           </Box>

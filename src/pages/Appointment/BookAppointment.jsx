@@ -12,7 +12,11 @@ import {
   FormControl,
   InputLabel,
   FormHelperText,
+  Snackbar,
+  Alert,
+  CircularProgress,
 } from "@mui/material";
+
 import { useNavigate } from "react-router-dom";
 
 import UserIcon from "../../assets/Appointment/fullName.svg";
@@ -23,6 +27,8 @@ import CalendarIcon from "../../assets/Appointment/calendar.svg";
 import TimeIcon from "../../assets/Appointment/time.svg";
 import NoteIcon from "../../assets/Appointment/notes.svg";
 import RupeesIcon from "../../assets/Appointment/Rupees.svg";
+
+
 
 const UserIconComponent = () => (
   <Box
@@ -136,6 +142,7 @@ const RupeesIconComponent = () => (
     }}
   />
 );
+
 
 const SERVICES = [
   "Spine Treatment",
@@ -943,13 +950,12 @@ const BookAppointment = () => {
               </Box>
             </Box>
 
-            
-
             {/* Submit Button */}
             <Box sx={{ textAlign: "center", mb: 4, width: { xs: "100%", md: "738px" } }}>
               <Button
                 type="submit"
                 variant="contained"
+                // navigate="https://rzp.io/rzp/oYQ5mtE"
                 sx={{
                   backgroundColor: "#1976d2",
                   color: "white",
