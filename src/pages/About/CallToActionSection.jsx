@@ -66,7 +66,8 @@ export default function CallToActionSection() {
               lineHeight: 1.7,
             }}
           >
-            Join thousands of satisfied patients who have trusted us with their health
+            Join thousands of satisfied patients who have trusted us with their
+            health
           </Typography>
           <Button
             variant="contained"
@@ -99,7 +100,7 @@ export default function CallToActionSection() {
               transition: "all 0.3s ease",
             }}
           >
-            Book Your Appointment Today 
+            Book Your Appointment Today
           </Button>
         </Box>
       </Container>

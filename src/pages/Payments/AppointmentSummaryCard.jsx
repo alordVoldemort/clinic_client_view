@@ -1,8 +1,7 @@
 import React from 'react';
 import { Box, Typography, Paper, Divider } from '@mui/material';
 
-const AppointmentSummaryCard = ({ appointmentData }) => {
-  const amount = 500; // <- hardcoded as per Figma
+const AppointmentSummaryCard = ({ appointmentData, amount = 500 }) => {
 
   return (
     <Box sx={{ 

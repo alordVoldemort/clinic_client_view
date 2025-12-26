@@ -8,28 +8,48 @@ export default function CoreValuesSection() {
   const values = [
     {
       title: "Compassionate Care",
+<<<<<<< HEAD
       description: "We support every patient with empathetic, respectful, and gentle homeopathic treatment for lasting comfort.",
+=======
+      description:
+        "We support every patient with empathetic, respectful, and gentle homeopathic treatment for lasting comfort.",
+>>>>>>> 73529526feb9c1b21c39ee08d770b58059cebfb1
       icon: compassionateCareIcon,
-      iconAlt: "Compassionate Care Icon"
+      iconAlt: "Compassionate Care Icon",
     },
     {
       title: "Excellence",
+<<<<<<< HEAD
       description: "We deliver reliable, high-quality homeopathy care through trusted methods and consistent clinical experience.",
+=======
+      description:
+        "We deliver reliable, high-quality homeopathy care through trusted methods and consistent clinical experience.",
+>>>>>>> 73529526feb9c1b21c39ee08d770b58059cebfb1
       icon: excellenceIcon,
-      iconAlt: "Excellence Icon"
+      iconAlt: "Excellence Icon",
     },
     {
       title: "Patient-Centered",
+<<<<<<< HEAD
       description: "We listen deeply, offering homeopathic care that supports physical recovery and emotional well-being.",
+=======
+      description:
+        "We listen deeply, offering homeopathic care that supports physical recovery and emotional well-being.",
+>>>>>>> 73529526feb9c1b21c39ee08d770b58059cebfb1
       icon: patientCenteredIcon,
-      iconAlt: "Patient-Centered Icon"
+      iconAlt: "Patient-Centered Icon",
     },
     {
       title: "Innovation",
+<<<<<<< HEAD
       description: "We advance our homeopathic clinic with modern approaches, thoughtful practices, and updated treatment insights.",
+=======
+      description:
+        "We advance our homeopathic clinic with modern approaches, thoughtful practices, and updated treatment insights.",
+>>>>>>> 73529526feb9c1b21c39ee08d770b58059cebfb1
       icon: innovationIcon,
-      iconAlt: "Innovation Icon"
-    }
+      iconAlt: "Innovation Icon",
+    },
   ];
 
   return (
@@ -40,14 +60,14 @@ export default function CoreValuesSection() {
         backgroundColor: "#F8FAFF",
         py: { xs: 2, sm: 4, md: 4, lg: 5 },
         display: "flex",
-        bottom:"30px",
+        bottom: "30px",
         alignItems: "center",
       }}
     >
-      <Container 
+      <Container
         maxWidth="xl"
         sx={{
-          px: { xs: 2, sm: 3, md: 4, lg: 6 }
+          px: { xs: 2, sm: 3, md: 4, lg: 6 },
         }}
       >
         {/* Header Section */}
@@ -64,11 +84,11 @@ export default function CoreValuesSection() {
             sx={{
               fontFamily: "Poppins, sans-serif",
               fontWeight: 500,
-              fontSize: { 
+              fontSize: {
                 xs: "24px",
                 sm: "32px",
                 md: "24px",
-                lg: "30px"
+                lg: "30px",
               },
               lineHeight: { xs: 1.2, sm: 1.1 },
               color: "#000000",
@@ -83,11 +103,11 @@ export default function CoreValuesSection() {
             sx={{
               fontFamily: "Poppins, sans-serif",
               fontWeight: 500,
-              fontSize: { 
+              fontSize: {
                 xs: "18px",
                 sm: "18px",
                 md: "18px",
-                lg: "20px"
+                lg: "20px",
               },
               lineHeight: { xs: 1.3, sm: 1.2 },
               color: "#000000",
@@ -106,8 +126,8 @@ export default function CoreValuesSection() {
             px: { xs: 2, sm: 4, md: 4, lg: 0 }, // Reduced on desktop
           }}
         >
-          <Grid 
-            container 
+          <Grid
+            container
             spacing={{ xs: 3, sm: 4, md: 3, lg: 2 }} // Reduced spacing on desktop
             sx={{
               justifyContent: { xs: "center", md: "space-between" },
@@ -115,8 +135,8 @@ export default function CoreValuesSection() {
             }}
           >
             {values.map((value, index) => (
-              <Grid 
-                item 
+              <Grid
+                item
                 xs={12}
                 sm={6}
                 md={3}
@@ -134,17 +154,17 @@ export default function CoreValuesSection() {
                 {/* Icon Container */}
                 <Box
                   sx={{
-                    width: { 
-                      xs: "70px", 
-                      sm: "90px", 
-                      md: "100px", 
-                      lg: "100px" // Reduced from 120px
+                    width: {
+                      xs: "70px",
+                      sm: "90px",
+                      md: "100px",
+                      lg: "100px", // Reduced from 120px
                     },
-                    height: { 
-                      xs: "70px", 
-                      sm: "90px", 
-                      md: "100px", 
-                      lg: "100px" // Reduced from 120px
+                    height: {
+                      xs: "70px",
+                      sm: "90px",
+                      md: "100px",
+                      lg: "100px", // Reduced from 120px
                     },
                     mb: { xs: 2, sm: 3, md: 3, lg: 3 }, // Reduced on desktop
                     display: "flex",
@@ -170,15 +190,15 @@ export default function CoreValuesSection() {
                   sx={{
                     fontFamily: "Poppins, sans-serif",
                     fontWeight: 400,
-                    fontSize: { 
+                    fontSize: {
                       xs: "16px",
                       sm: "18px",
                       md: "20px",
-                      lg: "22px" 
+                      lg: "22px",
                     },
                     lineHeight: 1.2,
                     color: "#000000",
-                    mb: { xs: 4, sm: 1.5, md: 1.5, lg: 1.5 }, 
+                    mb: { xs: 4, sm: 1.5, md: 1.5, lg: 1.5 },
                     px: { xs: 0.5, sm: 0, lg: 0.5 },
                   }}
                 >
@@ -190,19 +210,19 @@ export default function CoreValuesSection() {
                   sx={{
                     fontFamily: "Poppins, sans-serif",
                     fontWeight: 400,
-                    fontSize: { 
+                    fontSize: {
                       xs: "13px",
                       sm: "14px",
                       md: "15px",
-                      lg: "15px" // Reduced from 17px
+                      lg: "15px", // Reduced from 17px
                     },
                     lineHeight: { xs: 1.4, sm: 1.5, md: 1.5, lg: 1.5 },
                     color: "#666",
-                    maxWidth: { 
-                      xs: "100%", 
-                      sm: "260px", 
-                      md: "250px", 
-                      lg: "250px" // Reduced from 280px
+                    maxWidth: {
+                      xs: "100%",
+                      sm: "260px",
+                      md: "250px",
+                      lg: "250px", // Reduced from 280px
                     },
                     mx: "auto",
                     px: { xs: 1, sm: 0.5, md: 0, lg: 0.5 },

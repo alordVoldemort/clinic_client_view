@@ -2,7 +2,6 @@ import { Box, Container, Typography } from "@mui/material";
 import aboutHeroImage from "../../assets/clinic/HeroSectionImg/hospital-svgrepo-com 1.svg";
 
 export default function AboutHeroSection() {
-  
   return (
     <Box
       sx={{
@@ -14,10 +13,10 @@ export default function AboutHeroSection() {
         minHeight: { xs: "auto", sm: "400px", md: "500px", lg: "544px" },
       }}
     >
-      <Container 
+      <Container
         maxWidth="xl"
         sx={{
-          px: { xs: 2, sm: 3, md: 4, lg: 6 }
+          px: { xs: 2, sm: 3, md: 4, lg: 6 },
         }}
       >
         {/* Header Section */}
@@ -30,17 +29,16 @@ export default function AboutHeroSection() {
             width: "100%",
           }}
         >
-         
           <Typography
             variant="h1"
             sx={{
               fontFamily: "Poppins, sans-serif",
               fontWeight: 500,
-              fontSize: { 
-                xs: "24px",    // Mobile
-                sm: "28px",    // Small tablets
-                md: "32px",    // Tablets
-                lg: "36px"     // Desktop
+              fontSize: {
+                xs: "24px", // Mobile
+                sm: "28px", // Small tablets
+                md: "32px", // Tablets
+                lg: "36px", // Desktop
               },
               lineHeight: { xs: 1.2, sm: 1.1 },
               color: "#000000",
@@ -56,11 +54,11 @@ export default function AboutHeroSection() {
             sx={{
               fontFamily: "Poppins, sans-serif",
               fontWeight: 500,
-              fontSize: { 
-                xs: "16px",    // Mobile
-                sm: "18px",    // Small tablets
-                md: "20px",    // Tablets
-                lg: "20px"     // Desktop
+              fontSize: {
+                xs: "16px", // Mobile
+                sm: "18px", // Small tablets
+                md: "20px", // Tablets
+                lg: "20px", // Desktop
               },
               lineHeight: { xs: 1.3, sm: 1.2 },
               color: "#000000",
@@ -71,7 +69,6 @@ export default function AboutHeroSection() {
           </Typography>
         </Box>
 
-       
         <Box
           sx={{
             display: "flex",
@@ -80,11 +77,10 @@ export default function AboutHeroSection() {
             gap: { xs: 4, sm: 6, md: 8, lg: 0 },
           }}
         >
-          
           <Box
             sx={{
               flex: { xs: "1 1 100%", md: "1 1 50%" },
-              order: { xs: 2, md: 1 }, 
+              order: { xs: 2, md: 1 },
               width: "100%",
               maxWidth: { xs: "100%", md: "600px", lg: "797px" },
             }}
@@ -94,11 +90,11 @@ export default function AboutHeroSection() {
               sx={{
                 fontFamily: "Poppins, sans-serif",
                 fontWeight: 600,
-                fontSize: { 
-                  xs: "20px",    // Mobile
-                  sm: "22px",    // Small tablets
-                  md: "24px",    // Tablets
-                  lg: "28px"     // Desktop
+                fontSize: {
+                  xs: "20px", // Mobile
+                  sm: "22px", // Small tablets
+                  md: "24px", // Tablets
+                  lg: "28px", // Desktop
                 },
                 color: "#155DFC",
                 mb: { xs: 2, sm: 3, md: 4 },
@@ -107,10 +103,9 @@ export default function AboutHeroSection() {
               Our Story
             </Typography>
 
-            
-            <Box 
-              sx={{ 
-                display: "flex", 
+            <Box
+              sx={{
+                display: "flex",
                 flexDirection: "column",
                 gap: { xs: 3, sm: 4 },
               }}
@@ -119,49 +114,66 @@ export default function AboutHeroSection() {
                 sx={{
                   fontFamily: "Poppins, sans-serif",
                   fontWeight: 400,
-                  fontSize: { 
-                    xs: "14px",    // Mobile
-                    sm: "15px",    // Small tablets
-                    md: "16px",    // Tablets
-                    lg: "17px"     // Desktop
+                  fontSize: {
+                    xs: "14px", // Mobile
+                    sm: "15px", // Small tablets
+                    md: "16px", // Tablets
+                    lg: "17px", // Desktop
                   },
                   lineHeight: { xs: 1.6, sm: 1.7, md: 1.75 },
                   color: "#000000",
                   textAlign: { xs: "justify", sm: "left" },
                 }}
               >
+<<<<<<< HEAD
                Nirmal Health Care carries a legacy built over two generations — a legacy shaped by compassion, trust, and an unwavering commitment to holistic homeopathic healing. The foundation of this clinic was laid with a simple philosophy:
  listen deeply, understand fully, and heal gently.
 
+=======
+                Nirmal Health Care carries a legacy built over two generations —
+                a legacy shaped by compassion, trust, and an unwavering
+                commitment to holistic homeopathic healing. The foundation of
+                this clinic was laid with a simple philosophy: listen deeply,
+                understand fully, and heal gently.
+>>>>>>> 73529526feb9c1b21c39ee08d770b58059cebfb1
               </Typography>
 
               <Typography
                 sx={{
                   fontFamily: "Poppins, sans-serif",
                   fontWeight: 400,
-                  fontSize: { 
-                    xs: "14px",    // Mobile
-                    sm: "15px",    // Small tablets
-                    md: "16px",    // Tablets
-                    lg: "17px"     // Desktop
+                  fontSize: {
+                    xs: "14px", // Mobile
+                    sm: "15px", // Small tablets
+                    md: "16px", // Tablets
+                    lg: "17px", // Desktop
                   },
                   lineHeight: { xs: 1.6, sm: 1.7, md: 1.75 },
                   color: "#000000",
                   textAlign: { xs: "justify", sm: "left" },
                 }}
               >
+<<<<<<< HEAD
                 As the second generation stepped in, we continued those values while bringing a more thoughtful, modern approach to homeopathic treatment and natural healing. What began as a small effort to help the community has grown into a trusted holistic healthcare centre where individuals and families — from Pune and around the world — find comfort, clarity, and long-term wellness.
+=======
+                As the second generation stepped in, we continued those values
+                while bringing a more thoughtful, modern approach to homeopathic
+                treatment and natural healing. What began as a small effort to
+                help the community has grown into a trusted holistic healthcare
+                centre where individuals and families — from Pune and around the
+                world — find comfort, clarity, and long-term wellness.
+>>>>>>> 73529526feb9c1b21c39ee08d770b58059cebfb1
               </Typography>
 
               <Typography
                 sx={{
                   fontFamily: "Poppins, sans-serif",
                   fontWeight: 400,
-                  fontSize: { 
-                    xs: "14px",    // Mobile
-                    sm: "15px",    // Small tablets
-                    md: "16px",    // Tablets
-                    lg: "17px"     // Desktop
+                  fontSize: {
+                    xs: "14px", // Mobile
+                    sm: "15px", // Small tablets
+                    md: "16px", // Tablets
+                    lg: "17px", // Desktop
                   },
                   lineHeight: { xs: 1.6, sm: 1.7, md: 1.75 },
                   color: "#000000",
@@ -169,10 +181,19 @@ export default function AboutHeroSection() {
                 }}
               >
                 Even today, our purpose remains unchanged: <br />
+<<<<<<< HEAD
                 to provide a safe space where patients feel heard, supported, and cared for throughout their entire journey. <br/>
                 Because at Nirmal Health Care, healing isn’t just what we do — it’s who we are.
                 When care is genuine, healing becomes natural — and that belief continues to guide every 
                 generation that serves here.
+=======
+                to provide a safe space where patients feel heard, supported,
+                and cared for throughout their entire journey. <br />
+                Because at Nirmal Health Care, healing isn’t just what we do —
+                it’s who we are. When care is genuine, healing becomes natural —
+                and that belief continues to guide every generation that serves
+                here.
+>>>>>>> 73529526feb9c1b21c39ee08d770b58059cebfb1
               </Typography>
             </Box>
           </Box>
@@ -195,11 +216,11 @@ export default function AboutHeroSection() {
               alt="Hospital Illustration"
               sx={{
                 width: "100%",
-                maxWidth: { 
-                  xs: "250px",   // Mobile
-                  sm: "300px",   // Small tablets
-                  md: "350px",   // Tablets
-                  lg: "389px"    // Desktop
+                maxWidth: {
+                  xs: "250px", // Mobile
+                  sm: "300px", // Small tablets
+                  md: "350px", // Tablets
+                  lg: "389px", // Desktop
                 },
                 height: "auto",
                 objectFit: "contain",

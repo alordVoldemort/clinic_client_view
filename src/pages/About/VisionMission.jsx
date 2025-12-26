@@ -18,7 +18,13 @@ export default function VisionMission() {
       <Box
         sx={{
           width: "100%",
-          maxWidth: { xs: "100%", sm: "540px", md: "720px", lg: "940px", xl: "1140px" },
+          maxWidth: {
+            xs: "100%",
+            sm: "540px",
+            md: "720px",
+            lg: "940px",
+            xl: "1140px",
+          },
           background: "#FFFFFF",
           borderRadius: { xs: "12px", sm: "14px", md: "16px" },
           boxShadow: "none",
@@ -132,7 +138,11 @@ export default function VisionMission() {
                 textAlign: { xs: "center", md: "center", lg: "left" },
               }}
             >
-              To offer compassionate, patient-focused homeopathic care that supports true well-being. We aim to enhance the quality of life for every individual through holistic healing, gentle natural treatments, and personalized care plans that encourage long-term wellness.
+              To offer compassionate, patient-focused homeopathic care that
+              supports true well-being. We aim to enhance the quality of life
+              for every individual through holistic healing, gentle natural
+              treatments, and personalized care plans that encourage long-term
+              wellness.
             </Typography>
           </Box>
         </Box>
@@ -141,7 +151,12 @@ export default function VisionMission() {
         <Box
           sx={{
             width: "100%",
-            borderTop: { xs: "4px solid #D8E4FF", sm: "5px solid #D8E4FF", md: "6px solid #D8E4FF", lg: "7px solid #D8E4FF" },
+            borderTop: {
+              xs: "4px solid #D8E4FF",
+              sm: "5px solid #D8E4FF",
+              md: "6px solid #D8E4FF",
+              lg: "7px solid #D8E4FF",
+            },
             opacity: 1,
             my: { xs: 4, sm: 4.5, md: 5, lg: 5 },
           }}
@@ -189,8 +204,11 @@ export default function VisionMission() {
                 textAlign: { xs: "center", md: "center", lg: "left" },
               }}
             >
-              To grow into a trusted network of holistic homeopathy clinics that offer accessible, empathetic, and modern care. We aim to support long-term wellness for individuals and families through compassionate healing and thoughtfully guided homeopathic practices.
-
+              To grow into a trusted network of holistic homeopathy clinics that
+              offer accessible, empathetic, and modern care. We aim to support
+              long-term wellness for individuals and families through
+              compassionate healing and thoughtfully guided homeopathic
+              practices.
             </Typography>
           </Box>
 

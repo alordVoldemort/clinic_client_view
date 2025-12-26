@@ -3,8 +3,7 @@ import { Box, Typography } from '@mui/material';
 import RupeeIcon from '../../assets/Appointment/Rupees.svg';
 import CompletedIcon from '../../assets/Appointment/completed-booking.svg';
 
-const ConsultationFeeCard = () => {
-  const amount = 500; 
+const ConsultationFeeCard = ({ amount = 500 }) => { 
   return (
     <Box sx={{ 
       width: '100%',

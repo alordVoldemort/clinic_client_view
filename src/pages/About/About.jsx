@@ -1,5 +1,5 @@
 import { Container, Typography, Box, Paper } from "@mui/material";
-import AboutHeroSection from "./HeroSection"; 
+import AboutHeroSection from "./HeroSection";
 import VisionMission from "./VisionMission";
 import MeetExpertTeamSection from "./MeetExpertTeamSection";
 import CallToActionSection from "./CallToActionSection";
@@ -13,7 +13,7 @@ const About = () => {
       <VisionMission />
       <CoreValuesSection />
 
-      <OurAchievementSection/>
+      <OurAchievementSection />
       <MeetExpertTeamSection />
       <CallToActionSection />
     </Box>

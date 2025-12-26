@@ -18,6 +18,7 @@ import {
 } from "@mui/material";
 
 import { useNavigate } from "react-router-dom";
+import api from "../../api/axios";
 
 import UserIcon from "../../assets/Appointment/fullName.svg";
 import EmailIcon from "../../assets/Appointment/email.svg";
@@ -187,6 +188,8 @@ const BookAppointment = () => {
   });
 
   const [formErrors, setFormErrors] = useState({});
+  const [bookedSlots, setBookedSlots] = useState([]);
+  const [, setLoadingSlots] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -199,6 +202,40 @@ const BookAppointment = () => {
         ...prev,
         [name]: "",
       }));
+    }
+    
+    // When date changes, fetch booked slots
+    if (name === 'date' && value) {
+      fetchBookedSlots(value);
+      // Clear selected time if date changes
+      setFormData((prev) => ({
+        ...prev,
+        time: "",
+      }));
+    }
+  };
+  
+  // Fetch booked time slots for a specific date
+  const fetchBookedSlots = async (date) => {
+    if (!date) {
+      setBookedSlots([]);
+      return;
+    }
+    
+    setLoadingSlots(true);
+    try {
+      // baseURL already includes /api, so use /appointments/availability
+      const response = await api.get(`/appointments/availability?date=${date}`);
+      if (response.data && response.data.success) {
+        setBookedSlots(response.data.data?.booked_slots || []);
+      } else {
+        setBookedSlots([]);
+      }
+    } catch (error) {
+      console.error("Error fetching booked slots:", error);
+      setBookedSlots([]);
+    } finally {
+      setLoadingSlots(false);
     }
   };
 
@@ -227,23 +264,51 @@ const BookAppointment = () => {
       return;
     }
 
+    // Note: Amount is determined by backend, not frontend
+    // Frontend only displays the amount for UI purposes
     navigate("/payment/PaymentPage", {
       state: {
         appointmentData: formData,
-        amount: 800,
       },
     });
   };
 
-  // Date calculations
-  
-  const tomorrow = new Date();
-  tomorrow.setDate(tomorrow.getDate() + 1);
-  const minDate = tomorrow.toISOString().split("T")[0];
+
+  // Date calculations - allow today's date for future time slots
+  const today = new Date();
+  const minDate = today.toISOString().split("T")[0];
+
 
   const maxDate = new Date();
   maxDate.setMonth(maxDate.getMonth() + 3);
   const maxDateStr = maxDate.toISOString().split("T")[0];
+  
+  // Helper function to check if a time slot is in the past for today
+  const isTimeSlotInPast = (timeSlot) => {
+    if (formData.date !== minDate) return false; // Not today, so not in past
+    
+    const now = new Date();
+    const currentHour = now.getHours();
+    const currentMinute = now.getMinutes();
+    
+    // Parse time slot (e.g., "6:00 PM" or "06:00 PM")
+    const timeMatch = timeSlot.match(/(\d{1,2}):(\d{2})\s*(AM|PM)/i);
+    if (!timeMatch) return false;
+    
+    let hour = parseInt(timeMatch[1]);
+    const minute = parseInt(timeMatch[2]);
+    const period = timeMatch[3].toUpperCase();
+    
+    // Convert to 24-hour format
+    if (period === 'PM' && hour !== 12) hour += 12;
+    if (period === 'AM' && hour === 12) hour = 0;
+    
+    // Check if this time is in the past
+    if (hour < currentHour) return true;
+    if (hour === currentHour && minute <= currentMinute) return true;
+    
+    return false;
+  };
 
   return (
     <Box
@@ -787,11 +852,27 @@ const BookAppointment = () => {
                           <MenuItem value="" disabled>
                             Select Time
                           </MenuItem>
-                          {TIME_SLOTS.map((time) => (
-                            <MenuItem key={time} value={time}>
-                              {time}
-                            </MenuItem>
-                          ))}
+                          {TIME_SLOTS.map((time) => {
+                            // Check if this time slot is booked
+                            const isBooked = bookedSlots.includes(time);
+                            // Check if this time slot is in the past (for today's date)
+                            const isPast = isTimeSlotInPast(time);
+                            const isDisabled = isBooked || isPast;
+                            
+                            return (
+                              <MenuItem 
+                                key={time} 
+                                value={time}
+                                disabled={isDisabled}
+                                sx={{
+                                  opacity: isDisabled ? 0.5 : 1,
+                                  cursor: isDisabled ? 'not-allowed' : 'pointer'
+                                }}
+                              >
+                                {time} {isBooked ? '(Booked)' : isPast ? '(Past)' : ''}
+                              </MenuItem>
+                            );
+                          })}
                         </Select>
                         {formErrors.time && (
                           <FormHelperText

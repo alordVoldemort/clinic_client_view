@@ -1,4 +1,8 @@
 /* Global Styles */
+html {
+  overflow-y: scroll;
+}
+
 * {
   font-family: "Poppins", sans-serif;
 }

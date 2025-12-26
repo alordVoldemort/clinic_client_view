@@ -11,7 +11,7 @@ const AppointmentConfirmation = () => {
   const location = useLocation();
   
   // Get data from payment page
-  const { appointmentData = {} } = location.state || {};
+  const { appointmentData = {}, paymentMethod = 'ONLINE', amount = 0 } = location.state || {};
 
   // Default data structure
   const defaultAppointmentData = {
@@ -105,7 +105,8 @@ border: '1px solid #E0E0E0',
             maxWidth: '500px'
           }}
         >
-          Thank you , {finalAppointmentData.patientName}! Your appointment has been successfully booked and payment confirmed.
+          Thank you, {finalAppointmentData.patientName}! Your appointment has been successfully booked.
+          {paymentMethod === 'ONLINE' ? ' Payment confirmed.' : ' Please pay at the clinic reception.'}
         </Typography>
 
         {/* Appointment Details Card */}
