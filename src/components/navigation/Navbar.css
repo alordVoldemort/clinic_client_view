@@ -63,12 +63,10 @@
     height: 75px;
   }
 
-  /* Show desktop menu */
   .navbar-links {
     display: flex;
   }
 
-  /* Hide mobile menu icon */
   .navbar-menu-icon {
     display: none !important;
   }

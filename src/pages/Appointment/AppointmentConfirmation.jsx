@@ -14,7 +14,7 @@ import TreatmentIcon from '../../assets/Appointment/treatment.svg';
 import CalendarIcon from '../../assets/Appointment/calendar.svg';
 import EmailIcon from '../../assets/Appointment/email.svg';
 
-// SVG Icon Components
+
 const CheckCircleIconComponent = () => (
   <Box
     component="img"
@@ -76,7 +76,6 @@ const AppointmentConfirmation = () => {
   const navigate = useNavigate();
   const appointmentData = location.state?.appointmentData || {};
 
-  // Get patient name from appointment data
   const patientName = appointmentData.name || 'kahilji Sanjay Sonnwanahi';
   const patientEmail = appointmentData.email || 'kahilji.sonnwanahi201@gmail.com';
   const treatment = appointmentData.service || 'Spine Treatment Consultation';
@@ -93,7 +92,7 @@ const AppointmentConfirmation = () => {
       minHeight: '100vh',
       fontFamily: 'Arial, sans-serif'
     }}>
-      {/* Navbar (Simple version matching your image) */}
+      
       <Box 
         sx={{ 
           backgroundColor: '#ffffff',

@@ -342,7 +342,7 @@ export default function Footer() {
                 gap: { xs: 1.5, sm: 2, md: 2.5, lg: 3 },
               }}
             >
-              {/* Location - UPDATED WITH ACTUAL ADDRESS */}
+              {/* Location */}
               <Box
                 sx={{
                   display: "flex",

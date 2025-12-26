@@ -28,8 +28,6 @@ import TimeIcon from "../../assets/Appointment/time.svg";
 import NoteIcon from "../../assets/Appointment/notes.svg";
 import RupeesIcon from "../../assets/Appointment/Rupees.svg";
 
-
-
 const UserIconComponent = () => (
   <Box
     component="img"
@@ -143,7 +141,6 @@ const RupeesIconComponent = () => (
   />
 );
 
-
 const SERVICES = [
   "Spine Treatment",
   "GIT Treatments",
@@ -239,6 +236,7 @@ const BookAppointment = () => {
   };
 
   // Date calculations
+  
   const tomorrow = new Date();
   tomorrow.setDate(tomorrow.getDate() + 1);
   const minDate = tomorrow.toISOString().split("T")[0];
@@ -253,23 +251,24 @@ const BookAppointment = () => {
         backgroundColor: "#FBF9FA",
         minHeight: "100vh",
         py: 4,
+        pb: { xs: 6, md: 8 },
         fontFamily: "Arial, sans-serif",
+
       }}
     >
       <Container
-  disableGutters
-  sx={{
-    maxWidth: { xs: "100%", md: "841px" },
-    px: { xs: 2, sm: 3, md: 0 },
-    margin: "0 auto",
-  }}
->
-
+        disableGutters
+        sx={{
+          maxWidth: { xs: "100%", md: "841px" },
+          px: { xs: 2, sm: 3, md: 0 },
+          margin: "0 auto",
+        }}
+      >
         <Box sx={{ textAlign: "center", mb: 4 }}>
           <Typography
             variant="h1"
             sx={{
-             fontSize: { xs: "26px", sm: "30px", md: "36px" },
+              fontSize: { xs: "26px", sm: "30px", md: "36px" },
               fontWeight: 500,
               color: "#000000",
               mb: 1,
@@ -290,17 +289,17 @@ const BookAppointment = () => {
         </Box>
 
         <Paper
-  elevation={0}
-  sx={{
-    width: { xs: "100%", md: "841px" },
-    minHeight: "1245px",
-    borderRadius: "14px",
-    backgroundColor: "#FFFFFF",
-    border: "1px solid #E0E0E0",
-    padding: { xs: "20px", md: "32px" },
-  }}
->
-
+          elevation={0}
+          sx={{
+            width: { xs: "100%", md: "841px" },
+            minHeight: "1245px",
+            borderRadius: "14px",
+            backgroundColor: "#FFFFFF",
+            border: "1px solid #E0E0E0",
+            padding: { xs: "20px", md: "32px" },
+             mb: { xs: 4, md: 6 }, 
+          }}
+        >
           <Box component="form" onSubmit={handleSubmit}>
             {/* Personal Information Section */}
             <Box sx={{ mb: 6 }}>
@@ -383,7 +382,12 @@ const BookAppointment = () => {
                 }}
               >
                 <Grid container spacing={2}>
-                  <Grid item xs={12} md={6} sx={{ height: { xs: "auto", md: "100%" } }}>
+                  <Grid
+                    item
+                    xs={12}
+                    md={6}
+                    sx={{ height: { xs: "auto", md: "100%" } }}
+                  >
                     <Box sx={{ height: { xs: "100%", md: "100%" } }}>
                       <Box
                         sx={{ display: "flex", alignItems: "center", mb: 1.75 }}
@@ -627,14 +631,19 @@ const BookAppointment = () => {
 
               {/* Date and Time in single line */}
               <Box
-  sx={{
-    mb: 3.75,
-    width: { xs: "100%", md: "738px" },
-    height: { md: "99px" }, 
-  }}
->
+                sx={{
+                  mb: 3.75,
+                  width: { xs: "100%", md: "738px" },
+                  height: { md: "99px" },
+                }}
+              >
                 <Grid container spacing={2}>
-                  <Grid item xs={12} md={6} sx={{ height: { xs: "auto", md: "100%" } }}>
+                  <Grid
+                    item
+                    xs={12}
+                    md={6}
+                    sx={{ height: { xs: "auto", md: "100%" } }}
+                  >
                     <Box sx={{ height: { xs: "auto", md: "100%" } }}>
                       <Box
                         sx={{ display: "flex", alignItems: "center", mb: 1.75 }}
@@ -951,7 +960,13 @@ const BookAppointment = () => {
             </Box>
 
             {/* Submit Button */}
-            <Box sx={{ textAlign: "center", mb: 4, width: { xs: "100%", md: "738px" } }}>
+            <Box
+              sx={{
+                textAlign: "center",
+                mb: 4,
+                width: { xs: "100%", md: "738px" },
+              }}
+            >
               <Button
                 type="submit"
                 variant="contained"
@@ -977,54 +992,52 @@ const BookAppointment = () => {
           </Box>
         </Paper>
 
-        
         <Box
-  sx={{
-    textAlign: "center",
-    pt: 1,
-    mt: 2,
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  }}
->
-  <Typography
-    sx={{
-      fontWeight: 400,
-      fontSize: { xs: "14px", sm: "16px" }, // responsive font size
-      color: "#000000",
-      mb: 0.5,
-      display: "flex",
-      flexWrap: "wrap",
-      justifyContent: "center",
-      alignItems: "center",
-    }}
-  >
-    Need help booking? Call us at{" "}
-    <Box
-      component="span"
-      sx={{
-        fontWeight: 400,
-        color: "#155DFC",
-        ml: 0.5,
-        whiteSpace: "nowrap", // prevents number from breaking into 2 lines
-      }}
-    >
-      +91 9822141851
-    </Box>
-  </Typography>
+          sx={{
+            textAlign: "center",
+            pt: 1,
+            mt: 2,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <Typography
+            sx={{
+              fontWeight: 400,
+              fontSize: { xs: "14px", sm: "16px" },
+              color: "#000000",
+              mb: 0.5,
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            Need help booking? Call us at{" "}
+            <Box
+              component="span"
+              sx={{
+                fontWeight: 400,
+                color: "#155DFC",
+                ml: 0.5,
+                whiteSpace: "nowrap", // prevents number from breaking into 2 lines
+              }}
+            >
+              +91 9822141851
+            </Box>
+          </Typography>
 
-  <Typography
-    sx={{
-      fontSize: { xs: "12px", sm: "14px" }, // responsive font size
-      color: "#666666",
-      textAlign: "center",
-    }}
-  >
-    Our team is available Monday – Saturday, 9:00 AM – 6:00 PM
-  </Typography>
-</Box>
-
+          <Typography
+            sx={{
+              fontSize: { xs: "12px", sm: "14px" }, // responsive font size
+              color: "#666666",
+              textAlign: "center",
+            }}
+          >
+            Our team is available Monday – Saturday, 9:00 AM – 6:00 PM
+          </Typography>
+        </Box>
       </Container>
     </Box>
   );

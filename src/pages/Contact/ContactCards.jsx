@@ -25,9 +25,9 @@ const ContactCards = () => {
         padding: { xs: "12px", sm: "14px", md: "16px", lg: "10px" },
         borderRadius: "13px",
         backgroundColor: "#FFFFFF",
-        flex: "1 1 250px", // flexible width, min 250px
-        maxWidth: "370px", // keeps max width on large screens
-        minHeight: "227px", // consistent height for all cards
+        flex: "1 1 250px", 
+        maxWidth: "370px", 
+        minHeight: "227px", 
         display: "flex",
         flexDirection: "column",
         alignItems: "center",

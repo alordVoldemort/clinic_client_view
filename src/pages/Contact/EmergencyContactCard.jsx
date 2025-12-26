@@ -21,21 +21,21 @@ const EmergencyContactCard = () => {
     <Box
       sx={{
         width: {
-          xs: "100%", // Full width on mobile
-          sm: "100%", // Full width on tablet
-          md: "100%", // Full width on medium screens
-          lg: "100%", // Take full width in grid column
-          xl: "100%", // Take full width in grid column
+          xs: "100%", //  mobile
+          sm: "100%", // tablet
+          md: "100%", // medium screens
+          lg: "100%", // large screens
+          xl: "100%", // extra large screens
         },
         maxWidth: {
           xs: "100%",
           sm: "100%",
           md: "100%",
-          lg: "539px", // Max width on desktop
+          lg: "539px", 
           xl: "539px",
         },
         height: {
-          xs: "auto", // Auto height on mobile
+          xs: "auto",
           sm: "auto",
           md: "auto",
           lg: "242px",
@@ -122,8 +122,8 @@ const EmergencyContactCard = () => {
         sx={{
           backgroundColor: "#FF6262",
           width: {
-            xs: "100%", // full width on mobile
-            sm: "auto", // auto width on tablet+
+            xs: "100%", 
+            sm: "auto", 
             md: "auto",
             lg: "215px",
           },
