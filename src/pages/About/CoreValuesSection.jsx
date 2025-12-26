@@ -8,45 +8,29 @@ export default function CoreValuesSection() {
   const values = [
     {
       title: "Compassionate Care",
-<<<<<<< HEAD
-      description: "We support every patient with empathetic, respectful, and gentle homeopathic treatment for lasting comfort.",
-=======
       description:
         "We support every patient with empathetic, respectful, and gentle homeopathic treatment for lasting comfort.",
->>>>>>> 73529526feb9c1b21c39ee08d770b58059cebfb1
       icon: compassionateCareIcon,
       iconAlt: "Compassionate Care Icon",
     },
     {
       title: "Excellence",
-<<<<<<< HEAD
-      description: "We deliver reliable, high-quality homeopathy care through trusted methods and consistent clinical experience.",
-=======
       description:
         "We deliver reliable, high-quality homeopathy care through trusted methods and consistent clinical experience.",
->>>>>>> 73529526feb9c1b21c39ee08d770b58059cebfb1
       icon: excellenceIcon,
       iconAlt: "Excellence Icon",
     },
     {
       title: "Patient-Centered",
-<<<<<<< HEAD
-      description: "We listen deeply, offering homeopathic care that supports physical recovery and emotional well-being.",
-=======
       description:
         "We listen deeply, offering homeopathic care that supports physical recovery and emotional well-being.",
->>>>>>> 73529526feb9c1b21c39ee08d770b58059cebfb1
       icon: patientCenteredIcon,
       iconAlt: "Patient-Centered Icon",
     },
     {
       title: "Innovation",
-<<<<<<< HEAD
-      description: "We advance our homeopathic clinic with modern approaches, thoughtful practices, and updated treatment insights.",
-=======
       description:
         "We advance our homeopathic clinic with modern approaches, thoughtful practices, and updated treatment insights.",
->>>>>>> 73529526feb9c1b21c39ee08d770b58059cebfb1
       icon: innovationIcon,
       iconAlt: "Innovation Icon",
     },
