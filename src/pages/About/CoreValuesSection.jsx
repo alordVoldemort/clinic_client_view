@@ -8,25 +8,25 @@ export default function CoreValuesSection() {
   const values = [
     {
       title: "Compassionate Care",
-      description: "We treat every patient with empathy, respect, and understanding.",
+      description: "We support every patient with empathetic, respectful, and gentle homeopathic treatment for lasting comfort.",
       icon: compassionateCareIcon,
       iconAlt: "Compassionate Care Icon"
     },
     {
       title: "Excellence",
-      description: "Committed to the highest standards of medical care and service.",
+      description: "We deliver reliable, high-quality homeopathy care through trusted methods and consistent clinical experience.",
       icon: excellenceIcon,
       iconAlt: "Excellence Icon"
     },
     {
       title: "Patient-Centered",
-      description: "Your health and comfort are at the heart of everything we do.",
+      description: "We listen deeply, offering homeopathic care that supports physical recovery and emotional well-being.",
       icon: patientCenteredIcon,
       iconAlt: "Patient-Centered Icon"
     },
     {
       title: "Innovation",
-      description: "Utilizing the latest medical technologies and treatment methods.",
+      description: "We advance our homeopathic clinic with modern approaches, thoughtful practices, and updated treatment insights.",
       icon: innovationIcon,
       iconAlt: "Innovation Icon"
     }
