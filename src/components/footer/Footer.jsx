@@ -458,21 +458,13 @@ export default function Footer() {
             textAlign: { xs: "center", sm: "left" },
           }}
         >
-          <Typography
-            sx={{
-              fontSize: { xs: "0.8rem", sm: "0.85rem", md: "0.9rem" },
-              color: "#555",
-            }}
-          >
-            © 2025 zonixtec. All rights reserved.
-          </Typography>
-
           <Box
             sx={{
               display: "flex",
               gap: { xs: 2, sm: 3 },
               flexWrap: "wrap",
               justifyContent: { xs: "center", sm: "flex-end" },
+              order: { xs: 1, sm: 2 },
             }}
           >
             {/* Privacy Policy Link */}
@@ -504,6 +496,16 @@ export default function Footer() {
               Terms & Conditions
             </MuiLink>
           </Box>
+
+          <Typography
+            sx={{
+              fontSize: { xs: "0.8rem", sm: "0.85rem", md: "0.9rem" },
+              color: "#555",
+              order: { xs: 2, sm: 1 },
+            }}
+          >
+            © 2025 zonixtec. All rights reserved.
+          </Typography>
         </Box>
       </Container>
     </Box>

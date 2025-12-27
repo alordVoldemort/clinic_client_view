@@ -326,9 +326,9 @@ export default function Navbar() {
                       lg: "flex",
                       xl: "flex",
                     },
-                    // Hide on iPad Pro, Surface Pro 7 (1024px-1199px) specifically, but show at 1440px
-                    "@media (min-width: 1024px) and (max-width: 1199px)": {
-                      display: "none",
+                    // Show on iPad Air landscape (1180px) and above when menu options are visible
+                    "@media (min-width: 1100px)": {
+                      display: "flex",
                     },
                     alignItems: "center",
                     gap: 1,
@@ -520,17 +520,23 @@ export default function Navbar() {
                   navigate("/appointment");
                 }}
                 sx={{
-                  backgroundColor: "rgba(25, 118, 210, 0.08)",
+                  backgroundColor: "#155DFC",
                   mx: 1,
-                  borderRadius: "4px",
+                  borderRadius: "6px",
                   mt: 1,
+                  py: 1.25,
+                  "&:hover": {
+                    backgroundColor: "#1565c0",
+                  },
                 }}
               >
                 <ListItemText
                   primary="Book Appointment"
                   primaryTypographyProps={{
-                    fontWeight: "bold",
-                    color: "#1976d2",
+                    fontWeight: 500,
+                    color: "#FFFFFF",
+                    fontSize: "14px",
+                    textAlign: "center",
                   }}
                 />
               </ListItemButton>

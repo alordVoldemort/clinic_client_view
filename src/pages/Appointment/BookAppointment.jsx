@@ -714,19 +714,6 @@ const BookAppointment = () => {
                       "&::placeholder": {
                         color: "#999999",
                       },
-                      "&:-webkit-autofill": {
-                        WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset",
-                        WebkitTextFillColor: "#333333",
-                        transition: "background-color 5000s ease-in-out 0s",
-                      },
-                      "&:-webkit-autofill:hover": {
-                        WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset",
-                        WebkitTextFillColor: "#333333",
-                      },
-                      "&:-webkit-autofill:focus": {
-                        WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset",
-                        WebkitTextFillColor: "#333333",
-                      },
                     },
                     "& .MuiFormHelperText-root": {
                       marginLeft: 0,
@@ -826,19 +813,6 @@ const BookAppointment = () => {
                             "&::placeholder": {
                               color: "#999999",
                             },
-                            "&:-webkit-autofill": {
-                              WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset",
-                              WebkitTextFillColor: "#333333",
-                              transition: "background-color 5000s ease-in-out 0s",
-                            },
-                            "&:-webkit-autofill:hover": {
-                              WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset",
-                              WebkitTextFillColor: "#333333",
-                            },
-                            "&:-webkit-autofill:focus": {
-                              WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset",
-                              WebkitTextFillColor: "#333333",
-                            },
                           },
                           "& .MuiFormHelperText-root": {
                             marginLeft: 0,
@@ -928,19 +902,6 @@ const BookAppointment = () => {
                             boxSizing: "border-box",
                             "&::placeholder": {
                               color: "#999999",
-                            },
-                            "&:-webkit-autofill": {
-                              WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset",
-                              WebkitTextFillColor: "#333333",
-                              transition: "background-color 5000s ease-in-out 0s",
-                            },
-                            "&:-webkit-autofill:hover": {
-                              WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset",
-                              WebkitTextFillColor: "#333333",
-                            },
-                            "&:-webkit-autofill:focus": {
-                              WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset",
-                              WebkitTextFillColor: "#333333",
                             },
                           },
                           "& .MuiFormHelperText-root": {
@@ -1163,19 +1124,6 @@ const BookAppointment = () => {
                             color: formData.date ? "#333333" : "#999999",
                             height: "47px",
                             boxSizing: "border-box",
-                            "&:-webkit-autofill": {
-                              WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset",
-                              WebkitTextFillColor: formData.date ? "#333333" : "#999999",
-                              transition: "background-color 5000s ease-in-out 0s",
-                            },
-                            "&:-webkit-autofill:hover": {
-                              WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset",
-                              WebkitTextFillColor: formData.date ? "#333333" : "#999999",
-                            },
-                            "&:-webkit-autofill:focus": {
-                              WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset",
-                              WebkitTextFillColor: formData.date ? "#333333" : "#999999",
-                            },
                           },
                           "& .MuiFormHelperText-root": {
                             marginLeft: 0,
@@ -1381,19 +1329,6 @@ const BookAppointment = () => {
                       "&::placeholder": {
                         color: "#999999",
                       },
-                      "&:-webkit-autofill": {
-                        WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset",
-                        WebkitTextFillColor: "#333333",
-                        transition: "background-color 5000s ease-in-out 0s",
-                      },
-                      "&:-webkit-autofill:hover": {
-                        WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset",
-                        WebkitTextFillColor: "#333333",
-                      },
-                      "&:-webkit-autofill:focus": {
-                        WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset",
-                        WebkitTextFillColor: "#333333",
-                      },
                     },
                   }}
                 />
@@ -1415,7 +1350,7 @@ const BookAppointment = () => {
               >
                 <Typography
                   sx={{
-                    fontSize: "15px",
+                    fontSize: "18px",
                     fontWeight: 400,
                     color: "#000000",
                     mb: 3,
@@ -1425,7 +1360,6 @@ const BookAppointment = () => {
                 </Typography>
                 <Typography
                   sx={{
-                    fontWeight: 300,
                     fontSize: "14px",
                     color: "#000000",
                     mb: 1.5,
@@ -1448,8 +1382,6 @@ const BookAppointment = () => {
                 <Typography
                   sx={{
                     fontSize: "14px",
-                    fontWeight: 300,
-
                     color: "#000000",
                     mb: 1.5,
                     display: "flex",
@@ -1466,8 +1398,6 @@ const BookAppointment = () => {
                 </Typography>
                 <Typography
                   sx={{
-                    fontWeight: 300,
-
                     fontSize: "14px",
                     color: "#000000",
                     mb: 1.5,
@@ -1486,8 +1416,6 @@ const BookAppointment = () => {
                 <Typography
                   sx={{
                     fontSize: "14px",
-                    fontWeight: 300,
-
                     color: "#000000",
                     display: "flex",
                     alignItems: "flex-start",
