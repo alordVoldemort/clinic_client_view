@@ -50,7 +50,7 @@ const Contact = () => {
                 md: '16px', 
                 lg: '18px' 
               }, 
-              color: '#666666',
+              color: '#000000',
               maxWidth: 600,
               fontWeight: 400, 
               mx: 'auto',

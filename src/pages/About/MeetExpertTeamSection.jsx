@@ -15,9 +15,11 @@ const doctors = [
           Special Expertise:
         </Typography>{" "}
         <Typography component="span" sx={{ fontWeight: 300 }}>
-          Spine disorders, chronic back pain, and urine/kidney-related issues.
-          <br /><br />
-          Experienced in treating a wide range of health conditions through classical and advanced homeopathy.
+          Spine disorders, chronic back pain, and urine/kidney-related issues
+          <br />
+          <br />
+          Experienced in treating a wide range of health conditions through
+          classical and advanced homeopathy.
         </Typography>
       </>
     ),

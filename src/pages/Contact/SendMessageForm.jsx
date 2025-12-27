@@ -11,6 +11,7 @@ import {
   MenuItem,
   CircularProgress,
   Alert,
+  Snackbar,
 } from "@mui/material";
 import { sendContactMessage } from "../../api/contact.api";
 
@@ -191,6 +192,8 @@ const SendMessageForm = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
+  const [showValidationError, setShowValidationError] = useState(false);
+  const [validationErrorMessage, setValidationErrorMessage] = useState("");
   
   // Field-specific error states
   const [fieldErrors, setFieldErrors] = useState({
@@ -344,9 +347,32 @@ const SendMessageForm = () => {
     e.preventDefault();
     setError("");
     setSuccess(false);
+    setShowValidationError(false);
+    setValidationErrorMessage("");
 
     // Validate form
     if (!validateForm()) {
+      // Get list of missing required fields
+      const missingFields = [];
+      if (fieldErrors.name) missingFields.push("Name");
+      if (fieldErrors.email) missingFields.push("Email");
+      if (fieldErrors.phone) missingFields.push("Phone Number");
+      if (fieldErrors.subject) missingFields.push("Subject");
+      if (fieldErrors.message) missingFields.push("Message");
+      
+      const errorMessage = missingFields.length > 0
+        ? `Please fill in all required fields: ${missingFields.join(", ")}`
+        : "Please fill in all required fields";
+      
+      setValidationErrorMessage(errorMessage);
+      setShowValidationError(true);
+      
+      // Scroll to first error field
+      const firstErrorField = document.querySelector('[class*="Mui-error"]');
+      if (firstErrorField) {
+        firstErrorField.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+      
       return;
     }
 
@@ -473,6 +499,22 @@ const SendMessageForm = () => {
           flexDirection: "column",
         }}
       >
+        {/* Validation Error Snackbar */}
+        <Snackbar
+          open={showValidationError}
+          autoHideDuration={6000}
+          onClose={() => setShowValidationError(false)}
+          anchorOrigin={{ vertical: "top", horizontal: "center" }}
+        >
+          <Alert
+            onClose={() => setShowValidationError(false)}
+            severity="error"
+            sx={{ width: "100%" }}
+          >
+            {validationErrorMessage}
+          </Alert>
+        </Snackbar>
+
         {/* Error Message */}
         {error && (
           <Alert severity="error" sx={{ mb: 2 }} onClose={() => setError("")}>
@@ -533,6 +575,19 @@ const SendMessageForm = () => {
                 fontSize: "14px",
                 padding: "12px 16px",
                 fontFamily: "Poppins, sans-serif",
+                "&:-webkit-autofill": {
+                  WebkitBoxShadow: "0 0 0 1000px #FFFFFF inset",
+                  WebkitTextFillColor: "#000000",
+                  transition: "background-color 5000s ease-in-out 0s",
+                },
+                "&:-webkit-autofill:hover": {
+                  WebkitBoxShadow: "0 0 0 1000px #FFFFFF inset",
+                  WebkitTextFillColor: "#000000",
+                },
+                "&:-webkit-autofill:focus": {
+                  WebkitBoxShadow: "0 0 0 1000px #FFFFFF inset",
+                  WebkitTextFillColor: "#000000",
+                },
               },
             }}
           />
@@ -606,6 +661,19 @@ const SendMessageForm = () => {
                   fontSize: "14px",
                   padding: "12px 16px",
                   fontFamily: "Poppins, sans-serif",
+                  "&:-webkit-autofill": {
+                    WebkitBoxShadow: "0 0 0 1000px #FFFFFF inset",
+                    WebkitTextFillColor: "#000000",
+                    transition: "background-color 5000s ease-in-out 0s",
+                  },
+                  "&:-webkit-autofill:hover": {
+                    WebkitBoxShadow: "0 0 0 1000px #FFFFFF inset",
+                    WebkitTextFillColor: "#000000",
+                  },
+                  "&:-webkit-autofill:focus": {
+                    WebkitBoxShadow: "0 0 0 1000px #FFFFFF inset",
+                    WebkitTextFillColor: "#000000",
+                  },
                 },
               }}
             />
@@ -677,6 +745,19 @@ const SendMessageForm = () => {
                   fontSize: "14px",
                   padding: "12px 16px",
                   fontFamily: "Poppins, sans-serif",
+                  "&:-webkit-autofill": {
+                    WebkitBoxShadow: "0 0 0 1000px #FFFFFF inset",
+                    WebkitTextFillColor: "#000000",
+                    transition: "background-color 5000s ease-in-out 0s",
+                  },
+                  "&:-webkit-autofill:hover": {
+                    WebkitBoxShadow: "0 0 0 1000px #FFFFFF inset",
+                    WebkitTextFillColor: "#000000",
+                  },
+                  "&:-webkit-autofill:focus": {
+                    WebkitBoxShadow: "0 0 0 1000px #FFFFFF inset",
+                    WebkitTextFillColor: "#000000",
+                  },
                 },
               }}
             />
@@ -842,6 +923,19 @@ const SendMessageForm = () => {
                 padding: "16px",
                 lineHeight: 1.5,
                 fontFamily: "Poppins, sans-serif",
+                "&:-webkit-autofill": {
+                  WebkitBoxShadow: "0 0 0 1000px #FFFFFF inset",
+                  WebkitTextFillColor: "#000000",
+                  transition: "background-color 5000s ease-in-out 0s",
+                },
+                "&:-webkit-autofill:hover": {
+                  WebkitBoxShadow: "0 0 0 1000px #FFFFFF inset",
+                  WebkitTextFillColor: "#000000",
+                },
+                "&:-webkit-autofill:focus": {
+                  WebkitBoxShadow: "0 0 0 1000px #FFFFFF inset",
+                  WebkitTextFillColor: "#000000",
+                },
               },
             }}
           />
@@ -866,7 +960,7 @@ const SendMessageForm = () => {
             fullWidth
             type="submit"
             variant="contained"
-            disabled={loading || !isFormValid()}
+            disabled={loading}
             sx={{
               height: { xs: "46px", md: "50px" },
               backgroundColor: "#155DFC",
@@ -879,9 +973,6 @@ const SendMessageForm = () => {
               "&:hover": {
                 backgroundColor: "#4338CA",
                 boxShadow: "none",
-              },
-              "&:disabled": {
-                backgroundColor: "#9E9E9E",
               },
             }}
             startIcon={

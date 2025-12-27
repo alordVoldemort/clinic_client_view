@@ -16,6 +16,7 @@ import {
   Alert,
   CircularProgress,
 } from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 import { useNavigate } from "react-router-dom";
 import api from "../../api/axios";
@@ -268,7 +269,9 @@ const BookAppointment = () => {
   const [formErrors, setFormErrors] = useState({});
   const [bookedSlots, setBookedSlots] = useState([]);
   const [, setLoadingSlots] = useState(false);
-  
+  const [showValidationError, setShowValidationError] = useState(false);
+  const [validationErrorMessage, setValidationErrorMessage] = useState("");
+
   // Field-specific error states
   const [fieldErrors, setFieldErrors] = useState({
     name: "",
@@ -325,25 +328,32 @@ const BookAppointment = () => {
     const dateError = validators.validateDate(formData.date);
     const timeError = validators.validateTime(formData.time);
     const serviceError = validators.validateService(formData.service);
-    
-    return !nameError && !emailError && !phoneError && !dateError && !timeError && !serviceError;
+
+    return (
+      !nameError &&
+      !emailError &&
+      !phoneError &&
+      !dateError &&
+      !timeError &&
+      !serviceError
+    );
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    
+
     // Special handling for phone: only allow digits
     if (name === "phone") {
       // Remove any non-digit characters
       const digitsOnly = value.replace(/\D/g, "");
       // Limit to 10 digits
       const limitedDigits = digitsOnly.slice(0, 10);
-      
+
       setFormData((prev) => ({
         ...prev,
         [name]: limitedDigits,
       }));
-      
+
       // Validate phone in real-time
       if (touched.phone) {
         const error = validators.validatePhone(limitedDigits);
@@ -361,7 +371,7 @@ const BookAppointment = () => {
         ...prev,
         [name]: value,
       }));
-      
+
       // Real-time validation for other fields if touched
       if (touched[name]) {
         const error = validateField(name, value);
@@ -383,9 +393,9 @@ const BookAppointment = () => {
         }
       }
     }
-    
+
     // When date changes, fetch booked slots
-    if (name === 'date' && value) {
+    if (name === "date" && value) {
       fetchBookedSlots(value);
       // Clear selected time if date changes
       setFormData((prev) => ({
@@ -406,13 +416,13 @@ const BookAppointment = () => {
 
   const handleBlur = (e) => {
     const { name, value } = e.target;
-    
+
     // Mark field as touched
     setTouched((prev) => ({
       ...prev,
       [name]: true,
     }));
-    
+
     // Validate field
     const fieldError = validateField(name, value);
     setFieldErrors((prev) => ({
@@ -424,14 +434,14 @@ const BookAppointment = () => {
       [name]: fieldError,
     }));
   };
-  
+
   // Fetch booked time slots for a specific date
   const fetchBookedSlots = async (date) => {
     if (!date) {
       setBookedSlots([]);
       return;
     }
-    
+
     setLoadingSlots(true);
     try {
       // baseURL already includes /api, so use /appointments/availability
@@ -482,8 +492,35 @@ const BookAppointment = () => {
     e.preventDefault();
 
     if (!validateForm()) {
+      // Get list of missing required fields
+      const missingFields = [];
+      if (fieldErrors.name) missingFields.push("Name");
+      if (fieldErrors.email) missingFields.push("Email");
+      if (fieldErrors.phone) missingFields.push("Phone Number");
+      if (fieldErrors.date) missingFields.push("Date");
+      if (fieldErrors.time) missingFields.push("Time");
+      if (fieldErrors.service) missingFields.push("Treatment");
+
+      const errorMessage =
+        missingFields.length > 0
+          ? `Please fill in all required fields: ${missingFields.join(", ")}`
+          : "Please fill in all required fields";
+
+      setValidationErrorMessage(errorMessage);
+      setShowValidationError(true);
+
+      // Scroll to first error field
+      const firstErrorField = document.querySelector('[class*="Mui-error"]');
+      if (firstErrorField) {
+        firstErrorField.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+
       return;
     }
+
+    // Clear any previous validation errors
+    setShowValidationError(false);
+    setValidationErrorMessage("");
 
     // Note: Amount is determined by backend, not frontend
     // Frontend only displays the amount for UI purposes
@@ -494,40 +531,38 @@ const BookAppointment = () => {
     });
   };
 
-
   // Date calculations - allow today's date for future time slots
   const today = new Date();
   const minDate = today.toISOString().split("T")[0];
 
-
   const maxDate = new Date();
   maxDate.setMonth(maxDate.getMonth() + 3);
   const maxDateStr = maxDate.toISOString().split("T")[0];
-  
+
   // Helper function to check if a time slot is in the past for today
   const isTimeSlotInPast = (timeSlot) => {
     if (formData.date !== minDate) return false; // Not today, so not in past
-    
+
     const now = new Date();
     const currentHour = now.getHours();
     const currentMinute = now.getMinutes();
-    
+
     // Parse time slot (e.g., "6:00 PM" or "06:00 PM")
     const timeMatch = timeSlot.match(/(\d{1,2}):(\d{2})\s*(AM|PM)/i);
     if (!timeMatch) return false;
-    
+
     let hour = parseInt(timeMatch[1]);
     const minute = parseInt(timeMatch[2]);
     const period = timeMatch[3].toUpperCase();
-    
+
     // Convert to 24-hour format
-    if (period === 'PM' && hour !== 12) hour += 12;
-    if (period === 'AM' && hour === 12) hour = 0;
-    
+    if (period === "PM" && hour !== 12) hour += 12;
+    if (period === "AM" && hour === 12) hour = 0;
+
     // Check if this time is in the past
     if (hour < currentHour) return true;
     if (hour === currentHour && minute <= currentMinute) return true;
-    
+
     return false;
   };
 
@@ -539,7 +574,6 @@ const BookAppointment = () => {
         py: 4,
         pb: { xs: 6, md: 8 },
         fontFamily: "Arial, sans-serif",
-
       }}
     >
       <Container
@@ -566,7 +600,7 @@ const BookAppointment = () => {
             sx={{
               fontSize: "20px",
               fontWeight: 500,
-              color: "#666666",
+              color: "#000000",
               mb: 3,
             }}
           >
@@ -583,9 +617,25 @@ const BookAppointment = () => {
             backgroundColor: "#FFFFFF",
             border: "1px solid #E0E0E0",
             padding: { xs: "20px", md: "32px" },
-             mb: { xs: 4, md: 6 }, 
+            mb: { xs: 4, md: 6 },
           }}
         >
+          {/* Validation Error Snackbar */}
+          <Snackbar
+            open={showValidationError}
+            autoHideDuration={6000}
+            onClose={() => setShowValidationError(false)}
+            anchorOrigin={{ vertical: "top", horizontal: "center" }}
+          >
+            <Alert
+              onClose={() => setShowValidationError(false)}
+              severity="error"
+              sx={{ width: "100%" }}
+            >
+              {validationErrorMessage}
+            </Alert>
+          </Snackbar>
+
           <Box component="form" onSubmit={handleSubmit}>
             {/* Personal Information Section */}
             <Box sx={{ mb: 6 }}>
@@ -636,14 +686,23 @@ const BookAppointment = () => {
                       borderRadius: "8px",
                       backgroundColor: "#FAFAFA",
                       "& fieldset": {
-                        borderColor: touched.name && fieldErrors.name ? "#d32f2f" : "#E0E0E0",
+                        borderColor:
+                          touched.name && fieldErrors.name
+                            ? "#d32f2f"
+                            : "#E0E0E0",
                         borderWidth: "1px",
                       },
                       "&:hover fieldset": {
-                        borderColor: touched.name && fieldErrors.name ? "#d32f2f" : "#1976d2",
+                        borderColor:
+                          touched.name && fieldErrors.name
+                            ? "#d32f2f"
+                            : "#1976d2",
                       },
                       "&.Mui-focused fieldset": {
-                        borderColor: touched.name && fieldErrors.name ? "#d32f2f" : "#1976d2",
+                        borderColor:
+                          touched.name && fieldErrors.name
+                            ? "#d32f2f"
+                            : "#1976d2",
                         borderWidth: "1px",
                       },
                     },
@@ -654,6 +713,19 @@ const BookAppointment = () => {
                       height: "47px",
                       "&::placeholder": {
                         color: "#999999",
+                      },
+                      "&:-webkit-autofill": {
+                        WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset",
+                        WebkitTextFillColor: "#333333",
+                        transition: "background-color 5000s ease-in-out 0s",
+                      },
+                      "&:-webkit-autofill:hover": {
+                        WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset",
+                        WebkitTextFillColor: "#333333",
+                      },
+                      "&:-webkit-autofill:focus": {
+                        WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset",
+                        WebkitTextFillColor: "#333333",
                       },
                     },
                     "& .MuiFormHelperText-root": {
@@ -725,14 +797,23 @@ const BookAppointment = () => {
                             backgroundColor: "#FAFAFA",
                             gap: "10px",
                             "& fieldset": {
-                              borderColor: touched.email && fieldErrors.email ? "#d32f2f" : "#E0E0E0",
+                              borderColor:
+                                touched.email && fieldErrors.email
+                                  ? "#d32f2f"
+                                  : "#E0E0E0",
                               borderWidth: "1px",
                             },
                             "&:hover fieldset": {
-                              borderColor: touched.email && fieldErrors.email ? "#d32f2f" : "#1976d2",
+                              borderColor:
+                                touched.email && fieldErrors.email
+                                  ? "#d32f2f"
+                                  : "#1976d2",
                             },
                             "&.Mui-focused fieldset": {
-                              borderColor: touched.email && fieldErrors.email ? "#d32f2f" : "#1976d2",
+                              borderColor:
+                                touched.email && fieldErrors.email
+                                  ? "#d32f2f"
+                                  : "#1976d2",
                               borderWidth: "1px",
                             },
                           },
@@ -744,6 +825,19 @@ const BookAppointment = () => {
                             boxSizing: "border-box",
                             "&::placeholder": {
                               color: "#999999",
+                            },
+                            "&:-webkit-autofill": {
+                              WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset",
+                              WebkitTextFillColor: "#333333",
+                              transition: "background-color 5000s ease-in-out 0s",
+                            },
+                            "&:-webkit-autofill:hover": {
+                              WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset",
+                              WebkitTextFillColor: "#333333",
+                            },
+                            "&:-webkit-autofill:focus": {
+                              WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset",
+                              WebkitTextFillColor: "#333333",
                             },
                           },
                           "& .MuiFormHelperText-root": {
@@ -806,14 +900,23 @@ const BookAppointment = () => {
                             backgroundColor: "#FAFAFA",
                             gap: "10px",
                             "& fieldset": {
-                              borderColor: touched.phone && fieldErrors.phone ? "#d32f2f" : "#E0E0E0",
+                              borderColor:
+                                touched.phone && fieldErrors.phone
+                                  ? "#d32f2f"
+                                  : "#E0E0E0",
                               borderWidth: "1px",
                             },
                             "&:hover fieldset": {
-                              borderColor: touched.phone && fieldErrors.phone ? "#d32f2f" : "#1976d2",
+                              borderColor:
+                                touched.phone && fieldErrors.phone
+                                  ? "#d32f2f"
+                                  : "#1976d2",
                             },
                             "&.Mui-focused fieldset": {
-                              borderColor: touched.phone && fieldErrors.phone ? "#d32f2f" : "#1976d2",
+                              borderColor:
+                                touched.phone && fieldErrors.phone
+                                  ? "#d32f2f"
+                                  : "#1976d2",
                               borderWidth: "1px",
                             },
                           },
@@ -825,6 +928,19 @@ const BookAppointment = () => {
                             boxSizing: "border-box",
                             "&::placeholder": {
                               color: "#999999",
+                            },
+                            "&:-webkit-autofill": {
+                              WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset",
+                              WebkitTextFillColor: "#333333",
+                              transition: "background-color 5000s ease-in-out 0s",
+                            },
+                            "&:-webkit-autofill:hover": {
+                              WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset",
+                              WebkitTextFillColor: "#333333",
+                            },
+                            "&:-webkit-autofill:focus": {
+                              WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset",
+                              WebkitTextFillColor: "#333333",
                             },
                           },
                           "& .MuiFormHelperText-root": {
@@ -884,14 +1000,23 @@ const BookAppointment = () => {
                       borderRadius: "8px",
                       backgroundColor: "#FAFAFA",
                       "& fieldset": {
-                        borderColor: touched.service && fieldErrors.service ? "#d32f2f" : "#E0E0E0",
+                        borderColor:
+                          touched.service && fieldErrors.service
+                            ? "#d32f2f"
+                            : "#E0E0E0",
                         borderWidth: "1px",
                       },
                       "&:hover fieldset": {
-                        borderColor: touched.service && fieldErrors.service ? "#d32f2f" : "#1976d2",
+                        borderColor:
+                          touched.service && fieldErrors.service
+                            ? "#d32f2f"
+                            : "#1976d2",
                       },
                       "&.Mui-focused fieldset": {
-                        borderColor: touched.service && fieldErrors.service ? "#d32f2f" : "#1976d2",
+                        borderColor:
+                          touched.service && fieldErrors.service
+                            ? "#d32f2f"
+                            : "#1976d2",
                         borderWidth: "1px",
                       },
                     },
@@ -910,6 +1035,15 @@ const BookAppointment = () => {
                     }}
                     onBlur={handleBlur}
                     displayEmpty
+                    IconComponent={ExpandMoreIcon}
+                    MenuProps={{
+                      PaperProps: {
+                        style: {
+                          maxHeight: 192, // 4 items * 48px each
+                          width: "auto",
+                        },
+                      },
+                    }}
                     sx={{
                       height: "47px",
                       fontSize: "16px",
@@ -918,6 +1052,10 @@ const BookAppointment = () => {
                         padding: "12px 16px",
                         display: "flex",
                         alignItems: "center",
+                      },
+                      "& .MuiSelect-icon": {
+                        width: "24px",
+                        height: "24px",
                       },
                     }}
                   >
@@ -999,14 +1137,23 @@ const BookAppointment = () => {
                             backgroundColor: "#FAFAFA",
                             gap: "10px",
                             "& fieldset": {
-                              borderColor: touched.date && fieldErrors.date ? "#d32f2f" : "#E0E0E0",
+                              borderColor:
+                                touched.date && fieldErrors.date
+                                  ? "#d32f2f"
+                                  : "#E0E0E0",
                               borderWidth: "1px",
                             },
                             "&:hover fieldset": {
-                              borderColor: touched.date && fieldErrors.date ? "#d32f2f" : "#1976d2",
+                              borderColor:
+                                touched.date && fieldErrors.date
+                                  ? "#d32f2f"
+                                  : "#1976d2",
                             },
                             "&.Mui-focused fieldset": {
-                              borderColor: touched.date && fieldErrors.date ? "#d32f2f" : "#1976d2",
+                              borderColor:
+                                touched.date && fieldErrors.date
+                                  ? "#d32f2f"
+                                  : "#1976d2",
                               borderWidth: "1px",
                             },
                           },
@@ -1016,6 +1163,19 @@ const BookAppointment = () => {
                             color: formData.date ? "#333333" : "#999999",
                             height: "47px",
                             boxSizing: "border-box",
+                            "&:-webkit-autofill": {
+                              WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset",
+                              WebkitTextFillColor: formData.date ? "#333333" : "#999999",
+                              transition: "background-color 5000s ease-in-out 0s",
+                            },
+                            "&:-webkit-autofill:hover": {
+                              WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset",
+                              WebkitTextFillColor: formData.date ? "#333333" : "#999999",
+                            },
+                            "&:-webkit-autofill:focus": {
+                              WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset",
+                              WebkitTextFillColor: formData.date ? "#333333" : "#999999",
+                            },
                           },
                           "& .MuiFormHelperText-root": {
                             marginLeft: 0,
@@ -1064,14 +1224,23 @@ const BookAppointment = () => {
                             backgroundColor: "#FAFAFA",
                             gap: "10px",
                             "& fieldset": {
-                              borderColor: touched.time && fieldErrors.time ? "#d32f2f" : "#E0E0E0",
+                              borderColor:
+                                touched.time && fieldErrors.time
+                                  ? "#d32f2f"
+                                  : "#E0E0E0",
                               borderWidth: "1px",
                             },
                             "&:hover fieldset": {
-                              borderColor: touched.time && fieldErrors.time ? "#d32f2f" : "#1976d2",
+                              borderColor:
+                                touched.time && fieldErrors.time
+                                  ? "#d32f2f"
+                                  : "#1976d2",
                             },
                             "&.Mui-focused fieldset": {
-                              borderColor: touched.time && fieldErrors.time ? "#d32f2f" : "#1976d2",
+                              borderColor:
+                                touched.time && fieldErrors.time
+                                  ? "#d32f2f"
+                                  : "#1976d2",
                               borderWidth: "1px",
                             },
                           },
@@ -1084,12 +1253,26 @@ const BookAppointment = () => {
                             handleChange(e);
                             // Mark as touched and validate immediately for select
                             setTouched((prev) => ({ ...prev, time: true }));
-                            const error = validators.validateTime(e.target.value);
-                            setFieldErrors((prev) => ({ ...prev, time: error }));
+                            const error = validators.validateTime(
+                              e.target.value
+                            );
+                            setFieldErrors((prev) => ({
+                              ...prev,
+                              time: error,
+                            }));
                             setFormErrors((prev) => ({ ...prev, time: error }));
                           }}
                           onBlur={handleBlur}
                           displayEmpty
+                          IconComponent={ExpandMoreIcon}
+                          MenuProps={{
+                            PaperProps: {
+                              style: {
+                                maxHeight: 240, // 5 items * 48px each
+                                width: "auto",
+                              },
+                            },
+                          }}
                           sx={{
                             height: "47px",
                             fontSize: "16px",
@@ -1100,6 +1283,10 @@ const BookAppointment = () => {
                               alignItems: "center",
                               height: "47px",
                               boxSizing: "border-box",
+                            },
+                            "& .MuiSelect-icon": {
+                              width: "24px",
+                              height: "24px",
                             },
                           }}
                         >
@@ -1112,18 +1299,21 @@ const BookAppointment = () => {
                             // Check if this time slot is in the past (for today's date)
                             const isPast = isTimeSlotInPast(time);
                             const isDisabled = isBooked || isPast;
-                            
+
                             return (
-                              <MenuItem 
-                                key={time} 
+                              <MenuItem
+                                key={time}
                                 value={time}
                                 disabled={isDisabled}
                                 sx={{
                                   opacity: isDisabled ? 0.5 : 1,
-                                  cursor: isDisabled ? 'not-allowed' : 'pointer'
+                                  cursor: isDisabled
+                                    ? "not-allowed"
+                                    : "pointer",
                                 }}
                               >
-                                {time} {isBooked ? '(Booked)' : isPast ? '(Past)' : ''}
+                                {time}{" "}
+                                {isBooked ? "(Booked)" : isPast ? "(Past)" : ""}
                               </MenuItem>
                             );
                           })}
@@ -1191,6 +1381,19 @@ const BookAppointment = () => {
                       "&::placeholder": {
                         color: "#999999",
                       },
+                      "&:-webkit-autofill": {
+                        WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset",
+                        WebkitTextFillColor: "#333333",
+                        transition: "background-color 5000s ease-in-out 0s",
+                      },
+                      "&:-webkit-autofill:hover": {
+                        WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset",
+                        WebkitTextFillColor: "#333333",
+                      },
+                      "&:-webkit-autofill:focus": {
+                        WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset",
+                        WebkitTextFillColor: "#333333",
+                      },
                     },
                   }}
                 />
@@ -1212,8 +1415,8 @@ const BookAppointment = () => {
               >
                 <Typography
                   sx={{
-                    fontSize: "18px",
-                    fontWeight: 600,
+                    fontSize: "15px",
+                    fontWeight: 400,
                     color: "#000000",
                     mb: 3,
                   }}
@@ -1222,6 +1425,7 @@ const BookAppointment = () => {
                 </Typography>
                 <Typography
                   sx={{
+                    fontWeight: 300,
                     fontSize: "14px",
                     color: "#000000",
                     mb: 1.5,
@@ -1244,6 +1448,8 @@ const BookAppointment = () => {
                 <Typography
                   sx={{
                     fontSize: "14px",
+                    fontWeight: 300,
+
                     color: "#000000",
                     mb: 1.5,
                     display: "flex",
@@ -1260,6 +1466,8 @@ const BookAppointment = () => {
                 </Typography>
                 <Typography
                   sx={{
+                    fontWeight: 300,
+
                     fontSize: "14px",
                     color: "#000000",
                     mb: 1.5,
@@ -1278,6 +1486,8 @@ const BookAppointment = () => {
                 <Typography
                   sx={{
                     fontSize: "14px",
+                    fontWeight: 300,
+
                     color: "#000000",
                     display: "flex",
                     alignItems: "flex-start",
@@ -1305,9 +1515,8 @@ const BookAppointment = () => {
               <Button
                 type="submit"
                 variant="contained"
-                disabled={!isFormValid()}
                 sx={{
-                  backgroundColor: "#1976d2",
+                  backgroundColor: "#155DFC",
                   color: "white",
                   fontSize: "16px",
                   fontWeight: 500,
@@ -1317,11 +1526,7 @@ const BookAppointment = () => {
                   width: { xs: "100%", md: "738px" },
                   maxWidth: "738px",
                   "&:hover": {
-                    backgroundColor: "#155DFC",
-                  },
-                  "&:disabled": {
-                    backgroundColor: "#9E9E9E",
-                    color: "white",
+                    backgroundColor: "#1565c0",
                   },
                 }}
               >

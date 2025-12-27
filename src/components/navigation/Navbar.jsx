@@ -186,15 +186,16 @@ export default function Navbar() {
                 sx={{
                   display: "flex",
                   flex: 1,
-                  justifyContent: "center",
+                  justifyContent: "flex-end",
                   alignItems: "center",
                   minWidth: 0,
+                  paddingRight: "120px",
                 }}
               >
                 <Box
                   sx={{
                     display: "flex",
-                    gap: { xs: 0.5, sm: 1, md: 1, lg: 1.5, xl: 2 },
+                    gap: { xs: 0.5, sm: 1, md: 1, lg: 1.5, xl: 4 },
                     alignItems: "center",
                     flexWrap: "nowrap",
                   }}
@@ -206,15 +207,16 @@ export default function Navbar() {
                           <Button
                             onClick={handleTreatmentMenuOpen}
                             color="inherit"
-                            endIcon={<ExpandMoreIcon />}
+                            endIcon={
+                              <ExpandMoreIcon
+                                sx={{
+                                  width: "24px",
+                                  height: "24px",
+                                }}
+                              />
+                            }
                             sx={{
-                              fontSize: {
-                                xs: "0.85rem",
-                                sm: "0.875rem",
-                                md: "0.875rem",
-                                lg: "0.875rem",
-                                xl: "0.9rem",
-                              },
+                              fontSize: "16px",
                               minWidth: "auto",
                               px: { xs: 0.75, sm: 1, md: 1, lg: 1.25, xl: 1.5 },
                               color: location.pathname.startsWith("/treatments")
@@ -258,9 +260,7 @@ export default function Navbar() {
                                 onClick={() => handleTreatmentClick(treatment)}
                                 sx={{
                                   fontFamily: "Poppins, sans-serif",
-                                  color: isActive(item.path)
-                                    ? "#155DFC"
-                                    : "#000000",
+                                  color: "#000000",
                                   fontSize: "0.95rem",
                                   py: 1.5,
                                   px: 2,
@@ -284,13 +284,7 @@ export default function Navbar() {
                         to={item.path}
                         color="inherit"
                         sx={{
-                          fontSize: {
-                            xs: "0.85rem",
-                            sm: "0.875rem",
-                            md: "0.875rem",
-                            lg: "0.875rem",
-                            xl: "0.9rem",
-                          },
+                          fontSize: "16px",
                           minWidth: "auto",
                           px: { xs: 0.75, sm: 1, md: 1, lg: 1.25, xl: 1.5 },
                           color: isActive(item.path) ? "#155DFC" : "#000000",

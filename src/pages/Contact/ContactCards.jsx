@@ -63,7 +63,7 @@ const ContactCards = () => {
       </Typography>
       <Typography sx={{ fontSize: { xs: "11px", sm: "11px", md: "12px", lg: "14px" }, color: "#404246" }}>
         {type === "Phone"
-          ? "Mon–Sat, 10:00AM–6:30PM"
+          ? "Mon–Sat, 10:00AM–7:00PM"
           : type === "Email"
           ? "We'll reply within 24h"
           : "Arthashilp, 1349/50, Bajirao Rd, Below hotel Ganraj, Natu Baag, Shukrawar Peth, Pune, Maharashtra 411002"}
