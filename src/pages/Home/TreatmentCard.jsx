@@ -82,7 +82,7 @@ export default function TreatmentCard({ title, description, image, route }) {
               sm: "17px",
               md: "17px",
             },
-            color: "#1a1a1a",
+            color: "#000000",
             mb: -3,
             minHeight: { xs: "3rem", sm: "3.5rem", md: "4rem" },
           }}
@@ -92,7 +92,7 @@ export default function TreatmentCard({ title, description, image, route }) {
         <Typography
           sx={{
             fontFamily: "Poppins, sans-serif",
-            color: "#666",
+            color: "#000000",
             fontSize: { xs: "14px", sm: "16px", md: "16px" },
             lineHeight: 1.6,
             mb: 1,

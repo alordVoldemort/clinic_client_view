@@ -74,7 +74,7 @@ export default function TestimonialCard({ name, quote, image }) {
               sm: "1.1rem",
               md: "1.2rem",
             },
-            color: "#1a1a1a",
+            color: "#000000",
             mb: 2,
           }}
         >
@@ -84,7 +84,7 @@ export default function TestimonialCard({ name, quote, image }) {
         <Typography
           sx={{
             fontFamily: "Poppins, sans-serif",
-            color: "#666",
+            color: "#000000",
             fontSize: { xs: "0.9rem", sm: "0.95rem", md: "1rem" },
             lineHeight: 1.7,
             fontStyle: "italic",

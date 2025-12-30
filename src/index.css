@@ -1,6 +1,7 @@
 /* Global Styles */
 html {
-  overflow-y: scroll;
+  overflow-x: hidden;
+  overscroll-behavior: none;
 }
 
 * {

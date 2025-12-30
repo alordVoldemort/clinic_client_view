@@ -112,7 +112,7 @@ export default function SpecializedTreatmentsSection() {
                 md: "24px",
                 lg: "24px",
               },
-              color: "#1a1a1a",
+              color: "#000000",
               mb: 2,
             }}
           >
@@ -123,7 +123,7 @@ export default function SpecializedTreatmentsSection() {
               fontFamily: "Poppins, sans-serif",
               fontSize: { xs: "14px", sm: "16px", md: "16px" },
               fontWeight: 300,
-              color: "#666",
+              color: "#000000",
               maxWidth: "700px",
               mx: "auto",
             }}

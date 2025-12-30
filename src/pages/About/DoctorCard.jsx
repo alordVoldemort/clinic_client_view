@@ -26,6 +26,7 @@ export default function DoctorCard({ name, specialty, image, description }) {
         sx={{
           height: 260,
           objectFit: "cover",
+          objectPosition: "center 20%",
         }}
       />
 
