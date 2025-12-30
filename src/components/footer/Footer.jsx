@@ -73,6 +73,10 @@ export default function Footer() {
           sx={{
             justifyContent: "space-between",
             alignItems: "flex-start",
+            flexDirection: { xs: "column", sm: "row" },
+            "@media (max-width: 600px)": {
+              flexDirection: "column",
+            },
           }}
         >
           {/* ============================
@@ -87,6 +91,10 @@ export default function Footer() {
               width: { xs: "100%", sm: "200px", md: "300px" },
               mr: { lg: "110px" },
               ml: { lg: "0px" },
+              "@media (max-width: 600px)": {
+                width: "100%",
+                maxWidth: "100%",
+              },
             }}
           >
             <Box
@@ -200,6 +208,10 @@ export default function Footer() {
             lg={2}
             sx={{
               mb: { xs: 2, sm: 0 },
+              "@media (max-width: 600px)": {
+                width: "100%",
+                maxWidth: "100%",
+              },
             }}
           >
             <Typography
@@ -262,6 +274,10 @@ export default function Footer() {
             lg={3}
             sx={{
               mb: { xs: 2, sm: 0 },
+              "@media (max-width: 600px)": {
+                width: "100%",
+                maxWidth: "100%",
+              },
             }}
           >
             <Typography
@@ -332,6 +348,10 @@ export default function Footer() {
             lg={4}
             sx={{
               mb: { xs: 2, sm: 0 },
+              "@media (max-width: 600px)": {
+                width: "100%",
+                maxWidth: "100%",
+              },
             }}
           >
             <Typography
