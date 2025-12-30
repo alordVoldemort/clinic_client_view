@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box, Typography } from "@mui/material";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import MessageSentIcon from "../../assets/Appointment/confirmation.svg";
 
 const MessageConfirmation = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   const { messageData = {} } = location.state || {};
+
+  // Auto-navigate to home page after 5 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      navigate("/");
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, [navigate]);
 
   const defaultMessageData = {
     name: "Kshitij Sanjay Somwanshi",
@@ -79,29 +89,16 @@ const MessageConfirmation = () => {
           sx={{
             color: "#666666",
             textAlign: "center",
-
             lineHeight: 1.6,
             fontSize: { xs: "14px", sm: "15px", md: "16px" },
             maxWidth: { xs: "90%", sm: "85%", md: "500px" },
             fontFamily: "Poppins, sans-serif",
             px: { xs: 1, sm: 0 },
+            mb: 4,
           }}
         >
           Thank you for contacting us. We'll get back to you within 24 hours.
         </Typography>
-
-        <Box sx={{ textAlign: "center", mb: 4 }}>
-          <Typography
-            sx={{
-              fontSize: "14px",
-              color: "#4F46E5",
-              fontWeight: 570,
-              fontFamily: "Poppins, sans-serif",
-            }}
-          >
-            {finalMessageData.email}
-          </Typography>
-        </Box>
       </Box>
     </Box>
   );

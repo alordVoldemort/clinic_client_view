@@ -30,11 +30,12 @@ const defaultTestimonials = [
 
 export default function TestimonialsSection() {
   const scrollContainerRef = useRef(null);
-  const scrollIntervalRef = useRef(null);
+
   const isScrollingRef = useRef(true);
 
   const [testimonials, setTestimonials] = useState(defaultTestimonials);
-  const [loading, setLoading] = useState(true);
+
+  const testimonialsToRender = [...testimonials, ...testimonials];
 
   // Fetch testimonials from backend
   useEffect(() => {
@@ -47,8 +48,6 @@ export default function TestimonialsSection() {
       } catch (error) {
         console.error("Failed to fetch testimonials:", error);
         // Keep default testimonials on error
-      } finally {
-        setLoading(false);
       }
     };
 
@@ -59,48 +58,49 @@ export default function TestimonialsSection() {
     const scrollContainer = scrollContainerRef.current;
     if (!scrollContainer) return;
 
-    const scroll = () => {
-      if (!isScrollingRef.current) return;
+    let animationFrameId;
+    let lastTime = performance.now();
+    const speed = 30; // pixels per second
 
-      const maxScroll =
-        scrollContainer.scrollWidth - scrollContainer.clientWidth;
-      const currentScroll = scrollContainer.scrollLeft;
-
-      if (currentScroll >= maxScroll - 1) {
-        // Reset to start when reaching the end (seamless loop)
-        scrollContainer.scrollTo({ left: 0, behavior: "auto" });
-      } else {
-        scrollContainer.scrollBy({ left: 0.5, behavior: "auto" });
+    const scrollStep = (time) => {
+      if (!isScrollingRef.current) {
+        lastTime = time;
+        animationFrameId = requestAnimationFrame(scrollStep);
+        return;
       }
+
+      const deltaTime = (time - lastTime) / 1000; // seconds
+      lastTime = time;
+
+      scrollContainer.scrollLeft += speed * deltaTime;
+
+      // Reset when reaching half of scrollWidth
+      if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
+        scrollContainer.scrollLeft = 0;
+      }
+
+      animationFrameId = requestAnimationFrame(scrollStep);
     };
 
-    // Start auto-scroll
-    scrollIntervalRef.current = setInterval(scroll, 30); // Scroll every 30ms for smooth movement
+    animationFrameId = requestAnimationFrame(scrollStep);
 
-    // Pause on hover
     const handleMouseEnter = () => {
       isScrollingRef.current = false;
-      if (scrollIntervalRef.current) {
-        clearInterval(scrollIntervalRef.current);
-      }
     };
 
     const handleMouseLeave = () => {
       isScrollingRef.current = true;
-      scrollIntervalRef.current = setInterval(scroll, 30);
     };
 
     scrollContainer.addEventListener("mouseenter", handleMouseEnter);
     scrollContainer.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
-      if (scrollIntervalRef.current) {
-        clearInterval(scrollIntervalRef.current);
-      }
+      cancelAnimationFrame(animationFrameId);
       scrollContainer.removeEventListener("mouseenter", handleMouseEnter);
       scrollContainer.removeEventListener("mouseleave", handleMouseLeave);
     };
-  }, []);
+  }, [testimonials]);
 
   return (
     <Box
@@ -178,7 +178,7 @@ export default function TestimonialsSection() {
             },
           }}
         >
-          {testimonials.map((testimonial, index) => (
+          {testimonialsToRender.map((testimonial, index) => (
             <Box
               key={index}
               sx={{
