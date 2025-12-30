@@ -57,7 +57,7 @@ const validators = {
   validateEmail: (email) => {
     const trimmed = email.trim();
     if (!trimmed) {
-      return "Email is required";
+      return "Email address is required";
     }
     // Basic email format validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -674,7 +674,8 @@ const BookAppointment = () => {
                         color: "#999999",
                       },
                       "&:-webkit-autofill": {
-                        WebkitBoxShadow: "0 0 0 1000px transparent inset !important",
+                        WebkitBoxShadow:
+                          "0 0 0 1000px transparent inset !important",
                         transition: "background-color 5000s ease-in-out 0s",
                       },
                     },
@@ -777,8 +778,10 @@ const BookAppointment = () => {
                               color: "#999999",
                             },
                             "&:-webkit-autofill": {
-                              WebkitBoxShadow: "0 0 0 1000px transparent inset !important",
-                              transition: "background-color 5000s ease-in-out 0s",
+                              WebkitBoxShadow:
+                                "0 0 0 1000px transparent inset !important",
+                              transition:
+                                "background-color 5000s ease-in-out 0s",
                             },
                           },
                           "& .MuiFormHelperText-root": {
@@ -871,8 +874,10 @@ const BookAppointment = () => {
                               color: "#999999",
                             },
                             "&:-webkit-autofill": {
-                              WebkitBoxShadow: "0 0 0 1000px transparent inset !important",
-                              transition: "background-color 5000s ease-in-out 0s",
+                              WebkitBoxShadow:
+                                "0 0 0 1000px transparent inset !important",
+                              transition:
+                                "background-color 5000s ease-in-out 0s",
                             },
                           },
                           "& .MuiFormHelperText-root": {
@@ -1096,8 +1101,10 @@ const BookAppointment = () => {
                             height: "47px",
                             boxSizing: "border-box",
                             "&:-webkit-autofill": {
-                              WebkitBoxShadow: "0 0 0 1000px transparent inset !important",
-                              transition: "background-color 5000s ease-in-out 0s",
+                              WebkitBoxShadow:
+                                "0 0 0 1000px transparent inset !important",
+                              transition:
+                                "background-color 5000s ease-in-out 0s",
                             },
                           },
                           "& .MuiFormHelperText-root": {
@@ -1305,7 +1312,8 @@ const BookAppointment = () => {
                         color: "#999999",
                       },
                       "&:-webkit-autofill": {
-                        WebkitBoxShadow: "0 0 0 1000px transparent inset !important",
+                        WebkitBoxShadow:
+                          "0 0 0 1000px transparent inset !important",
                         transition: "background-color 5000s ease-in-out 0s",
                       },
                     },
@@ -1486,7 +1494,7 @@ const BookAppointment = () => {
               textAlign: "center",
             }}
           >
-            Our team is available Monday – Saturday, 9:00 AM – 6:00 PM
+            Our team is available Monday – Saturday, 10:00 AM – 7:00 PM
           </Typography>
         </Box>
       </Container>
