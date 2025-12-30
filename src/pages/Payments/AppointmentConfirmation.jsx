@@ -179,26 +179,6 @@ border: '1px solid #E0E0E0',
             </Box>
           </Box>
         </Box>
-        <Box sx={{ textAlign: 'center', mb: 4 }}>
-  <Typography
-    sx={{
-      fontSize: '14px',
-      color: '#666666',
-      lineHeight: 1.5
-    }}
-  >
-    A confirmation email has been sent to
-  </Typography>
-  <Typography
-    sx={{
-      fontSize: '14px',
-      color: '#155DFC',
-      fontWeight: 300
-    }}
-  >
-    {finalAppointmentData.email}
-  </Typography>
-</Box>
       </Box>
     </Box>
   );

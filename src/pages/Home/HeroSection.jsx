@@ -70,9 +70,9 @@ export default function HeroSection() {
                 lineHeight: 1.7,
               }}
             >
-              Welcome to Health Care Clinic, Where We Provide Comprehensive care
+              Welcome to Nirmal Health Care, where we provide comprehensive care
               tailored to your individual needs. Our team of experienced
-              professionals is dedicated to ensuring your well being and
+              professionals is dedicated to ensuring your well-being and
               comfort.
             </Typography>
 

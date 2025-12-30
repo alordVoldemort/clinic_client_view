@@ -77,6 +77,7 @@ const ContactCards = () => {
                 sx={{
                   fontWeight: 400,
                   fontSize: { xs: "14px", sm: "15px", md: "17px", lg: "18px" },
+                  color: "#000000",
                   mb: 0.5,
                 }}
               >
