@@ -1,4 +1,4 @@
-import { Box, Typography, Link as MuiLink } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import PhoneIcon from "../../assets/Appointment/white-phone.svg";
 
 const PhoneIconComponent = () => (
@@ -31,7 +31,7 @@ const EmergencyContactCard = () => {
           xs: "100%",
           sm: "100%",
           md: "100%",
-          lg: "539px", 
+          lg: "539px",
           xl: "539px",
         },
         height: {
@@ -118,14 +118,12 @@ const EmergencyContactCard = () => {
       </Box>
 
       {/* Phone Number Container */}
-      <MuiLink
-        href="tel:+919822141851"
-        underline="none"
+      <Box
         sx={{
           backgroundColor: "#FF6262",
           width: {
-            xs: "100%", 
-            sm: "auto", 
+            xs: "100%",
+            sm: "auto",
             md: "auto",
             lg: "215px",
           },
@@ -157,13 +155,13 @@ const EmergencyContactCard = () => {
             xs: "stretch",
             sm: "flex-start",
           },
-          textDecoration: "none",
           "&:hover": {
             backgroundColor: "#E55555",
             transform: "scale(1.02)",
           },
           transition: "all 0.2s ease",
         }}
+        onClick={() => (window.location.href = "tel:+91 9822141851")}
       >
         {/* Phone Icon Container */}
         <Box
@@ -210,7 +208,7 @@ const EmergencyContactCard = () => {
         >
           +91 9822141851
         </Typography>
-      </MuiLink>
+      </Box>
     </Box>
   );
 };

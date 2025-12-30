@@ -126,7 +126,6 @@ const OfficeHoursCard = () => {
         </Typography>
       </Box>
 
-      
       <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
         {/* Monday - Saturday */}
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>

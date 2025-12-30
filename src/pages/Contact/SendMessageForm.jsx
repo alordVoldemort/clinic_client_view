@@ -194,7 +194,7 @@ const SendMessageForm = () => {
   const [success, setSuccess] = useState(false);
   const [showValidationError, setShowValidationError] = useState(false);
   const [validationErrorMessage, setValidationErrorMessage] = useState("");
-  
+
   // Field-specific error states
   const [fieldErrors, setFieldErrors] = useState({
     name: "",
@@ -245,25 +245,27 @@ const SendMessageForm = () => {
     const phoneError = validators.validatePhone(formData.phone);
     const subjectError = validators.validateSubject(formData.subject);
     const messageError = validators.validateMessage(formData.message);
-    
-    return !nameError && !emailError && !phoneError && !subjectError && !messageError;
+
+    return (
+      !nameError && !emailError && !phoneError && !subjectError && !messageError
+    );
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    
+
     // Special handling for phone: only allow digits
     if (name === "phone") {
       // Remove any non-digit characters
       const digitsOnly = value.replace(/\D/g, "");
       // Limit to 10 digits
       const limitedDigits = digitsOnly.slice(0, 10);
-      
+
       setFormData((prev) => ({
         ...prev,
         [name]: limitedDigits,
       }));
-      
+
       // Validate phone in real-time
       if (touched.phone) {
         const error = validators.validatePhone(limitedDigits);
@@ -277,7 +279,7 @@ const SendMessageForm = () => {
         ...prev,
         [name]: value,
       }));
-      
+
       // Real-time validation for other fields if touched
       if (touched[name]) {
         const error = validateField(name, value);
@@ -287,20 +289,20 @@ const SendMessageForm = () => {
         }));
       }
     }
-    
+
     // Clear general error when user starts typing
     if (error) setError("");
   };
 
   const handleBlur = (e) => {
     const { name, value } = e.target;
-    
+
     // Mark field as touched
     setTouched((prev) => ({
       ...prev,
       [name]: true,
     }));
-    
+
     // Validate field
     const fieldError = validateField(name, value);
     setFieldErrors((prev) => ({
@@ -332,7 +334,7 @@ const SendMessageForm = () => {
 
     // Check if any errors exist
     const hasErrors = Object.values(errors).some((error) => error !== "");
-    
+
     if (hasErrors) {
       // Show first error as general error
       const firstError = Object.values(errors).find((error) => error !== "");
@@ -359,20 +361,21 @@ const SendMessageForm = () => {
       if (fieldErrors.phone) missingFields.push("Phone Number");
       if (fieldErrors.subject) missingFields.push("Subject");
       if (fieldErrors.message) missingFields.push("Message");
-      
-      const errorMessage = missingFields.length > 0
-        ? `Please fill in all required fields: ${missingFields.join(", ")}`
-        : "Please fill in all required fields";
-      
+
+      const errorMessage =
+        missingFields.length > 0
+          ? `Please fill in all required fields: ${missingFields.join(", ")}`
+          : "Please fill in all required fields";
+
       setValidationErrorMessage(errorMessage);
       setShowValidationError(true);
-      
+
       // Scroll to first error field
       const firstErrorField = document.querySelector('[class*="Mui-error"]');
       if (firstErrorField) {
         firstErrorField.scrollIntoView({ behavior: "smooth", block: "center" });
       }
-      
+
       return;
     }
 
@@ -561,13 +564,16 @@ const SendMessageForm = () => {
                 borderRadius: "8px",
                 height: { xs: "42px", md: "44px" },
                 "& fieldset": {
-                  borderColor: touched.name && fieldErrors.name ? "#FF0000" : "#E0E0E0",
+                  borderColor:
+                    touched.name && fieldErrors.name ? "#FF0000" : "#E0E0E0",
                 },
                 "&:hover fieldset": {
-                  borderColor: touched.name && fieldErrors.name ? "#FF0000" : "#BDBDBD",
+                  borderColor:
+                    touched.name && fieldErrors.name ? "#FF0000" : "#BDBDBD",
                 },
                 "&.Mui-focused fieldset": {
-                  borderColor: touched.name && fieldErrors.name ? "#FF0000" : "#4F46E5",
+                  borderColor:
+                    touched.name && fieldErrors.name ? "#FF0000" : "#4F46E5",
                   borderWidth: "1px",
                 },
               },
@@ -647,13 +653,22 @@ const SendMessageForm = () => {
                   height: { xs: "42px", md: "44px" },
 
                   "& fieldset": {
-                    borderColor: touched.email && fieldErrors.email ? "#FF0000" : "#E0E0E0",
+                    borderColor:
+                      touched.email && fieldErrors.email
+                        ? "#FF0000"
+                        : "#E0E0E0",
                   },
                   "&:hover fieldset": {
-                    borderColor: touched.email && fieldErrors.email ? "#FF0000" : "#BDBDBD",
+                    borderColor:
+                      touched.email && fieldErrors.email
+                        ? "#FF0000"
+                        : "#BDBDBD",
                   },
                   "&.Mui-focused fieldset": {
-                    borderColor: touched.email && fieldErrors.email ? "#FF0000" : "#4F46E5",
+                    borderColor:
+                      touched.email && fieldErrors.email
+                        ? "#FF0000"
+                        : "#4F46E5",
                     borderWidth: "1px",
                   },
                 },
@@ -731,13 +746,22 @@ const SendMessageForm = () => {
                   borderRadius: "8px",
                   height: { xs: "42px", md: "44px" },
                   "& fieldset": {
-                    borderColor: touched.phone && fieldErrors.phone ? "#FF0000" : "#E0E0E0",
+                    borderColor:
+                      touched.phone && fieldErrors.phone
+                        ? "#FF0000"
+                        : "#E0E0E0",
                   },
                   "&:hover fieldset": {
-                    borderColor: touched.phone && fieldErrors.phone ? "#FF0000" : "#BDBDBD",
+                    borderColor:
+                      touched.phone && fieldErrors.phone
+                        ? "#FF0000"
+                        : "#BDBDBD",
                   },
                   "&.Mui-focused fieldset": {
-                    borderColor: touched.phone && fieldErrors.phone ? "#FF0000" : "#4F46E5",
+                    borderColor:
+                      touched.phone && fieldErrors.phone
+                        ? "#FF0000"
+                        : "#4F46E5",
                     borderWidth: "1px",
                   },
                 },
@@ -798,7 +822,10 @@ const SendMessageForm = () => {
               </Box>
             </Typography>
           </Box>
-          <FormControl fullWidth error={touched.subject && !!fieldErrors.subject}>
+          <FormControl
+            fullWidth
+            error={touched.subject && !!fieldErrors.subject}
+          >
             <Select
               displayEmpty
               name="subject"
@@ -818,13 +845,22 @@ const SendMessageForm = () => {
                 fontFamily: "Poppins, sans-serif",
 
                 "& .MuiOutlinedInput-notchedOutline": {
-                  borderColor: touched.subject && fieldErrors.subject ? "#FF0000" : "#E0E0E0",
+                  borderColor:
+                    touched.subject && fieldErrors.subject
+                      ? "#FF0000"
+                      : "#E0E0E0",
                 },
                 "&:hover .MuiOutlinedInput-notchedOutline": {
-                  borderColor: touched.subject && fieldErrors.subject ? "#FF0000" : "#BDBDBD",
+                  borderColor:
+                    touched.subject && fieldErrors.subject
+                      ? "#FF0000"
+                      : "#BDBDBD",
                 },
                 "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                  borderColor: touched.subject && fieldErrors.subject ? "#FF0000" : "#4F46E5",
+                  borderColor:
+                    touched.subject && fieldErrors.subject
+                      ? "#FF0000"
+                      : "#4F46E5",
                   borderWidth: "1px",
                 },
                 "& .MuiSelect-select": {
@@ -836,10 +872,9 @@ const SendMessageForm = () => {
               }}
             >
               {/* Placeholder */}
-    <MenuItem value="" disabled>
-      Select Subject
-    </MenuItem>
-
+              <MenuItem value="" disabled>
+                Select Subject
+              </MenuItem>
 
               {subjects.map((sub) => (
                 <MenuItem
@@ -908,13 +943,22 @@ const SendMessageForm = () => {
 
                 alignItems: "flex-start",
                 "& fieldset": {
-                  borderColor: touched.message && fieldErrors.message ? "#FF0000" : "#E0E0E0",
+                  borderColor:
+                    touched.message && fieldErrors.message
+                      ? "#FF0000"
+                      : "#E0E0E0",
                 },
                 "&:hover fieldset": {
-                  borderColor: touched.message && fieldErrors.message ? "#FF0000" : "#BDBDBD",
+                  borderColor:
+                    touched.message && fieldErrors.message
+                      ? "#FF0000"
+                      : "#BDBDBD",
                 },
                 "&.Mui-focused fieldset": {
-                  borderColor: touched.message && fieldErrors.message ? "#FF0000" : "#4F46E5",
+                  borderColor:
+                    touched.message && fieldErrors.message
+                      ? "#FF0000"
+                      : "#4F46E5",
                   borderWidth: "1px",
                 },
               },
