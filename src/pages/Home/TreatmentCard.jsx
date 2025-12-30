@@ -24,27 +24,26 @@ export default function TreatmentCard({ title, description, image, route }) {
         maxWidth: {
           xs: "100%", // mobile = full width
           sm: "300px", // small tablet
-          md: "270px", // iPad Mini/Air/Pro
-          lg: "400px", // laptop
-          xl: "400px", // big monitors
+          md: "320px", // iPad Mini/Air/Pro
+          lg: "350px", // laptop
+          xl: "380px", // big monitors
         },
         minHeight: {
-          xs: 360,
-          sm: 400,
-          md: 420,
-          lg: 490,
+          xs: 400,
+          sm: 420,
+          md: 450,
+          lg: 480,
         },
-        mx: "auto", // centers card horizontally
         display: "flex",
         flexDirection: "column",
         borderRadius: "12px",
         overflow: "hidden",
         backgroundColor: "#F2F8FF",
-        // boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
-        // "&:hover": {
-        //   transform: "translateY(-8px)",
-
-        // },
+        transition: "all 0.3s ease-in-out",
+        "&:hover": {
+          transform: "translateY(-4px)",
+          boxShadow: "0 8px 25px rgba(0,0,0,0.1)",
+        },
       }}
     >
       <Box

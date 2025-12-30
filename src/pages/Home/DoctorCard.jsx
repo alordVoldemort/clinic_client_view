@@ -4,32 +4,43 @@ export default function DoctorCard({ name, specialty, image }) {
   return (
     <Card
       sx={{
-        justifyContent: "center",
         width: {
-          xs: "270px", // mobile
+          xs: "100%", // mobile - take full width with container padding
           sm: "280px", // small tablets
-          md: "300px", // iPad Mini/Air
-          lg: "396px", // laptop
-          xl: "396px", // large desktops (your Figma value)
+          md: "300px", // medium tablets
+          lg: "350px", // laptop
+          xl: "396px", // large desktops
+        },
+        maxWidth: {
+          xs: "320px", // prevent too wide on mobile
+          sm: "280px",
+          md: "300px",
+          lg: "350px",
+          xl: "396px",
         },
         height: {
-          xs: 320,
-          sm: 380,
-          md: "411px",
-          lg: "411px",
+          xs: "auto", // auto height on mobile for better content flow
+          sm: "400px",
+          md: "420px",
+          lg: "450px",
+          xl: "450px",
+        },
+        minHeight: {
+          xs: "350px", // ensure minimum height consistency
+          sm: "400px",
+          md: "420px",
         },
         mx: "auto",
         display: "flex",
         flexDirection: "column",
         borderRadius: "23px",
         overflow: "hidden",
-        backgroundColor: "#ffffffff",
-        boxShadow: "0px 4px 4px #DDE8FF",
-
-        transition: "0.3s ease",
+        backgroundColor: "#ffffff",
+        boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
+        transition: "all 0.3s ease-in-out",
         "&:hover": {
           transform: "translateY(-8px)",
-          boxShadow: "0 8px 24px rgba(96, 183, 255, 0.12)",
+          boxShadow: "0 12px 32px rgba(96, 183, 255, 0.15)",
         },
       }}
     >
@@ -45,10 +56,17 @@ export default function DoctorCard({ name, specialty, image }) {
           alt={name}
           sx={{
             width: "100%",
-            height: { xs: "240px", sm: "220px", md: "278px" },
+            height: {
+              xs: "250px", // consistent mobile height
+              sm: "280px", // small tablets
+              md: "300px", // medium tablets
+              lg: "320px", // laptop
+              xl: "340px", // large desktop
+            },
             objectFit: "cover",
-            borderTopLeftRadius: "8px",
-            borderTopRightRadius: "8px",
+            objectPosition: "center",
+            borderTopLeftRadius: "23px",
+            borderTopRightRadius: "23px",
           }}
         />
       </Box>
@@ -57,25 +75,37 @@ export default function DoctorCard({ name, specialty, image }) {
           flexGrow: 1,
           display: "flex",
           flexDirection: "column",
-          textAlign: "flex-start",
-          p: { xs: 0, sm: 0, md: 0 },
           justifyContent: "center",
-          ml: "20px",
-          mt: "15px",
+          alignItems: "flex-start",
+          p: {
+            xs: "20px", // consistent padding on mobile
+            sm: "20px",
+            md: "24px",
+            lg: "24px",
+          },
+          "&:last-child": {
+            paddingBottom: {
+              xs: "20px",
+              sm: "20px",
+              md: "24px",
+            },
+          },
         }}
       >
         <Typography
           variant="h5"
           sx={{
             fontFamily: "Poppins, sans-serif",
-            fontWeight: 400,
+            fontWeight: 500,
             fontSize: {
-              xs: "16px",
-              sm: "16px",
-              md: "16px",
+              xs: "18px",
+              sm: "18px",
+              md: "20px",
+              lg: "20px",
             },
             color: "#000000",
-            mb: 1.5,
+            mb: 1,
+            lineHeight: 1.3,
           }}
         >
           {name}
@@ -84,8 +114,14 @@ export default function DoctorCard({ name, specialty, image }) {
           sx={{
             fontFamily: "Poppins, sans-serif",
             color: "#155DFC",
-            fontSize: { xs: "14px", sm: "14px", md: "14px" },
+            fontSize: {
+              xs: "14px",
+              sm: "14px",
+              md: "16px",
+              lg: "16px",
+            },
             fontWeight: 400,
+            lineHeight: 1.4,
           }}
         >
           {specialty}

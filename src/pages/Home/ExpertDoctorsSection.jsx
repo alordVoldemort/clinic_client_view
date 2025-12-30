@@ -81,11 +81,13 @@ export default function ExpertDoctorsSection() {
         {/* Doctor Cards Grid */}
         <Grid
           container
-          spacing={{ xs: 4, sm: 5, md: 6, lg: 6 }}
+          spacing={{ xs: 3, sm: 4, md: 4, lg: 6 }}
           justifyContent="center"
+          alignItems="stretch"
           sx={{
             "& .MuiGrid-item": {
               display: "flex",
+              justifyContent: "center",
             },
           }}
         >
@@ -95,9 +97,17 @@ export default function ExpertDoctorsSection() {
               xs={12}
               sm={6}
               md={4}
+              lg={4}
               key={index}
               sx={{
                 display: "flex",
+                justifyContent: "center",
+                maxWidth: {
+                  xs: "100%",
+                  sm: "50%",
+                  md: "33.333333%",
+                  lg: "33.333333%",
+                },
               }}
             >
               <DoctorCard

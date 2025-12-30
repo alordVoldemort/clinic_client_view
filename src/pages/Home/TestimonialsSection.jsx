@@ -1,8 +1,10 @@
-import { Box, Container, Grid, Typography } from "@mui/material";
-import { useEffect, useRef } from "react";
+import { Box, Container, Typography, CircularProgress } from "@mui/material";
+import { useEffect, useRef, useState } from "react";
 import TestimonialCard from "./TestimonialCard";
+import { getTestimonials } from "../../api/testimonials.api";
 
-const testimonials = [
+// Default fallback testimonials (shown while loading or if API fails)
+const defaultTestimonials = [
   {
     name: "Mrunal Kullkarni",
     quote:
@@ -30,9 +32,28 @@ export default function TestimonialsSection() {
   const scrollContainerRef = useRef(null);
   const scrollIntervalRef = useRef(null);
   const isScrollingRef = useRef(true);
+  
+  const [testimonials, setTestimonials] = useState(defaultTestimonials);
+  const [loading, setLoading] = useState(true);
 
-  // Duplicate testimonials for seamless infinite scroll
-  const duplicatedTestimonials = [...testimonials, ...testimonials];
+  // Fetch testimonials from backend
+  useEffect(() => {
+    const fetchTestimonials = async () => {
+      try {
+        const response = await getTestimonials();
+        if (response.success && response.data && response.data.length > 0) {
+          setTestimonials(response.data);
+        }
+      } catch (error) {
+        console.error("Failed to fetch testimonials:", error);
+        // Keep default testimonials on error
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTestimonials();
+  }, []);
 
   useEffect(() => {
     const scrollContainer = scrollContainerRef.current;
@@ -157,7 +178,7 @@ export default function TestimonialsSection() {
             },
           }}
         >
-          {duplicatedTestimonials.map((testimonial, index) => (
+          {testimonials.map((testimonial, index) => (
             <Box
               key={index}
               sx={{
