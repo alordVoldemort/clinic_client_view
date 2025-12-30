@@ -326,6 +326,8 @@ export default function Navbar() {
                 }}
               >
                 <Box
+                  component="a"
+                  href="tel:+919822141851"
                   sx={{
                     display: {
                       xs: "none",
@@ -342,6 +344,11 @@ export default function Navbar() {
                     gap: 1,
                     color: "#000000ff",
                     flexShrink: 0,
+                    textDecoration: "none",
+                    cursor: "pointer",
+                    "&:hover": {
+                      opacity: 0.8,
+                    },
                   }}
                 >
                   <Box
@@ -491,12 +498,15 @@ export default function Navbar() {
             {/* Phone Number */}
             <ListItem disablePadding>
               <ListItemButton
+                component="a"
+                href="tel:+919822141851"
                 sx={{
                   display: "flex",
                   alignItems: "center",
                   gap: 1.5,
                   py: 2,
                   px: 2,
+                  textDecoration: "none",
                 }}
               >
                 <Box
