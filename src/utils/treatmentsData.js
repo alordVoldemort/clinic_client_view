@@ -130,7 +130,7 @@ export const TREATMENTS_DATA = [
       ],
     },
     symptoms: {
-      title: "When to See a Gastroenterology Homeopathic Consultant",
+      title: "When to See a Gastroenterologist.",
       cardTitle:
         "Schedule a consultation if you experience any of these symptoms.",
 
