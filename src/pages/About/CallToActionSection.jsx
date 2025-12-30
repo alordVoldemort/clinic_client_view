@@ -1,8 +1,10 @@
 import { Box, Container, Typography, Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import healingJourneyImage from "../../assets/clinic/ReadyToStartHealingJourney/Ready to Start Your Healing Journey_.jpg";
 import calendarIcon from "../../assets/clinic/HeroSectionIcon/calendar1.svg";
 
 export default function CallToActionSection() {
+  const navigate = useNavigate();
   return (
     <Box
       sx={{
@@ -73,6 +75,7 @@ export default function CallToActionSection() {
           <Button
             variant="contained"
             size="large"
+            onClick={() => navigate("/appointment")}
             startIcon={
               <Box
                 component="img"

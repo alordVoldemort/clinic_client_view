@@ -33,6 +33,7 @@ export default function Footer() {
     Cosmetology: "/treatments/cosmetology",
     "Kidney Treatment": "/treatments/kidney-treatment",
     "Gynecologist Treatment": "/treatments/gynecologist-treatment",
+    "Gynecology Treatment": "/treatments/gynecologist-treatment",
     "Migraine Treatment": "/treatments/migraine-treatment",
     "ENT Treatments": "/treatments/ent-treatments",
     "Joint Treatments": "/treatments/joint-treatments",
@@ -156,7 +157,7 @@ export default function Footer() {
               }}
             >
               {[
-                { icon: facebookIcon, link: null },
+                { icon: facebookIcon, link: "https://www.facebook.com/share/1Jb6gTmuwf/" },
                 { icon: instagramIcon, link: "https://www.instagram.com/drdardasnirmalhealthcare?igsh=MTd4MnpnZXZzNGlwaw" },
                 { icon: linkedInIcon, link: null },
               ].map((social, i) => (

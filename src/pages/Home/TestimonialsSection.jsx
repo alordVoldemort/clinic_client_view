@@ -32,7 +32,7 @@ export default function TestimonialsSection() {
   const scrollContainerRef = useRef(null);
   const scrollIntervalRef = useRef(null);
   const isScrollingRef = useRef(true);
-  
+
   const [testimonials, setTestimonials] = useState(defaultTestimonials);
   const [loading, setLoading] = useState(true);
 
