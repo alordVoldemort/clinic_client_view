@@ -10,7 +10,7 @@ import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 
 export default function TermsContentSection() {
   const terms = [
-    "Please review and acknowledge the terms below.",
+    "Please review and acknowledge the terms below:",
     "By booking or using our services, you agree to our clinic policies.",
     "Consultation timing may vary depending on doctor availability and patient flow.",
     "Treatment plans are personalized and results may vary from person to person.",
