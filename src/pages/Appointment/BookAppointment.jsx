@@ -1039,7 +1039,12 @@ const BookAppointment = () => {
                   >
                     <Box sx={{ height: { xs: "auto", md: "100%" } }}>
                       <Box
-                        sx={{ display: "flex", alignItems: "center", mb: 1.75 }}
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          mb: 1.75,
+                          minWidth: "350px",
+                        }}
                       >
                         <Box
                           sx={{
@@ -1129,7 +1134,12 @@ const BookAppointment = () => {
                   <Grid item xs={12} md={6} sx={{ height: "100%" }}>
                     <Box sx={{ height: "100%" }}>
                       <Box
-                        sx={{ display: "flex", alignItems: "center", mb: 1.75 }}
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          mb: 1.75,
+                          minWidth: "350px",
+                        }}
                       >
                         <Box
                           sx={{
