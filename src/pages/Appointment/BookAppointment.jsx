@@ -703,7 +703,11 @@ const BookAppointment = () => {
                     md={6}
                     sx={{ height: { xs: "auto", md: "100%" } }}
                   >
-                    <Box sx={{ height: { xs: "100%", md: "100%" } }}>
+                    <Box
+                      sx={{
+                        height: { xs: "100%", md: "100%" },
+                      }}
+                    >
                       <Box
                         sx={{ display: "flex", alignItems: "center", mb: 1.75 }}
                       >
