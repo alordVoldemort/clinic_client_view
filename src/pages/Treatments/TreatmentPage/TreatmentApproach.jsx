@@ -16,6 +16,9 @@ const TreatmentApproach = ({ symptoms, treatmentApproach }) => {
   const finalTreatmentApproach =
     treatmentApproach || treatmentData?.treatmentApproach || [];
 
+  const treatmentApproachDescription =
+    treatmentData?.treatmentApproachDescription || "";
+
   const symptomsList =
     finalSymptoms.symptoms || finalSymptoms.expectations || [];
 
@@ -101,7 +104,10 @@ const TreatmentApproach = ({ symptoms, treatmentApproach }) => {
                 backgroundColor: "#FFFFFF",
                 borderRadius: "8px",
                 border: "1px solid #E6EAF0",
-                p: { xs: "12px", sm: "15px", md: "15px", lg: "18px" },
+                paddingTop: { xs: "20px", md: "26px" },
+                paddingBottom: { xs: "20px", md: "26px" },
+                paddingLeft: { xs: "16px", md: "20px", lg: "24px" },
+                paddingRight: { xs: "12px", md: "14px", lg: "18px" },
               }}
             >
               <Typography
@@ -110,8 +116,7 @@ const TreatmentApproach = ({ symptoms, treatmentApproach }) => {
                   fontWeight: 500,
                   fontSize: { xs: "15px", sm: "16px", md: "17px" },
                   mb: { xs: "15px", md: "19px" },
-                  mt: { xs: "10px", md: "15px" },
-                  ml: { xs: "12px", sm: "18px", md: "22px" },
+                  ml: { xs: "0px", sm: "2px", md: "2px" },
                 }}
               >
                 {finalSymptoms.cardTitle ||
@@ -125,7 +130,8 @@ const TreatmentApproach = ({ symptoms, treatmentApproach }) => {
                 sx={{
                   listStyle: "none",
                   p: 0,
-                  m: { xs: 2, sm: 2.5, md: 3 },
+                  m: 0,
+                  ml: { xs: "0px", sm: "2px", md: "2px" },
                 }}
               >
                 {symptomsList.map((sym, i) => (
@@ -181,11 +187,24 @@ const TreatmentApproach = ({ symptoms, treatmentApproach }) => {
                 fontFamily: "Poppins",
                 fontSize: { xs: "16px", sm: "17px", md: "18px" },
                 fontWeight: 600,
-                mb: { xs: "30px", sm: "35px", md: "40px" },
+                mb: { xs: "6px", md: "8px" },
               }}
             >
               Our Treatment Approach
             </Typography>
+
+            {treatmentApproachDescription && (
+              <Typography
+                sx={{
+                  fontSize: { xs: "14px", sm: "15px" },
+                  color: "#555",
+                  lineHeight: 1.6,
+                  mb: { xs: "20px", md: "24px" },
+                }}
+              >
+                {treatmentApproachDescription}
+              </Typography>
+            )}
 
             <Box
               sx={{

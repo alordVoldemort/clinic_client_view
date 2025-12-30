@@ -60,7 +60,7 @@ const validators = {
   validateEmail: (email) => {
     const trimmed = email.trim();
     if (!trimmed) {
-      return "Email is required";
+      return "Email address is required";
     }
     // Basic email format validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -642,7 +642,7 @@ const SendMessageForm = () => {
             <TextField
               name="email"
               fullWidth
-              placeholder="Enter your email"
+              placeholder="Enter your email address"
               value={formData.email}
               onChange={handleChange}
               onBlur={handleBlur}

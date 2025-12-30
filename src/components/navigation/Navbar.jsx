@@ -77,6 +77,12 @@ export default function Navbar() {
   };
 
   const handleTreatmentMenuOpen = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    // Prevent scroll to top
+    if (event.currentTarget) {
+      event.currentTarget.blur();
+    }
     setAnchorEl(event.currentTarget);
   };
 
@@ -207,6 +213,7 @@ export default function Navbar() {
                           <Button
                             onClick={handleTreatmentMenuOpen}
                             color="inherit"
+                            type="button"
                             endIcon={
                               <ExpandMoreIcon
                                 sx={{
@@ -246,6 +253,7 @@ export default function Navbar() {
                               vertical: "top",
                               horizontal: "left",
                             }}
+                            disableScrollLock={true}
                             PaperProps={{
                               sx: {
                                 mt: 1,

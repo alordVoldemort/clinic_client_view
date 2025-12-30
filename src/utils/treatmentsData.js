@@ -62,6 +62,8 @@ export const TREATMENTS_DATA = [
           "Guidance on posture, daily habits, and simple exercises to ensure sustained recovery and prevent recurrence.",
       },
     ],
+    treatmentApproachDescription:
+      "A step-by-step, patient-first approach focused on accurate diagnosis, effective treatment, and long-term recovery.",
     faqs: [
       {
         question: "What causes spine problems?",
@@ -174,6 +176,8 @@ export const TREATMENTS_DATA = [
           "Regular follow-ups, remedy adjustments, and guidance on routine and diet to support long-term digestive improvement.",
       },
     ],
+    treatmentApproachDescription:
+      "A step-by-step, patient-first approach focused on accurate diagnosis, effective treatment, and long-term recovery.",
     faqs: [
       {
         question: "How to improve gut health with homeopathy?",
@@ -278,6 +282,8 @@ export const TREATMENTS_DATA = [
           "Regular guidance, progress tracking, and adjustments to ensure stable and lasting skin improvement.",
       },
     ],
+    treatmentApproachDescription:
+      "A step-by-step, patient-first approach focused on accurate diagnosis, effective treatment, and long-term recovery.",
     faqs: [
       {
         question: "Are cosmetic treatments safe?",
@@ -380,6 +386,8 @@ export const TREATMENTS_DATA = [
           "Ongoing monitoring, lifestyle guidance, and progress evaluation to support better kidney health outcomes.",
       },
     ],
+    treatmentApproachDescription:
+      "A step-by-step, patient-first approach focused on accurate diagnosis, effective treatment, and long-term recovery.",
     faqs: [
       {
         question: "What are the early signs of kidney disease?",
@@ -480,6 +488,8 @@ export const TREATMENTS_DATA = [
           "Regular monitoring, preventive care, and ongoing support to promote consistent improvement and better women's health outcomes.",
       },
     ],
+    treatmentApproachDescription:
+      "A step-by-step, patient-first approach focused on accurate diagnosis, effective treatment, and long-term recovery.",
     faqs: [
       {
         question: "How often should I visit a gynecologist?",
@@ -570,6 +580,8 @@ export const TREATMENTS_DATA = [
           "Continuous monitoring, preventive strategies, and lifestyle guidance to reduce recurrence and improve long-term migraine control and quality of life.",
       },
     ],
+    treatmentApproachDescription:
+      "A step-by-step, patient-first approach focused on accurate diagnosis, effective treatment, and long-term recovery.",
     faqs: [
       {
         question:
@@ -672,6 +684,8 @@ export const TREATMENTS_DATA = [
           "Regular monitoring, lifestyle guidance, and preventive measures to reduce flare-ups and support long-term ENT wellness.",
       },
     ],
+    treatmentApproachDescription:
+      "A step-by-step, patient-first approach focused on accurate diagnosis, effective treatment, and long-term recovery.",
     faqs: [
       {
         question: "Which medicine is best for ENT problems?",
@@ -775,6 +789,8 @@ export const TREATMENTS_DATA = [
           "Regular monitoring, progress tracking, and preventive care to support long-term joint health and reduce recurrence.",
       },
     ],
+    treatmentApproachDescription:
+      "A step-by-step, patient-first approach focused on accurate diagnosis, effective treatment, and long-term recovery.",
     faqs: [
       {
         question: "What causes joint pain?",
@@ -864,7 +880,7 @@ export const TREATMENTS_DATA = [
         step: 2,
         title: "Child-Specific Treatment Plan",
         description:
-          "Age-appropriate treatment tailored to your child’s physical, emotional, or developmental needs.",
+          "Age-appropriate treatment tailored to your child's physical, emotional, or developmental needs.",
       },
       {
         step: 3,
@@ -879,6 +895,8 @@ export const TREATMENTS_DATA = [
           "Regular check-ups, progress tracking, home-care instructions, and preventive care for long-term wellness.",
       },
     ],
+    treatmentApproachDescription:
+      "A step-by-step, patient-first approach focused on accurate diagnosis, effective treatment, and long-term recovery.",
     faqs: [
       {
         question: "Can we give homeopathy to kids?",

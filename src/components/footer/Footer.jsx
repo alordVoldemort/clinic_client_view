@@ -358,25 +358,43 @@ export default function Footer() {
               }}
             >
               {/* Location */}
-              <Box
+              <MuiLink
+                href="https://www.google.com/maps?ll=18.50923,73.853974&z=16&t=m&hl=en&gl=IN&mapclient=embed&cid=18087867216462000634"
+                target="_blank"
+                rel="noopener noreferrer"
+                underline="none"
                 sx={{
                   display: "flex",
                   alignItems: "flex-start",
                   gap: { xs: 1, sm: 1.5 },
+                  cursor: "pointer",
+                  transition: "all 0.2s ease",
+                  "&:hover": {
+                    "& .location-text": {
+                      color: "#0057B7",
+                      textDecoration: "underline",
+                    },
+                    "& .location-icon": {
+                      opacity: 0.8,
+                    },
+                  },
                 }}
               >
                 <Box
                   component="img"
                   src={locationIcon}
+                  className="location-icon"
                   sx={{
                     width: { xs: "18px", sm: "20px" },
                     height: { xs: "18px", sm: "20px" },
                     mt: 0.2,
                     flexShrink: 0,
+                    transition: "opacity 0.2s ease",
                   }}
                 />
 
                 <Typography
+                  className="location-text"
                   sx={{
                     color: "#404246",
                     fontSize: {
@@ -387,12 +405,13 @@ export default function Footer() {
                     lineHeight: 1.5,
                     wordBreak: "break-word",
                     maxWidth: { xs: "100%", sm: "300px", lg: "280px" },
+                    transition: "color 0.2s ease",
                   }}
                 >
                   Arthashilp, 1349/50, Bajirao Rd, below hotel Ganraj, Natu
                   Baag, Shukrawar Peth, Pune, Maharashtra 411002
                 </Typography>
-              </Box>
+              </MuiLink>
 
               {/* Phone */}
               <MuiLink
