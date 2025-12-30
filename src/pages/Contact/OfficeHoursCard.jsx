@@ -159,7 +159,7 @@ const OfficeHoursCard = () => {
               color: "#000000",
             }}
           >
-            10:00 AM - 6:30 PM
+            10:00 AM - 7:00 PM
           </Typography>
         </Box>
 

@@ -77,43 +77,53 @@ export default function PrivacyContentSection() {
                   gap: { xs: 1, sm: 0 },
                 }}
               >
-                <ListItemIcon 
-                  sx={{ 
-                    minWidth: { xs: "24px", sm: "30px" },
-                    mt: { xs: "3px", sm: index === 0 ? "5px" : "3px" },
-                    width: { xs: "24px", sm: "auto" },
-                    display: "flex",
-                    justifyContent: { xs: "flex-start", sm: "center" },
-                  }}
-                >
-                  <FiberManualRecordIcon
+                {index !== 0 && (
+                  <ListItemIcon 
                     sx={{ 
-                      fontSize: { xs: "8px", sm: "10px" },
-                      color: "#000000",
+                      minWidth: { xs: "24px", sm: "30px" },
+                      mt: { xs: "3px", sm: "3px" },
+                      width: { xs: "24px", sm: "auto" },
+                      display: "flex",
+                      justifyContent: { xs: "flex-start", sm: "center" },
+                    }}
+                  >
+                    <FiberManualRecordIcon
+                      sx={{ 
+                        fontSize: { xs: "8px", sm: "10px" },
+                        color: "#000000",
+                      }}
+                    />
+                  </ListItemIcon>
+                )}
+                {index === 0 && (
+                  <Box
+                    sx={{
+                      minWidth: { xs: "0px", sm: "0px" },
+                      width: "0px",
                     }}
                   />
-                </ListItemIcon>
+                )}
                 <Typography
-  sx={{
-    fontFamily: "Poppins, sans-serif",
-    fontWeight: index === 0 ? 600 : 400, 
-    fontSize: {
-      xs: index === 0 ? "16px" : "14px",
-      sm: index === 0 ? "18px" : "15px",
-      md: index === 0 ? "19px" : "16px",
-    },
-    lineHeight: {
-      xs: index === 0 ? "140%" : 1.5,
-      sm: index === 0 ? "145%" : 1.6,
-    },
-    color: "#333333",
-    flex: 1,
-    wordBreak: "break-word",
-    overflowWrap: "break-word",
-  }}
->
-  {point}
-</Typography>
+                  sx={{
+                    fontFamily: "Poppins, sans-serif",
+                    fontWeight: index === 0 ? 600 : 400, 
+                    fontSize: {
+                      xs: index === 0 ? "16px" : "14px",
+                      sm: index === 0 ? "18px" : "15px",
+                      md: index === 0 ? "19px" : "16px",
+                    },
+                    lineHeight: {
+                      xs: index === 0 ? "140%" : 1.5,
+                      sm: index === 0 ? "145%" : 1.6,
+                    },
+                    color: "#333333",
+                    flex: 1,
+                    wordBreak: "break-word",
+                    overflowWrap: "break-word",
+                  }}
+                >
+                  {point}
+                </Typography>
 
               </ListItem>
             ))}
