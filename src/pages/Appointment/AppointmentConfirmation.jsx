@@ -73,8 +73,27 @@ const AppointmentConfirmation = () => {
   const patientEmail =
     appointmentData.email || "kahilji.sonnwanahi201@gmail.com";
   const treatment = appointmentData.service || "Spine Treatment Consultation";
-  const appointmentDate = appointmentData.date || "2026-02-22";
+  const rawDate = appointmentData.date || "2026-02-22";
   const appointmentTime = appointmentData.time || "01:00 PM";
+
+  // Format date from YYYY-MM-DD to dd/mm/yyyy
+  const formatDate = (dateString) => {
+    if (!dateString) return "";
+    try {
+      const parts = dateString.split("-");
+      if (parts.length === 3) {
+        const year = parts[0];
+        const month = parts[1];
+        const day = parts[2];
+        return `${day}/${month}/${year}`;
+      }
+      return dateString;
+    } catch (error) {
+      return dateString;
+    }
+  };
+
+  const appointmentDate = formatDate(rawDate);
 
   const handleBackToHome = () => {
     navigate("/");

@@ -32,6 +32,41 @@ const AppointmentConfirmation = () => {
   // Check if Pay at Clinic was selected
   const isPayAtClinic = paymentMethod === 'CLINIC' || paymentMethod === 'clinic';
 
+  // Format date from YYYY-MM-DD to dd/mm/yyyy
+  const formatDate = (dateString) => {
+    if (!dateString) return '';
+    try {
+      const date = new Date(dateString);
+      if (isNaN(date.getTime())) {
+        // If dateString is already in a different format, try to parse it
+        const parts = dateString.split('-');
+        if (parts.length === 3) {
+          const year = parts[0];
+          const month = parts[1];
+          const day = parts[2];
+          return `${day}/${month}/${year}`;
+        }
+        return dateString;
+      }
+      const day = String(date.getDate()).padStart(2, '0');
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const year = date.getFullYear();
+      return `${day}/${month}/${year}`;
+    } catch (error) {
+      // If parsing fails, try to format the string directly
+      const parts = dateString.split('-');
+      if (parts.length === 3) {
+        const year = parts[0];
+        const month = parts[1];
+        const day = parts[2];
+        return `${day}/${month}/${year}`;
+      }
+      return dateString;
+    }
+  };
+
+  const formattedDate = formatDate(finalAppointmentData.date);
+
   // Auto-navigate to home page after 7 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -197,7 +232,7 @@ border: '1px solid #E0E0E0',
                     textAlign: { xs: 'left', sm: 'right' }
                   }}
                 >
-                  {finalAppointmentData.date} at {finalAppointmentData.time}
+                  {formattedDate} at {finalAppointmentData.time}
                 </Typography>
               </Box>
             </Box>

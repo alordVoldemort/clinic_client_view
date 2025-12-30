@@ -2,6 +2,24 @@ import React from 'react';
 import { Box, Typography, Paper, Divider } from '@mui/material';
 
 const AppointmentSummaryCard = ({ appointmentData, amount = 500 }) => {
+  // Format date from YYYY-MM-DD to dd/mm/yyyy
+  const formatDate = (dateString) => {
+    if (!dateString) return '-';
+    try {
+      const parts = dateString.split('-');
+      if (parts.length === 3) {
+        const year = parts[0];
+        const month = parts[1];
+        const day = parts[2];
+        return `${day}/${month}/${year}`;
+      }
+      return dateString;
+    } catch (error) {
+      return dateString;
+    }
+  };
+
+  const formattedDate = appointmentData?.date ? formatDate(appointmentData.date) : '-';
 
   return (
     <Box sx={{ 
@@ -43,7 +61,7 @@ const AppointmentSummaryCard = ({ appointmentData, amount = 500 }) => {
               <>
                 <Row label="Patient Name" value={appointmentData.name} />
                 <Row label="Treatment" value={appointmentData.service} />
-                <Row label="Date" value={appointmentData.date} />
+                <Row label="Date" value={formattedDate} />
                 <Row label="Time" value={appointmentData.time} />
               </>
             )}
