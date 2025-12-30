@@ -2,20 +2,19 @@ import { Box, Container, Typography } from "@mui/material";
 import termsHeroImage from "../../assets/Terms&Condition/terms-hero.svg"; // Import SVG
 
 export default function TermsHeroSection() {
-  
   return (
     <Box
       sx={{
         width: "100%",
         backgroundColor: "#F4F9FF",
-        
+
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         minHeight: { xs: "400px", sm: "400px", md: "500px", lg: "370px" },
       }}
     >
-      <Container 
+      <Container
         maxWidth="xl"
         sx={{
           px: { xs: 2, sm: 3, md: 4, lg: 6 },
@@ -32,19 +31,17 @@ export default function TermsHeroSection() {
           alt="Terms and Conditions Illustration"
           sx={{
             width: "100%",
-            maxWidth: { 
-              xs: "100px",   // Mobile
-              sm: "100px",   // Small tablets
-              md: "150px",   // Tablets
-              lg: "80px"    // Desktop
+            maxWidth: {
+              xs: "100px", // Mobile
+              sm: "100px", // Small tablets
+              md: "150px", // Tablets
+              lg: "80px", // Desktop
             },
             height: "80px",
-            margintop:"10px"
-            
+            margintop: "10px",
           }}
         />
 
-        
         <Box
           sx={{
             width: { xs: "100%", md: "800px" },
@@ -62,17 +59,16 @@ export default function TermsHeroSection() {
             mx: "auto",
           }}
         >
-         
           <Typography
             variant="h1"
             sx={{
               fontFamily: "Poppins, sans-serif",
               fontWeight: 400,
               fontStyle: "regular",
-              fontSize: { 
-                xs: "28px",    // Mobile
-                sm: "32px",    // Small tablets
-                md: "36px",    // Desktop
+              fontSize: {
+                xs: "28px", // Mobile
+                sm: "32px", // Small tablets
+                md: "36px", // Desktop
               },
               lineHeight: "145%",
               letterSpacing: "0%",
@@ -90,7 +86,6 @@ export default function TermsHeroSection() {
             Terms & Conditions
           </Typography>
 
-          
           <Typography
             variant="h2"
             sx={{
@@ -102,35 +97,13 @@ export default function TermsHeroSection() {
               letterSpacing: "0%",
               color: "#000000",
               textAlign: "center",
-              
+
               maxWidth: "100%",
               opacity: 0.9,
             }}
           >
-            These terms help ensure smooth service, clarity, and patient understanding.
-          </Typography>
-
-          
-          <Typography
-            variant="subtitle1"
-            sx={{
-              fontFamily: "Poppins, sans-serif",
-              fontWeight: 300,
-              fontStyle: "light",
-              fontSize: "16px",
-              lineHeight: "145%",
-              letterSpacing: "0%",
-              color: "#000000",
-              textAlign: "center",
-              width: { xs: "100%", md: "782px" },
-              height: "23px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              opacity: 0.8,
-            }}
-          >
-            Last updated: December 1, 2025
+            These terms help ensure smooth service, clarity, and patient
+            understanding.
           </Typography>
         </Box>
       </Container>

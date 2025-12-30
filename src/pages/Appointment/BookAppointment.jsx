@@ -705,14 +705,35 @@ const BookAppointment = () => {
                             : "#1976d2",
                         borderWidth: "1px",
                       },
+                      "& input:-webkit-autofill": {
+                        WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset !important",
+                        WebkitTextFillColor: "#333333 !important",
+                        backgroundColor: "#FAFAFA !important",
+                      },
                     },
                     "& .MuiInputBase-input": {
                       padding: "12px 16px",
                       fontSize: "16px",
                       color: "#333333",
                       height: "47px",
+                      backgroundColor: "#FAFAFA !important",
                       "&::placeholder": {
                         color: "#999999",
+                      },
+                      "&:-webkit-autofill": {
+                        WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset !important",
+                        WebkitTextFillColor: "#333333 !important",
+                        backgroundColor: "#FAFAFA !important",
+                      },
+                      "&:-webkit-autofill:hover": {
+                        WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset !important",
+                        WebkitTextFillColor: "#333333 !important",
+                        backgroundColor: "#FAFAFA !important",
+                      },
+                      "&:-webkit-autofill:focus": {
+                        WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset !important",
+                        WebkitTextFillColor: "#333333 !important",
+                        backgroundColor: "#FAFAFA !important",
                       },
                     },
                     "& .MuiFormHelperText-root": {
@@ -803,6 +824,11 @@ const BookAppointment = () => {
                                   : "#1976d2",
                               borderWidth: "1px",
                             },
+                            "& input:-webkit-autofill": {
+                              WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset !important",
+                              WebkitTextFillColor: "#333333 !important",
+                              backgroundColor: "#FAFAFA !important",
+                            },
                           },
                           "& .MuiInputBase-input": {
                             padding: "12px 16px",
@@ -810,8 +836,24 @@ const BookAppointment = () => {
                             color: "#333333",
                             height: "47px",
                             boxSizing: "border-box",
+                            backgroundColor: "#FAFAFA !important",
                             "&::placeholder": {
                               color: "#999999",
+                            },
+                            "&:-webkit-autofill": {
+                              WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset !important",
+                              WebkitTextFillColor: "#333333 !important",
+                              backgroundColor: "#FAFAFA !important",
+                            },
+                            "&:-webkit-autofill:hover": {
+                              WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset !important",
+                              WebkitTextFillColor: "#333333 !important",
+                              backgroundColor: "#FAFAFA !important",
+                            },
+                            "&:-webkit-autofill:focus": {
+                              WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset !important",
+                              WebkitTextFillColor: "#333333 !important",
+                              backgroundColor: "#FAFAFA !important",
                             },
                           },
                           "& .MuiFormHelperText-root": {
@@ -893,6 +935,11 @@ const BookAppointment = () => {
                                   : "#1976d2",
                               borderWidth: "1px",
                             },
+                            "& input:-webkit-autofill": {
+                              WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset !important",
+                              WebkitTextFillColor: "#333333 !important",
+                              backgroundColor: "#FAFAFA !important",
+                            },
                           },
                           "& .MuiInputBase-input": {
                             padding: "12px 16px",
@@ -900,8 +947,24 @@ const BookAppointment = () => {
                             color: "#333333",
                             height: "47px",
                             boxSizing: "border-box",
+                            backgroundColor: "#FAFAFA !important",
                             "&::placeholder": {
                               color: "#999999",
+                            },
+                            "&:-webkit-autofill": {
+                              WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset !important",
+                              WebkitTextFillColor: "#333333 !important",
+                              backgroundColor: "#FAFAFA !important",
+                            },
+                            "&:-webkit-autofill:hover": {
+                              WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset !important",
+                              WebkitTextFillColor: "#333333 !important",
+                              backgroundColor: "#FAFAFA !important",
+                            },
+                            "&:-webkit-autofill:focus": {
+                              WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset !important",
+                              WebkitTextFillColor: "#333333 !important",
+                              backgroundColor: "#FAFAFA !important",
                             },
                           },
                           "& .MuiFormHelperText-root": {
@@ -979,6 +1042,11 @@ const BookAppointment = () => {
                             ? "#d32f2f"
                             : "#1976d2",
                         borderWidth: "1px",
+                      },
+                      "& input:-webkit-autofill": {
+                        WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset !important",
+                        WebkitTextFillColor: "#333333 !important",
+                        backgroundColor: "#FAFAFA !important",
                       },
                     },
                   }}
@@ -1117,6 +1185,11 @@ const BookAppointment = () => {
                                   : "#1976d2",
                               borderWidth: "1px",
                             },
+                            "& input:-webkit-autofill": {
+                              WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset !important",
+                              WebkitTextFillColor: formData.date ? "#333333 !important" : "#999999 !important",
+                              backgroundColor: "#FAFAFA !important",
+                            },
                           },
                           "& .MuiInputBase-input": {
                             padding: "12px 16px",
@@ -1124,6 +1197,22 @@ const BookAppointment = () => {
                             color: formData.date ? "#333333" : "#999999",
                             height: "47px",
                             boxSizing: "border-box",
+                            backgroundColor: "#FAFAFA !important",
+                            "&:-webkit-autofill": {
+                              WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset !important",
+                              WebkitTextFillColor: formData.date ? "#333333 !important" : "#999999 !important",
+                              backgroundColor: "#FAFAFA !important",
+                            },
+                            "&:-webkit-autofill:hover": {
+                              WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset !important",
+                              WebkitTextFillColor: formData.date ? "#333333 !important" : "#999999 !important",
+                              backgroundColor: "#FAFAFA !important",
+                            },
+                            "&:-webkit-autofill:focus": {
+                              WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset !important",
+                              WebkitTextFillColor: formData.date ? "#333333 !important" : "#999999 !important",
+                              backgroundColor: "#FAFAFA !important",
+                            },
                           },
                           "& .MuiFormHelperText-root": {
                             marginLeft: 0,
@@ -1190,6 +1279,11 @@ const BookAppointment = () => {
                                   ? "#d32f2f"
                                   : "#1976d2",
                               borderWidth: "1px",
+                            },
+                            "& input:-webkit-autofill": {
+                              WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset !important",
+                              WebkitTextFillColor: "#333333 !important",
+                              backgroundColor: "#FAFAFA !important",
                             },
                           },
                         }}
@@ -1321,13 +1415,34 @@ const BookAppointment = () => {
                         borderColor: "#1976d2",
                         borderWidth: "1px",
                       },
+                      "& textarea:-webkit-autofill": {
+                        WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset !important",
+                        WebkitTextFillColor: "#333333 !important",
+                        backgroundColor: "#FAFAFA !important",
+                      },
                     },
                     "& .MuiInputBase-input": {
                       padding: "16px",
                       fontSize: "16px",
                       color: "#333333",
+                      backgroundColor: "#FAFAFA !important",
                       "&::placeholder": {
                         color: "#999999",
+                      },
+                      "&:-webkit-autofill": {
+                        WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset !important",
+                        WebkitTextFillColor: "#333333 !important",
+                        backgroundColor: "#FAFAFA !important",
+                      },
+                      "&:-webkit-autofill:hover": {
+                        WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset !important",
+                        WebkitTextFillColor: "#333333 !important",
+                        backgroundColor: "#FAFAFA !important",
+                      },
+                      "&:-webkit-autofill:focus": {
+                        WebkitBoxShadow: "0 0 0 1000px #FAFAFA inset !important",
+                        WebkitTextFillColor: "#333333 !important",
+                        backgroundColor: "#FAFAFA !important",
                       },
                     },
                   }}

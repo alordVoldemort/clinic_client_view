@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Box,
   Typography,
   Button,
 } from '@mui/material';
-import { useLocation, } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import ConfirmationIcon from '../../assets/Appointment/confirmation.svg'; 
 
 const AppointmentConfirmation = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   
   // Get data from payment page
   const { appointmentData = {}, paymentMethod = 'ONLINE', amount = 0 } = location.state || {};
@@ -28,6 +29,18 @@ const AppointmentConfirmation = () => {
     ...appointmentData
   };
 
+  // Check if Pay at Clinic was selected
+  const isPayAtClinic = paymentMethod === 'CLINIC' || paymentMethod === 'clinic';
+
+  // Auto-navigate to home page after 7 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      navigate('/');
+    }, 7000); // 7 seconds
+
+    // Cleanup timer on component unmount
+    return () => clearTimeout(timer);
+  }, [navigate]);
 
   return (
     <Box sx={{ 
@@ -91,7 +104,7 @@ border: '1px solid #E0E0E0',
             textAlign: 'center'
           }}
         >
-          Appointment Confirmed
+          {isPayAtClinic ? 'Appointment Not Confirmed' : 'Appointment Confirmed'}
         </Typography>
 
         {/* Thank you message */}
@@ -105,8 +118,19 @@ border: '1px solid #E0E0E0',
             maxWidth: '500px'
           }}
         >
-          Thank you, {finalAppointmentData.patientName}! Your appointment has been successfully booked.
-          {paymentMethod === 'ONLINE' ? ' Payment confirmed.' : ' Please pay at the clinic reception.'}
+          {isPayAtClinic ? (
+            <>
+              Thanks for choosing Pay at Clinic.
+              <br />
+              <br />
+              You selected Pay at Clinic. Your appointment has not been booked yet. Please visit the clinic and complete manual registration at the reception to confirm your appointment.
+            </>
+          ) : (
+            <>
+              Thank you, {finalAppointmentData.patientName}! Your appointment has been successfully booked.
+              {paymentMethod === 'ONLINE' ? ' Payment confirmed.' : ' Please pay at the clinic reception.'}
+            </>
+          )}
         </Typography>
 
         {/* Appointment Details Card */}
