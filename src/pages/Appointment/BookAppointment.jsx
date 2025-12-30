@@ -974,6 +974,15 @@ const BookAppointment = () => {
                     displayEmpty
                     IconComponent={ExpandMoreIcon}
                     MenuProps={{
+                      disableScrollLock: true,
+                      anchorOrigin: {
+                        vertical: "bottom",
+                        horizontal: "left",
+                      },
+                      transformOrigin: {
+                        vertical: "top",
+                        horizontal: "left",
+                      },
                       PaperProps: {
                         style: {
                           maxHeight: 192, // 4 items * 48px each
@@ -1196,6 +1205,15 @@ const BookAppointment = () => {
                           displayEmpty
                           IconComponent={ExpandMoreIcon}
                           MenuProps={{
+                            disableScrollLock: true,
+                            anchorOrigin: {
+                              vertical: "bottom",
+                              horizontal: "left",
+                            },
+                            transformOrigin: {
+                              vertical: "top",
+                              horizontal: "left",
+                            },
                             PaperProps: {
                               style: {
                                 maxHeight: 240, // 5 items * 48px each

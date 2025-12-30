@@ -815,6 +815,17 @@ const SendMessageForm = () => {
                 setFieldErrors((prev) => ({ ...prev, subject: error }));
               }}
               onBlur={handleBlur}
+              MenuProps={{
+                disableScrollLock: true,
+                anchorOrigin: {
+                  vertical: "bottom",
+                  horizontal: "left",
+                },
+                transformOrigin: {
+                  vertical: "top",
+                  horizontal: "left",
+                },
+              }}
               sx={{
                 height: { xs: "44px", md: "47px" },
                 borderRadius: "8px",
