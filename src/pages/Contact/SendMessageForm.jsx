@@ -11,7 +11,6 @@ import {
   MenuItem,
   CircularProgress,
   Alert,
-  Snackbar,
 } from "@mui/material";
 import { sendContactMessage } from "../../api/contact.api";
 
@@ -502,28 +501,6 @@ const SendMessageForm = () => {
           flexDirection: "column",
         }}
       >
-        {/* Validation Error Snackbar */}
-        <Snackbar
-          open={showValidationError}
-          autoHideDuration={6000}
-          onClose={() => setShowValidationError(false)}
-          anchorOrigin={{ vertical: "top", horizontal: "center" }}
-        >
-          <Alert
-            onClose={() => setShowValidationError(false)}
-            severity="error"
-            sx={{ width: "100%" }}
-          >
-            {validationErrorMessage}
-          </Alert>
-        </Snackbar>
-
-        {/* Error Message */}
-        {error && (
-          <Alert severity="error" sx={{ mb: 2 }} onClose={() => setError("")}>
-            {error}
-          </Alert>
-        )}
 
         {/* Success Message */}
         {success && (
