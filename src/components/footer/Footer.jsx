@@ -151,18 +151,29 @@ export default function Footer() {
 
             {/* SOCIAL ICONS */}
             <Box sx={{ display: "flex", gap: { xs: 1, sm: 1.2, md: 1.5 } }}>
-              {[facebookIcon, instagramIcon, linkedInIcon].map((icon, i) => (
+              {[
+                { icon: facebookIcon, link: "https://www.facebook.com/share/1Jb6gTmuwf/" },
+                { icon: instagramIcon, link: "https://www.instagram.com/drdardasnirmalhealthcare?igsh=MTd4MnpnZXZzNGlwaw==" },
+                { icon: linkedInIcon, link: null },
+              ].map((social, i) => (
                 <IconButton
                   key={i}
+                  component={social.link ? "a" : "button"}
+                  href={social.link || undefined}
+                  target={social.link ? "_blank" : undefined}
+                  rel={social.link ? "noopener noreferrer" : undefined}
                   sx={{
                     width: { xs: 32, sm: 36, md: 40, lg: 45 },
                     height: { xs: 32, sm: 36, md: 40, lg: 45 },
                     p: { xs: 0.5, sm: 0.75 },
+                    "&:hover": {
+                      backgroundColor: "rgba(0, 87, 183, 0.1)",
+                    },
                   }}
                 >
                   <Box
                     component="img"
-                    src={icon}
+                    src={social.icon}
                     sx={{
                       width: { xs: "24px", sm: "26px", md: "28px", lg: "29px" },
                       height: {
