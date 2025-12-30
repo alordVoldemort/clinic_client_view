@@ -32,9 +32,16 @@ const TreatmentApproach = ({ symptoms, treatmentApproach }) => {
       <Container
         maxWidth={false}
         sx={{
-          width: { xs: "100%", sm: "100%", md: "100%", lg: "100%", xl: "1219px" },
+          maxWidth: { lg: "1400px", xl: "1219px" },
+          width: "100%",
           mx: "auto",
-          px: { xs: 0, sm: "24px", md: "32px", lg: "32px", xl: 0 },
+          px: {
+            xs: 0,
+            sm: "24px",
+            md: "32px",
+            lg: "48px",
+            xl: "20px",
+          },
         }}
       >
         {/* Two-column layout */}
@@ -42,13 +49,25 @@ const TreatmentApproach = ({ symptoms, treatmentApproach }) => {
           sx={{
             display: "flex",
             flexDirection: { xs: "column", md: "row" },
-            gap: { xs: "40px", sm: "50px", md: "30px", lg: "60px", xl: "108px" },
+            gap: {
+              xs: "40px",
+              sm: "50px",
+              md: "30px",
+              lg: "40px",
+              xl: "108px",
+            },
           }}
         >
           {/* LEFT COLUMN */}
           <Box
             sx={{
-              width: { xs: "100%", sm: "100%", md: "48%", lg: "45%" },
+              width: {
+                xs: "100%",
+                sm: "100%",
+                md: "48%",
+                lg: "46%",
+                xl: "45%",
+              },
               flexShrink: 0,
             }}
           >
@@ -78,11 +97,11 @@ const TreatmentApproach = ({ symptoms, treatmentApproach }) => {
             <Box
               sx={{
                 width: "100%",
-                maxWidth: { md: "100%", lg: "533px" },
+                maxWidth: { md: "100%", lg: "100%", xl: "533px" },
                 backgroundColor: "#FFFFFF",
                 borderRadius: "8px",
                 border: "1px solid #E6EAF0",
-                p: { xs: "12px", sm: "15px" },
+                p: { xs: "12px", sm: "15px", md: "15px", lg: "18px" },
               }}
             >
               <Typography
@@ -147,7 +166,13 @@ const TreatmentApproach = ({ symptoms, treatmentApproach }) => {
           {/* RIGHT COLUMN */}
           <Box
             sx={{
-              width: { xs: "100%", sm: "100%", md: "52%", lg: "55%" },
+              width: {
+                xs: "100%",
+                sm: "100%",
+                md: "52%",
+                lg: "54%",
+                xl: "55%",
+              },
               flexShrink: 0,
             }}
           >
@@ -178,14 +203,20 @@ const TreatmentApproach = ({ symptoms, treatmentApproach }) => {
                     height: { xs: "auto", md: "128px" },
                     display: "flex",
                     alignItems: { xs: "flex-start", md: "center" },
-                    gap: { xs: "20px", sm: "25px", md: "20px", lg: "30px", xl: "39px" },
+                    gap: {
+                      xs: "20px",
+                      sm: "25px",
+                      md: "20px",
+                      lg: "24px",
+                      xl: "39px",
+                    },
                     backgroundColor: "#FFFFFF",
                     borderRadius: { xs: "12px", md: "14px" },
                     border: "1px solid #E6EAF0",
                     paddingTop: { xs: "20px", md: "26px" },
                     paddingBottom: { xs: "20px", md: "26px" },
-                    paddingLeft: { xs: "16px", md: "20px" },
-                    paddingRight: { xs: "12px", md: "14px" },
+                    paddingLeft: { xs: "16px", md: "20px", lg: "24px" },
+                    paddingRight: { xs: "12px", md: "14px", lg: "18px" },
                   }}
                 >
                   {/* Number Circle */}
@@ -210,7 +241,13 @@ const TreatmentApproach = ({ symptoms, treatmentApproach }) => {
                   {/* Text Content */}
                   <Box
                     sx={{
-                      width: { xs: "calc(100% - 60px)", sm: "calc(100% - 74px)", md: "calc(100% - 66px)", lg: "calc(100% - 76px)", xl: "calc(100% - 85px)" },
+                      width: {
+                        xs: "calc(100% - 60px)",
+                        sm: "calc(100% - 74px)",
+                        md: "calc(100% - 66px)",
+                        lg: "calc(100% - 70px)",
+                        xl: "calc(100% - 85px)",
+                      },
                       flex: 1,
                       display: "flex",
                       flexDirection: "column",

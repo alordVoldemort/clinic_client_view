@@ -82,48 +82,49 @@ export default function Footer() {
             item
             xs={12}
             sm={6}
-            md={6}
-            lg={3}
+            md={3}
             sx={{
-              display: "flex",
-              flexDirection: "column",
-              mb: { xs: 2, sm: 0 },
+              width: { xs: "100%", sm: "200px", md: "300px" },
+              mr: { lg: "110px" },
+              ml: { lg: "0px" },
             }}
           >
             <Box
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                alignItems: { xs: "center", sm: "flex-start" },
-                mb: 3,
+                width: { xs: "153px", sm: "153px", md: "153px" },
+                mb: "15px",
               }}
             >
-              {/* Logo */}
+              {/* Logo — CENTERED */}
               <Box
                 sx={{
                   display: "flex",
-                  alignItems: "center",
-                  mb: 1,
+                  justifyContent: "center",
+                  width: "100%",
+                  ml: { xs: "-15px", sm: "-35px", md: "-5px", lg: "-2px" },
                 }}
               >
                 <Box
                   component="img"
                   src={logo}
                   sx={{
-                    width: { xs: 40, sm: 42, md: 45 },
+                    width: { xs: 40, sm: 45, md: 45 },
                     height: "auto",
                   }}
                 />
               </Box>
 
-              {/* Company Name */}
+              {/* Text — LEFT ALIGNED */}
               <Typography
-                variant="h6"
+                variant="caption"
                 sx={{
-                  fontWeight: 600,
+                  fontWeight: 500,
                   color: "#0057B7",
-                  fontSize: { xs: "14px", sm: "15px", md: "16px" },
-                  textAlign: { xs: "center", sm: "left" },
+                  fontSize: { xs: "12px", sm: "15px", md: "15px" },
+                  textAlign: "left",
+                  mt: 0.5,
                 }}
               >
                 Nirmal Health Care
@@ -134,14 +135,14 @@ export default function Footer() {
               sx={{
                 color: "#808080",
                 fontSize: {
-                  xs: "14px",
-                  sm: "15px",
-                  md: "16px",
+                  xs: "0.8rem",
+                  sm: "0.85rem",
+                  md: "0.9rem",
+                  lg: "0.95rem",
                 },
-                lineHeight: 1.6,
-                mb: { xs: 2, sm: 3 },
-                textAlign: { xs: "center", sm: "left" },
-                maxWidth: { xs: "100%", sm: "280px" },
+                lineHeight: 1.7,
+                mb: { xs: 2, sm: 2.5, md: 3 },
+                display: { xs: "block", sm: "block", md: "block" },
               }}
             >
               Providing excellence in healthcare with compassion and expertise.
@@ -149,39 +150,27 @@ export default function Footer() {
             </Typography>
 
             {/* SOCIAL ICONS */}
-            <Box 
-              sx={{ 
-                display: "flex", 
-                gap: { xs: 1, sm: 1.5 },
-                justifyContent: { xs: "center", sm: "flex-start" },
-              }}
-            >
-              {[
-                { icon: facebookIcon, link: "https://www.facebook.com/share/1Jb6gTmuwf/" },
-                { icon: instagramIcon, link: "https://www.instagram.com/drdardasnirmalhealthcare?igsh=MTd4MnpnZXZzNGlwaw" },
-                { icon: linkedInIcon, link: null },
-              ].map((social, i) => (
+            <Box sx={{ display: "flex", gap: { xs: 1, sm: 1.2, md: 1.5 } }}>
+              {[facebookIcon, instagramIcon, linkedInIcon].map((icon, i) => (
                 <IconButton
                   key={i}
-                  component={social.link ? "a" : "button"}
-                  href={social.link || undefined}
-                  target={social.link ? "_blank" : undefined}
-                  rel={social.link ? "noopener noreferrer" : undefined}
                   sx={{
-                    width: { xs: 36, sm: 40, md: 44 },
-                    height: { xs: 36, sm: 40, md: 44 },
-                    p: 0.5,
-                    "&:hover": {
-                      backgroundColor: "rgba(0, 87, 183, 0.1)",
-                    },
+                    width: { xs: 32, sm: 36, md: 40, lg: 45 },
+                    height: { xs: 32, sm: 36, md: 40, lg: 45 },
+                    p: { xs: 0.5, sm: 0.75 },
                   }}
                 >
                   <Box
                     component="img"
-                    src={social.icon}
+                    src={icon}
                     sx={{
-                      width: { xs: "20px", sm: "24px", md: "26px" },
-                      height: { xs: "20px", sm: "24px", md: "26px" },
+                      width: { xs: "24px", sm: "26px", md: "28px", lg: "29px" },
+                      height: {
+                        xs: "24px",
+                        sm: "26px",
+                        md: "28px",
+                        lg: "28px",
+                      },
                     }}
                   />
                 </IconButton>
@@ -395,23 +384,39 @@ export default function Footer() {
               </Box>
 
               {/* Phone */}
-              <Box
+              <MuiLink
+                href="tel:+919822141851"
+                underline="none"
                 sx={{
                   display: "flex",
                   alignItems: "center",
                   gap: { xs: 1, sm: 1.5 },
+                  cursor: "pointer",
+                  transition: "all 0.2s ease",
+                  "&:hover": {
+                    "& .phone-text": {
+                      color: "#0057B7",
+                      textDecoration: "underline",
+                    },
+                    "& .phone-icon": {
+                      opacity: 0.8,
+                    },
+                  },
                 }}
               >
                 <Box
                   component="img"
                   src={phoneIcon}
+                  className="phone-icon"
                   sx={{
                     width: { xs: "18px", sm: "20px" },
                     height: { xs: "18px", sm: "20px" },
                     flexShrink: 0,
+                    transition: "opacity 0.2s ease",
                   }}
                 />
                 <Typography
+                  className="phone-text"
                   sx={{
                     color: "#404246",
                     fontSize: {
@@ -419,30 +424,47 @@ export default function Footer() {
                       sm: "15px",
                       md: "16px",
                     },
+                    transition: "color 0.2s ease",
                   }}
                 >
                   +91 9822141851
                 </Typography>
-              </Box>
+              </MuiLink>
 
               {/* Email */}
-              <Box
+              <MuiLink
+                href="mailto:drdardasnirmalhealthcare@gmail.com"
+                underline="none"
                 sx={{
                   display: "flex",
                   alignItems: "center",
                   gap: { xs: 1, sm: 1.5 },
+                  cursor: "pointer",
+                  transition: "all 0.2s ease",
+                  "&:hover": {
+                    "& .email-text": {
+                      color: "#0057B7",
+                      textDecoration: "underline",
+                    },
+                    "& .email-icon": {
+                      opacity: 0.8,
+                    },
+                  },
                 }}
               >
                 <Box
                   component="img"
                   src={emailIcon}
+                  className="email-icon"
                   sx={{
                     width: { xs: "18px", sm: "20px" },
                     height: { xs: "18px", sm: "20px" },
                     flexShrink: 0,
+                    transition: "opacity 0.2s ease",
                   }}
                 />
                 <Typography
+                  className="email-text"
                   sx={{
                     color: "#404246",
                     fontSize: {
@@ -452,11 +474,12 @@ export default function Footer() {
                     },
                     wordBreak: "break-all",
                     lineHeight: 1.4,
+                    transition: "color 0.2s ease",
                   }}
                 >
                   drdardasnirmalhealthcare@gmail.com
                 </Typography>
-              </Box>
+              </MuiLink>
             </Box>
           </Grid>
         </Grid>
@@ -482,15 +505,23 @@ export default function Footer() {
           }}
         >
           {/* Copyright */}
-          <Typography
+          <MuiLink
+            href="https://www.zonixtec.com/Home/home"
+            target="_blank"
+            rel="noopener noreferrer"
+            underline="none"
             sx={{
               fontSize: { xs: "14px", sm: "15px" },
               color: "#666",
               order: { xs: 2, md: 1 },
+              "&:hover": {
+                color: "#0057B7",
+                textDecoration: "underline",
+              },
             }}
           >
             © 2025 zonixtec. All rights reserved.
-          </Typography>
+          </MuiLink>
 
           {/* Links */}
           <Box
@@ -509,7 +540,7 @@ export default function Footer() {
               sx={{
                 color: "#666",
                 fontSize: { xs: "14px", sm: "15px" },
-                "&:hover": { 
+                "&:hover": {
                   color: "#0057B7",
                   textDecoration: "underline",
                 },
@@ -525,7 +556,7 @@ export default function Footer() {
               sx={{
                 color: "#666",
                 fontSize: { xs: "14px", sm: "15px" },
-                "&:hover": { 
+                "&:hover": {
                   color: "#0057B7",
                   textDecoration: "underline",
                 },
