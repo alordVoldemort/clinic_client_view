@@ -1,4 +1,11 @@
-import { Box, Container, Typography, List, ListItem, ListItemIcon } from "@mui/material";
+import {
+  Box,
+  Container,
+  Typography,
+  List,
+  ListItem,
+  ListItemIcon,
+} from "@mui/material";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 
 export default function TermsContentSection() {
@@ -25,7 +32,7 @@ export default function TermsContentSection() {
         minHeight: "100vh",
       }}
     >
-      <Container 
+      <Container
         maxWidth="xl"
         sx={{
           px: { xs: 0.5, sm: 1, md: 2, lg: 0 },
@@ -47,7 +54,7 @@ export default function TermsContentSection() {
             pl: { xs: 2, sm: 3, md: 4, lg: "50px" },
             borderRadius: { xs: "10px", sm: "12px", md: "14px" },
             border: "1px solid #E0E0E0",
-            boxShadow: { 
+            boxShadow: {
               xs: "0px 2px 8px rgba(0, 0, 0, 0.04)",
               sm: "0px 3px 12px rgba(0, 0, 0, 0.05)",
               md: "0px 4px 20px rgba(0, 0, 0, 0.05)",
@@ -74,33 +81,43 @@ export default function TermsContentSection() {
                   p: 0,
                   display: "flex",
                   flexDirection: "row",
-
                 }}
               >
-                <ListItemIcon 
-                  sx={{ 
-                    minWidth: { xs: "24px", sm: "28px", md: "30px" },
-                    mt: { 
-                      xs: "2px", 
-                      sm: index === 0 ? "4px" : "2px",
-                      md: index === 0 ? "5px" : "3px" 
-                    },
-                    width: { xs: "24px", sm: "auto" },
-                    display: "flex",
-                    justifyContent: { xs: "flex-start", sm: "center" },
-                  }}
-                >
-                  <FiberManualRecordIcon
-                    sx={{ 
-                      fontSize: { xs: "8px", sm: "9px", md: "10px" },
-                      color: "#000000",
+                {index !== 0 && (
+                  <ListItemIcon
+                    sx={{
+                      minWidth: { xs: "24px", sm: "28px", md: "30px" },
+                      mt: {
+                        xs: "2px",
+                        sm: "2px",
+                        md: "3px",
+                      },
+                      width: { xs: "24px", sm: "auto" },
+                      display: "flex",
+                      justifyContent: { xs: "flex-start", sm: "center" },
+                    }}
+                  >
+                    <FiberManualRecordIcon
+                      sx={{
+                        fontSize: { xs: "8px", sm: "9px", md: "10px" },
+                        color: "#000000",
+                      }}
+                    />
+                  </ListItemIcon>
+                )}
+                {index === 0 && (
+                  <Box
+                    sx={{
+                      minWidth: { xs: "0px", sm: "0px", md: "0px" },
+                      width: "0px",
                     }}
                   />
-                </ListItemIcon>
+                )}
                 <Typography
                   sx={{
                     fontFamily: "Poppins, sans-serif",
-                    fontWeight: index === 0 ? { xs: 600, sm: 600 } : { xs: 400, sm: 400 },
+                    fontWeight:
+                      index === 0 ? { xs: 600, sm: 600 } : { xs: 400, sm: 400 },
                     fontSize: {
                       xs: index === 0 ? "15px" : "13px",
                       sm: index === 0 ? "17px" : "14px",
@@ -151,11 +168,11 @@ export default function TermsContentSection() {
               sx={{
                 fontFamily: "Poppins, sans-serif",
                 fontWeight: { xs: 500, sm: 600 },
-                fontSize: { 
-                  xs: "17px", 
-                  sm: "16px", 
+                fontSize: {
+                  xs: "17px",
+                  sm: "16px",
                   md: "16px",
-                  lg: "16px" 
+                  lg: "16px",
                 },
                 color: "#3B3C3D",
                 textAlign: { xs: "center", sm: "left" },
@@ -173,9 +190,9 @@ export default function TermsContentSection() {
               }}
             >
               {/* Address Section */}
-              <Box 
-                sx={{ 
-                  display: "flex", 
+              <Box
+                sx={{
+                  display: "flex",
                   flexDirection: { xs: "column", sm: "row" },
                   gap: { xs: 0.5, sm: 1.5, md: 2 },
                   alignItems: { xs: "flex-start", sm: "flex-start" },
@@ -207,14 +224,15 @@ export default function TermsContentSection() {
                     overflowWrap: "break-word",
                   }}
                 >
-                  Arthashilp, 1349/50, Bajirao Rd, below hotel Ganraj, Natu Baag, Shukrawar Peth, Pune, Maharashtra 411002
+                  Arthashilp, 1349/50, Bajirao Rd, below hotel Ganraj, Natu
+                  Baag, Shukrawar Peth, Pune, Maharashtra 411002
                 </Typography>
               </Box>
 
               {/* Email Section */}
-              <Box 
-                sx={{ 
-                  display: "flex", 
+              <Box
+                sx={{
+                  display: "flex",
                   flexDirection: { xs: "column", sm: "row" },
                   gap: { xs: 0.5, sm: 1.5, md: 2 },
                   alignItems: { xs: "flex-start", sm: "flex-start" },
@@ -250,9 +268,9 @@ export default function TermsContentSection() {
               </Box>
 
               {/* Phone Section */}
-              <Box 
-                sx={{ 
-                  display: "flex", 
+              <Box
+                sx={{
+                  display: "flex",
                   flexDirection: { xs: "column", sm: "row" },
                   gap: { xs: 0.5, sm: 1.5, md: 2 },
                   alignItems: { xs: "flex-start", sm: "flex-start" },
