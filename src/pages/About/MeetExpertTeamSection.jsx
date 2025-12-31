@@ -1,8 +1,8 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 import DoctorCard from "./DoctorCard";
-import DrNitin from "../../assets/Expert_Teams/Dr. Nitin Darda.png";
-import DrYogita from "../../assets/Expert_Teams/Dr. Yogita Darda.png";
-import DrTanmay from "../../assets/Expert_Teams/Dr. Tanmay Darda.png";
+import DrNitin from "../../assets/Expert_Teams/Dr.NitinDarda.png";
+import DrYogita from "../../assets/Expert_Teams/Dr.yogitaDarda.png";
+import DrTanmay from "../../assets/Expert_Teams/Dr.TanmayDarda.png";
 
 const doctors = [
   {
